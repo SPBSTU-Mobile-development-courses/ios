@@ -1,37 +1,24 @@
 import UIKit
 
-class DetailViewController: UIViewController, UITableViewDataSource {
-    @IBOutlet private var labelPeopleName: UILabel!
-    @IBOutlet private var tableView: UITableView!
+class DetailViewController: UIViewController {
+    @IBOutlet private var labelPersonName: UILabel!
+    @IBOutlet private var labelPersonGender: UILabel!
+    @IBOutlet private var labelPersonHeight: UILabel!
+    @IBOutlet private var labelPersonMass: UILabel!
+    @IBOutlet private var labelPersonBirthYear: UILabel!
+    @IBOutlet private var labelPersonHairColor: UILabel!
+    @IBOutlet private var labelPersonSkinColor: UILabel!
 
-    @IBAction private func closeButton(_ sender: UIButton) {
-    }
-
-    let identifier = "PeopleTableViewCell"
-    var peoples = [People]()
-    var prop: [String] = []
-    var titles: [String] = []
-    var index: Int = 0
+    var person: Person?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let targetPeople = peoples[index]
-        labelPeopleName.text = targetPeople.name
-        prop = [ targetPeople.gender, targetPeople.birthYear, targetPeople.hairColor, targetPeople.height, targetPeople.mass, targetPeople.skinColor ]
-        titles = [ "Gender", "Birth Year", "Hair Color", "Height", "Mass", "Skin Color" ]
-        tableView.dataSource = self
-        tableView.reloadData()
-    }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        cell.textLabel?.text = titles[indexPath.row]
-        cell.detailTextLabel?.text = prop[indexPath.row]
-        return cell
+        labelPersonName.text = person?.name
+        labelPersonGender.text = person?.gender
+        labelPersonHeight.text = person?.height
+        labelPersonMass.text = person?.mass
+        labelPersonBirthYear.text = person?.birthYear
+        labelPersonHairColor.text = person?.hairColor
+        labelPersonSkinColor.text = person?.skinColor
     }
 }

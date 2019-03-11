@@ -1,14 +1,6 @@
-//
-//  People.swift
-//  CurrencyConverter
-//
-//  Created by Artem on 10/03/2019.
-//  Copyright © 2019 Anton Nazarov. All rights reserved.
-//
-
 import Foundation
 
-struct People {
+struct Person: Decodable {
     let name: String
     let height: String
     let mass: String
