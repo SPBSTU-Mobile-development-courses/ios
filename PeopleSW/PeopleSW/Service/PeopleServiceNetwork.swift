@@ -1,7 +1,7 @@
 import Alamofire
 import Foundation
 
-class PageServiceNetwork: PageService {
+class PeopleServiceNetwork: PeopleService {
     func getPage(_ completionHandler: @escaping (([Person]) -> Void)) {
         request("https://swapi.co/api/people").responseData {
             switch $0.result {

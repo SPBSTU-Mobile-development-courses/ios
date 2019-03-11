@@ -12,8 +12,8 @@
 		789A157E22334BE200A11609 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 789A157D22334BE200A11609 /* Assets.xcassets */; };
 		789A158122334BE200A11609 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789A157F22334BE200A11609 /* LaunchScreen.storyboard */; };
 		789A158922334C8F00A11609 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A158822334C8F00A11609 /* Page.swift */; };
-		789A158B2233522B00A11609 /* PageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A158A2233522B00A11609 /* PageService.swift */; };
-		789A15962233613F00A11609 /* PageServiceNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A15952233613F00A11609 /* PageServiceNetwork.swift */; };
+		789A158B2233522B00A11609 /* PeopleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A158A2233522B00A11609 /* PeopleService.swift */; };
+		789A15962233613F00A11609 /* PeopleServiceNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A15952233613F00A11609 /* PeopleServiceNetwork.swift */; };
 		879241C57241BD9CD465E1C7 /* Pods_PeopleSW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADF36E2E1B51481B4DEA8A /* Pods_PeopleSW.framework */; };
 		ACBD87532235217200686882 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBD87522235217200686882 /* Person.swift */; };
 		ACBD877E223570F000686882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACBD8780223570F000686882 /* Main.storyboard */; };
@@ -30,8 +30,8 @@
 		789A158022334BE200A11609 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		789A158222334BE200A11609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		789A158822334C8F00A11609 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
-		789A158A2233522B00A11609 /* PageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageService.swift; sourceTree = "<group>"; };
-		789A15952233613F00A11609 /* PageServiceNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageServiceNetwork.swift; sourceTree = "<group>"; };
+		789A158A2233522B00A11609 /* PeopleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleService.swift; sourceTree = "<group>"; };
+		789A15952233613F00A11609 /* PeopleServiceNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleServiceNetwork.swift; sourceTree = "<group>"; };
 		ACBD87522235217200686882 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		ACBD877F223570F000686882 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACBD87812235734A00686882 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -96,8 +96,8 @@
 		789A158C2233533300A11609 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				789A158A2233522B00A11609 /* PageService.swift */,
-				789A15952233613F00A11609 /* PageServiceNetwork.swift */,
+				789A158A2233522B00A11609 /* PeopleService.swift */,
+				789A15952233613F00A11609 /* PeopleServiceNetwork.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -270,8 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				789A15962233613F00A11609 /* PageServiceNetwork.swift in Sources */,
-				789A158B2233522B00A11609 /* PageService.swift in Sources */,
+				789A15962233613F00A11609 /* PeopleServiceNetwork.swift in Sources */,
+				789A158B2233522B00A11609 /* PeopleService.swift in Sources */,
 				789A158922334C8F00A11609 /* Page.swift in Sources */,
 				ACBD87532235217200686882 /* Person.swift in Sources */,
 				789A157922334BE000A11609 /* ViewController.swift in Sources */,

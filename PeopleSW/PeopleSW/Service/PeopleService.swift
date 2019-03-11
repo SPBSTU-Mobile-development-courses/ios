@@ -1,3 +1,3 @@
-protocol PageService {
+protocol PeopleService {
     func getPage(_ completionHandler: @escaping (([Person]) -> Void))
 }

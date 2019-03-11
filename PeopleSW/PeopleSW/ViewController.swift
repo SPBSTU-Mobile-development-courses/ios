@@ -1,7 +1,7 @@
 import UIKit
 
 class ViewController: UITableViewController {
-    private let pageService: PageService = PageServiceNetwork()
+    private let pageService: PeopleService = PeopleServiceNetwork()
     private let identifier = "PageTableViewCell"
     private var page = [Person]()
 
