@@ -1,0 +1,6 @@
+framework module Pods_FIlmWiki {
+  umbrella header "Pods-FIlmWiki-umbrella.h"
+
+  export *
+  module * { export * }
+}
