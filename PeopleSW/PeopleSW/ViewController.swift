@@ -15,16 +15,19 @@ class ViewController: UITableViewController {
             }
         }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getNewInformation()
         return
     }
+
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if (indexPath.row == page.count - 1) && (nextUrl != nil) {
             self.getNewInformation()
         }
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailViewController = segue.destination as? DetailViewController else { return }
         guard let cell = sender as? UITableViewCell else { return }
