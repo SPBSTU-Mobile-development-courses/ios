@@ -8,9 +8,7 @@ class ViewController: UITableViewController {
 
     private func getNewInformation() {
         pageService.getPage(url: nextUrl) { page, nextUrl in
-            for newPerson in page {
-                self.page.append(newPerson)
-            }
+            self.page.append(contentsOf: page)
             self.nextUrl = nextUrl
             DispatchQueue.main.async {
                 self.tableView.reloadData()
