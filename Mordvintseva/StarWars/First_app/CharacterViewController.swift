@@ -12,7 +12,8 @@ class CharacterViewController: UIViewController, UITableViewDataSource {
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var personalFeaturesTable: UITableView!
     private let personalFeatureCellIdentifier = "personalFeature"
-    private var character = Character()
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    private var character: Character!
 
     private enum PersonalFeatures: Int, CaseIterable {
         case height = 0

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Mordvintseva Alena. All rights reserved.
 //
 
-import Foundation
-
 struct CharactersPage: Decodable {
     let count: Int
     let next: String?

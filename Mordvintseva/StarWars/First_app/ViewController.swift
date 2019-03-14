@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var loadingView: UIView!
+    @IBOutlet private var emptyView: UIView!
+    private var nextPageURL: String? = "https://swapi.co/api/people/"
     private var characters: [Character] = []
     private let characterService = CharacterServiceNetwork()
     private let tableViewCellIdentifier = "tableViewCell"
@@ -25,11 +28,23 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
-        characterService.getCharacters { charactersData in
-            self.characters = charactersData
-            self.tableView.reloadData()
+        loadNextPage()
+    }
+
+    func loadNextPage() {
+        guard let nextPage = nextPageURL else {
+            return
+        }
+
+        tableView.tableFooterView = loadingView
+        characterService.getCharacters(urlString: nextPage) { charactersData in
+            self.characters.append(contentsOf: charactersData.results)
+            self.nextPageURL = charactersData.next
+            DispatchQueue.main.async {
+                self.tableView.tableFooterView = self.emptyView
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -39,6 +54,10 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellIdentifier, for: indexPath)
+        if indexPath.row == self.characters.count - 1, nextPageURL != nil {
+            loadNextPage()
+        }
+
         cell.textLabel?.text = characters[indexPath.row].name
         return cell
     }

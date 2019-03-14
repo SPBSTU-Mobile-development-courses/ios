@@ -9,24 +9,15 @@
 import Foundation
 
 class CharacterServiceNetwork: CharacterService {
-    func getCharacters(_ completionHandler: @escaping (([Character]) -> Void)) {
-        var characters: [Character] = []
-        var urlAdress: String? = "https://swapi.co/api/people/"
-
-        while let urlString = urlAdress {
-            guard let url = URL(string: urlString) else { return }
-            getItemByURL(url: url) { (charactersPage: CharactersPage) in
-                characters.append(contentsOf: charactersPage.results)
-                urlAdress = charactersPage.next
-            }
+    func getCharacters(urlString: String, _ completionHandler: @escaping ((CharactersPage) -> Void)) {
+        guard let url = URL(string: urlString) else { return }
+        getItemByURL(url: url) { (charactersPage: CharactersPage) in
+            completionHandler(charactersPage)
         }
-        completionHandler(characters)
     }
 
     func getItemByURL<T: Decodable>(url: URL, completionHandler: @escaping ((T) -> Void)) {
-        let semaphore = DispatchSemaphore(value: 0)
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            defer { semaphore.signal() }
             guard let data = data, error == nil else { return }
 
             do {
@@ -39,6 +30,5 @@ class CharacterServiceNetwork: CharacterService {
             }
         }
         task.resume()
-        _ = semaphore.wait(timeout: .distantFuture)
     }
 }

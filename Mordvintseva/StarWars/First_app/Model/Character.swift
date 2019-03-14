@@ -6,8 +6,6 @@
 //  Copyright © 2019 Mordvintseva Alena. All rights reserved.
 //
 
-//import Foundation
-
 struct Character: Decodable {
     let name: String
     let height: String
@@ -25,23 +23,4 @@ struct Character: Decodable {
     let created: String
     let edited: String
     let url: String
-
-    init() {
-        name = ""
-        height = ""
-        mass = ""
-        hair_color = ""
-        skin_color  = ""
-        eye_color = ""
-        birth_year = ""
-        gender = ""
-        homeworld = ""
-        films = []
-        species = []
-        vehicles = []
-        starships = []
-        created = ""
-        edited = ""
-        url = ""
-    }
 }
