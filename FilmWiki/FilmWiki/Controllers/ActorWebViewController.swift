@@ -13,10 +13,12 @@ class ActorWebViewController: UIViewController {
     private enum Const {
         static let infoURL = "https://en.wikipedia.org/wiki/"
     }
+    
     @IBOutlet private var actorWebView: WKWebView!
     // swiftlint:disable implicitly_unwrapped_optional
     private var actorName: String!
     // swiftlint:enable implicitly_unwrapped_optional
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Wiki"
@@ -25,6 +27,7 @@ class ActorWebViewController: UIViewController {
         let request = URLRequest(url: infoURL)
         self.actorWebView.load(request)
     }
+    
     func set(actorName: String) {
         self.actorName = actorName
     }

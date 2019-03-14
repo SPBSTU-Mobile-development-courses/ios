@@ -11,6 +11,7 @@ import Foundation
 
 class CreditsServiceNetwork: NetworkService {
     var movieId: Int?
+    
     func getData(_ completionHandler: @escaping ([Actor]) -> Void) {
         guard let movieId = self.movieId else { return }
         request("https://api.themoviedb.org/3/movie/\(movieId)/credits?api_key=5f8e3e13748f15478401533ce667e66c").responseData {

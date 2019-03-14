@@ -19,6 +19,7 @@ class InfoFilmTableViewController: UITableViewController, UICollectionViewDataSo
     private var film: Film!
     // swiftlint:enable implicitly_unwrapped_optional
     private var infoFilmService = CreditsServiceNetwork()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.titleLabel.text = film.title
@@ -30,9 +31,11 @@ class InfoFilmTableViewController: UITableViewController, UICollectionViewDataSo
         self.actorsCollectionView.dataSource = self
         loadData()
     }
+    
     func set(film: Film) {
         self.film = film
     }
+    
     func loadData() {
         self.infoFilmService.getData { [unowned self] actors in
             self.actors += actors
@@ -41,6 +44,7 @@ class InfoFilmTableViewController: UITableViewController, UICollectionViewDataSo
             }
         }
     }
+    
     // MARK: protocol's methods
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 4 {
@@ -48,18 +52,22 @@ class InfoFilmTableViewController: UITableViewController, UICollectionViewDataSo
         }
         return UITableView.automaticDimension
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let destViewController = storyboard.instantiateViewController(withIdentifier: "ActorWebViewController") as? ActorWebViewController else { return }
         destViewController.set(actorName: actors[indexPath.row].name)
         self.navigationController?.pushViewController(destViewController, animated: true)
     }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.actors.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Actor", for: indexPath) as? ActorsCollectionViewCell else {
             return collectionView.dequeueReusableCell(withReuseIdentifier: "Actor", for: indexPath)

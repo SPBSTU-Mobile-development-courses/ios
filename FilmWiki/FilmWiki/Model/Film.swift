@@ -15,6 +15,7 @@ public struct Film: Decodable {
     var rating: Double
     var posterPath: String?
     var description: String
+    
     enum CodingKeys: String, CodingKey {
         case id
         case title

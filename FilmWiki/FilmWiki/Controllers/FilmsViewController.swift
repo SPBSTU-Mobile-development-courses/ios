@@ -12,6 +12,7 @@ class FilmsViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet private var filmTableView: UITableView!
     private var films: [Film] = []
     private let filmService = FilmServiceNetwork()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.filmTableView.delegate = self
@@ -26,6 +27,7 @@ class FilmsViewController: UIViewController, UITableViewDataSource, UITableViewD
         controller?.set(film: films[((sender as? UIButton)?.tag)!])
         // swiftlint:enable force_unwrapping
     }
+    
     func loadData() {
         self.filmService.getData { [unowned self] films in
             self.films += films
@@ -34,15 +36,18 @@ class FilmsViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
         }
     }
+    
     // MARK: protocol's methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return films.count
     }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == (self.films.count - 1) {
             loadData()
         }
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Film") as? FilmTableViewCell else {
             return tableView.dequeueReusableCell(withIdentifier: "Film", for: indexPath)

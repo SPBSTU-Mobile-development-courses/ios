@@ -13,6 +13,7 @@ class FilmTableViewCell: UITableViewCell {
     private enum Const {
         static let posterURL = "https://image.tmdb.org/t/p/w500"
     }
+    
     @IBOutlet private var posterImageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var shortDescriptionTextView: UILabel!
