@@ -8,5 +8,5 @@
 
 protocol NetworkService {
     associatedtype Element: Decodable
-    func getData(_ completionHandle: @escaping ([Element]) -> Void)
+    func getData(_ completionHandler: @escaping ([Element]) -> Void)
 }

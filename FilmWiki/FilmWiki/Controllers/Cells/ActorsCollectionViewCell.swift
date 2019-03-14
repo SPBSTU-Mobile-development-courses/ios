@@ -9,14 +9,14 @@
 import UIKit
 
 class ActorsCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var actorNameLabel: UILabel!
-    @IBOutlet weak var characterNameLabel: UILabel!
-    @IBOutlet weak var characterView: UIView!
-    @IBOutlet weak var backgroundCharacterView: UIView!
-    //set values for class properties with actor's values
+    @IBOutlet private var actorNameLabel: UILabel!
+    @IBOutlet private var characterNameLabel: UILabel!
+    @IBOutlet private var characterView: UIView!
+    @IBOutlet private var backgroundCharacterView: UIView!
+
     func set(actor: Actor) {
-        self.actorNameLabel.text = actor.name! + ":"
-        self.characterNameLabel.text = actor.character!
+        self.actorNameLabel.text = actor.name + ":"
+        self.characterNameLabel.text = actor.character
         self.backgroundCharacterView.layer.cornerRadius = 8.0
         self.backgroundCharacterView.clipsToBounds = true
         self.characterView.layer.cornerRadius = 8.0
