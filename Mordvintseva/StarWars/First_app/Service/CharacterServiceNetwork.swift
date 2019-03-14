@@ -27,8 +27,7 @@ class CharacterServiceNetwork: CharacterService {
         let semaphore = DispatchSemaphore(value: 0)
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             defer { semaphore.signal() }
-            guard let data = data else { return }
-            guard error == nil else { return }
+            guard let data = data, error == nil else { return }
 
             do {
                 let item = try JSONDecoder().decode(T.self, from: data)

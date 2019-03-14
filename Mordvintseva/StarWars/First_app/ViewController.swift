@@ -29,9 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         characterService.getCharacters { charactersData in
             self.characters = charactersData
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
         }
     }
 
