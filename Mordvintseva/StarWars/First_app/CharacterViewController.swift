@@ -40,7 +40,6 @@ class CharacterViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = personalFeaturesTable.dequeueReusableCell(withIdentifier: personalFeatureCellIdentifier, for: indexPath)
         guard let num = PersonalFeatures(rawValue: indexPath.row) else { return cell }
-        let category: String
         let value: String
 
         switch num {
@@ -59,9 +58,8 @@ class CharacterViewController: UIViewController, UITableViewDataSource {
         case .gender:
             value = self.character.gender
         }
-        category = String(describing: num)
 
-        cell.textLabel?.text = category
+        cell.textLabel?.text = String(describing: num)
         cell.detailTextLabel?.text = value
         return cell
     }
