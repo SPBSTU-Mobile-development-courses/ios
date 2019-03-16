@@ -1,14 +1,8 @@
-////
-////  Weather.swift
-////  HomeTaskNumberOne
-////
-////  Created by Максим Егоров on 11/03/2019.
-////  Copyright © 2019 Максим Егоров. All rights reserved.
-////
-//
-//
-//struct Weather {
-//    var weather : [String : Values]
-//}
-//
-//
+
+import Foundation
+
+
+struct Weather: Decodable {
+    let location: Location
+    let current: Current
+}
