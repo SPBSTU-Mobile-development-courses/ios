@@ -12,15 +12,15 @@ class DetailViewController: UIViewController {
     @IBOutlet private var avatarView: UIImageView!
     @IBOutlet private var heightLabel: UILabel!
     @IBOutlet private var nameLable: UILabel!
-    var receivedData: People?
+    var people: Person?
     var avatar: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let name = receivedData?.name {
+        if let name = people?.name {
             nameLable.text = "Name: \(name)"
         }
-        if let height = receivedData?.height {
+        if let height = people?.height {
             heightLabel.text = "Height: \(height)"
         }
         if let avatar = avatar {

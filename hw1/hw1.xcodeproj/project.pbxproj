@@ -24,10 +24,10 @@
 		9612A4992237BC4D004FC9EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9612A4972237BC4D004FC9EE /* Main.storyboard */; };
 		9612A49B2237BC4F004FC9EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9612A49A2237BC4F004FC9EE /* Assets.xcassets */; };
 		9612A49E2237BC4F004FC9EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9612A49C2237BC4F004FC9EE /* LaunchScreen.storyboard */; };
-		9612A4A62237BC58004FC9EE /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A52237BC58004FC9EE /* People.swift */; };
+		9612A4A62237BC58004FC9EE /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A52237BC58004FC9EE /* Person.swift */; };
 		9612A4A82237BD59004FC9EE /* CharacterDataNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */; };
 		9612A4AA2237BFD1004FC9EE /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A92237BFD1004FC9EE /* CharacterService.swift */; };
-		9612A4AC2237C29F004FC9EE /* CharacterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4AB2237C29F004FC9EE /* CharacterInfo.swift */; };
+		9612A4AC2237C29F004FC9EE /* PeoplePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4AB2237C29F004FC9EE /* PeoplePage.swift */; };
 		9D815279664D541C63709538 /* Pods_hw1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F8AC4F9FB9BDEB8C2E2FC6 /* Pods_hw1.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,10 +52,10 @@
 		9612A49A2237BC4F004FC9EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9612A49D2237BC4F004FC9EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9612A49F2237BC4F004FC9EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9612A4A52237BC58004FC9EE /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		9612A4A52237BC58004FC9EE /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataNetwork.swift; sourceTree = "<group>"; };
 		9612A4A92237BFD1004FC9EE /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
-		9612A4AB2237C29F004FC9EE /* CharacterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfo.swift; sourceTree = "<group>"; };
+		9612A4AB2237C29F004FC9EE /* PeoplePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeoplePage.swift; sourceTree = "<group>"; };
 		A87208CE6FD80835FC2D9CB2 /* Pods-hw1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hw1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hw1/Pods-hw1.debug.xcconfig"; sourceTree = "<group>"; };
 		B0F8AC4F9FB9BDEB8C2E2FC6 /* Pods_hw1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hw1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -143,8 +143,8 @@
 		96B1C3F42239AE5A004FDBC7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9612A4A52237BC58004FC9EE /* People.swift */,
-				9612A4AB2237C29F004FC9EE /* CharacterInfo.swift */,
+				9612A4A52237BC58004FC9EE /* Person.swift */,
+				9612A4AB2237C29F004FC9EE /* PeoplePage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,16 +279,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-hw1/Pods-hw1-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hw1/Pods-hw1-frameworks.sh\"\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hw1/Pods-hw1-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -300,9 +304,9 @@
 			files = (
 				9612A4AA2237BFD1004FC9EE /* CharacterService.swift in Sources */,
 				961098B5223986C500592E8C /* TableViewCell.swift in Sources */,
-				9612A4A62237BC58004FC9EE /* People.swift in Sources */,
+				9612A4A62237BC58004FC9EE /* Person.swift in Sources */,
 				9612A4962237BC4D004FC9EE /* ViewController.swift in Sources */,
-				9612A4AC2237C29F004FC9EE /* CharacterInfo.swift in Sources */,
+				9612A4AC2237C29F004FC9EE /* PeoplePage.swift in Sources */,
 				9612A4A82237BD59004FC9EE /* CharacterDataNetwork.swift in Sources */,
 				9612A4942237BC4D004FC9EE /* AppDelegate.swift in Sources */,
 				961098B32239151200592E8C /* DetailViewController.swift in Sources */,

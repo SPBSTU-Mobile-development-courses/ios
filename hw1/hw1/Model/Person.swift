@@ -1,5 +1,5 @@
 //
-//  CharacterInfo.swift
+//  Character.swift
 //  hw1
 //
 //  Created by Александр Пономарёв on 12/03/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CharacterInfo: Decodable {
-    let next: String?
-    let results: [People]
+struct Person: Decodable {
+    let name: String
+    let height: String
 }

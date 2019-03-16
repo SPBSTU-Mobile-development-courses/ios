@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UITableViewController {
     private let characterDataNetwork: CharacterService = CharacterDataNetwork()
-    private var characters = [People]()
+    private var characters = [Person]()
     private var logoImages = [UIImage(named: "luke.jpg")!,
                               UIImage(named: "c3po.jpg")!,
                               UIImage(named: "r2d2.jpg")!,
@@ -39,20 +39,18 @@ class ViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }
-
         return
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let controller = segue.destination as? DetailViewController {
+        guard let controller = segue.destination as? DetailViewController else { return }
             guard let cell = sender as? UITableViewCell else { return }
             let indexPathRow = tableView.indexPath(for: cell)?.row
             if let indexPath = indexPathRow {
-                controller.receivedData = characters[indexPath]
+                controller.people = characters[indexPath]
                 controller.title = characters[indexPath].name
                 controller.avatar = logoImages[indexPath]
             }
-        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,6 +64,7 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell
         cell?.nameLabel?.text = characters[indexPath.row].name
         cell?.avatarView?.image = logoImages[indexPath.row]
+        //swiftlint:disable:next force_cast
         return cell!
     }
 }
