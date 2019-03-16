@@ -11,30 +11,16 @@ import UIKit
 class ViewController: UITableViewController {
     private let characterDataNetwork: CharacterService = CharacterDataNetwork()
     private var characters = [Person]()
-    private var logoImages = [UIImage(named: "luke.jpg")!,
-                              UIImage(named: "c3po.jpg")!,
-                              UIImage(named: "r2d2.jpg")!,
-                              UIImage(named: "dw.jpg")!,
-                              UIImage(named: "leya.jpg")!,
-                              UIImage(named: "owen.png")!,
-                              UIImage(named: "beru.png")!,
-                              UIImage(named: "r5d4.jpg")!,
-                              UIImage(named: "biggs.jpg")!,
-                              UIImage(named: "obi.jpeg")!,]
+    // swiftlint:disable:next discouraged_object_literal
+    private var avatars = [#imageLiteral(resourceName: "luke"), #imageLiteral(resourceName: "c3po"), #imageLiteral(resourceName: "r2d2"), #imageLiteral(resourceName: "dw"), #imageLiteral(resourceName: "leya"), #imageLiteral(resourceName: "owen"), #imageLiteral(resourceName: "beru"), #imageLiteral(resourceName: "r5d4"), #imageLiteral(resourceName: "biggs"), #imageLiteral(resourceName: "obi.jpeg")]
     private var url: String? = "https://swapi.co/api/people/"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
         tableView.rowHeight = 100
-        guard let url = url else {
-            return
-        }
-        characterDataNetwork.getCharacter(url: url) { characters, url in
-            for newCharacter in characters {
-                self.characters.append(newCharacter)
-            }
-            self.url = url
+        guard let url = url else { return }
+        characterDataNetwork.getCharacter(url: url) { characters, _ in
+            self.characters.append(contentsOf: characters)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -44,18 +30,20 @@ class ViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let controller = segue.destination as? DetailViewController else { return }
-            guard let cell = sender as? UITableViewCell else { return }
-            let indexPathRow = tableView.indexPath(for: cell)?.row
-            if let indexPath = indexPathRow {
-                controller.people = characters[indexPath]
-                controller.title = characters[indexPath].name
-                controller.avatar = logoImages[indexPath]
-            }
+        guard let cell = sender as? UITableViewCell else { return }
+        let indexPathRow = tableView.indexPath(for: cell)?.row
+        guard let indexPath = indexPathRow else { return }
+        controller.people = characters[indexPath]
+        controller.title = characters[indexPath].name
+        controller.avatar = avatars[indexPath]
     }
+}
 
+extension ViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters.count
     }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -63,8 +51,8 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell
         cell?.nameLabel?.text = characters[indexPath.row].name
-        cell?.avatarView?.image = logoImages[indexPath.row]
-        //swiftlint:disable:next force_cast
+        cell?.avatarView?.image = avatars[indexPath.row]
+        // swiftlint:disable:next force_unwrapping
         return cell!
     }
 }

@@ -9,7 +9,9 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    // swiftlint:disable:next private_outlet
     @IBOutlet var nameLabel: UILabel!
+    // swiftlint:disable:next private_outlet
     @IBOutlet var avatarView: UIImageView!
 
     override func awakeFromNib() {

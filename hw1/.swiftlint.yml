@@ -112,7 +112,7 @@ file_length: 700
 
 function_parameter_count: 6
 
-warning_threshold: 28
+warning_threshold: 2
 
 conditional_returns_on_newline:
   if_only: true 

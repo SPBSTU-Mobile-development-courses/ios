@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct People: Decodable {
+class People: Decodable {
     let next: String?
     let results: [Person]
 }

@@ -11,21 +11,13 @@ import Foundation
 
 class CharacterDataNetwork: CharacterService {
     func getCharacter(url: String?, _ completionHandler: @escaping (([Person], String?) -> Void)) {
-        var characters = [Person]()
-        var next: String?
         guard let url = url else { return }
         request(url).responseData {
             switch $0.result {
             case let .success(data):
                 let jsonDecoder = JSONDecoder()
                 let character = try? jsonDecoder.decode(People.self, from: data)
-                    if let character = character {
-                        for newCharacter in character.results {
-                        characters.append(newCharacter)
-                    }
-                }
-                next = character?.next
-                completionHandler(characters, next)
+                completionHandler(character?.results ?? [], character?.next)
             case let .failure(error):
                 print("Error: \(error)")
             }

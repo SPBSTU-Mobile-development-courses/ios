@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Person: Decodable {
+class Person: Decodable {
     let name: String
     let height: String
 }
