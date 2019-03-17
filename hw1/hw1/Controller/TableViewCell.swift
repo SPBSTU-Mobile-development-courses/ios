@@ -9,14 +9,17 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    // swiftlint:disable:next private_outlet
-    @IBOutlet var nameLabel: UILabel!
-    // swiftlint:disable:next private_outlet
-    @IBOutlet var avatarView: UIImageView!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var avatarView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         avatarView.layer.cornerRadius = avatarView.frame.size.width / 2
         avatarView.clipsToBounds = true
+    }
+    
+    func setupCell(person: Person, image: UIImage) {
+        nameLabel.text = person.name
+        avatarView.image = image
     }
 }

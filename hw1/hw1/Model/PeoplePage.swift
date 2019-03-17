@@ -1,5 +1,5 @@
 //
-//  CharacterInfo.swift
+//  PeoplePage.swift
 //  hw1
 //
 //  Created by Александр Пономарёв on 12/03/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class People: Decodable {
+class PeoplePage: Decodable {
     let next: String?
     let results: [Person]
 }

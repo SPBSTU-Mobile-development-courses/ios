@@ -9,6 +9,6 @@
 import Foundation
 
 class Person: Decodable {
-    let name: String
-    let height: String
+    var name: String
+    var height: String
 }

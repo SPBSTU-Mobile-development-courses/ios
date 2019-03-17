@@ -51,7 +51,9 @@
                             <outlet property="delegate" destination="HZF-On-3BP" id="ITO-VN-bTs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Characters" id="zxV-IO-O4Y"/>
+                    <navigationItem key="navigationItem" title="Characters" id="zxV-IO-O4Y">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wCb-j0-DHZ"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWF-K0-kg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

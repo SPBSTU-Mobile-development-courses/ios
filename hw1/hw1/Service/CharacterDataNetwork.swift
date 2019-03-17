@@ -16,7 +16,7 @@ class CharacterDataNetwork: CharacterService {
             switch $0.result {
             case let .success(data):
                 let jsonDecoder = JSONDecoder()
-                let character = try? jsonDecoder.decode(People.self, from: data)
+                let character = try? jsonDecoder.decode(PeoplePage.self, from: data)
                 completionHandler(character?.results ?? [], character?.next)
             case let .failure(error):
                 print("Error: \(error)")
