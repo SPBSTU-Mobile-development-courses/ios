@@ -142,3 +142,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 *.generated.swift
+.DS_Store
