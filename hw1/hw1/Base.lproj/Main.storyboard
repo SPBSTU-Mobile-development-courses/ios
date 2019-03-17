@@ -26,18 +26,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="99.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D14-Cw-RdE">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D14-Cw-RdE">
                                             <rect key="frame" x="16" y="-1" width="97" height="97"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="97" id="QDe-HW-v9t"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBM-hW-jn9">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBM-hW-jn9">
                                             <rect key="frame" x="121" y="11" width="254" height="74"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eBM-hW-jn9" firstAttribute="top" secondItem="22X-2x-JPr" secondAttribute="topMargin" id="7jg-DS-A8n"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="D14-Cw-RdE" secondAttribute="bottom" constant="-7" id="CxK-0D-M91"/>
+                                        <constraint firstItem="eBM-hW-jn9" firstAttribute="leading" secondItem="D14-Cw-RdE" secondAttribute="trailing" constant="8" symbolic="YES" id="HLt-4q-clr"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="eBM-hW-jn9" secondAttribute="trailing" constant="19" id="TBX-80-LzS"/>
+                                        <constraint firstItem="D14-Cw-RdE" firstAttribute="centerY" secondItem="eBM-hW-jn9" secondAttribute="centerY" id="XE3-zg-cKt"/>
+                                        <constraint firstItem="D14-Cw-RdE" firstAttribute="top" secondItem="22X-2x-JPr" secondAttribute="topMargin" constant="-12" id="s3h-k7-OR2"/>
+                                        <constraint firstItem="D14-Cw-RdE" firstAttribute="leading" secondItem="22X-2x-JPr" secondAttribute="leadingMargin" constant="-4" id="y76-ao-1HV"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="avatarView" destination="D14-Cw-RdE" id="Bql-SP-Trf"/>
@@ -51,9 +61,7 @@
                             <outlet property="delegate" destination="HZF-On-3BP" id="ITO-VN-bTs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Characters" id="zxV-IO-O4Y">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wCb-j0-DHZ"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Characters" id="zxV-IO-O4Y"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWF-K0-kg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

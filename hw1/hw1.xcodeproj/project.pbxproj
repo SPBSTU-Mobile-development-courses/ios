@@ -17,6 +17,8 @@
 		9612A4A82237BD59004FC9EE /* CharacterDataNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */; };
 		9612A4AA2237BFD1004FC9EE /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A92237BFD1004FC9EE /* CharacterService.swift */; };
 		9612A4AC2237C29F004FC9EE /* PeoplePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4AB2237C29F004FC9EE /* PeoplePage.swift */; };
+		968C6583223EAD1F00A5BD7C /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C6582223EAD1F00A5BD7C /* RealmService.swift */; };
+		968C6585223EADD000A5BD7C /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C6584223EADD000A5BD7C /* RealmData.swift */; };
 		96A2CEF1223DA90E00BB8D39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96A2CEF0223DA90E00BB8D39 /* Assets.xcassets */; };
 		9D815279664D541C63709538 /* Pods_hw1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F8AC4F9FB9BDEB8C2E2FC6 /* Pods_hw1.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +37,8 @@
 		9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataNetwork.swift; sourceTree = "<group>"; };
 		9612A4A92237BFD1004FC9EE /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
 		9612A4AB2237C29F004FC9EE /* PeoplePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeoplePage.swift; sourceTree = "<group>"; };
+		968C6582223EAD1F00A5BD7C /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		968C6584223EADD000A5BD7C /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		96A2CEF0223DA90E00BB8D39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A87208CE6FD80835FC2D9CB2 /* Pods-hw1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hw1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hw1/Pods-hw1.debug.xcconfig"; sourceTree = "<group>"; };
 		B0F8AC4F9FB9BDEB8C2E2FC6 /* Pods_hw1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hw1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +111,7 @@
 			children = (
 				9612A4A52237BC58004FC9EE /* Person.swift */,
 				9612A4AB2237C29F004FC9EE /* PeoplePage.swift */,
+				968C6584223EADD000A5BD7C /* RealmData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 			children = (
 				9612A4A92237BFD1004FC9EE /* CharacterService.swift */,
 				9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */,
+				968C6582223EAD1F00A5BD7C /* RealmService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -231,6 +237,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-hw1/Pods-hw1-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
@@ -239,12 +246,13 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hw1/Pods-hw1-frameworks.sh\"\n\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hw1/Pods-hw1-frameworks.sh\"\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -256,8 +264,10 @@
 			files = (
 				9612A4AA2237BFD1004FC9EE /* CharacterService.swift in Sources */,
 				961098B5223986C500592E8C /* TableViewCell.swift in Sources */,
+				968C6585223EADD000A5BD7C /* RealmData.swift in Sources */,
 				9612A4A62237BC58004FC9EE /* Person.swift in Sources */,
 				9612A4962237BC4D004FC9EE /* ViewController.swift in Sources */,
+				968C6583223EAD1F00A5BD7C /* RealmService.swift in Sources */,
 				9612A4AC2237C29F004FC9EE /* PeoplePage.swift in Sources */,
 				9612A4A82237BD59004FC9EE /* CharacterDataNetwork.swift in Sources */,
 				9612A4942237BC4D004FC9EE /* AppDelegate.swift in Sources */,
@@ -416,7 +426,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.project.hw;
+				PRODUCT_BUNDLE_IDENTIFIER = com.project.hw1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -437,7 +447,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.project.hw;
+				PRODUCT_BUNDLE_IDENTIFIER = com.project.hw1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

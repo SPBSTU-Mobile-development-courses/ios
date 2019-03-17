@@ -17,9 +17,9 @@ class TableViewCell: UITableViewCell {
         avatarView.layer.cornerRadius = avatarView.frame.size.width / 2
         avatarView.clipsToBounds = true
     }
-    
-    func setupCell(person: Person, image: UIImage) {
-        nameLabel.text = person.name
+
+    func setupCell(name: String, image: UIImage) {
+        nameLabel.text = name
         avatarView.image = image
     }
 }
