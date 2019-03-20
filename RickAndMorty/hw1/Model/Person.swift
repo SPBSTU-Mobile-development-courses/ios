@@ -8,7 +8,9 @@
 import Foundation
 
 class Person: Decodable {
-    var name: String
-    var gender: String
-    var image: String
+    let name: String
+    let gender: String
+    let status: String
+    let species: String
+    let image: String
 }

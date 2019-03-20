@@ -23,9 +23,7 @@ class ViewController: UITableViewController {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self!.characterDataNetwork.getCharacter(url: url) { [weak self] characters, _ in
             if self!.realmPerson.count != 20 {
-                    guard let self = self else {
-                        return
-                    }
+                    guard let self = self else { return }
                     for characters in characters {
                         self.realmService.add(person: characters)
                     }

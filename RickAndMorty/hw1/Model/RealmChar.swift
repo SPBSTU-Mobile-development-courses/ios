@@ -11,5 +11,7 @@ import RealmSwift
 class RealmChar: Object {
     @objc dynamic var name = ""
     @objc dynamic var gender = ""
+    @objc dynamic var status = ""
+    @objc dynamic var species = ""
     @objc dynamic var image = ""
 }

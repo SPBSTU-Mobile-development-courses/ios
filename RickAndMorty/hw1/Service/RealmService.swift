@@ -25,6 +25,8 @@ class RealmService {
         let realmPerson = RealmChar()
         realmPerson.name = person.name
         realmPerson.gender = person.gender
+        realmPerson.status = person.status
+        realmPerson.species = person.species
         realmPerson.image = person.image
         do {
             try realm.write {
