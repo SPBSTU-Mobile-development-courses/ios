@@ -59,7 +59,7 @@ extension ViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell else {
-            fatalError("TableView setup is not correct")
+            fatalError("TableView setup is not correct!")
         }
         let realmP = realmPerson[indexPath.row]
         cell.setupCell(name: realmP.name, imageURL: realmP.image)
