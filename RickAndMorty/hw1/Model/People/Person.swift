@@ -12,4 +12,10 @@ class Person: Decodable {
     let status: String
     let species: String
     let image: String
+    let origin, location: Location
+}
+
+class Location: Decodable {
+    let name: String
+    let url: String
 }

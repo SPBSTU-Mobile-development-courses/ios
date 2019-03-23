@@ -7,6 +7,7 @@
 //
 
 import Kingfisher
+import Reachability
 import RealmSwift
 import UIKit
 
@@ -19,9 +20,12 @@ class ViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    //swiftlint:disable:next force_unwrapping
+    private let reachability = Reachability()!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkNetworkConnect()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 100
@@ -39,6 +43,35 @@ class ViewController: UIViewController {
             }
         }
         return
+    }
+
+    func checkNetworkConnect() {
+        if realmPerson.isEmpty {
+            reachability.whenUnreachable = { _ in
+                let alertController = UIAlertController(
+                    title: "Mobile Data is Turned Off",
+                    message: "Turn on mobile data or use Wi-Fi to access data",
+                    preferredStyle: .alert
+                )
+                let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                let settingAction = UIAlertAction(title: "Settings", style: .default) { _ -> Void in
+                    guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+                    if UIApplication.shared.canOpenURL(settingsURL) {
+                        UIApplication.shared.open(settingsURL, completionHandler: { success in
+                            print("Settings opened: \(success)") }
+                        )
+                    }
+                }
+                alertController.addAction(settingAction)
+                alertController.addAction(cancelAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            do {
+                try reachability.startNotifier()
+            } catch {
+                print("Unable to start notifier")
+            }
+        }
     }
 }
 

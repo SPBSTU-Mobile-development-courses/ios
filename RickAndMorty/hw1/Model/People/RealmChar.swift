@@ -14,4 +14,6 @@ class RealmChar: Object {
     @objc dynamic var status = ""
     @objc dynamic var species = ""
     @objc dynamic var image = ""
+    @objc dynamic var originPlanetName = ""
+    @objc dynamic var originPlanetUrl = ""
 }

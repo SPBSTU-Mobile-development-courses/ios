@@ -28,6 +28,8 @@ class RealmService {
         realmPerson.status = person.status
         realmPerson.species = person.species
         realmPerson.image = person.image
+        realmPerson.originPlanetName = person.origin.name
+        realmPerson.originPlanetUrl = person.origin.url
         do {
             try realm.write {
                 realm.add(realmPerson)

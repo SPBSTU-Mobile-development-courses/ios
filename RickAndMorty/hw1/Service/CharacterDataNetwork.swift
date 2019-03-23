@@ -23,4 +23,19 @@ class CharacterDataNetwork: CharacterService {
             }
         }
     }
+
+    func getPlanet(url: String?, _ completionHandler: @escaping ((Planet) -> Void)) {
+        guard let url = url else { return }
+        request(url).responseData {
+            switch $0.result {
+            case let .success(data):
+                let jsonDecoder = JSONDecoder()
+                let character = try? jsonDecoder.decode(Planet.self, from: data)
+                //swiftlint:disable:next force_unwrapping
+                completionHandler(character!)
+            case let .failure(error):
+                print("Error: \(error)")
+            }
+        }
+    }
 }

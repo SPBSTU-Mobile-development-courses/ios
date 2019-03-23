@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     @IBOutlet private var avatarView: UIImageView!
     @IBOutlet private var genderLabel: UILabel!
+    @IBOutlet private var originNameLabel: UILabel!
     @IBOutlet private var nameLable: UILabel!
     @IBOutlet private var statusLabel: UILabel!
     @IBOutlet private var speciesLabel: UILabel!
@@ -23,8 +24,17 @@ class DetailViewController: UIViewController {
         genderLabel.text = "Gender: \(realmPerson.gender)"
         statusLabel.text = "Status: \(realmPerson.status)"
         speciesLabel.text = "Species: \(realmPerson.species)"
+        originNameLabel.text = "Origin: \(realmPerson.originPlanetName) 🌍"
         let url = URL(string: realmPerson.image)
         guard let urlNew = url else { return }
         self.avatarView.kf.setImage(with: urlNew)
+    }
+
+    @IBAction private func tapToPLanet(_ sender: UITapGestureRecognizer) {
+        guard let planetVC = storyboard?.instantiateViewController(withIdentifier: "PlanetViewController") as? PlanetViewController else { return }
+        if realmPerson?.originPlanetName != "unknown" {
+            self.navigationController?.pushViewController(planetVC, animated: true)
+            planetVC.url = self.realmPerson?.originPlanetUrl
+        }
     }
 }

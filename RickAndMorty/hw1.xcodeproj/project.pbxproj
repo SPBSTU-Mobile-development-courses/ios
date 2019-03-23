@@ -16,6 +16,8 @@
 		9612A4A82237BD59004FC9EE /* CharacterDataNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */; };
 		9612A4AA2237BFD1004FC9EE /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A92237BFD1004FC9EE /* CharacterService.swift */; };
 		9612A4AC2237C29F004FC9EE /* PeoplePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4AB2237C29F004FC9EE /* PeoplePage.swift */; };
+		964B3331224687D000E66916 /* PlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964B3330224687D000E66916 /* PlanetViewController.swift */; };
+		964B33332246887400E66916 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964B33322246887400E66916 /* Planet.swift */; };
 		968C16F42243972C00893C07 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C16F22243972C00893C07 /* TestTableViewCell.swift */; };
 		968C16F52243972C00893C07 /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968C16F32243972C00893C07 /* TestTableViewCell.xib */; };
 		968C6583223EAD1F00A5BD7C /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C6582223EAD1F00A5BD7C /* RealmService.swift */; };
@@ -36,6 +38,8 @@
 		9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataNetwork.swift; sourceTree = "<group>"; };
 		9612A4A92237BFD1004FC9EE /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
 		9612A4AB2237C29F004FC9EE /* PeoplePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeoplePage.swift; sourceTree = "<group>"; };
+		964B3330224687D000E66916 /* PlanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewController.swift; sourceTree = "<group>"; };
+		964B33322246887400E66916 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		968C16F22243972C00893C07 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		968C16F32243972C00893C07 /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		968C6582223EAD1F00A5BD7C /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
@@ -104,6 +108,24 @@
 			path = hw1;
 			sourceTree = "<group>";
 		};
+		964B3336224688F400E66916 /* People */ = {
+			isa = PBXGroup;
+			children = (
+				9612A4AB2237C29F004FC9EE /* PeoplePage.swift */,
+				968C6584223EADD000A5BD7C /* RealmChar.swift */,
+				94AEF98B22414210004B0F37 /* Person.swift */,
+			);
+			path = People;
+			sourceTree = "<group>";
+		};
+		964B33372246890000E66916 /* Planet */ = {
+			isa = PBXGroup;
+			children = (
+				964B33322246887400E66916 /* Planet.swift */,
+			);
+			path = Planet;
+			sourceTree = "<group>";
+		};
 		968C16ED224395CC00893C07 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,9 +172,8 @@
 		96B1C3F42239AE5A004FDBC7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9612A4AB2237C29F004FC9EE /* PeoplePage.swift */,
-				968C6584223EADD000A5BD7C /* RealmChar.swift */,
-				94AEF98B22414210004B0F37 /* Person.swift */,
+				964B3336224688F400E66916 /* People */,
+				964B33372246890000E66916 /* Planet */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,6 +193,7 @@
 			children = (
 				9612A4952237BC4D004FC9EE /* ViewController.swift */,
 				961098B22239151200592E8C /* DetailViewController.swift */,
+				964B3330224687D000E66916 /* PlanetViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -278,6 +300,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-hw1/Pods-hw1-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
@@ -287,6 +310,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -305,6 +329,8 @@
 				94AEF98C22414210004B0F37 /* Person.swift in Sources */,
 				9612A4AA2237BFD1004FC9EE /* CharacterService.swift in Sources */,
 				968C6585223EADD000A5BD7C /* RealmChar.swift in Sources */,
+				964B33332246887400E66916 /* Planet.swift in Sources */,
+				964B3331224687D000E66916 /* PlanetViewController.swift in Sources */,
 				9612A4962237BC4D004FC9EE /* ViewController.swift in Sources */,
 				968C6583223EAD1F00A5BD7C /* RealmService.swift in Sources */,
 				9612A4AC2237C29F004FC9EE /* PeoplePage.swift in Sources */,

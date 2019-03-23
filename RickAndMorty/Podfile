@@ -5,4 +5,5 @@ target 'hw1' do
     pod 'Alamofire'
     pod 'RealmSwift'
     pod 'Kingfisher'
+    pod 'ReachabilitySwift'
 end
