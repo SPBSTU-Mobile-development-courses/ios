@@ -6,8 +6,6 @@
 //  Copyright © 2019 Александр Пономарёв. All rights reserved.
 //
 
-import Foundation
-
 class PeoplePage: Decodable {
     let next: String?
     let results: [Person]

@@ -6,7 +6,6 @@
 //  Copyright © 2019 Александр Пономарёв. All rights reserved.
 //
 
-import Kingfisher
 import UIKit
 
 class DetailViewController: UIViewController {
@@ -26,6 +25,6 @@ class DetailViewController: UIViewController {
         speciesLabel.text = "Species: \(realmPerson.species)"
         let url = URL(string: realmPerson.image)
         guard let urlNew = url else { return }
-        avatarView.kf.setImage(with: urlNew)
+        self.avatarView.kf.setImage(with: urlNew)
     }
 }

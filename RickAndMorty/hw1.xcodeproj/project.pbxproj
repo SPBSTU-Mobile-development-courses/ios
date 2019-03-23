@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		94AEF98C22414210004B0F37 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEF98B22414210004B0F37 /* Person.swift */; };
 		961098B32239151200592E8C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961098B22239151200592E8C /* DetailViewController.swift */; };
-		961098B5223986C500592E8C /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961098B4223986C500592E8C /* TableViewCell.swift */; };
 		9612A4942237BC4D004FC9EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4932237BC4D004FC9EE /* AppDelegate.swift */; };
 		9612A4962237BC4D004FC9EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4952237BC4D004FC9EE /* ViewController.swift */; };
 		9612A4992237BC4D004FC9EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9612A4972237BC4D004FC9EE /* Main.storyboard */; };
@@ -17,6 +16,8 @@
 		9612A4A82237BD59004FC9EE /* CharacterDataNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */; };
 		9612A4AA2237BFD1004FC9EE /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A92237BFD1004FC9EE /* CharacterService.swift */; };
 		9612A4AC2237C29F004FC9EE /* PeoplePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4AB2237C29F004FC9EE /* PeoplePage.swift */; };
+		968C16F42243972C00893C07 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C16F22243972C00893C07 /* TestTableViewCell.swift */; };
+		968C16F52243972C00893C07 /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968C16F32243972C00893C07 /* TestTableViewCell.xib */; };
 		968C6583223EAD1F00A5BD7C /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C6582223EAD1F00A5BD7C /* RealmService.swift */; };
 		968C6585223EADD000A5BD7C /* RealmChar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C6584223EADD000A5BD7C /* RealmChar.swift */; };
 		9D815279664D541C63709538 /* Pods_hw1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F8AC4F9FB9BDEB8C2E2FC6 /* Pods_hw1.framework */; };
@@ -26,7 +27,6 @@
 		289B900FD810EE2F77F01931 /* Pods-hw1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hw1.release.xcconfig"; path = "Pods/Target Support Files/Pods-hw1/Pods-hw1.release.xcconfig"; sourceTree = "<group>"; };
 		94AEF98B22414210004B0F37 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		961098B22239151200592E8C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		961098B4223986C500592E8C /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		9612A4902237BC4D004FC9EE /* hw1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hw1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9612A4932237BC4D004FC9EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9612A4952237BC4D004FC9EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +36,8 @@
 		9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataNetwork.swift; sourceTree = "<group>"; };
 		9612A4A92237BFD1004FC9EE /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
 		9612A4AB2237C29F004FC9EE /* PeoplePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeoplePage.swift; sourceTree = "<group>"; };
+		968C16F22243972C00893C07 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		968C16F32243972C00893C07 /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		968C6582223EAD1F00A5BD7C /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		968C6584223EADD000A5BD7C /* RealmChar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChar.swift; sourceTree = "<group>"; };
 		A87208CE6FD80835FC2D9CB2 /* Pods-hw1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hw1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hw1/Pods-hw1.debug.xcconfig"; sourceTree = "<group>"; };
@@ -92,15 +94,57 @@
 		9612A4922237BC4D004FC9EE /* hw1 */ = {
 			isa = PBXGroup;
 			children = (
+				9612A49F2237BC4F004FC9EE /* Info.plist */,
+				968C16F02243967E00893C07 /* Resources */,
+				968C16EE2243960A00893C07 /* Screen */,
 				9612A4932237BC4D004FC9EE /* AppDelegate.swift */,
-				96B1C3F62239AE7F004FDBC7 /* Controller */,
 				96B1C3F42239AE5A004FDBC7 /* Model */,
 				96B1C3F52239AE66004FDBC7 /* Service */,
-				9612A4972237BC4D004FC9EE /* Main.storyboard */,
-				9612A49C2237BC4F004FC9EE /* LaunchScreen.storyboard */,
-				9612A49F2237BC4F004FC9EE /* Info.plist */,
 			);
 			path = hw1;
+			sourceTree = "<group>";
+		};
+		968C16ED224395CC00893C07 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				968C16F22243972C00893C07 /* TestTableViewCell.swift */,
+				968C16F32243972C00893C07 /* TestTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		968C16EE2243960A00893C07 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				968C16EF2243961600893C07 /* Main */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		968C16EF2243961600893C07 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				96B1C3F62239AE7F004FDBC7 /* Controller */,
+				968C16ED224395CC00893C07 /* Cell */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		968C16F02243967E00893C07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				968C16F1224396AB00893C07 /* Base.Iproj */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		968C16F1224396AB00893C07 /* Base.Iproj */ = {
+			isa = PBXGroup;
+			children = (
+				9612A49C2237BC4F004FC9EE /* LaunchScreen.storyboard */,
+				9612A4972237BC4D004FC9EE /* Main.storyboard */,
+			);
+			path = Base.Iproj;
 			sourceTree = "<group>";
 		};
 		96B1C3F42239AE5A004FDBC7 /* Model */ = {
@@ -128,7 +172,6 @@
 			children = (
 				9612A4952237BC4D004FC9EE /* ViewController.swift */,
 				961098B22239151200592E8C /* DetailViewController.swift */,
-				961098B4223986C500592E8C /* TableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968C16F52243972C00893C07 /* TestTableViewCell.xib in Resources */,
 				9612A49E2237BC4F004FC9EE /* LaunchScreen.storyboard in Resources */,
 				9612A4992237BC4D004FC9EE /* Main.storyboard in Resources */,
 			);
@@ -260,7 +304,6 @@
 			files = (
 				94AEF98C22414210004B0F37 /* Person.swift in Sources */,
 				9612A4AA2237BFD1004FC9EE /* CharacterService.swift in Sources */,
-				961098B5223986C500592E8C /* TableViewCell.swift in Sources */,
 				968C6585223EADD000A5BD7C /* RealmChar.swift in Sources */,
 				9612A4962237BC4D004FC9EE /* ViewController.swift in Sources */,
 				968C6583223EAD1F00A5BD7C /* RealmService.swift in Sources */,
@@ -268,6 +311,7 @@
 				9612A4A82237BD59004FC9EE /* CharacterDataNetwork.swift in Sources */,
 				9612A4942237BC4D004FC9EE /* AppDelegate.swift in Sources */,
 				961098B32239151200592E8C /* DetailViewController.swift in Sources */,
+				968C16F42243972C00893C07 /* TestTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
