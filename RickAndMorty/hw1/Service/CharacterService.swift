@@ -8,4 +8,5 @@
 
 protocol CharacterService {
     func getCharacter(url: String?, _ completionHandler: @escaping (([Person], String?) -> Void))
+    func getPlanet(url: String?, _ completionHandler: @escaping ((Planet) -> Void))
 }

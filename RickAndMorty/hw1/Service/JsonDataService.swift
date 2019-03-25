@@ -9,7 +9,7 @@
 import Alamofire
 import Foundation
 
-class CharacterDataNetwork: CharacterService {
+class JsonDataService: CharacterService {
     func getCharacter(url: String?, _ completionHandler: @escaping (([Person], String?) -> Void)) {
         guard let url = url else { return }
         request(url).responseData {

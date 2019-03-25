@@ -21,9 +21,10 @@ class TestTableViewCell: UITableViewCell {
         avatarView.clipsToBounds = true
     }
 
-    func setupCell(name: String, imageURL: String) {
-        let imgURL = URL(string: imageURL)
-        nameLabel.text = name
-        self.avatarView.kf.setImage(with: imgURL)
+    func setupCell(with person: RealmChar) {
+        nameLabel.text = person.name
+        self.avatarView.kf.indicatorType = .activity
+        self.avatarView.kf.cancelDownloadTask()
+        self.avatarView.kf.setImage(with: person.imageUrl)
     }
 }

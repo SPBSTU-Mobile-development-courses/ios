@@ -13,13 +13,13 @@ class PlanetViewController: UIViewController {
     @IBOutlet private var typeLabel: UILabel!
     @IBOutlet private var dimensionLabel: UILabel!
     var url: String?
-    private let characterDataNetwork = CharacterDataNetwork()
+    private let jsonDataService = JsonDataService()
     private var planet = [Planet]()
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         guard let url = url else { return }
-        self.characterDataNetwork.getPlanet(url: url) { [weak self] planet in
+        self.jsonDataService.getPlanet(url: url) { [weak self] planet in
             guard let self = self else { return }
             self.planet.append(planet)
             DispatchQueue.main.async {

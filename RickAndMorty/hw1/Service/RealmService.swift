@@ -21,18 +21,21 @@ class RealmService {
         return realmPerson
     }
 
-    func add(person: Person) {
-        let realmPerson = RealmChar()
-        realmPerson.name = person.name
-        realmPerson.gender = person.gender
-        realmPerson.status = person.status
-        realmPerson.species = person.species
-        realmPerson.image = person.image
-        realmPerson.originPlanetName = person.origin.name
-        realmPerson.originPlanetUrl = person.origin.url
+    func addAll(people: [Person]) {
         do {
             try realm.write {
-                realm.add(realmPerson)
+                for people in people {
+                    let realmPerson = RealmChar(
+                        name: people.name,
+                        gender: people.gender,
+                        status: people.status,
+                        species: people.species,
+                        image: people.image,
+                        originPlanetName: people.origin.name,
+                        originPlanetUrl: people.origin.url
+                    )
+                    realm.add(realmPerson)
+                }
             }
         } catch {
             print(error)

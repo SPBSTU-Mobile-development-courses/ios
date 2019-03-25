@@ -31,10 +31,9 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction private func tapToPLanet(_ sender: UITapGestureRecognizer) {
-        guard let planetVC = storyboard?.instantiateViewController(withIdentifier: "PlanetViewController") as? PlanetViewController else { return }
-        if realmPerson?.originPlanetName != "unknown" {
-            self.navigationController?.pushViewController(planetVC, animated: true)
-            planetVC.url = self.realmPerson?.originPlanetUrl
-        }
+        guard let planetVC = storyboard?.instantiateViewController(withIdentifier: "PlanetViewController") as? PlanetViewController,
+            realmPerson?.originPlanetName != "unknown" else { return }
+        self.navigationController?.pushViewController(planetVC, animated: true)
+        planetVC.url = realmPerson?.originPlanetUrl
     }
 }

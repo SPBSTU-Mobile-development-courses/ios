@@ -13,7 +13,7 @@
 		9612A4962237BC4D004FC9EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4952237BC4D004FC9EE /* ViewController.swift */; };
 		9612A4992237BC4D004FC9EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9612A4972237BC4D004FC9EE /* Main.storyboard */; };
 		9612A49E2237BC4F004FC9EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9612A49C2237BC4F004FC9EE /* LaunchScreen.storyboard */; };
-		9612A4A82237BD59004FC9EE /* CharacterDataNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */; };
+		9612A4A82237BD59004FC9EE /* JsonDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A72237BD59004FC9EE /* JsonDataService.swift */; };
 		9612A4AA2237BFD1004FC9EE /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4A92237BFD1004FC9EE /* CharacterService.swift */; };
 		9612A4AC2237C29F004FC9EE /* PeoplePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612A4AB2237C29F004FC9EE /* PeoplePage.swift */; };
 		964B3331224687D000E66916 /* PlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964B3330224687D000E66916 /* PlanetViewController.swift */; };
@@ -22,6 +22,7 @@
 		968C16F52243972C00893C07 /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968C16F32243972C00893C07 /* TestTableViewCell.xib */; };
 		968C6583223EAD1F00A5BD7C /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C6582223EAD1F00A5BD7C /* RealmService.swift */; };
 		968C6585223EADD000A5BD7C /* RealmChar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C6584223EADD000A5BD7C /* RealmChar.swift */; };
+		969BCFC322492B730040E52B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969BCFC222492B730040E52B /* Location.swift */; };
 		9D815279664D541C63709538 /* Pods_hw1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F8AC4F9FB9BDEB8C2E2FC6 /* Pods_hw1.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +36,7 @@
 		9612A4982237BC4D004FC9EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9612A49D2237BC4F004FC9EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9612A49F2237BC4F004FC9EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataNetwork.swift; sourceTree = "<group>"; };
+		9612A4A72237BD59004FC9EE /* JsonDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataService.swift; sourceTree = "<group>"; };
 		9612A4A92237BFD1004FC9EE /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
 		9612A4AB2237C29F004FC9EE /* PeoplePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeoplePage.swift; sourceTree = "<group>"; };
 		964B3330224687D000E66916 /* PlanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		968C16F32243972C00893C07 /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		968C6582223EAD1F00A5BD7C /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		968C6584223EADD000A5BD7C /* RealmChar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChar.swift; sourceTree = "<group>"; };
+		969BCFC222492B730040E52B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A87208CE6FD80835FC2D9CB2 /* Pods-hw1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hw1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hw1/Pods-hw1.debug.xcconfig"; sourceTree = "<group>"; };
 		B0F8AC4F9FB9BDEB8C2E2FC6 /* Pods_hw1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hw1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 				9612A4AB2237C29F004FC9EE /* PeoplePage.swift */,
 				968C6584223EADD000A5BD7C /* RealmChar.swift */,
 				94AEF98B22414210004B0F37 /* Person.swift */,
+				969BCFC222492B730040E52B /* Location.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -182,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				9612A4A92237BFD1004FC9EE /* CharacterService.swift */,
-				9612A4A72237BD59004FC9EE /* CharacterDataNetwork.swift */,
+				9612A4A72237BD59004FC9EE /* JsonDataService.swift */,
 				968C6582223EAD1F00A5BD7C /* RealmService.swift */,
 			);
 			path = Service;
@@ -332,9 +335,10 @@
 				964B33332246887400E66916 /* Planet.swift in Sources */,
 				964B3331224687D000E66916 /* PlanetViewController.swift in Sources */,
 				9612A4962237BC4D004FC9EE /* ViewController.swift in Sources */,
+				969BCFC322492B730040E52B /* Location.swift in Sources */,
 				968C6583223EAD1F00A5BD7C /* RealmService.swift in Sources */,
 				9612A4AC2237C29F004FC9EE /* PeoplePage.swift in Sources */,
-				9612A4A82237BD59004FC9EE /* CharacterDataNetwork.swift in Sources */,
+				9612A4A82237BD59004FC9EE /* JsonDataService.swift in Sources */,
 				9612A4942237BC4D004FC9EE /* AppDelegate.swift in Sources */,
 				961098B32239151200592E8C /* DetailViewController.swift in Sources */,
 				968C16F42243972C00893C07 /* TestTableViewCell.swift in Sources */,

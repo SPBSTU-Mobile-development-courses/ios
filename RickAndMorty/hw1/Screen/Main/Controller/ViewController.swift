@@ -13,58 +13,48 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
-    private let characterDataNetwork = CharacterDataNetwork()
+    private let jsonDataService = JsonDataService()
     private let realmService = RealmService()
     private lazy var realmPerson = realmService.getAll()
     private let url: String? = "https://rickandmortyapi.com/api/character/"
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    private let reuseIdentifier = "Cell"
     //swiftlint:disable:next force_unwrapping
     private let reachability = Reachability()!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         checkNetworkConnect()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.rowHeight = 100
-        tableView.register(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
-        guard let url = url else { return }
-        self.characterDataNetwork.getCharacter(url: url) { [weak self] characters, _ in
-            if self!.realmPerson.count != 20 {
-                guard let self = self else { return }
-                for characters in characters {
-                    self.realmService.add(person: characters)
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+        tableView.register(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
+        guard let url = url, realmPerson.isEmpty  else { return }
+        self.jsonDataService.getCharacter(url: url) { [weak self] characters, _ in
+            guard let self = self else { return }
+            self.realmService.addAll(people: characters)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
-        return
     }
 
     func checkNetworkConnect() {
         if realmPerson.isEmpty {
-            reachability.whenUnreachable = { _ in
+            reachability.whenUnreachable = { [weak self] _ in
+                guard let self = self else { return }
                 let alertController = UIAlertController(
                     title: "Mobile Data is Turned Off",
                     message: "Turn on mobile data or use Wi-Fi to access data",
                     preferredStyle: .alert
                 )
-                let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                let cancelAction = UIAlertAction(title: "OK", style: .cancel)
                 let settingAction = UIAlertAction(title: "Settings", style: .default) { _ -> Void in
                     guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
-                    if UIApplication.shared.canOpenURL(settingsURL) {
-                        UIApplication.shared.open(settingsURL, completionHandler: { success in
-                            print("Settings opened: \(success)") }
-                        )
-                    }
+                    if UIApplication.shared.canOpenURL(settingsURL) { UIApplication.shared.open(settingsURL) }
                 }
                 alertController.addAction(settingAction)
                 alertController.addAction(cancelAction)
-                self.present(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true)
             }
             do {
                 try reachability.startNotifier()
@@ -77,7 +67,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return realmPerson.count
+        return realmPerson.count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,11 +82,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TestTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? TestTableViewCell else {
             fatalError("TableView setup is not correct!")
         }
-        let realmP = realmPerson[indexPath.row]
-        cell.setupCell(name: realmP.name, imageURL: realmP.image)
+        let realmPeople = realmPerson[indexPath.row]
+        cell.setupCell(with: realmPeople)
         return cell
     }
 }

@@ -6,6 +6,8 @@
 //  Copyright © 2019 Александр Пономарёв. All rights reserved.
 //
 
+import Foundation
+
 class Person: Decodable {
     let name: String
     let gender: String
@@ -13,9 +15,4 @@ class Person: Decodable {
     let species: String
     let image: String
     let origin, location: Location
-}
-
-class Location: Decodable {
-    let name: String
-    let url: String
 }

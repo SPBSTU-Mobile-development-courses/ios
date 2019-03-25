@@ -16,4 +16,21 @@ class RealmChar: Object {
     @objc dynamic var image = ""
     @objc dynamic var originPlanetName = ""
     @objc dynamic var originPlanetUrl = ""
+
+    convenience init(name: String, gender: String, status: String, species: String, image: String, originPlanetName: String, originPlanetUrl: String) {
+        self.init()
+        self.name = name
+        self.gender = gender
+        self.status = status
+        self.species = species
+        self.image = image
+        self.originPlanetName = originPlanetName
+        self.originPlanetUrl = originPlanetUrl
+    }
+}
+
+extension RealmChar {
+    var imageUrl: URL? {
+        return URL(string: image)
+    }
 }
