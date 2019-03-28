@@ -1,4 +1,4 @@
-module Pods_HomeTaskNumberOne {
+framework module Pods_HomeTaskNumberOne {
   umbrella header "Pods-HomeTaskNumberOne-umbrella.h"
 
   export *

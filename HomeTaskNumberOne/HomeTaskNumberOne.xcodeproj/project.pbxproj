@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0867CA7856420A7C74D328B6 /* Pods_HomeTaskNumberOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C8DDCFF6D7CEACFDF61D271 /* Pods_HomeTaskNumberOne.framework */; };
 		946FF0F5223468A50009A18E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946FF0F4223468A50009A18E /* AppDelegate.swift */; };
 		946FF0F7223468A50009A18E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946FF0F6223468A50009A18E /* ViewController.swift */; };
 		946FF0FA223468A50009A18E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 946FF0F8223468A50009A18E /* Main.storyboard */; };
@@ -19,26 +20,29 @@
 		94AEF95C223B240A004B0F37 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEF95B223B240A004B0F37 /* TableViewCell.swift */; };
 		94AEF95E223BD940004B0F37 /* Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEF95D223BD940004B0F37 /* Current.swift */; };
 		94AEF960223BD980004B0F37 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEF95F223BD980004B0F37 /* Location.swift */; };
-		A7F78178B964120183A037C2 /* libPods-HomeTaskNumberOne.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D08F961CADBA78F562EB86D2 /* libPods-HomeTaskNumberOne.a */; };
+		94AEF986224102D9004B0F37 /* WeatherDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEF985224102D9004B0F37 /* WeatherDB.swift */; };
+		94AEF98822410B65004B0F37 /* WeatherDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEF98722410B65004B0F37 /* WeatherDBService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		249219341014141DD97B6716 /* Pods-HomeTaskNumberOne.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTaskNumberOne.debug.xcconfig"; path = "Target Support Files/Pods-HomeTaskNumberOne/Pods-HomeTaskNumberOne.debug.xcconfig"; sourceTree = "<group>"; };
+		4C8DDCFF6D7CEACFDF61D271 /* Pods_HomeTaskNumberOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTaskNumberOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		946FF0F1223468A50009A18E /* HomeTaskNumberOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTaskNumberOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		946FF0F4223468A50009A18E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		946FF0F6223468A50009A18E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		946FF0F9223468A50009A18E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		946FF0FB223468A60009A18E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		946FF0FE223468A60009A18E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		946FF100223468A60009A18E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		946FF100223468A60009A18E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		948B4FC02236A09F0099087E /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		94AEF95322399B1B004B0F37 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		94AEF955223A6A65004B0F37 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		94AEF957223A6A81004B0F37 /* WeatherServiceNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceNetwork.swift; sourceTree = "<group>"; };
-		94AEF95B223B240A004B0F37 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		94AEF95B223B240A004B0F37 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = HomeTaskNumberOne/Screen/TableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		94AEF95D223BD940004B0F37 /* Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Current.swift; sourceTree = "<group>"; };
 		94AEF95F223BD980004B0F37 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		D08F961CADBA78F562EB86D2 /* libPods-HomeTaskNumberOne.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HomeTaskNumberOne.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94AEF985224102D9004B0F37 /* WeatherDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDB.swift; sourceTree = "<group>"; };
+		94AEF98722410B65004B0F37 /* WeatherDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDBService.swift; sourceTree = "<group>"; };
 		DE5AB59F0E96712EEDE8898E /* Pods-HomeTaskNumberOne.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTaskNumberOne.release.xcconfig"; path = "Target Support Files/Pods-HomeTaskNumberOne/Pods-HomeTaskNumberOne.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7F78178B964120183A037C2 /* libPods-HomeTaskNumberOne.a in Frameworks */,
+				0867CA7856420A7C74D328B6 /* Pods_HomeTaskNumberOne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +70,7 @@
 		807449FAEAEA9D7AD0707CEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D08F961CADBA78F562EB86D2 /* libPods-HomeTaskNumberOne.a */,
+				4C8DDCFF6D7CEACFDF61D271 /* Pods_HomeTaskNumberOne.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -92,15 +96,11 @@
 		946FF0F3223468A50009A18E /* HomeTaskNumberOne */ = {
 			isa = PBXGroup;
 			children = (
+				946FF100223468A60009A18E /* Info.plist */,
 				946FF0F4223468A50009A18E /* AppDelegate.swift */,
 				948B4FC22236A0AB0099087E /* Service */,
-				946FF0F6223468A50009A18E /* ViewController.swift */,
-				94AEF95B223B240A004B0F37 /* TableViewCell.swift */,
-				946FF0F8223468A50009A18E /* Main.storyboard */,
-				94AEF95322399B1B004B0F37 /* DetailsViewController.swift */,
-				946FF0FB223468A60009A18E /* Assets.xcassets */,
-				946FF0FD223468A60009A18E /* LaunchScreen.storyboard */,
-				946FF100223468A60009A18E /* Info.plist */,
+				94AEF98D2247DCE1004B0F37 /* Screen */,
+				94AEF98E2247DD2B004B0F37 /* Resources */,
 				948B4FC92236ABA90099087E /* Model */,
 			);
 			path = HomeTaskNumberOne;
@@ -111,6 +111,7 @@
 			children = (
 				948B4FC02236A09F0099087E /* WeatherService.swift */,
 				94AEF957223A6A81004B0F37 /* WeatherServiceNetwork.swift */,
+				94AEF98722410B65004B0F37 /* WeatherDBService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -121,8 +122,29 @@
 				94AEF955223A6A65004B0F37 /* Weather.swift */,
 				94AEF95F223BD980004B0F37 /* Location.swift */,
 				94AEF95D223BD940004B0F37 /* Current.swift */,
+				94AEF985224102D9004B0F37 /* WeatherDB.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		94AEF98D2247DCE1004B0F37 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				94AEF95322399B1B004B0F37 /* DetailsViewController.swift */,
+				94AEF95B223B240A004B0F37 /* TableViewCell.swift */,
+				946FF0F6223468A50009A18E /* ViewController.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		94AEF98E2247DD2B004B0F37 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				946FF0FD223468A60009A18E /* LaunchScreen.storyboard */,
+				946FF0FB223468A60009A18E /* Assets.xcassets */,
+				946FF0F8223468A50009A18E /* Main.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +158,8 @@
 				946FF0ED223468A50009A18E /* Sources */,
 				946FF0EE223468A50009A18E /* Frameworks */,
 				946FF0EF223468A50009A18E /* Resources */,
+				87DD628C35B6D5233CD5039A /* [CP] Embed Pods Frameworks */,
+				94AEF98F22480770004B0F37 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -215,6 +239,53 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		87DD628C35B6D5233CD5039A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomeTaskNumberOne/Pods-HomeTaskNumberOne-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomeTaskNumberOne/Pods-HomeTaskNumberOne-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94AEF98F22480770004B0F37 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -229,8 +300,10 @@
 				94AEF960223BD980004B0F37 /* Location.swift in Sources */,
 				94AEF95C223B240A004B0F37 /* TableViewCell.swift in Sources */,
 				94AEF956223A6A65004B0F37 /* Weather.swift in Sources */,
+				94AEF98822410B65004B0F37 /* WeatherDBService.swift in Sources */,
 				94AEF95422399B1B004B0F37 /* DetailsViewController.swift in Sources */,
 				946FF0F5223468A50009A18E /* AppDelegate.swift in Sources */,
+				94AEF986224102D9004B0F37 /* WeatherDB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
