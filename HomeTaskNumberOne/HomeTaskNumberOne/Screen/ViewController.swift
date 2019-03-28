@@ -47,7 +47,6 @@ class ViewController: UIViewController {
         intent.values.append(String(weather.feelsLikeFarenheit))
         intent.values.append(String(weather.feelsLikeCelcius))
         intent.values.append(weather.cityName)
-        intent.values.append(weather.text)
     }
 
     @IBAction private func deletaAll(_ sender: UIBarButtonItem) {
