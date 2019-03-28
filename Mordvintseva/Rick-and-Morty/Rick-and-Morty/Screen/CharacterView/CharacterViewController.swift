@@ -10,19 +10,18 @@ import UIKit
 
 class CharacterViewController: UIViewController {
     @IBOutlet private var infoTable: UITableView!
-    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var image: UIImageView!
     private let infoCellIdentifier = "infoCell"
     private var character: CharacterRecord!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.nameLabel.text = character.name
+        self.title = character.name
         self.infoTable.dataSource = self
-        DispatchQueue.main.async {
-            self.infoTable.reloadData()
-        }
-        infoTable.tableFooterView = UIView()
+        self.infoTable.tableFooterView = UIView()
+        let minSide = min(image.frame.height, image.frame.height)
+        image.getImageByURL(url: URL(string: character.image)!, size: CGSize(width: minSide, height: minSide))
     }
 
     private enum CharacterInfo: Int, CaseIterable {
@@ -60,5 +59,4 @@ extension CharacterViewController: UITableViewDataSource {
         cell.detailTextLabel?.text = value
         return cell
     }
-
 }

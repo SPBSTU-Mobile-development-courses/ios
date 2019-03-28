@@ -35,19 +35,7 @@ class DBManager {
 
     func add(_ character: [Character]) {
         for item in character {
-            let characterRecord = CharacterRecord(character: item)
-            do {
-                try realm.write {
-                    realm.add(characterRecord)
-                }
-            } catch {
-                print(error)
-            }
+            self.add(item)
         }
-    }
-
-    func search<T: Comparable>(_ fieldName: String, _ value: T) -> Results<CharacterRecord> {
-        let result = realm.objects(CharacterRecord.self).filter("\(fieldName) = \(value)")
-        return result
     }
 }

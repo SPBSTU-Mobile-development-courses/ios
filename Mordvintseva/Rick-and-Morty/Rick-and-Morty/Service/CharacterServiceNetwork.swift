@@ -7,19 +7,17 @@
 //
 
 import Foundation
+import Alamofire
 
 class CharacterServiceNetwork: CharacterService {
-    private let emptyString = ""
-
-    func getCharacters(urlString: String, _ completionHandler: @escaping ((CharactersPage) -> Void)) {
-        guard urlString != emptyString, let url = URL(string: urlString) else { return }
+    func getCharacters(url: String, _ completionHandler: @escaping ((CharactersPage) -> Void)) {
         getItemByURL(url: url) { (charactersPage: CharactersPage) in
             completionHandler(charactersPage)
         }
     }
 
-    func getItemByURL<T: Decodable>(url: URL, completionHandler: @escaping ((T) -> Void)) {
-        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+    func getItemByURL<T: Decodable>(url: String, completionHandler: @escaping ((T) -> Void)) {
+        let task = URLSession.shared.dataTask(with: URL(string: url)!) { data, _, error in
             guard let data = data, error == nil else { return }
 
             do {
