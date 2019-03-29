@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol UsersService {
-    func getPage(url: String?, _ completionHandler: @escaping ((User?) -> Void))
+protocol UserService {
+    func getUser(login: String, password: String, _ completionHandler: @escaping ((User?) -> Void))
+    func getUsers(url: String?, _ completionHandler: @escaping (([User]) -> Void))
     func sendUser(user: User?, _ completionHandler: @escaping ((Bool) -> Void))
 }

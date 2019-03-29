@@ -4,6 +4,7 @@ use_frameworks!
 target 'UsersInformation' do
   use_frameworks!
   
+  pod 'RealmSwift'  
   pod 'SwiftLint'
   pod 'Alamofire'
 

@@ -8,6 +8,4 @@
 
 import Foundation
 
-struct Users: Codable {
-    let users: [User]
-}
+typealias Users = [User]

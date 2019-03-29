@@ -15,6 +15,6 @@ struct User: Codable {
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case login, password, name, age, gender, height, mass
+        case login, name, password, age, gender, height, mass
     }
 }

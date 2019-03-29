@@ -6,32 +6,42 @@
 //  Copyright © 2019 Artem. All rights reserved.
 //
 
+import RealmSwift
 import UIKit
 
 class AuthController: UIViewController {
     @IBOutlet private var textLogin: UITextField!
     @IBOutlet private var textPassword: UITextField!
 
+    private let usersRealm = UsersRealm()
     private let userService = UserServiceNetwork()
+    private let authStatus = "authStatus"
+    private let loginKey = "login"
+    private let passwordKey = "password"
+    private lazy var userInRealm = usersRealm.getUsers()
     private var user: User?
-    var status = "firstStart"
 
     @IBAction private func buttonClickSign(_ sender: UIButton) {
         guard let passw = textPassword.text else { return }
         guard let login = textLogin.text else { return }
-        let urlBolart = "http://bolart.ru:3012/people/" + login + "/" + passw
 
-        userService.getPage(url: urlBolart) {user in
+        userService.getUser(login: login, password: passw) { user in
             self.user = user
             DispatchQueue.main.async {
-                guard user != nil else {
+                guard let user = user else {
                     let alert = UIAlertController(title: "Error", message: "Incorrect login or password", preferredStyle: .alert)
                     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 
                     alert.addAction(cancelAction)
+                    self.textPassword.text = ""
                     self.present(alert, animated: true)
                     return
                 }
+                self.usersRealm.updateMainUser(user: user)
+                UserDefaults.standard.set(login, forKey: self.loginKey)
+                UserDefaults.standard.set(passw, forKey: self.passwordKey)
+                UserDefaults.standard.set("autorized", forKey: self.authStatus)
+
                 self.performSegue(withIdentifier: "goToMainView", sender: self)
             }
         }
@@ -43,13 +53,34 @@ class AuthController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToMainView" {
-            guard let mainController = segue.destination as? MainController else { return }
-            mainController.user = user
+            // swiftlint:disable:next force_cast
+            let myTabbarController: UITabBarController = segue.destination as! UITabBarController
+            guard let mainViewController = myTabbarController.viewControllers?[0] as? MainController else { return }
+            mainViewController.user = self.user
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        guard let status = UserDefaults.standard.string(forKey: authStatus) else { return }
+        if status.isEqual("autorized") {
+            guard let login = UserDefaults.standard.string(forKey: loginKey) else { return }
+            guard let passw = UserDefaults.standard.string(forKey: passwordKey) else { return }
+            userService.getUser(login: login, password: passw) { user in
+                self.user = user
+                DispatchQueue.main.async {
+                    guard let user = user else {
+                        let alert = UIAlertController(title: "Error", message: "Incorrect login or password", preferredStyle: .alert)
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                        alert.addAction(cancelAction)
+                        self.textPassword.text = ""
+                        self.present(alert, animated: true)
+                        return
+                    }
+                    self.usersRealm.updateMainUser(user: user)
+                    self.performSegue(withIdentifier: "goToMainView", sender: self)
+                }
+            }
+        }
     }
 }

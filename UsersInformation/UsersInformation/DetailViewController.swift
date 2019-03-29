@@ -1,21 +1,19 @@
 //
-//  MainView.swift
+//  DetailViewController.swift
 //  UsersInformation
 //
-//  Created by Artem on 20/03/2019.
+//  Created by Artem on 24/03/2019.
 //  Copyright © 2019 Artem. All rights reserved.
 //
 
 import UIKit
 
-class MainController: UIViewController {
+class DetailViewController: UIViewController {
     @IBOutlet private var labelName: UILabel!
     @IBOutlet private var labelAge: UILabel!
     @IBOutlet private var labelGender: UILabel!
     @IBOutlet private var labelMass: UILabel!
     @IBOutlet private var labelHeight: UILabel!
-
-    private let authStatus = "authStatus"
     // swiftlint:disable:next implicitly_unwrapped_optional
     var user: User!
 
@@ -26,9 +24,5 @@ class MainController: UIViewController {
         labelGender.text = user.gender
         labelMass.text = user.mass
         labelHeight.text = user.height
-    }
-
-    @IBAction private func clickLogOutButton(_ sender: UIButton) {
-        UserDefaults.standard.set("unautorized", forKey: authStatus)
     }
 }

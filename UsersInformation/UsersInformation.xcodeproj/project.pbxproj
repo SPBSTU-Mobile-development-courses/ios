@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		19EBE046D24B9FC2536756EE /* Pods_UsersInformation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9615A25309B49DE7419101D4 /* Pods_UsersInformation.framework */; };
+		AC35AF78224E52CF00531C13 /* AllUsersInRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC35AF77224E52CF00531C13 /* AllUsersInRealm.swift */; };
+		AC35AF7A224E579000531C13 /* AllUsersRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC35AF79224E579000531C13 /* AllUsersRealm.swift */; };
+		AC6D32772247D6AB00F555F3 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D32762247D6AB00F555F3 /* UsersViewController.swift */; };
+		AC6D32792248043700F555F3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6D32782248043700F555F3 /* DetailViewController.swift */; };
 		AC7AF53C2242689B0002FAA3 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7AF53B2242689B0002FAA3 /* MainController.swift */; };
 		AC8E9486224294C600F7CC1B /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8E9485224294C600F7CC1B /* RegisterController.swift */; };
+		AC94C9C5224AD70000E81CFA /* UserInRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94C9C4224AD70000E81CFA /* UserInRealm.swift */; };
+		AC94C9C7224AE06800E81CFA /* UsersRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94C9C6224AE06800E81CFA /* UsersRealm.swift */; };
 		ACC01A8A22404E13007BC668 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC01A8922404E13007BC668 /* AppDelegate.swift */; };
 		ACC01A8C22404E13007BC668 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC01A8B22404E13007BC668 /* AuthController.swift */; };
 		ACC01A8F22404E13007BC668 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC01A8D22404E13007BC668 /* Main.storyboard */; };
@@ -17,15 +23,21 @@
 		ACC01A9422404E15007BC668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC01A9222404E15007BC668 /* LaunchScreen.storyboard */; };
 		ACC01A9C22405024007BC668 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC01A9B22405024007BC668 /* User.swift */; };
 		ACC01A9F2240504A007BC668 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC01A9E2240504A007BC668 /* Users.swift */; };
-		ACC01AA222405104007BC668 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC01AA122405104007BC668 /* UsersService.swift */; };
+		ACC01AA222405104007BC668 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC01AA122405104007BC668 /* UserService.swift */; };
 		ACC01AA422405160007BC668 /* UserServiceNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC01AA322405160007BC668 /* UserServiceNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		960D90153062BEB338F23CE5 /* Pods-UsersInformation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersInformation.debug.xcconfig"; path = "Target Support Files/Pods-UsersInformation/Pods-UsersInformation.debug.xcconfig"; sourceTree = "<group>"; };
 		9615A25309B49DE7419101D4 /* Pods_UsersInformation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UsersInformation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC35AF77224E52CF00531C13 /* AllUsersInRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUsersInRealm.swift; sourceTree = "<group>"; };
+		AC35AF79224E579000531C13 /* AllUsersRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUsersRealm.swift; sourceTree = "<group>"; };
+		AC6D32762247D6AB00F555F3 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		AC6D32782248043700F555F3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AC7AF53B2242689B0002FAA3 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		AC8E9485224294C600F7CC1B /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		AC94C9C4224AD70000E81CFA /* UserInRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInRealm.swift; sourceTree = "<group>"; };
+		AC94C9C6224AE06800E81CFA /* UsersRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRealm.swift; sourceTree = "<group>"; };
 		ACC01A8622404E13007BC668 /* UsersInformation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UsersInformation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC01A8922404E13007BC668 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACC01A8B22404E13007BC668 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
@@ -34,7 +46,7 @@
 		ACC01A9322404E15007BC668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACC01A9B22405024007BC668 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ACC01A9E2240504A007BC668 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
-		ACC01AA122405104007BC668 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
+		ACC01AA122405104007BC668 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		ACC01AA322405160007BC668 /* UserServiceNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceNetwork.swift; sourceTree = "<group>"; };
 		CBDCEC3F7D7C7DBE711A5009 /* Pods-UsersInformation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UsersInformation.release.xcconfig"; path = "Target Support Files/Pods-UsersInformation/Pods-UsersInformation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,8 +103,10 @@
 			children = (
 				ACC01A8922404E13007BC668 /* AppDelegate.swift */,
 				ACC01A8B22404E13007BC668 /* AuthController.swift */,
-				AC7AF53B2242689B0002FAA3 /* MainController.swift */,
 				AC8E9485224294C600F7CC1B /* RegisterController.swift */,
+				AC7AF53B2242689B0002FAA3 /* MainController.swift */,
+				AC6D32762247D6AB00F555F3 /* UsersViewController.swift */,
+				AC6D32782248043700F555F3 /* DetailViewController.swift */,
 				ACC01A8D22404E13007BC668 /* Main.storyboard */,
 				ACC01A9022404E15007BC668 /* Assets.xcassets */,
 				ACC01A9222404E15007BC668 /* LaunchScreen.storyboard */,
@@ -107,6 +121,8 @@
 			children = (
 				ACC01A9B22405024007BC668 /* User.swift */,
 				ACC01A9E2240504A007BC668 /* Users.swift */,
+				AC94C9C4224AD70000E81CFA /* UserInRealm.swift */,
+				AC35AF77224E52CF00531C13 /* AllUsersInRealm.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -114,8 +130,10 @@
 		ACC01AA0224050E3007BC668 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				ACC01AA122405104007BC668 /* UsersService.swift */,
+				ACC01AA122405104007BC668 /* UserService.swift */,
 				ACC01AA322405160007BC668 /* UserServiceNetwork.swift */,
+				AC94C9C6224AE06800E81CFA /* UsersRealm.swift */,
+				AC35AF79224E579000531C13 /* AllUsersRealm.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -222,12 +240,16 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UsersInformation/Pods-UsersInformation-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -264,7 +286,13 @@
 				ACC01A8A22404E13007BC668 /* AppDelegate.swift in Sources */,
 				AC8E9486224294C600F7CC1B /* RegisterController.swift in Sources */,
 				ACC01AA422405160007BC668 /* UserServiceNetwork.swift in Sources */,
-				ACC01AA222405104007BC668 /* UsersService.swift in Sources */,
+				AC35AF7A224E579000531C13 /* AllUsersRealm.swift in Sources */,
+				AC94C9C7224AE06800E81CFA /* UsersRealm.swift in Sources */,
+				AC94C9C5224AD70000E81CFA /* UserInRealm.swift in Sources */,
+				ACC01AA222405104007BC668 /* UserService.swift in Sources */,
+				AC35AF78224E52CF00531C13 /* AllUsersInRealm.swift in Sources */,
+				AC6D32792248043700F555F3 /* DetailViewController.swift in Sources */,
+				AC6D32772247D6AB00F555F3 /* UsersViewController.swift in Sources */,
 				ACC01A9C22405024007BC668 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
