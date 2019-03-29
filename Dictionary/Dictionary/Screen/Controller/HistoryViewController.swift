@@ -21,7 +21,9 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         observer = words.observe { [weak self] _ in
             guard let self = self else { return }
-            self.historyTableView.reloadData()
+            DispatchQueue.main.async {
+                self.historyTableView.reloadData()
+            }
             self.deleteHistoryButton.isEnabled = !self.words.isEmpty
         }
     }
@@ -34,8 +36,8 @@ class HistoryViewController: UIViewController {
     @IBAction func deleteAllHistory(_ sender: UIButton) {
         let alert = UIAlertController(title: "Delete all history?", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        let addAction = UIAlertAction(title: "Delete", style: .default) { _ in
-            self.wordService.deleteAll()
+        let addAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            self.wordService.deleteAll(ofType: SearchedWord.self)
         }
         alert.addAction(addAction)
         present(alert, animated: true)

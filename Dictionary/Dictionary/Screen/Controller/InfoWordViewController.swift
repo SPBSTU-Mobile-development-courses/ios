@@ -12,14 +12,27 @@ import UIKit
 
 class InfoWordViewController: UIViewController {
     @IBOutlet private var infoWordTableView: UITableView!
+    @IBOutlet private var favouriteButton: UIBarButtonItem!
     private let wordInfoService = WordNetworkService()
-    private var word: Word?
+    // swiftlint:disable implicitly_unwrapped_optional
+    private var word: Word!
+    // swiftlint:enable implicitly_unwrapped_optional
+    private var favouriteWord: FavouriteWord?
     private let identifierCell = "infoCell"
     private let identifierHeader = "headerInfo"
+    private let wordService = WordDBService()
     // swiftlint:disable force_unwrapping
     private let reachability = Reachability()!
-    // swiftlint:enable force_unwrapping
     var wordTitle: String?
+    var fromFavouriteView = false
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        guard fromFavouriteView else {
+            self.navigationItem.setRightBarButton(nil, animated: true)
+            return
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +47,11 @@ class InfoWordViewController: UIViewController {
                 return
             }
             self.word = words.first
+            self.wordService.checkFavouriteWord(self.word) { [weak self] word in
+                guard let self = self else { return }
+                self.favouriteWord = word
+                self.favouriteButton.tintColor = .red
+            }
             DispatchQueue.main.async {
                 self.infoWordTableView.reloadData()
             }
@@ -46,6 +64,19 @@ class InfoWordViewController: UIViewController {
         }
         present(alert, animated: true)
     }
+    
+    // swiftlint:disable private_action
+    @IBAction func clickedFavouriteButton(_ sender: UIBarButtonItem) {
+        guard let word = favouriteWord else {
+            self.favouriteWord = FavouriteWord(wordTitle: self.word.title, isFavourite: true)
+            wordService.addNewWord(self.favouriteWord!)
+            favouriteButton.tintColor = .red
+            return
+        }
+        wordService.updateFavouriteWord(word, isFavourite: !word.isFavourite)
+        favouriteButton.tintColor = favouriteWord!.isFavourite ? .red : .lightGray
+    }
+    // swiftlint:enable private_action
 }
 
 // MARK: - UITableViewDataSource
@@ -79,16 +110,5 @@ extension InfoWordViewController: UITableViewDelegate {
         let entry = self.word?.lexicalEntries?[section]
         headerView.entry = entry
         return headerView
-    }
-}
-
-// MARK: - String
-extension String {
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).uppercased() + self.lowercased().dropFirst()
-    }
-    
-    mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
     }
 }

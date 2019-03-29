@@ -55,7 +55,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="4Sh-u9-2Sg" kind="relationship" relationship="viewControllers" id="O8B-qe-jYm"/>
-                        <segue destination="SpU-9p-Min" kind="relationship" relationship="viewControllers" id="KOr-aM-dpI"/>
+                        <segue destination="X3r-Vz-t8f" kind="relationship" relationship="viewControllers" id="uFo-Ni-cXg"/>
+                        <segue destination="SpU-9p-Min" kind="relationship" relationship="viewControllers" id="7ek-cE-x3a"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QYb-ZX-Rz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,14 +156,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t1e-Gl-abF"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Info" largeTitleDisplayMode="never" id="OYi-66-vMO"/>
+                    <navigationItem key="navigationItem" title="Info" largeTitleDisplayMode="never" id="OYi-66-vMO">
+                        <barButtonItem key="rightBarButtonItem" image="heart" style="plain" id="fmi-f1-pLP">
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="clickedFavouriteButton:" destination="cry-OY-pWG" id="AE8-Gf-nBr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="favouriteButton" destination="fmi-f1-pLP" id="KsB-C5-e7M"/>
                         <outlet property="infoWordTableView" destination="5Oq-AN-8Za" id="mtt-NB-Vcb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXO-on-f8O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="973" y="133"/>
+            <point key="canvasLocation" x="1157" y="575"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yii-c1-6EN">
@@ -190,6 +199,99 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fru-my-6g1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-810" y="954"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="m5h-v8-3hS">
+            <objects>
+                <navigationController id="X3r-Vz-t8f" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="Ywf-eu-hYS">
+                        <color key="badgeColor" red="0.99207013850000003" green="0.99221235510000005" blue="0.99203914400000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9l1-iT-fZa">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.99207013850000003" green="0.99221235510000005" blue="0.99203914400000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.1723299623" green="0.21937060359999999" blue="0.44727385040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.99207013850000003" green="0.99221235510000005" blue="0.99203914400000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.1723299623" green="0.21937060359999999" blue="0.44727385040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.1723299623" green="0.21937060359999999" blue="0.44727385040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ikd-8S-MZL" kind="relationship" relationship="rootViewController" id="D4X-dI-cll"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ae-nV-l9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="1730"/>
+        </scene>
+        <!--Favourites-->
+        <scene sceneID="1iM-eA-vH0">
+            <objects>
+                <viewController id="ikd-8S-MZL" customClass="FavouritesViewController" customModule="Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F07-At-jha">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rVx-ub-h6S">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favouriteCell" textLabel="h20-BN-MCh" style="IBUITableViewCellStyleDefault" id="pJR-cS-5k8">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pJR-cS-5k8" id="O7i-Kh-28c">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h20-BN-MCh">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.99207013850000003" green="0.99221235510000005" blue="0.99203914400000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="cry-OY-pWG" kind="show" id="cZ2-wE-J6z"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ikd-8S-MZL" id="vHY-B6-H8c"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rVx-ub-h6S" firstAttribute="top" secondItem="3d8-Xg-awU" secondAttribute="top" id="Xy5-xs-oKK"/>
+                            <constraint firstItem="3d8-Xg-awU" firstAttribute="trailing" secondItem="rVx-ub-h6S" secondAttribute="trailing" id="kf6-dN-FbE"/>
+                            <constraint firstItem="rVx-ub-h6S" firstAttribute="leading" secondItem="3d8-Xg-awU" secondAttribute="leading" id="poN-gW-xt0"/>
+                            <constraint firstItem="3d8-Xg-awU" firstAttribute="bottom" secondItem="rVx-ub-h6S" secondAttribute="bottom" id="zFH-Se-BvK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3d8-Xg-awU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favourites" id="WEy-Yy-BAG">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="trash" id="hcl-WO-WdF">
+                            <color key="tintColor" red="0.1723299623" green="0.21937060359999999" blue="0.44727385040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="deleteAllFavourites:" destination="ikd-8S-MZL" id="HvJ-UK-wm9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="deleteFavouriteButton" destination="hcl-WO-WdF" id="Ddv-uT-jmI"/>
+                        <outlet property="favouritesTableView" destination="rVx-ub-h6S" id="qam-YT-jz9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zWj-Qz-08N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="1728.1690140845071"/>
         </scene>
         <!--History-->
         <scene sceneID="DeA-RP-QbQ">
@@ -257,7 +359,10 @@
             <point key="canvasLocation" x="135" y="954"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="heart" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eli-3w-HYZ"/>
+        <segue reference="cZ2-wE-J6z"/>
     </inferredMetricsTieBreakers>
 </document>

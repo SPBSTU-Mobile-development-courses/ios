@@ -59,7 +59,7 @@ class WordSearchViewController: UIViewController {
         guard let index = self.wordsTableView.indexPathForSelectedRow else { return }
         guard let infoViewController = segue.destination as? InfoWordViewController else { return }
         infoViewController.wordTitle = words[index.row].title
-        wordService.addWord(withTitle: words[index.row].title)
+        wordService.addNewWord(SearchedWord(wortTitle: words[index.row].title))
         searchController.searchBar.resignFirstResponder()
     }
     
