@@ -28,8 +28,8 @@ class InfoWordViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        guard fromFavouriteView else {
-            self.navigationItem.setRightBarButton(nil, animated: true)
+        guard !fromFavouriteView else {
+            self.navigationItem.setRightBarButton(nil, animated: false)
             return
         }
     }
