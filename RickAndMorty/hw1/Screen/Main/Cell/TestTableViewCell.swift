@@ -20,11 +20,15 @@ class TestTableViewCell: UITableViewCell {
         avatarView.layer.cornerRadius = avatarView.frame.height / 2
         avatarView.clipsToBounds = true
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avatarView.kf.cancelDownloadTask()
+    }
 
     func setupCell(with person: RealmChar) {
         nameLabel.text = person.name
         self.avatarView.kf.indicatorType = .activity
-        self.avatarView.kf.cancelDownloadTask()
         self.avatarView.kf.setImage(with: person.imageUrl)
     }
 }

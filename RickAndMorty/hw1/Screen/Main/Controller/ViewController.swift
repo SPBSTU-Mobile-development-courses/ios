@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         checkNetworkConnect()
         tableView.register(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
-        guard let url = url, realmPerson.isEmpty  else { return }
+        guard let url = url, realmPerson.isEmpty else { return }
         self.jsonDataService.getCharacter(url: url) { [weak self] characters, _ in
             guard let self = self else { return }
             self.realmService.addAll(people: characters)
