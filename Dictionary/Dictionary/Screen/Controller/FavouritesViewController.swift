@@ -15,7 +15,7 @@ class FavouritesViewController: UIViewController {
     private let wordService = WordDBService()
     private lazy var words = wordService.getAllWords(forType: FavouriteWord.self)
     private let identifier = "favouriteCell"
-    var observer: NotificationToken?
+    private var observer: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,7 @@ class FavouritesViewController: UIViewController {
         observer?.invalidate()
     }
     
-    // swiftlint:disable private_action
-    @IBAction func deleteAllFavourites(_ sender: UIButton) {
+    @IBAction private func deleteAllFavourites(_ sender: UIButton) {
         let alert = UIAlertController(title: "Delete all favourites?", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         let addAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
@@ -42,13 +41,11 @@ class FavouritesViewController: UIViewController {
         alert.addAction(addAction)
         present(alert, animated: true)
     }
-    // swiftlint:enable private_action
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let index = self.favouritesTableView.indexPathForSelectedRow else { return }
         guard let infoViewController = segue.destination as? InfoWordViewController else { return }
         infoViewController.wordTitle = words[index.row].wordTitle
-        infoViewController.fromFavouriteView = true
     }
 }
 

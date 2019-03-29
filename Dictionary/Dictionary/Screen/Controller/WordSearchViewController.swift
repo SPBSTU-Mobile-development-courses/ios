@@ -20,7 +20,7 @@ class WordSearchViewController: UIViewController {
     private let wordService = WordDBService()
     private let reachabilityService = NetworkReachabilityService()
     private var isNoWord: Bool {
-        return words.isEmpty && !searchBarIsEmpty()
+        return words.isEmpty && !searchController.isSearchBarEmpty
     }
     
     override func viewDidLoad() {
@@ -33,6 +33,7 @@ class WordSearchViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
+        wordsTableView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,13 +91,9 @@ extension WordSearchViewController: UISearchResultsUpdating {
         filterContentForSearchText(searchText)
     }
     
-    func searchBarIsEmpty() -> Bool {
-        return searchController.searchBar.text?.isEmpty ?? true
-    }
-    
     func filterContentForSearchText(_ searchText: String) {
         cancelRequests()
-        guard !searchBarIsEmpty() else {
+        guard !searchController.isSearchBarEmpty else {
             self.words.removeAll()
             self.wordsTableView.reloadData()
             return
@@ -112,10 +109,17 @@ extension WordSearchViewController: UISearchResultsUpdating {
     }
 }
 
+// MARK: - UISearchController
+extension UISearchController {
+    var isSearchBarEmpty: Bool {
+        return searchBar.text?.isEmpty ?? true
+    }
+}
+
 // MARK: - UISearchControllerDelegate
 extension WordSearchViewController: UISearchControllerDelegate {
     func willPresentSearchController(_ searchController: UISearchController) {
-        self.wordsTableView.isHidden = false
+         self.wordsTableView.isHidden = false
     }
     
     func willDismissSearchController(_ searchController: UISearchController) {

@@ -5,7 +5,7 @@
 //  Created by Мария on 25/03/2019.
 //  Copyright © 2019 Мария. All rights reserved.
 //
-
+import Realm
 import RealmSwift
 
 class WordDBService {
@@ -14,6 +14,9 @@ class WordDBService {
             fatalError("Realm can't be initialized")
         }
         return realm
+    }
+    var isInWriteTransaction: Bool {
+        return realm.isInWriteTransaction
     }
     
     func getAllWords<Element: Object>(forType type: Element.Type) -> Results<Element> {
@@ -36,23 +39,7 @@ class WordDBService {
         guard let favouriteWord = findFavouriteWord(withTitle: word.title) else { return }
         completionHandler(favouriteWord)
     }
-    
-    func updateFavouriteWord(_ word: FavouriteWord, isFavourite: Bool) {
-        realm.cancelWrite()
-        do {
-            try realm.write {
-                word.isFavourite = isFavourite
-                guard isFavourite else {
-                    delete(word: word)
-                    return
-                }
-                addNewWord(word)
-            }
-        } catch {
-            print(error)
-        }
-    }
-    
+
     func deleteAll<Element: Object>(ofType type: Element.Type) {
         do {
             try realm.write {

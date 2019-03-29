@@ -15,7 +15,7 @@ class HistoryViewController: UIViewController {
     private let wordService = WordDBService()
     private lazy var words = wordService.getAllWords(forType: SearchedWord.self)
     private let identifier = "Cell"
-    var observer: NotificationToken?
+    private var observer: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,7 @@ class HistoryViewController: UIViewController {
         observer?.invalidate()
     }
     
-    // swiftlint:disable private_action
-    @IBAction func deleteAllHistory(_ sender: UIButton) {
+    @IBAction private func deleteAllHistory(_ sender: UIButton) {
         let alert = UIAlertController(title: "Delete all history?", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         let addAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
@@ -42,7 +41,6 @@ class HistoryViewController: UIViewController {
         alert.addAction(addAction)
         present(alert, animated: true)
     }
-    // swiftlint:enable private_action
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let index = self.historyTableView.indexPathForSelectedRow else { return }

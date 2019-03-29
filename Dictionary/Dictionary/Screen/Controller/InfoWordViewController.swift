@@ -24,15 +24,6 @@ class InfoWordViewController: UIViewController {
     // swiftlint:disable force_unwrapping
     private let reachability = Reachability()!
     var wordTitle: String?
-    var fromFavouriteView = false
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        guard !fromFavouriteView else {
-            self.navigationItem.setRightBarButton(nil, animated: false)
-            return
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +31,23 @@ class InfoWordViewController: UIViewController {
         infoWordTableView.tableFooterView = UIView()
         infoWordTableView.register(UINib(nibName: "InfoTableViewCell", bundle: nil), forCellReuseIdentifier: identifierCell)
         infoWordTableView.register(UINib(nibName: "WordHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: identifierHeader)
+        getWordData()
+    }
+    
+    @IBAction private func clickedFavouriteButton(_ sender: UIBarButtonItem) {
+        guard let newWord = favouriteWord else {
+            self.favouriteWord = FavouriteWord(wordTitle: self.word.title, isFavourite: true)
+            wordService.addNewWord(self.favouriteWord!)
+            favouriteButton.tintColor = .red
+            return
+        }
+        favouriteWord = nil
+        favouriteButton.tintColor = .lightGray
+        wordService.delete(word: newWord)
+    }
+    
+    // MARK: - Private
+    private func getWordData() {
         wordInfoService.getData { [weak self] words in
             guard let self = self else { return }
             guard let words = words else {
@@ -58,25 +66,12 @@ class InfoWordViewController: UIViewController {
         }
     }
     
-    func getErrorNetworkMessage() {
+    private func getErrorNetworkMessage() {
         let alert = NetworkReachabilityService().getErrorNetworkAlertController { _ in
             self.navigationController?.popToRootViewController(animated: true)
         }
         present(alert, animated: true)
     }
-    
-    // swiftlint:disable private_action
-    @IBAction func clickedFavouriteButton(_ sender: UIBarButtonItem) {
-        guard let word = favouriteWord else {
-            self.favouriteWord = FavouriteWord(wordTitle: self.word.title, isFavourite: true)
-            wordService.addNewWord(self.favouriteWord!)
-            favouriteButton.tintColor = .red
-            return
-        }
-        wordService.updateFavouriteWord(word, isFavourite: !word.isFavourite)
-        favouriteButton.tintColor = favouriteWord!.isFavourite ? .red : .lightGray
-    }
-    // swiftlint:enable private_action
 }
 
 // MARK: - UITableViewDataSource
