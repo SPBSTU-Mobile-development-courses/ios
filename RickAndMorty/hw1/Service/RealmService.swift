@@ -41,4 +41,12 @@ class RealmService {
             print(error)
         }
     }
+
+    func searchElement(name: String) -> Results<RealmChar>? {
+        if !name.contains("\\") {
+            return realm.objects(RealmChar.self).filter("name BEGINSWITH '\(name)'")
+        } else {
+            return nil
+        }
+    }
 }

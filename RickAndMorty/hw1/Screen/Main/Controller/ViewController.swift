@@ -23,9 +23,16 @@ class ViewController: UIViewController {
     private let reuseIdentifier = "Cell"
     //swiftlint:disable:next force_unwrapping
     private let reachability = Reachability()!
+    private let search = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.definesPresentationContext = true
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Type character's name"
+        self.navigationItem.searchController = search
         checkNetworkConnect()
         tableView.register(UINib(nibName: "TestTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         guard let url = url, realmPerson.isEmpty else { return }
@@ -62,6 +69,19 @@ class ViewController: UIViewController {
                 print("Unable to start notifier")
             }
         }
+    }
+}
+
+extension ViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text, !text.isEmpty else {
+            realmPerson = realmService.getAll()
+            tableView.reloadData()
+            return
+        }
+        guard let itemFound = realmService.searchElement(name: "\(text.localizedCapitalized)") else { return }
+        realmPerson = itemFound
+        tableView.reloadData()
     }
 }
 

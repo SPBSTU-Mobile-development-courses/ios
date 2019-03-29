@@ -20,7 +20,7 @@ class TestTableViewCell: UITableViewCell {
         avatarView.layer.cornerRadius = avatarView.frame.height / 2
         avatarView.clipsToBounds = true
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         avatarView.kf.cancelDownloadTask()
