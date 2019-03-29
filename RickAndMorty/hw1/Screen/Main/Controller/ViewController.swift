@@ -79,7 +79,7 @@ extension ViewController: UISearchResultsUpdating {
             tableView.reloadData()
             return
         }
-        guard let itemFound = realmService.searchElement(name: "\(text.localizedCapitalized)") else { return }
+        guard let itemFound = realmService.searchElement(name: "\(text)") else { return }
         realmPerson = itemFound
         tableView.reloadData()
     }
