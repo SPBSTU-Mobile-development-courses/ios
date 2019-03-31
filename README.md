@@ -76,4 +76,5 @@
 - Как сделать self-sizing cell?
 - Я хочу поменять констрейнты/добавить из кода. В каком методе UIViewController/UIView нужно это делать?
 - Что такое autoresizing masks?
+- В чем отличие pixel от point в ios?
 - Что такое method dispatch? Какие типы бывают в свифте? (хардкор вопрос)
