@@ -46,3 +46,26 @@
 - Перечислите все способы работы с optional
 - В чем разница Dependency Injection и Dependency Inversion? Пример?
 - Что такое method dispatch? Какие типы бывают в свифте? (хардкор вопрос)
+
+## 3) Autolayout pro
+
+### Материлы
+- Ссылка на интересный видос про autolayout: https://developer.apple.com/videos/play/wwdc2018/220  
+- Ссылка на все то, что я рассказывал на лекции: https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html
+- И по русски (меньше): https://habr.com/ru/company/oleg-bunin/blog/437584/
+- И про метод диспатч: https://www.raizlabs.com/dev/2016/12/swift-method-dispatch/
+
+### Домашка
+
+Сделать копию дизайна калькулятора Apple. Нужно проверить, что верстка не едет на разных моделях айфонах. Логику счета реализовывать НЕ НУЖНО.
+Все клавиши в landscape тоже не нужно, добавьте один столбик. Главное чтобы верстка была разной для portrait/landscape. Вам могут помочь size classes, о которых нужно почитать самим.
+
+![Portrait](Pics/portrait.jpg)
+
+![Landscape](Pics/landscape.jpg)
+
+Дальнейшие изыскания (все это можно положить в одно приложение на разные экраны tabbar):
+- сделать таблицу с динамической высотой ячеек (контент не важен)
+- сделать что нибудь со scrollView (контент не важен). Например экран логина. Убедиться что кнопка доступна пользователю после показа клавиуатуры.
+![Login](Pics/login.jpg)
+- удиви меня и получишь наклейку (Я ОБЕЩАЮ В ЭТОТ РАЗ ТОЧНО)
