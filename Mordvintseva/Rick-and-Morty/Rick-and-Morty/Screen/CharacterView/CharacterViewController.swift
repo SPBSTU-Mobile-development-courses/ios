@@ -12,7 +12,13 @@ class CharacterViewController: UIViewController {
     @IBOutlet private var infoTable: UITableView!
     @IBOutlet private var image: UIImageView!
     private let infoCellIdentifier = "infoCell"
+    // swiftlint:disable:next implicitly_unwrapped_optional
     private var character: CharacterRecord!
+
+    private enum CharacterInfo: Int, CaseIterable {
+        case status = 0
+        case species, type, gender
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +26,9 @@ class CharacterViewController: UIViewController {
         self.title = character.name
         self.infoTable.dataSource = self
         self.infoTable.tableFooterView = UIView()
-        let minSide = min(image.frame.height, image.frame.height)
-        image.getImageByURL(url: URL(string: character.image)!, size: CGSize(width: minSide, height: minSide))
-    }
-
-    private enum CharacterInfo: Int, CaseIterable {
-        case status = 0
-        case species, type, gender
+        if let url = URL(string: character.image) {
+            image.getImageByURL(url: url)
+        }
     }
 
     func setCharacter(character: CharacterRecord) {

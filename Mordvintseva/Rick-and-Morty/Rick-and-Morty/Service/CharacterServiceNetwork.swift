@@ -6,18 +6,20 @@
 //  Copyright © 2019 Mordvintseva Alena. All rights reserved.
 //
 
-import Foundation
 import Alamofire
+import Foundation
 
 class CharacterServiceNetwork: CharacterService {
     func getCharacters(url: String, _ completionHandler: @escaping ((CharactersPage) -> Void)) {
-        getItemByURL(url: url) { (charactersPage: CharactersPage) in
+        getItemByURL(string: url) { (charactersPage: CharactersPage) in
             completionHandler(charactersPage)
         }
     }
 
-    func getItemByURL<T: Decodable>(url: String, completionHandler: @escaping ((T) -> Void)) {
-        let task = URLSession.shared.dataTask(with: URL(string: url)!) { data, _, error in
+    func getItemByURL<T: Decodable>(string: String, completionHandler: @escaping ((T) -> Void)) {
+        guard let url = URL(string: string) else { return }
+
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data, error == nil else { return }
 
             do {

@@ -10,7 +10,6 @@ import Foundation
 import RealmSwift
 
 struct Character: Decodable {
-    // swiftlint:disable:next identifier_name
     let id: Int
     let name: String
     let status: String

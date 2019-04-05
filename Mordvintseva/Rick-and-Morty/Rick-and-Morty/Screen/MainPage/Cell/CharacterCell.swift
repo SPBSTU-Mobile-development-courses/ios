@@ -15,24 +15,6 @@ class CharacterCell: UITableViewCell {
     func set(name: String, imageURL: String) {
         guard let imageURL = URL(string: imageURL) else { return }
         nameLabel.text = name
-        avatar.getImageByURL(url: imageURL, size: CGSize(width: avatar.frame.width, height: avatar.frame.height))
-    }
-
-    func resizeImage(image: UIImage, width: CGFloat, height: CGFloat) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), true, 0.0)
-        image.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
-
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return newImage!
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        avatar.getImageByURL(url: imageURL)
     }
 }

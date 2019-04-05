@@ -6,13 +6,13 @@
 //  Copyright © 2019 Mordvintseva Alena. All rights reserved.
 //
 
-import UIKit
-import RealmSwift
 import Alamofire
+import RealmSwift
+import UIKit
 
 class MainPageController: UIViewController, UITableViewDelegate {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var loadingView: UIActivityIndicatorView!
     private let dataBase = DBManager()
     private lazy var characters = dataBase.getAll()
     private var nextPageURL: String? = "https://rickandmortyapi.com/api/character/"
@@ -29,17 +29,16 @@ class MainPageController: UIViewController, UITableViewDelegate {
 
         tableView.dataSource = self
         tableView.delegate = self
-        let nib = UINib.init(nibName: "CharacterCell", bundle: nil)
+        let nib = UINib(nibName: "CharacterCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
 
         print("Database size \(characters.count)")
-        if networkIsReachable, characters.count == 0 {
+        if networkIsReachable, characters.isEmpty {
             print("Starting loading info")
             loadAllCharacters()
         } else if !networkIsReachable {
             print("No network connection")
         }
-
     }
 
     func loadAllCharacters() {

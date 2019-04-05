@@ -10,5 +10,5 @@ import Foundation
 
 protocol CharacterService {
     func getCharacters(url: String, _ completionHandler: @escaping ((CharactersPage) -> Void))
-    func getItemByURL<T: Decodable>(url: String, completionHandler: @escaping ((T) -> Void))
+    func getItemByURL<T: Decodable>(string: String, completionHandler: @escaping ((T) -> Void))
 }

@@ -23,7 +23,7 @@
 		F76ABC89223EC69E00B2BC73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F76ABC87223EC69E00B2BC73 /* Main.storyboard */; };
 		F76ABC8B223EC69F00B2BC73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F76ABC8A223EC69F00B2BC73 /* Assets.xcassets */; };
 		F76ABC8E223EC69F00B2BC73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F76ABC8C223EC69F00B2BC73 /* LaunchScreen.storyboard */; };
-		F7C59F6C224777F500C38799 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C59F6B224777F500C38799 /* ImageView.swift */; };
+		F7C59F6C224777F500C38799 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C59F6B224777F500C38799 /* UIImageView.swift */; };
 		F7C9A71C22412A8F001C8274 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C9A71B22412A8F001C8274 /* CharacterCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +48,7 @@
 		F76ABC8A223EC69F00B2BC73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F76ABC8D223EC69F00B2BC73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F76ABC8F223EC69F00B2BC73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F7C59F6B224777F500C38799 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		F7C59F6B224777F500C38799 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		F7C9A71B22412A8F001C8274 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,7 +158,7 @@
 		F7C59F6A224777E600C38799 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F7C59F6B224777F500C38799 /* ImageView.swift */,
+				F7C59F6B224777F500C38799 /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#swiftlint autocorrect\n#if which swiftlint >/dev/null; then\n#swiftlint\n#else\n#echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n#fi\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -336,7 +336,7 @@
 				F73C1EB52240277300FF94C6 /* CharacterService.swift in Sources */,
 				F70EE3792240E8240078F4C6 /* DBManager.swift in Sources */,
 				F70EE3772240E11A0078F4C6 /* CharacterRecord.swift in Sources */,
-				F7C59F6C224777F500C38799 /* ImageView.swift in Sources */,
+				F7C59F6C224777F500C38799 /* UIImageView.swift in Sources */,
 				F73C1EBB22402C8500FF94C6 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

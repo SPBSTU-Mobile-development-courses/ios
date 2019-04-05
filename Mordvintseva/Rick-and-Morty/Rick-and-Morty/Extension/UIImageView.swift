@@ -6,12 +6,13 @@
 //  Copyright © 2019 Mordvintseva Alena. All rights reserved.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
 extension UIImageView {
-    func getImageByURL(url: URL, size: CGSize) {
-        let processor = DownsamplingImageProcessor(size: size)
+    func getImageByURL(url: URL) {
+        let processor = DownsamplingImageProcessor(size: CGSize(width: self.frame.size.width, height: self.frame.size.height))
+        self.kf.cancelDownloadTask()
         self.kf.setImage(with: url, options: [.processor(processor)])
     }
 }
