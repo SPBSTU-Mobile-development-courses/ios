@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C1262D92257862700CFB649 /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1262D82257862700CFB649 /* UITabBarController.swift */; };
 		4C5FF8582256D04300F6B57D /* HotelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FF8572256D04300F6B57D /* HotelViewController.swift */; };
 		4C5FF85A2256DE8500F6B57D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FF8592256DE8500F6B57D /* RoundButton.swift */; };
-		4C5FF85D2256EBC200F6B57D /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5FF85C2256EBC200F6B57D /* UITabBarController.swift */; };
 		F48981A7B3533E1D08361442 /* Pods_autolayouts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEAE7F0931FA853716F23383 /* Pods_autolayouts.framework */; };
 		FE6CACAF2254B325003F6BDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6CACAE2254B325003F6BDB /* AppDelegate.swift */; };
 		FE6CACB12254B325003F6BDB /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6CACB02254B325003F6BDB /* CalculatorViewController.swift */; };
@@ -21,9 +21,9 @@
 /* Begin PBXFileReference section */
 		07195AB7BE746823F9144373 /* Pods-autolayouts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autolayouts.debug.xcconfig"; path = "Target Support Files/Pods-autolayouts/Pods-autolayouts.debug.xcconfig"; sourceTree = "<group>"; };
 		1292E53BF1A83216AB9290BA /* Pods-autolayouts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-autolayouts.release.xcconfig"; path = "Target Support Files/Pods-autolayouts/Pods-autolayouts.release.xcconfig"; sourceTree = "<group>"; };
+		4C1262D82257862700CFB649 /* UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
 		4C5FF8572256D04300F6B57D /* HotelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelViewController.swift; sourceTree = "<group>"; };
 		4C5FF8592256DE8500F6B57D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		4C5FF85C2256EBC200F6B57D /* UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
 		BEAE7F0931FA853716F23383 /* Pods_autolayouts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_autolayouts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6CACAB2254B325003F6BDB /* autolayouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = autolayouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6CACAE2254B325003F6BDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,10 +54,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4C5FF85E2256EF0E00F6B57D /* Extension */ = {
+		4C1262DA2257862E00CFB649 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				4C5FF85C2256EBC200F6B57D /* UITabBarController.swift */,
+				4C1262D82257862700CFB649 /* UITabBarController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -118,9 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				FE6CACAE2254B325003F6BDB /* AppDelegate.swift */,
+				4C1262DA2257862E00CFB649 /* Extension */,
 				4C5FF8602256EF3800F6B57D /* Screen */,
 				4C5FF8612256EF3F00F6B57D /* View */,
-				4C5FF85E2256EF0E00F6B57D /* Extension */,
 				FE6CACB22254B325003F6BDB /* Main.storyboard */,
 				FE6CACB52254B325003F6BDB /* Assets.xcassets */,
 				FE6CACB72254B325003F6BDB /* LaunchScreen.storyboard */,
@@ -250,7 +250,7 @@
 				4C5FF85A2256DE8500F6B57D /* RoundButton.swift in Sources */,
 				FE6CACB12254B325003F6BDB /* CalculatorViewController.swift in Sources */,
 				4C5FF8582256D04300F6B57D /* HotelViewController.swift in Sources */,
-				4C5FF85D2256EBC200F6B57D /* UITabBarController.swift in Sources */,
+				4C1262D92257862700CFB649 /* UITabBarController.swift in Sources */,
 				FE6CACAF2254B325003F6BDB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
