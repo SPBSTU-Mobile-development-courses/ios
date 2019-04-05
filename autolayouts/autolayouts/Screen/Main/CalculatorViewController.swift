@@ -57,9 +57,7 @@ class CalculatorViewController: UIViewController, UITabBarControllerDelegate {
     }
     
     func draw(buttons: [UIButton], withCorner radius: CGFloat) {
-        for button in buttons {
-            button.makeButton(withCorner: radius)
-        }
+        _ = buttons.map { $0.makeButton(withCorner: radius) }
     }
     
     func drawMainButtonsWithCurrentOrientation() {
