@@ -17,4 +17,8 @@ extension UIView {
             layer.cornerRadius = newValue ? frame.size.height / 6 : 0
         }
     }
+    
+    func make(withCorner radius: CGFloat) {
+        layer.cornerRadius = radius
+    }
 }
