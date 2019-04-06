@@ -11,10 +11,13 @@ import UIKit
 class HotelViewController: UIViewController {
     @IBOutlet private var heightConstraint: NSLayoutConstraint!
     @IBOutlet private var selectButton: UIButton!
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        let height = CGFloat(selectButton.frame.origin.y + selectButton.frame.size.height) + 80
+    private enum Const {
+        static let bottomIndent: CGFloat = 80
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let height = CGFloat(selectButton.frame.origin.y + selectButton.bounds.size.height) + Const.bottomIndent
         heightConstraint.constant = height
     }
     
