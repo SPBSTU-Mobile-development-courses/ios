@@ -15,7 +15,7 @@ class CalculatorViewController: UIViewController, UITabBarControllerDelegate {
     private var landscapeCornerRadius: CGFloat = 0
     private enum Const {
         static let portraitMultiplier: CGFloat = 2.0
-        static let landscapeMultiplier: CGFloat = 3.0
+        static let landscapeMultiplier: CGFloat = 4.0
     }
     
     override func viewDidLoad() {
@@ -42,24 +42,18 @@ class CalculatorViewController: UIViewController, UITabBarControllerDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+        landscapeCornerRadius = (mainButtons.first?.frame.size.height ?? 0) / Const.landscapeMultiplier
+        draw(buttons: additionalButtons, withCorner: landscapeCornerRadius)
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
 
-    @objc func rotated() {
-        switch UIDevice.current.orientation {
-        case .portrait,
-             .portraitUpsideDown where portraitCornerRadius == 0:
-            portraitCornerRadius = (mainButtons.first?.bounds.size.height ?? 0) / Const.portraitMultiplier
-        case .landscapeLeft,
-             .landscapeRight where landscapeCornerRadius == 0:
-            landscapeCornerRadius = (additionalButtons.first?.bounds.size.height ?? 0) / Const.landscapeMultiplier
-            draw(buttons: additionalButtons, withCorner: landscapeCornerRadius)
-        default:
-            break
+    @objc func orientationDidChange() {
+        if UIDevice.current.orientation.isPortrait && portraitCornerRadius == 0 {
+            portraitCornerRadius = (mainButtons.first?.frame.size.height ?? 0) / Const.portraitMultiplier
         }
         drawMainButtonsWithCurrentOrientation()
     }
