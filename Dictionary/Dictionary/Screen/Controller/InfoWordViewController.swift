@@ -14,16 +14,13 @@ class InfoWordViewController: UIViewController {
     @IBOutlet private var infoWordTableView: UITableView!
     @IBOutlet private var favouriteButton: UIBarButtonItem!
     private let wordInfoService = WordNetworkService()
-    // swiftlint:disable implicitly_unwrapped_optional
-    private var word: Word!
-    // swiftlint:enable implicitly_unwrapped_optional
-    private var favouriteWord: FavouriteWord?
+    private var word: Word?
     private let identifierCell = "infoCell"
     private let identifierHeader = "headerInfo"
     private let wordService = WordDBService()
     // swiftlint:disable force_unwrapping
     private let reachability = Reachability()!
-    var wordTitle: String?
+    var wordTitle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +31,19 @@ class InfoWordViewController: UIViewController {
         getWordData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        favouriteButton.tintColor = wordService.checkFavouriteWord(withTitle: wordTitle) ? .red : .lightGray
+    }
+    
     @IBAction private func clickedFavouriteButton(_ sender: UIBarButtonItem) {
-        guard let newWord = favouriteWord else {
-            self.favouriteWord = FavouriteWord(wordTitle: self.word.title, isFavourite: true)
-            wordService.addNewWord(self.favouriteWord!)
+        guard let tempWord = wordService.getFavouriteWord(withTitle: wordTitle) else {
+            wordService.addNewWord(FavouriteWord(wordTitle: wordTitle, isFavourite: true))
             favouriteButton.tintColor = .red
             return
         }
-        favouriteWord = nil
         favouriteButton.tintColor = .lightGray
-        wordService.delete(word: newWord)
+        wordService.delete(word: tempWord)
     }
     
     // MARK: - Private
@@ -55,11 +55,6 @@ class InfoWordViewController: UIViewController {
                 return
             }
             self.word = words.first
-            self.wordService.checkFavouriteWord(self.word) { [weak self] word in
-                guard let self = self else { return }
-                self.favouriteWord = word
-                self.favouriteButton.tintColor = .red
-            }
             DispatchQueue.main.async {
                 self.infoWordTableView.reloadData()
             }
@@ -76,6 +71,10 @@ class InfoWordViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 extension InfoWordViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let rowsCount = word?.lexicalEntries?[section].entries?.first?.senses?.count else {
             return 0

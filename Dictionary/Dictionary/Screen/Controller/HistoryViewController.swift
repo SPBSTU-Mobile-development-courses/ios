@@ -16,7 +16,7 @@ class HistoryViewController: UIViewController {
     private lazy var words = wordService.getAllWords(forType: SearchedWord.self)
     private let identifier = "Cell"
     private var observer: NotificationToken?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         observer = words.observe { [weak self] _ in

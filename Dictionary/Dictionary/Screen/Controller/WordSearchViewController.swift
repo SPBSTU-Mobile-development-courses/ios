@@ -33,7 +33,6 @@ class WordSearchViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
-        wordsTableView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

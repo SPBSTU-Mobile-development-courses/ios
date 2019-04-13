@@ -23,7 +23,7 @@ class WordDBService {
         let words = realm.objects(type).sorted(byKeyPath: "createdAt", ascending: false)
         return words
     }
-
+    
     func addNewWord<Element: Object>(_ word: Element) {
         switch word {
         case let word as SearchedWord:
@@ -35,11 +35,16 @@ class WordDBService {
         }
     }
     
-    func checkFavouriteWord(_ word: Word, _ completionHandler: (FavouriteWord) -> Void) {
-        guard let favouriteWord = findFavouriteWord(withTitle: word.title) else { return }
-        completionHandler(favouriteWord)
+    func checkFavouriteWord(withTitle title: String?) -> Bool {
+        guard let favouriteWord = getFavouriteWord(withTitle: title?.lowercased() ?? "") else { return false }
+        return true
     }
-
+    
+    func getFavouriteWord(withTitle title: String) -> FavouriteWord? {
+        let items = realm.objects(FavouriteWord.self).filter("wordTitle = '\(title)'")
+        return items.first
+    }
+    
     func deleteAll<Element: Object>(ofType type: Element.Type) {
         do {
             try realm.write {
@@ -65,10 +70,5 @@ class WordDBService {
         } catch {
             print(error)
         }
-    }
-    
-    private func findFavouriteWord(withTitle title: String) -> FavouriteWord? {
-        let items = realm.objects(FavouriteWord.self).filter("wordTitle = '\(title)'")
-        return items.first
     }
 }

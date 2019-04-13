@@ -15,4 +15,10 @@ struct Word: Decodable {
     enum CodingKeys: String, CodingKey {
         case lexicalEntries, title = "word"
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        title = try container.decode(String.self, forKey: .title).lowercased()
+        lexicalEntries = try? container.decode([LexicalEntry].self, forKey: .lexicalEntries)
+    }
 }
