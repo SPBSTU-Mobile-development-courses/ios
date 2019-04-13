@@ -36,8 +36,10 @@ class WordDBService {
     }
     
     func checkFavouriteWord(withTitle title: String?) -> Bool {
-        guard let favouriteWord = getFavouriteWord(withTitle: title?.lowercased() ?? "") else { return false }
-        return true
+        if getFavouriteWord(withTitle: title?.lowercased() ?? "") != nil {
+            return true
+        }
+        return false
     }
     
     func getFavouriteWord(withTitle title: String) -> FavouriteWord? {
