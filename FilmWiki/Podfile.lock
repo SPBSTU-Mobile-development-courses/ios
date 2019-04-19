@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (4.8.1)
+  - Kingfisher (5.2.0)
+  - Reusable (4.0.5):
+    - Reusable/Storyboard (= 4.0.5)
+    - Reusable/View (= 4.0.5)
+  - Reusable/Storyboard (4.0.5)
+  - Reusable/View (4.0.5)
+  - SwiftLint (0.31.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kingfisher (~> 5.0)
+  - Reusable
+  - SwiftLint
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Kingfisher
+    - Reusable
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
+  Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
+
+PODFILE CHECKSUM: a1202f11074bb5334a0f8af943f8bba35442b770
+
+COCOAPODS: 1.6.1
