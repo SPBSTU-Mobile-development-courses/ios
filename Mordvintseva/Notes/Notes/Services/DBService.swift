@@ -35,7 +35,12 @@ class DBService {
     func delete(_ note: Note) {
         do {
             try realm.write {
-                realm.delete(realm.objects(Note.self))
+                let format = "title == %@ AND text == %@ AND imagePath == %@ AND created == %@"
+                let predicate = NSPredicate(format: format, note.title, note.text, note.imagePath, note.created as NSDate)
+                let request = realm.objects(Note.self).filter(predicate)
+                if let record = request.first {
+                    realm.delete(record)
+                }
             }
         } catch {
             print(error)

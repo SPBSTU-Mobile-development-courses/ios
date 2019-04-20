@@ -120,8 +120,8 @@
 			children = (
 				F7D660C0226342EA0059F79D /* Application */,
 				F7C5A016226112CC00570201 /* Extensions */,
-				F7FB2DC42260E88100CE852C /* Service */,
 				F7083190225E81D600630A1A /* Model */,
+				F733E576226B955300241583 /* Services */,
 				F708318F225E7E6800630A1A /* Controllers */,
 				F708318E225E7E5100630A1A /* Storyboards */,
 			);
@@ -163,6 +163,15 @@
 				F708317D225E7D0100630A1A /* NotesListViewController.swift */,
 			);
 			path = NotesList;
+			sourceTree = "<group>";
+		};
+		F733E576226B955300241583 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F781EB3F2262496700CDDD3E /* DateService.swift */,
+				F7FB2DC52260E89000CE852C /* DBService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F7709682226A619C00E69959 /* Cell */ = {
@@ -219,15 +228,6 @@
 				F7E954D6226AF07B0087C963 /* Info.plist */,
 			);
 			path = NotesTests;
-			sourceTree = "<group>";
-		};
-		F7FB2DC42260E88100CE852C /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				F7FB2DC52260E89000CE852C /* DBService.swift */,
-				F781EB3F2262496700CDDD3E /* DateService.swift */,
-			);
-			name = Service;
 			sourceTree = "<group>";
 		};
 		FFBD0077EFF70833F18D8876 /* Pods */ = {
