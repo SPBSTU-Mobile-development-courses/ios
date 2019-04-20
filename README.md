@@ -99,3 +99,18 @@
 - Content hugging priority и Content Resistant Priority? Что это? В чем разница?
 - Рассказать про виды тестов (их по меньшей мере три).
 - Расшифровать MVC, MVP, MVVM, VIPER, объяснить на пальцах какой слой за что отвечает и как взаимодействует с другими.
+
+## 5) Леонардо дай винчик
+
+### Материалы
+- топ компаний: https://apptractor.ru/info/analytics/izvestnost-komand-mobilnoj-razrabotki-v-2019.htmlc
+- бог и отец swift: https://twitter.com/clattner_llvm
+- swift и ml (про это будет спикер): https://www.tensorflow.org/swift
+- diff алгоритм инстаграмма: https://github.com/Instagram/IGListKit
+- Рей Вендерлих про слои: https://www.raywenderlich.com/402-calayer-tutorial-for-ios-getting-started
+
+### Домашка
+1) Любое творчество с анимацией и слоями. Не буду вас ограничивать, сделайте, чтобы было красиво. Используйте CAAnimationGroup, разные слои, покажите мне, что разобрались.
+2) Анимируйте обновление таблички. Можно взять старое приложение (star wars) и добавить туда удаление людей из списка (swipe-to-delete). Хочу чтобы удаление и добавление новых (при скролле вниз) происходило с анимацией. Можно придумать что-то сложнее, можно использовать библиотеки (гуглить swift-diff-алгоритм). Метод `.reloadData()` видеть НЕ хочу
+
+
