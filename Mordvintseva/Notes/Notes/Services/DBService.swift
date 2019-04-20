@@ -35,7 +35,9 @@ class DBService {
     func delete(_ note: Note) {
         do {
             try realm.write {
-                realm.delete(realm.objects(Note.self))
+                if let record = realm.objects(Note.self).first {
+                    realm.delete(target)
+                }
             }
         } catch {
             print(error)
