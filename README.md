@@ -108,6 +108,7 @@
 - swift и ml (про это будет спикер): https://www.tensorflow.org/swift
 - diff алгоритм инстаграмма: https://github.com/Instagram/IGListKit
 - Рей Вендерлих про слои: https://www.raywenderlich.com/402-calayer-tutorial-for-ios-getting-started
+- Frame vs Bounds: https://stackoverflow.com/questions/1210047/cocoa-whats-the-difference-between-the-frame-and-the-bounds
 
 ### Домашка
 1) Любое творчество с анимацией и слоями. Не буду вас ограничивать, сделайте, чтобы было красиво. Используйте CAAnimationGroup, разные слои, покажите мне, что разобрались.
