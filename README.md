@@ -78,3 +78,47 @@
 - Что такое autoresizing masks?
 - В чем отличие pixel от point в ios?
 - Что такое method dispatch? Какие типы бывают в свифте? (хардкор вопрос)
+
+## 4) Unit tests & storyboard separation
+13 апреля моей лекции не будет, у вас есть много времени чтобы чет поделать. Домашки становятся меньше и проще, потому что, я надеюсь, что вы начали работать над проектами.
+
+### Материалы:
+- Про архитектуру наглядно: https://habr.com/ru/company/badoo/blog/281162/
+- Чистые тесты и TDD: https://clean-swift.com/unit-testing-and-tdd-terminology/
+- Еще немного про мотивацию: https://habr.com/ru/post/169381/
+- Мой любимый (субъективно) фреймворк для написания тестов. Знаю точно что используется в АльфаБанке: https://github.com/Quick/Nimble
+- Мой любимый (субъективно) фреймворк для работы со сторибордами, ячейками и xib. Чтобы не писать каждый раз `private let identifier = "..."`: https://github.com/AliSoftware/Reusable
+
+### Домашка
+1) Порефакторить проект StarWars (или то, что вы делали), вставить какую-нибудь архитектуру. Написать тесты (стаб нетворка). Например: проверить, что сущности загружаются, проверить, что ссылка на следующую страницу сохраняется.
+2) Разбить Main.storyboard на несколько (один контроллер на сториборд). Переписать навигацию с Segues на UINavigationController
+
+Ответить на вопросы:
+- Отличие моков от стабов?
+- Что такое view.frame и view.bounds? Чем отличаются?
+- Content hugging priority и Content Resistant Priority? Что это? В чем разница?
+- Рассказать про виды тестов (их по меньшей мере три).
+- Расшифровать MVC, MVP, MVVM, VIPER, объяснить на пальцах какой слой за что отвечает и как взаимодействует с другими.
+
+## 5) Леонардо дай винчик
+
+### Материалы
+- топ компаний: https://apptractor.ru/info/analytics/izvestnost-komand-mobilnoj-razrabotki-v-2019.htmlc
+- бог и отец swift: https://twitter.com/clattner_llvm
+- swift и ml (про это будет спикер): https://www.tensorflow.org/swift
+- diff алгоритм инстаграмма: https://github.com/Instagram/IGListKit
+- Рей Вендерлих про слои: https://www.raywenderlich.com/402-calayer-tutorial-for-ios-getting-started
+- Frame vs Bounds: https://stackoverflow.com/questions/1210047/cocoa-whats-the-difference-between-the-frame-and-the-bounds
+
+### Домашка
+1) Любое творчество с анимацией и слоями. Не буду вас ограничивать, сделайте, чтобы было красиво. Используйте CAAnimationGroup, разные слои, покажите мне, что разобрались.
+2) Анимируйте обновление таблички. Можно взять старое приложение (star wars) и добавить туда удаление людей из списка (swipe-to-delete). Хочу чтобы удаление и добавление новых (при скролле вниз) происходило с анимацией. Можно придумать что-то сложнее, можно использовать библиотеки (гуглите swift-diff-алгоритм). Метод `.reloadData()` видеть НЕ хочу
+
+Ответить на вопросы:
+
+1) Что такое CALayer? Зачем нужен? Отличие от UIView?
+2) Что такое Explicit/implicit анимация?
+3) Что такое layer model/presentation? В каких ситуациях у layer model/presentation разные значения?
+4) Кто получает событие первым UIView или GestureRecognizer на нем?
+5) Как рисовать на CPU, а как на GPU? (кто ответит на вопрос получит пиво)
+
