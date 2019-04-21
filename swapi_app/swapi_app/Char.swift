@@ -10,10 +10,9 @@ struct Char: Decodable {
     var name: String
     var height: String
     var mass: String
-    var hair_color: String
-    var skin_color: String
-    var eye_color: String
-    var birth_year: String
+    var hairColor: String
+    var skinColor: String
+    var eyeColor: String
+    var birthYear: String
     var gender: String
 }
-

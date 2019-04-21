@@ -23,19 +23,19 @@ class ViewController: UIViewController/*, UITableViewDataSource*/ {
         self.present(alert, animated: true, completion: nil)
     }
 
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: ident, for: indexPath)
-//        cell.textLabel?.text = Persons[indexPath.row].name
-//        return cell
-//    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ident, for: indexPath)
+        cell.textLabel?.text = Persons[indexPath.row].name
+        return cell
+    }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return Persons.count
-//    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Persons.count
+    }
 
     
     override func viewDidLoad() {
