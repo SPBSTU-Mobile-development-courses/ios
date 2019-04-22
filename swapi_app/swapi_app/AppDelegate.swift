@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  swapi_app
 //
-//  Created by Andrew on 29/03/2019.
-//  Copyright © 2019 Andrew. All rights reserved.
+//  Created by Andrew on 21/04/2019.
+//  Copyright © 2019 SPbSTU. All rights reserved.
 //
 
 import UIKit

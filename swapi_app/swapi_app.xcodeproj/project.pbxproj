@@ -7,102 +7,130 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49DB2DAC224E1A460056C27A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DB2DAB224E1A460056C27A /* AppDelegate.swift */; };
-		49DB2DAE224E1A460056C27A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DB2DAD224E1A460056C27A /* ViewController.swift */; };
-		49DB2DB1224E1A460056C27A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49DB2DAF224E1A460056C27A /* Main.storyboard */; };
-		49DB2DB3224E1A470056C27A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49DB2DB2224E1A470056C27A /* Assets.xcassets */; };
-		49DB2DB6224E1A470056C27A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49DB2DB4224E1A470056C27A /* LaunchScreen.storyboard */; };
-		49FC1965224E723100013176 /* Char.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FC1964224E723100013176 /* Char.swift */; };
-		7A36EE9351E5BF0CF3EDFB02 /* Pods_swapi_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145BCF01FFCDF2F494E5C11D /* Pods_swapi_app.framework */; };
+		4958B821226C83EC0085D512 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958B820226C83EC0085D512 /* DetailViewController.swift */; };
+		49B139CB226C64F700AF2047 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B139CA226C64F700AF2047 /* ServiceProtocol.swift */; };
+		49B139CE226C656700AF2047 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B139CD226C656700AF2047 /* Person.swift */; };
+		49B139D0226C664700AF2047 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B139CF226C664700AF2047 /* NetworkService.swift */; };
+		49B139D2226C6D0700AF2047 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B139D1226C6D0700AF2047 /* Page.swift */; };
+		49CDF382226C5D2700AAD7EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF381226C5D2700AAD7EA /* AppDelegate.swift */; };
+		49CDF384226C5D2700AAD7EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CDF383226C5D2700AAD7EA /* ViewController.swift */; };
+		49CDF387226C5D2700AAD7EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CDF385226C5D2700AAD7EA /* Main.storyboard */; };
+		49CDF389226C5D2900AAD7EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49CDF388226C5D2900AAD7EA /* Assets.xcassets */; };
+		49CDF38C226C5D2900AAD7EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CDF38A226C5D2900AAD7EA /* LaunchScreen.storyboard */; };
+		86C18A8D8913FB89A3A96933 /* Pods_swapi_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E1B1D3A064C24882B2FAB7 /* Pods_swapi_app.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06EE5478715F8B588BF07908 /* Pods-swapi_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swapi_app.debug.xcconfig"; path = "Target Support Files/Pods-swapi_app/Pods-swapi_app.debug.xcconfig"; sourceTree = "<group>"; };
-		145BCF01FFCDF2F494E5C11D /* Pods_swapi_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swapi_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		49DB2DA8224E1A460056C27A /* swapi_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swapi_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		49DB2DAB224E1A460056C27A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		49DB2DAD224E1A460056C27A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		49DB2DB0224E1A460056C27A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		49DB2DB2224E1A470056C27A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		49DB2DB5224E1A470056C27A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		49DB2DB7224E1A470056C27A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49FC1964224E723100013176 /* Char.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Char.swift; sourceTree = "<group>"; };
-		C2D326F585095BF192FF8485 /* Pods-swapi_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swapi_app.release.xcconfig"; path = "Target Support Files/Pods-swapi_app/Pods-swapi_app.release.xcconfig"; sourceTree = "<group>"; };
+		4958B820226C83EC0085D512 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		49B139CA226C64F700AF2047 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		49B139CD226C656700AF2047 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		49B139CF226C664700AF2047 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		49B139D1226C6D0700AF2047 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		49CDF37E226C5D2700AAD7EA /* swapi_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swapi_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49CDF381226C5D2700AAD7EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		49CDF383226C5D2700AAD7EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		49CDF386226C5D2700AAD7EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		49CDF388226C5D2900AAD7EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49CDF38B226C5D2900AAD7EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		49CDF38D226C5D2900AAD7EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50E1B1D3A064C24882B2FAB7 /* Pods_swapi_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swapi_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1CC89828EA9CCC9C12367E1 /* Pods-swapi_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swapi_app.release.xcconfig"; path = "Target Support Files/Pods-swapi_app/Pods-swapi_app.release.xcconfig"; sourceTree = "<group>"; };
+		BE7C9F49300F8EC176C0D369 /* Pods-swapi_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swapi_app.debug.xcconfig"; path = "Target Support Files/Pods-swapi_app/Pods-swapi_app.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		49DB2DA5224E1A450056C27A /* Frameworks */ = {
+		49CDF37B226C5D2700AAD7EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A36EE9351E5BF0CF3EDFB02 /* Pods_swapi_app.framework in Frameworks */,
+				86C18A8D8913FB89A3A96933 /* Pods_swapi_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		49DB2D9F224E1A450056C27A = {
+		3B597FDAA26A92BF2C634AD5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				49DB2DAA224E1A460056C27A /* swapi_app */,
-				49DB2DA9224E1A460056C27A /* Products */,
-				DEF733790DBB15C9460DD9D6 /* Pods */,
-				A17E4C7E8F4867C0C8F92B47 /* Frameworks */,
+				BE7C9F49300F8EC176C0D369 /* Pods-swapi_app.debug.xcconfig */,
+				B1CC89828EA9CCC9C12367E1 /* Pods-swapi_app.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		49B139C9226C64E600AF2047 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				49B139CA226C64F700AF2047 /* ServiceProtocol.swift */,
+				49B139CF226C664700AF2047 /* NetworkService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		49B139CC226C655300AF2047 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49B139CD226C656700AF2047 /* Person.swift */,
+				49B139D1226C6D0700AF2047 /* Page.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49CDF375226C5D2700AAD7EA = {
+			isa = PBXGroup;
+			children = (
+				49CDF380226C5D2700AAD7EA /* swapi_app */,
+				49CDF37F226C5D2700AAD7EA /* Products */,
+				3B597FDAA26A92BF2C634AD5 /* Pods */,
+				FC8AFBCB816D6019A31AC195 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		49DB2DA9224E1A460056C27A /* Products */ = {
+		49CDF37F226C5D2700AAD7EA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49DB2DA8224E1A460056C27A /* swapi_app.app */,
+				49CDF37E226C5D2700AAD7EA /* swapi_app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		49DB2DAA224E1A460056C27A /* swapi_app */ = {
+		49CDF380226C5D2700AAD7EA /* swapi_app */ = {
 			isa = PBXGroup;
 			children = (
-				49DB2DAB224E1A460056C27A /* AppDelegate.swift */,
-				49DB2DAD224E1A460056C27A /* ViewController.swift */,
-				49DB2DAF224E1A460056C27A /* Main.storyboard */,
-				49DB2DB2224E1A470056C27A /* Assets.xcassets */,
-				49DB2DB4224E1A470056C27A /* LaunchScreen.storyboard */,
-				49DB2DB7224E1A470056C27A /* Info.plist */,
-				49FC1964224E723100013176 /* Char.swift */,
+				49B139CC226C655300AF2047 /* Model */,
+				49B139C9226C64E600AF2047 /* Service */,
+				49CDF381226C5D2700AAD7EA /* AppDelegate.swift */,
+				49CDF383226C5D2700AAD7EA /* ViewController.swift */,
+				49CDF385226C5D2700AAD7EA /* Main.storyboard */,
+				49CDF388226C5D2900AAD7EA /* Assets.xcassets */,
+				49CDF38A226C5D2900AAD7EA /* LaunchScreen.storyboard */,
+				49CDF38D226C5D2900AAD7EA /* Info.plist */,
+				4958B820226C83EC0085D512 /* DetailViewController.swift */,
 			);
 			path = swapi_app;
 			sourceTree = "<group>";
 		};
-		A17E4C7E8F4867C0C8F92B47 /* Frameworks */ = {
+		FC8AFBCB816D6019A31AC195 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				145BCF01FFCDF2F494E5C11D /* Pods_swapi_app.framework */,
+				50E1B1D3A064C24882B2FAB7 /* Pods_swapi_app.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DEF733790DBB15C9460DD9D6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				06EE5478715F8B588BF07908 /* Pods-swapi_app.debug.xcconfig */,
-				C2D326F585095BF192FF8485 /* Pods-swapi_app.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		49DB2DA7224E1A450056C27A /* swapi_app */ = {
+		49CDF37D226C5D2700AAD7EA /* swapi_app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 49DB2DBA224E1A470056C27A /* Build configuration list for PBXNativeTarget "swapi_app" */;
+			buildConfigurationList = 49CDF390226C5D2900AAD7EA /* Build configuration list for PBXNativeTarget "swapi_app" */;
 			buildPhases = (
-				3DEF4DEFC337E173439587D4 /* [CP] Check Pods Manifest.lock */,
-				49DB2DA4224E1A450056C27A /* Sources */,
-				49DB2DA5224E1A450056C27A /* Frameworks */,
-				49DB2DA6224E1A450056C27A /* Resources */,
-				83476D64DBDC7D805258617F /* [CP] Embed Pods Frameworks */,
+				ED3635A00DE6165ADB96DB10 /* [CP] Check Pods Manifest.lock */,
+				49CDF37A226C5D2700AAD7EA /* Sources */,
+				49CDF37B226C5D2700AAD7EA /* Frameworks */,
+				49CDF37C226C5D2700AAD7EA /* Resources */,
+				B8D1E0219725F21FB71DEACD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -110,25 +138,25 @@
 			);
 			name = swapi_app;
 			productName = swapi_app;
-			productReference = 49DB2DA8224E1A460056C27A /* swapi_app.app */;
+			productReference = 49CDF37E226C5D2700AAD7EA /* swapi_app.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		49DB2DA0224E1A450056C27A /* Project object */ = {
+		49CDF376226C5D2700AAD7EA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = Andrew;
+				ORGANIZATIONNAME = SPbSTU;
 				TargetAttributes = {
-					49DB2DA7224E1A450056C27A = {
+					49CDF37D226C5D2700AAD7EA = {
 						CreatedOnToolsVersion = 10.2;
 					};
 				};
 			};
-			buildConfigurationList = 49DB2DA3224E1A450056C27A /* Build configuration list for PBXProject "swapi_app" */;
+			buildConfigurationList = 49CDF379226C5D2700AAD7EA /* Build configuration list for PBXProject "swapi_app" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -136,53 +164,31 @@
 				en,
 				Base,
 			);
-			mainGroup = 49DB2D9F224E1A450056C27A;
-			productRefGroup = 49DB2DA9224E1A460056C27A /* Products */;
+			mainGroup = 49CDF375226C5D2700AAD7EA;
+			productRefGroup = 49CDF37F226C5D2700AAD7EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				49DB2DA7224E1A450056C27A /* swapi_app */,
+				49CDF37D226C5D2700AAD7EA /* swapi_app */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		49DB2DA6224E1A450056C27A /* Resources */ = {
+		49CDF37C226C5D2700AAD7EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49DB2DB6224E1A470056C27A /* LaunchScreen.storyboard in Resources */,
-				49DB2DB3224E1A470056C27A /* Assets.xcassets in Resources */,
-				49DB2DB1224E1A460056C27A /* Main.storyboard in Resources */,
+				49CDF38C226C5D2900AAD7EA /* LaunchScreen.storyboard in Resources */,
+				49CDF389226C5D2900AAD7EA /* Assets.xcassets in Resources */,
+				49CDF387226C5D2700AAD7EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3DEF4DEFC337E173439587D4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-swapi_app-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		83476D64DBDC7D805258617F /* [CP] Embed Pods Frameworks */ = {
+		B8D1E0219725F21FB71DEACD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -204,34 +210,60 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-swapi_app/Pods-swapi_app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ED3635A00DE6165ADB96DB10 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-swapi_app-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		49DB2DA4224E1A450056C27A /* Sources */ = {
+		49CDF37A226C5D2700AAD7EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49DB2DAE224E1A460056C27A /* ViewController.swift in Sources */,
-				49FC1965224E723100013176 /* Char.swift in Sources */,
-				49DB2DAC224E1A460056C27A /* AppDelegate.swift in Sources */,
+				49B139D0226C664700AF2047 /* NetworkService.swift in Sources */,
+				49B139CB226C64F700AF2047 /* ServiceProtocol.swift in Sources */,
+				49B139D2226C6D0700AF2047 /* Page.swift in Sources */,
+				49CDF384226C5D2700AAD7EA /* ViewController.swift in Sources */,
+				49B139CE226C656700AF2047 /* Person.swift in Sources */,
+				49CDF382226C5D2700AAD7EA /* AppDelegate.swift in Sources */,
+				4958B821226C83EC0085D512 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		49DB2DAF224E1A460056C27A /* Main.storyboard */ = {
+		49CDF385226C5D2700AAD7EA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				49DB2DB0224E1A460056C27A /* Base */,
+				49CDF386226C5D2700AAD7EA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		49DB2DB4224E1A470056C27A /* LaunchScreen.storyboard */ = {
+		49CDF38A226C5D2900AAD7EA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				49DB2DB5224E1A470056C27A /* Base */,
+				49CDF38B226C5D2900AAD7EA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -239,7 +271,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		49DB2DB8224E1A470056C27A /* Debug */ = {
+		49CDF38E226C5D2900AAD7EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -300,7 +332,7 @@
 			};
 			name = Debug;
 		};
-		49DB2DB9224E1A470056C27A /* Release */ = {
+		49CDF38F226C5D2900AAD7EA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -355,36 +387,38 @@
 			};
 			name = Release;
 		};
-		49DB2DBB224E1A470056C27A /* Debug */ = {
+		49CDF391226C5D2900AAD7EA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06EE5478715F8B588BF07908 /* Pods-swapi_app.debug.xcconfig */;
+			baseConfigurationReference = BE7C9F49300F8EC176C0D369 /* Pods-swapi_app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K7N7D825D7;
 				INFOPLIST_FILE = swapi_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.swapi.swapi-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.coldlot.swapi-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		49DB2DBC224E1A470056C27A /* Release */ = {
+		49CDF392226C5D2900AAD7EA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2D326F585095BF192FF8485 /* Pods-swapi_app.release.xcconfig */;
+			baseConfigurationReference = B1CC89828EA9CCC9C12367E1 /* Pods-swapi_app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K7N7D825D7;
 				INFOPLIST_FILE = swapi_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.swapi.swapi-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.coldlot.swapi-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -394,25 +428,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		49DB2DA3224E1A450056C27A /* Build configuration list for PBXProject "swapi_app" */ = {
+		49CDF379226C5D2700AAD7EA /* Build configuration list for PBXProject "swapi_app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				49DB2DB8224E1A470056C27A /* Debug */,
-				49DB2DB9224E1A470056C27A /* Release */,
+				49CDF38E226C5D2900AAD7EA /* Debug */,
+				49CDF38F226C5D2900AAD7EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49DB2DBA224E1A470056C27A /* Build configuration list for PBXNativeTarget "swapi_app" */ = {
+		49CDF390226C5D2900AAD7EA /* Build configuration list for PBXNativeTarget "swapi_app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				49DB2DBB224E1A470056C27A /* Debug */,
-				49DB2DBC224E1A470056C27A /* Release */,
+				49CDF391226C5D2900AAD7EA /* Debug */,
+				49CDF392226C5D2900AAD7EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 49DB2DA0224E1A450056C27A /* Project object */;
+	rootObject = 49CDF376226C5D2700AAD7EA /* Project object */;
 }
