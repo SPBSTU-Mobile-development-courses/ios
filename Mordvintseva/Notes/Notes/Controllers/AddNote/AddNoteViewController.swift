@@ -11,8 +11,8 @@ import UIKit
 import UITextView_Placeholder
 
 class AddNoteViewController: UIViewController, UINavigationControllerDelegate {
-    @IBOutlet private var titleText: UITextField!
-    @IBOutlet private var textView: UITextView!
+    @IBOutlet private var titleView: UITextField!
+    @IBOutlet private var noteView: UITextView!
     @IBOutlet private var textViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var imageViewHeightConstraint: NSLayoutConstraint!
@@ -30,12 +30,20 @@ class AddNoteViewController: UIViewController, UINavigationControllerDelegate {
     }
 
     @IBAction private func saveButton(_ sender: Any) {
+        if titleView.text?.isEmpty == true || noteView.text.isEmpty == true {
+            let alertController = UIAlertController(title: "Empty field", message: "One of fields is empty", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+
         var data: [String: String] = [:]
         if let imagePath = imageView.saveImage() {
             data["imagePath"] = imagePath
         }
-        data["title"] = titleText.text ?? ""
-        data["text"] = textView.text ?? ""
+        data["title"] = titleView.text ?? ""
+        data["text"] = noteView.text ?? ""
 
         NotificationCenter.default.post(name: .didReceiveData, object: nil, userInfo: data)
         _ = navigationController?.popViewController(animated: true)
@@ -43,11 +51,11 @@ class AddNoteViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        titleText.placeholder = "Title"
-        textView.placeholder = "Note"
-        textViewDidChange(textView)
-        textView.delegate = self
+        noteView.translatesAutoresizingMaskIntoConstraints = false
+        titleView.placeholder = "Title"
+        noteView.placeholder = "Note"
+        textViewDidChange(noteView)
+        noteView.delegate = self
     }
 }
 
@@ -66,8 +74,8 @@ extension AddNoteViewController: UIImagePickerControllerDelegate {
 
 extension AddNoteViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        let size = CGSize(width: self.textView.frame.width, height: .infinity)
-        let estimatedSize = self.textView.sizeThatFits(size)
+        let size = CGSize(width: self.noteView.frame.width, height: .infinity)
+        let estimatedSize = self.noteView.sizeThatFits(size)
         textViewHeightConstraint.constant = estimatedSize.height
     }
 }

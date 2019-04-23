@@ -119,9 +119,9 @@
                     <connections>
                         <outlet property="imageView" destination="kMK-TH-G9u" id="6le-7W-Cye"/>
                         <outlet property="imageViewHeightConstraint" destination="P1Y-yq-VOa" id="yGS-a9-5fD"/>
-                        <outlet property="textView" destination="8cp-Sz-JXb" id="DcP-Vc-dDp"/>
+                        <outlet property="noteView" destination="8cp-Sz-JXb" id="DcP-Vc-dDp"/>
                         <outlet property="textViewHeightConstraint" destination="ab6-Fo-Eha" id="ndy-Hp-PLC"/>
-                        <outlet property="titleText" destination="ip8-qD-BoB" id="TJQ-eW-z9v"/>
+                        <outlet property="titleView" destination="ip8-qD-BoB" id="TJQ-eW-z9v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FnA-1X-uZh" userLabel="First Responder" sceneMemberID="firstResponder"/>

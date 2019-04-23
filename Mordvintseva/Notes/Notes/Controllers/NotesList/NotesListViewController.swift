@@ -31,15 +31,16 @@ class NotesListViewController: UIViewController, UITableViewDelegate {
 
         self.searchController.searchBar.delegate = self
         self.searchController.searchBar.placeholder = "Search note"
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.dimsBackgroundDuringPresentation = true
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.tableHeaderView = self.searchController.searchBar
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         let nib = UINib(nibName: .notesListCellNibName, bundle: nil)
+        let nibWithImage = UINib(nibName: .notesListCellWithImageNibName, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: .notesListCellID)
+        self.tableView.register(nibWithImage, forCellReuseIdentifier: .notesListCellWithImageID)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 400
         self.tableView.tableFooterView = UIView()
@@ -77,12 +78,21 @@ extension NotesListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: .notesListCellID, for: indexPath) as? NotesListCell else {
-            fatalError("Cell can not be displayed")
-        }
+        if notes[indexPath.row].imagePath.isEmpty == true {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: .notesListCellID, for: indexPath) as? NotesListCell else {
+                fatalError("Cell can not be displayed")
+            }
 
-        cell.setInfo(note: notes[indexPath.row])
-        return cell
+            cell.setInfo(note: notes[indexPath.row])
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: .notesListCellWithImageID, for: indexPath) as? NotesListCellWithImage else {
+                fatalError("Cell can not be displayed")
+            }
+
+            cell.setInfo(note: notes[indexPath.row])
+            return cell
+        }
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

@@ -13,8 +13,8 @@
 		F7083181225E7D0100630A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F708317F225E7D0100630A1A /* Main.storyboard */; };
 		F7083183225E7D0200630A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7083182225E7D0200630A1A /* Assets.xcassets */; };
 		F7083186225E7D0200630A1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7083184225E7D0200630A1A /* LaunchScreen.storyboard */; };
-		F770967F226A587500E69959 /* NotesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770967E226A587500E69959 /* NotesListCell.swift */; };
-		F7709681226A613D00E69959 /* NotesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7709680226A613D00E69959 /* NotesListCell.xib */; };
+		F770967F226A587500E69959 /* NotesListCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770967E226A587500E69959 /* NotesListCellWithImage.swift */; };
+		F7709681226A613D00E69959 /* NotesListCellWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7709680226A613D00E69959 /* NotesListCellWithImage.xib */; };
 		F7709685226A61CA00E69959 /* NotesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7709684226A61CA00E69959 /* NotesListViewModel.swift */; };
 		F7709688226A639400E69959 /* NotesListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7709687226A639400E69959 /* NotesListViewModelProtocol.swift */; };
 		F781EB3D226247A400CDDD3E /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781EB3C226247A400CDDD3E /* UIImageView.swift */; };
@@ -25,6 +25,8 @@
 		F7D660BF226340050059F79D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660BE226340050059F79D /* String.swift */; };
 		F7D660D222636D530059F79D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660D122636D530059F79D /* UITableView.swift */; };
 		F7E954D5226AF07B0087C963 /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E954D4226AF07B0087C963 /* NotesTests.swift */; };
+		F7F0F8FC226FA59C00BB3119 /* NotesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F0F8FB226FA59C00BB3119 /* NotesListCell.xib */; };
+		F7F0F8FE226FA5F600BB3119 /* NotesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0F8FD226FA5F600BB3119 /* NotesListCell.swift */; };
 		F7FB2DC32260E3D900CE852C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2DC22260E3D900CE852C /* Note.swift */; };
 		F7FB2DC62260E89000CE852C /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2DC52260E89000CE852C /* DBService.swift */; };
 /* End PBXBuildFile section */
@@ -50,8 +52,8 @@
 		F7083182225E7D0200630A1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7083185225E7D0200630A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7083187225E7D0300630A1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F770967E226A587500E69959 /* NotesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListCell.swift; sourceTree = "<group>"; };
-		F7709680226A613D00E69959 /* NotesListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesListCell.xib; sourceTree = "<group>"; };
+		F770967E226A587500E69959 /* NotesListCellWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListCellWithImage.swift; sourceTree = "<group>"; };
+		F7709680226A613D00E69959 /* NotesListCellWithImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesListCellWithImage.xib; sourceTree = "<group>"; };
 		F7709684226A61CA00E69959 /* NotesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewModel.swift; sourceTree = "<group>"; };
 		F7709687226A639400E69959 /* NotesListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewModelProtocol.swift; sourceTree = "<group>"; };
 		F781EB3C226247A400CDDD3E /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,8 @@
 		F7E954D2226AF07B0087C963 /* NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E954D4226AF07B0087C963 /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
 		F7E954D6226AF07B0087C963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7F0F8FB226FA59C00BB3119 /* NotesListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesListCell.xib; sourceTree = "<group>"; };
+		F7F0F8FD226FA5F600BB3119 /* NotesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListCell.swift; sourceTree = "<group>"; };
 		F7FB2DC22260E3D900CE852C /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		F7FB2DC52260E89000CE852C /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,7 +162,8 @@
 		F7083193225E834500630A1A /* NotesList */ = {
 			isa = PBXGroup;
 			children = (
-				F7709682226A619C00E69959 /* Cell */,
+				F7F0F8FA226FA54F00BB3119 /* Cell */,
+				F7709682226A619C00E69959 /* CellWithImage */,
 				F7709686226A637900E69959 /* ViewModel */,
 				F708317D225E7D0100630A1A /* NotesListViewController.swift */,
 			);
@@ -174,13 +179,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		F7709682226A619C00E69959 /* Cell */ = {
+		F7709682226A619C00E69959 /* CellWithImage */ = {
 			isa = PBXGroup;
 			children = (
-				F770967E226A587500E69959 /* NotesListCell.swift */,
-				F7709680226A613D00E69959 /* NotesListCell.xib */,
+				F770967E226A587500E69959 /* NotesListCellWithImage.swift */,
+				F7709680226A613D00E69959 /* NotesListCellWithImage.xib */,
 			);
-			path = Cell;
+			path = CellWithImage;
 			sourceTree = "<group>";
 		};
 		F7709683226A61BD00E69959 /* AddNote */ = {
@@ -228,6 +233,15 @@
 				F7E954D6226AF07B0087C963 /* Info.plist */,
 			);
 			path = NotesTests;
+			sourceTree = "<group>";
+		};
+		F7F0F8FA226FA54F00BB3119 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F7F0F8FB226FA59C00BB3119 /* NotesListCell.xib */,
+				F7F0F8FD226FA5F600BB3119 /* NotesListCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		FFBD0077EFF70833F18D8876 /* Pods */ = {
@@ -327,7 +341,8 @@
 				F7083183225E7D0200630A1A /* Assets.xcassets in Resources */,
 				F79A11FA225FADAF0008D40B /* AddNote.storyboard in Resources */,
 				F7083181225E7D0100630A1A /* Main.storyboard in Resources */,
-				F7709681226A613D00E69959 /* NotesListCell.xib in Resources */,
+				F7709681226A613D00E69959 /* NotesListCellWithImage.xib in Resources */,
+				F7F0F8FC226FA59C00BB3119 /* NotesListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,11 +432,12 @@
 				F7709688226A639400E69959 /* NotesListViewModelProtocol.swift in Sources */,
 				F708317E225E7D0100630A1A /* NotesListViewController.swift in Sources */,
 				F7D660BF226340050059F79D /* String.swift in Sources */,
+				F7F0F8FE226FA5F600BB3119 /* NotesListCell.swift in Sources */,
 				F7FB2DC32260E3D900CE852C /* Note.swift in Sources */,
 				F7D660D222636D530059F79D /* UITableView.swift in Sources */,
 				F7FB2DC62260E89000CE852C /* DBService.swift in Sources */,
 				F781EB3D226247A400CDDD3E /* UIImageView.swift in Sources */,
-				F770967F226A587500E69959 /* NotesListCell.swift in Sources */,
+				F770967F226A587500E69959 /* NotesListCellWithImage.swift in Sources */,
 				F79A11FD225FAE9B0008D40B /* AddNoteViewController.swift in Sources */,
 				F708317C225E7D0100630A1A /* AppDelegate.swift in Sources */,
 				F7709685226A61CA00E69959 /* NotesListViewModel.swift in Sources */,

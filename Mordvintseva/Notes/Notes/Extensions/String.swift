@@ -15,6 +15,9 @@ extension String {
     // notesListCell
     static let notesListCellID = "notesListCellID"
     static let notesListCellNibName = "NotesListCell"
+    // notesListCellWithImage
+    static let notesListCellWithImageID = "notesListCellWithImageID"
+    static let notesListCellWithImageNibName = "NotesListCellWithImage"
     // addNoteViewController
     static let addNoteViewControllerID = "addNoteViewController"
     static let addNoteStoryboard = "AddNote"
