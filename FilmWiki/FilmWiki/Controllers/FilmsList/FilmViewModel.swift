@@ -8,14 +8,14 @@
 
 import Foundation
 
-class FilmViewModel<Service> where Service: NetworkService {
+class FilmViewModel<Service>: FilmViewModelProtocol where Service: NetworkService {
     private let filmService: Service
     private var films = [Film]() {
         didSet {
-            onFilmsChanged?(films)
+            onFilmsAppended?(films)
         }
     }
-    var onFilmsChanged: (([Film]) -> Void)?
+    var onFilmsAppended: (([Film]) -> Void)?
     
     init(filmService: Service) {
         self.filmService = filmService

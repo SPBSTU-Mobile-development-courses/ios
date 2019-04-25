@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         let filmsListViewController = FilmsViewController.instantiate()
+        filmsListViewController.filmListViewModel = FilmViewModel(filmService: FilmServiceNetwork())
+        
         let navigationController = UINavigationController(rootViewController: filmsListViewController)
         navigationController.navigationBar.prefersLargeTitles = true
         window?.rootViewController = navigationController

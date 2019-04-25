@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2F43FF2272488900D0BFCD /* InfoFilmViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F43FE2272488900D0BFCD /* InfoFilmViewModelProtocol.swift */; };
+		4C2F4401227248D800D0BFCD /* FilmViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F4400227248D800D0BFCD /* FilmViewModelProtocol.swift */; };
+		4C2F44032272491500D0BFCD /* ActorWebViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F44022272491500D0BFCD /* ActorWebViewModelProtocol.swift */; };
 		4C46DA93226976CA005D4189 /* FilmInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C46DA92226976CA005D4189 /* FilmInfo.storyboard */; };
 		4C46DA9522697731005D4189 /* ActorWebInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C46DA9422697731005D4189 /* ActorWebInfo.storyboard */; };
 		4CB982992269B3CF00ACA955 /* InfoFilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB982982269B3CF00ACA955 /* InfoFilmViewModel.swift */; };
@@ -46,6 +49,9 @@
 /* Begin PBXFileReference section */
 		2D9652FFDD4B500D99E18FD3 /* Pods-StarWarsWiki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsWiki.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsWiki/Pods-StarWarsWiki.debug.xcconfig"; sourceTree = "<group>"; };
 		2FC77892109EDB308BF0A4B5 /* Pods-FIlmWiki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FIlmWiki.debug.xcconfig"; path = "Target Support Files/Pods-FIlmWiki/Pods-FIlmWiki.debug.xcconfig"; sourceTree = "<group>"; };
+		4C2F43FE2272488900D0BFCD /* InfoFilmViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFilmViewModelProtocol.swift; sourceTree = "<group>"; };
+		4C2F4400227248D800D0BFCD /* FilmViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModelProtocol.swift; sourceTree = "<group>"; };
+		4C2F44022272491500D0BFCD /* ActorWebViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorWebViewModelProtocol.swift; sourceTree = "<group>"; };
 		4C46DA92226976CA005D4189 /* FilmInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilmInfo.storyboard; sourceTree = "<group>"; };
 		4C46DA9422697731005D4189 /* ActorWebInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ActorWebInfo.storyboard; sourceTree = "<group>"; };
 		4CB982982269B3CF00ACA955 /* InfoFilmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoFilmViewModel.swift; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 			children = (
 				FEF1C1022236FAD400F589B0 /* InfoFilmTableViewController.swift */,
 				4CB982982269B3CF00ACA955 /* InfoFilmViewModel.swift */,
+				4C2F43FE2272488900D0BFCD /* InfoFilmViewModelProtocol.swift */,
 			);
 			path = FilmInfo;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 			children = (
 				FEF1C10422382D9C00F589B0 /* ActorWebViewController.swift */,
 				4CB9829B2269BA9D00ACA955 /* ActorWebViewModel.swift */,
+				4C2F44022272491500D0BFCD /* ActorWebViewModelProtocol.swift */,
 			);
 			path = ActorInfo;
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 			children = (
 				FE9E05002234478900FB228D /* FilmsViewController.swift */,
 				4CCD17FB2269AB620060D6D1 /* FilmViewModel.swift */,
+				4C2F4400227248D800D0BFCD /* FilmViewModelProtocol.swift */,
 			);
 			path = FilmsList;
 			sourceTree = "<group>";
@@ -412,9 +421,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CB9829F2269BCBD00ACA955 /* ActorServiceNetwork.swift in Sources */,
+				4C2F4401227248D800D0BFCD /* FilmViewModelProtocol.swift in Sources */,
 				4CBB592E2239AAD900BD77C0 /* CreditsResponse.swift in Sources */,
+				4C2F44032272491500D0BFCD /* ActorWebViewModelProtocol.swift in Sources */,
 				FEF1C1012236F37900F589B0 /* ActorsCollectionViewCell.swift in Sources */,
 				FEF1C1032236FAD400F589B0 /* InfoFilmTableViewController.swift in Sources */,
+				4C2F43FF2272488900D0BFCD /* InfoFilmViewModelProtocol.swift in Sources */,
 				FEF1C10522382D9C00F589B0 /* ActorWebViewController.swift in Sources */,
 				FE6379B422357104005DD171 /* FilmTableViewCell.swift in Sources */,
 				4CB9829C2269BA9D00ACA955 /* ActorWebViewModel.swift in Sources */,
@@ -618,6 +630,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D53P34H463;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Nimble\"/**",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Reusable\"",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers\"",

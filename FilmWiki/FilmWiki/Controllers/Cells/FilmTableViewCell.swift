@@ -10,7 +10,7 @@ import Kingfisher
 import Reusable
 import UIKit
 
-class FilmTableViewCell: UITableViewCell {
+class FilmTableViewCell: UITableViewCell, NibReusable {
     private enum Const {
         static let posterURL = "https://image.tmdb.org/t/p/w500"
     }
@@ -18,6 +18,12 @@ class FilmTableViewCell: UITableViewCell {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var shortDescriptionLabel: UILabel!
     @IBOutlet private var moreInfoButton: UIButton!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterImageView.kf.cancelDownloadTask()
+        posterImageView.image = nil
+    }
     
     func set(info film: Film, withIndex index: Int) {
         if let posterPath = film.posterPath {

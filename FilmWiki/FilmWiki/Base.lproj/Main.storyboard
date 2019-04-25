@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FilmTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilmCell" rowHeight="220" id="EBe-7U-c35" customClass="FilmTableViewCell" customModule="FIlmWiki" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FilmTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FilmTableViewCell" rowHeight="220" id="EBe-7U-c35" customClass="FilmTableViewCell" customModule="FIlmWiki" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EBe-7U-c35" id="7kC-v5-OE9">
@@ -50,8 +50,11 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaF-AB-lC5">
-                                                    <rect key="frame" x="157.5" y="179" width="203.5" height="30"/>
+                                                    <rect key="frame" x="158" y="169" width="204" height="40"/>
                                                     <color key="backgroundColor" red="0.318430095911026" green="0.50681954622268677" blue="0.72100365161895752" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="sss-OS-RFw"/>
+                                                    </constraints>
                                                     <state key="normal" title="More Info">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -71,6 +74,8 @@
                                                 <constraint firstItem="dlD-Zb-yh5" firstAttribute="top" secondItem="7kC-v5-OE9" secondAttribute="top" constant="73" id="Jw8-9O-WQv"/>
                                                 <constraint firstItem="KaF-AB-lC5" firstAttribute="leading" secondItem="hia-Km-aaZ" secondAttribute="trailing" constant="14" id="OTC-8Z-z0q"/>
                                                 <constraint firstItem="BFD-a0-3i9" firstAttribute="leading" secondItem="hia-Km-aaZ" secondAttribute="trailing" constant="14" id="jVY-tx-rPa"/>
+                                                <constraint firstItem="KaF-AB-lC5" firstAttribute="top" secondItem="yd4-fn-mr7" secondAttribute="bottom" constant="8" id="jgY-X5-GdZ"/>
+                                                <constraint firstItem="yd4-fn-mr7" firstAttribute="top" secondItem="dlD-Zb-yh5" secondAttribute="bottom" constant="8" id="kVq-Lw-Au3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -80,11 +85,9 @@
                                             <constraint firstAttribute="trailing" secondItem="BFD-a0-3i9" secondAttribute="trailing" constant="14" id="EFi-rD-PE8"/>
                                             <constraint firstItem="hia-Km-aaZ" firstAttribute="top" secondItem="EBe-7U-c35" secondAttribute="top" constant="8" id="QSP-hh-trp"/>
                                             <constraint firstItem="BFD-a0-3i9" firstAttribute="top" secondItem="EBe-7U-c35" secondAttribute="top" constant="11" id="Qnz-OR-jUv"/>
-                                            <constraint firstItem="yd4-fn-mr7" firstAttribute="top" secondItem="EBe-7U-c35" secondAttribute="top" constant="82" id="Wfh-6S-naa"/>
                                             <constraint firstAttribute="trailing" secondItem="dlD-Zb-yh5" secondAttribute="trailing" id="eMq-uE-3XA"/>
                                             <constraint firstAttribute="trailing" secondItem="yd4-fn-mr7" secondAttribute="trailing" constant="14" id="ePP-5g-ktn"/>
                                             <constraint firstItem="hia-Km-aaZ" firstAttribute="leading" secondItem="EBe-7U-c35" secondAttribute="leading" constant="11" id="ghl-Ck-7bO"/>
-                                            <constraint firstAttribute="bottom" secondItem="yd4-fn-mr7" secondAttribute="bottom" constant="59" id="gpy-4G-SOV"/>
                                             <constraint firstAttribute="bottom" secondItem="KaF-AB-lC5" secondAttribute="bottom" constant="11" id="grF-ae-cTh"/>
                                             <constraint firstItem="hia-Km-aaZ" firstAttribute="centerY" secondItem="EBe-7U-c35" secondAttribute="centerY" constant="-1" id="z8D-wW-q8s"/>
                                         </constraints>

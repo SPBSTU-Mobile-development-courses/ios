@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InfoFilmViewModel<Service> where Service: NetworkService {
+class InfoFilmViewModel<Service>: InfoFilmViewModelProtocol where Service: NetworkService {
     private let infoFilmService: Service
     private var actors = [Actor]() {
         didSet {

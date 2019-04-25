@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ActorWebViewModel<Service> where Service: NetworkService {
+class ActorWebViewModel<Service>: ActorWebViewModelProtocol where Service: NetworkService {
     private var actorService: Service
     private var request: URLRequest? {
         didSet {

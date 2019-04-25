@@ -10,11 +10,7 @@ import Reusable
 import UIKit
 
 class FilmsViewController: UIViewController {
-    private enum Const {
-        static let cellIdentifier = "FilmCell"
-    }
     @IBOutlet private var filmTableView: UITableView!
-    private var filmListViewModel = FilmViewModel(filmService: FilmServiceNetwork())
     private var films = [Film]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -22,10 +18,12 @@ class FilmsViewController: UIViewController {
             }
         }
     }
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    var filmListViewModel: FilmViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        filmListViewModel.onFilmsChanged = { [weak self] films in
+        filmListViewModel.onFilmsAppended = { [weak self] films in
             guard let self = self else { return }
             self.films += films
         }
@@ -46,9 +44,7 @@ extension FilmsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Const.cellIdentifier, for: indexPath) as? FilmTableViewCell else {
-            fatalError("TableView setup is not correct")
-        }
+        let cell = tableView.dequeueReusableCell(for: indexPath) as FilmTableViewCell
         let film = films[indexPath.row]
         cell.set(info: film, withIndex: indexPath.row)
         return cell

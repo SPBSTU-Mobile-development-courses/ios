@@ -12,6 +12,7 @@ import UIKit
 class InfoFilmTableViewController: UITableViewController {
     private enum Const {
         static let cellIdentifier = "ActorCell"
+        static let bottomIndent: CGFloat = 40
     }
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var dateLabel: UILabel!
@@ -40,13 +41,13 @@ class InfoFilmTableViewController: UITableViewController {
         ratingLabel.text = "\(film?.rating ?? 0)"
         descriptionTextView.text = film?.description
         infoFilmViewModel?.onActorsChanged = { [weak self] actors in
-            self?.actors += actors
+            self?.actors = actors
         }
         infoFilmViewModel?.loadMore()
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row == 4 ? actorsCollectionView.frame.height + 40 : UITableView.automaticDimension
+        return indexPath.row == 4 ? actorsCollectionView.frame.height + Const.bottomIndent : UITableView.automaticDimension
     }
 }
 
