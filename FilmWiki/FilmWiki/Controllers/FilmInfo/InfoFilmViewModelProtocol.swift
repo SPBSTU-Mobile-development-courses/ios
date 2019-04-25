@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol InfoFilmViewModelProtocol {
+    var onActorsChanged: (([Actor]) -> Void)? { get set }
+    
+    func loadMore()
+}

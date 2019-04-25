@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol ActorWebViewModelProtocol {
+    var onActorRequestChanged: ((URLRequest) -> Void)? { get set }
+    
+    func getRequest()
+}

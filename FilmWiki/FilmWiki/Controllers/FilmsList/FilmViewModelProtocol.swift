@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol FilmViewModelProtocol {
+    var onFilmsAppended: (([Film]) -> Void)? { get set }
+    
+    func loadMore() 
+}
