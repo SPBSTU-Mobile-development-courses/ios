@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4958B821226C83EC0085D512 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4958B820226C83EC0085D512 /* DetailViewController.swift */; };
+		4911DDF62271C47800C594C5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4911DDF52271C47800C594C5 /* DetailViewController.swift */; };
 		49B139CB226C64F700AF2047 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B139CA226C64F700AF2047 /* ServiceProtocol.swift */; };
 		49B139CE226C656700AF2047 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B139CD226C656700AF2047 /* Person.swift */; };
 		49B139D0226C664700AF2047 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B139CF226C664700AF2047 /* NetworkService.swift */; };
@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4958B820226C83EC0085D512 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4911DDF52271C47800C594C5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		49B139CA226C64F700AF2047 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		49B139CD226C656700AF2047 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		49B139CF226C664700AF2047 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				49CDF388226C5D2900AAD7EA /* Assets.xcassets */,
 				49CDF38A226C5D2900AAD7EA /* LaunchScreen.storyboard */,
 				49CDF38D226C5D2900AAD7EA /* Info.plist */,
-				4958B820226C83EC0085D512 /* DetailViewController.swift */,
+				4911DDF52271C47800C594C5 /* DetailViewController.swift */,
 			);
 			path = swapi_app;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 				49CDF384226C5D2700AAD7EA /* ViewController.swift in Sources */,
 				49B139CE226C656700AF2047 /* Person.swift in Sources */,
 				49CDF382226C5D2700AAD7EA /* AppDelegate.swift in Sources */,
-				4958B821226C83EC0085D512 /* DetailViewController.swift in Sources */,
+				4911DDF62271C47800C594C5 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

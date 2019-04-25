@@ -11,7 +11,7 @@ import Foundation
 
 class NetworkService: ServiceProtocol {
     
-    var requestUrl: String? = "https://swapi.co/api/people"
+    public var requestUrl: String? = "https://swapi.co/api/people"
     
     func getPage(_ completionHandler: @escaping (([Person]) -> Void)) {
         guard let currentUrl = self.requestUrl else { return }
