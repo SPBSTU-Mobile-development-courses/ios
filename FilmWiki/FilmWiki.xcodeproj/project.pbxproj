@@ -634,7 +634,6 @@
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Nimble\"/**",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Reusable\"",
 				);
 				HEADER_SEARCH_PATHS = (

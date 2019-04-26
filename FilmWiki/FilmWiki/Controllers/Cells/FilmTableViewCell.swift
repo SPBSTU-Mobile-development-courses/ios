@@ -22,7 +22,6 @@ class FilmTableViewCell: UITableViewCell, NibReusable {
     override func prepareForReuse() {
         super.prepareForReuse()
         posterImageView.kf.cancelDownloadTask()
-        posterImageView.image = nil
     }
     
     func set(info film: Film, withIndex index: Int) {

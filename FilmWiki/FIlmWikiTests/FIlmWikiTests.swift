@@ -19,7 +19,7 @@ class FIlmWikiTests: XCTestCase {
     override func setUp() {
         super.setUp()
         filmViewModel = FilmViewModel(filmService: StubFilmServiceNetwork())
-        infoFilmViewModel = InfoFilmViewModel(infoFilmService: StubFilmServiceNetwork())
+        infoFilmViewModel = InfoFilmViewModel(infoFilmService: StubInfoFilmServiceNetwork())
         actorWebViewModel = ActorWebViewModel(actorService: ActorServiceNetwork(withTitle: actorName))
     }
     
@@ -61,10 +61,19 @@ class FIlmWikiTests: XCTestCase {
     }
 }
 
-// MARK: private
+// MARK: StubFilmServiceNetwork
 private extension FIlmWikiTests {
     final class StubFilmServiceNetwork: NetworkService {
         func getData(_ completionHandler: @escaping ([Film]) -> Void) {
+            completionHandler([])
+        }
+    }
+}
+
+// MARK: StubInfoFilmServiceNetwork
+private extension FIlmWikiTests {
+    final class StubInfoFilmServiceNetwork: NetworkService {
+        func getData(_ completionHandler: @escaping ([Actor]) -> Void) {
             completionHandler([])
         }
     }

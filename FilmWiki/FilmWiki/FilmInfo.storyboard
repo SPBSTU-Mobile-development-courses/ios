@@ -28,14 +28,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAb-t0-lam">
-                                                    <rect key="frame" x="16" y="6" width="305" height="49.5"/>
+                                                    <rect key="frame" x="16" y="11" width="305" height="40"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="DAb-t0-lam" firstAttribute="top" secondItem="gcO-sj-rDP" secondAttribute="top" constant="6" id="BYc-Mq-gsm"/>
+                                                <constraint firstItem="DAb-t0-lam" firstAttribute="top" secondItem="gcO-sj-rDP" secondAttribute="top" constant="11" id="BYc-Mq-gsm"/>
                                                 <constraint firstAttribute="trailing" secondItem="DAb-t0-lam" secondAttribute="trailing" constant="54" id="Fsp-Rg-Smf"/>
                                                 <constraint firstItem="DAb-t0-lam" firstAttribute="centerY" secondItem="gcO-sj-rDP" secondAttribute="centerY" id="NLA-Mi-R6s"/>
                                                 <constraint firstItem="DAb-t0-lam" firstAttribute="leading" secondItem="gcO-sj-rDP" secondAttribute="leading" constant="16" id="UDY-ye-Qry"/>
