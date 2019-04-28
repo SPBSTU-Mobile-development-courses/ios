@@ -122,3 +122,24 @@
 4) Кто получает событие первым UIView или GestureRecognizer на нем?
 5) Как рисовать на CPU, а как на GPU? (кто ответит на вопрос получит пиво)
 
+## 6) Магистр Rx
+
+### Материалы
+- спецификация: http://reactivex.io/
+- клевая статья про утечки памяти: http://adamborek.com/memory-managment-rxswift/
+- шпараглка по операторам: https://habr.com/ru/post/281292/
+- ДВИГАТЬ ШАРИКИ: https://rxmarbles.com/#combineLatest
+- серия статей с простыми примерами: https://www.thedroidsonroids.com/blog/rxswift-by-examples-1-the-basics
+
+### Домашка
+1) Почилить на майские
+2) (опционально) Переписать первый проект на RxSwift/RxCocoa
+
+Ответить на вопросы (переносятся с прошлого раза:
+
+1) Что такое CALayer? Зачем нужен? Отличие от UIView?
+2) Что такое Explicit/implicit анимация?
+3) Что такое layer model/presentation? В каких ситуациях у layer model/presentation разные значения?
+4) Кто получает событие первым UIView или GestureRecognizer на нем?
+5) Как рисовать на CPU, а как на GPU? (кто ответит на вопрос получит ПИВО)
+
