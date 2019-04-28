@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios'>
+    <pages>
+        <page name='2-disposing'/>
+        <page name='1-Observable'/>
+        <page name='3-disposeBag'/>
+        <page name='4-publish-subject'/>
+        <page name='5-behavoir-subject'/>
+        <page name='6-replay-subject'/>
+        <page name='7-map-filter'/>
+        <page name='8-flatMap'/>
+        <page name='9-disntinctUntilChanged'/>
+        <page name='10-merge'/>
+        <page name='11-multithreading'/>
+        <page name='1-2-Observable-creation'/>
+    </pages>
+</playground>
