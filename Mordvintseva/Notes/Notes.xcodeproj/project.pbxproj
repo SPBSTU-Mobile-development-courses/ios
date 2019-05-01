@@ -27,7 +27,7 @@
 		F7A0DC9D2279E3C70092AF70 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC9C2279E3C70092AF70 /* EmptyView.swift */; };
 		F7C5A018226112E500570201 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5A017226112E500570201 /* Notification.Name.swift */; };
 		F7D660BF226340050059F79D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660BE226340050059F79D /* String.swift */; };
-		F7D660D222636D530059F79D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660D122636D530059F79D /* UITableView.swift */; };
+		F7D660D222636D530059F79D /* UITableView+restore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660D122636D530059F79D /* UITableView+restore.swift */; };
 		F7E954D5226AF07B0087C963 /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E954D4226AF07B0087C963 /* NotesTests.swift */; };
 		F7F0F8FC226FA59C00BB3119 /* NotesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F0F8FB226FA59C00BB3119 /* NotesListCell.xib */; };
 		F7F0F8FE226FA5F600BB3119 /* NotesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0F8FD226FA5F600BB3119 /* NotesListCell.swift */; };
@@ -70,7 +70,7 @@
 		F7A0DC9C2279E3C70092AF70 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		F7C5A017226112E500570201 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		F7D660BE226340050059F79D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		F7D660D122636D530059F79D /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		F7D660D122636D530059F79D /* UITableView+restore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+restore.swift"; sourceTree = "<group>"; };
 		F7E954D2226AF07B0087C963 /* NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E954D4226AF07B0087C963 /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
 		F7E954D6226AF07B0087C963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 			children = (
 				F7D660BE226340050059F79D /* String.swift */,
 				F7C5A017226112E500570201 /* Notification.Name.swift */,
-				F7D660D122636D530059F79D /* UITableView.swift */,
+				F7D660D122636D530059F79D /* UITableView+restore.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -476,7 +476,7 @@
 				F7A0DC932279C76E0092AF70 /* CellProtocol.swift in Sources */,
 				F7FB2DC32260E3D900CE852C /* Note.swift in Sources */,
 				F7A0DC9D2279E3C70092AF70 /* EmptyView.swift in Sources */,
-				F7D660D222636D530059F79D /* UITableView.swift in Sources */,
+				F7D660D222636D530059F79D /* UITableView+restore.swift in Sources */,
 				F7FB2DC62260E89000CE852C /* DBService.swift in Sources */,
 				F770967F226A587500E69959 /* NotesListCellWithImage.swift in Sources */,
 				F79A11FD225FAE9B0008D40B /* AddNoteViewController.swift in Sources */,
