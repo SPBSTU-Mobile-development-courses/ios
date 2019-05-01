@@ -19,7 +19,7 @@ class DBService {
 
     func getAll() -> [Note] {
         let result = realm.objects(Note.self)
-        return transformResultsToArray(result: result)
+        return [Note](result)
     }
 
     func add(_ note: Note) {
@@ -60,14 +60,6 @@ class DBService {
     func search(_ text: String) -> [Note] {
         let predicate = NSPredicate(format: "title CONTAINS [c]%@ OR text CONTAINS [c]%@", text, text)
         let result = realm.objects(Note.self).filter(predicate)
-        return transformResultsToArray(result: result)
-    }
-
-    private func transformResultsToArray(result: Results<Note>) -> [Note] {
-        var notes = [Note]()
-        result.forEach {
-            notes.append($0)
-        }
-        return notes
+        return [Note](result)
     }
 }

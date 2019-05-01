@@ -11,8 +11,6 @@ import Foundation
 protocol NotesListViewModelProtocol {
     var onNotesChanged: (([Note]) -> Void)? { get set }
 
-    init (database: DBService)
-
     func load()
     func add(_ data: [String: String])
     func add(_ note: Note)

@@ -82,7 +82,7 @@ extension NotesListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: CellProtocol
-        if notes[indexPath.row].imagePath.isEmpty == true {
+        if notes[indexPath.row].imagePath.isEmpty {
             cell = tableView.dequeueReusableCell(for: indexPath) as NotesListCell
         } else {
             cell = tableView.dequeueReusableCell(for: indexPath) as NotesListCellWithImage
