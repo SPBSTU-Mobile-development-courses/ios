@@ -11,6 +11,7 @@ import UIKit
 import UITextView_Placeholder
 
 class AddNoteViewController: UIViewController, UINavigationControllerDelegate {
+    @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var titleView: UITextField!
     @IBOutlet private var noteView: UITextView!
     @IBOutlet private var textViewHeightConstraint: NSLayoutConstraint!
@@ -58,6 +59,42 @@ class AddNoteViewController: UIViewController, UINavigationControllerDelegate {
         noteView.placeholder = "Note"
         textViewDidChange(noteView)
         noteView.delegate = self
+        createToolbar()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+
+    func createToolbar() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+
+        titleView.inputAccessoryView = toolBar
+        noteView.inputAccessoryView = toolBar
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    @objc func keyboard(notification: Notification) {
+        let userInfo = notification.userInfo
+        // swiftlint:disable:next force_cast
+        let keyboardScreenEndFrame = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = UIEdgeInsets.zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        }
+
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
     }
 }
 
