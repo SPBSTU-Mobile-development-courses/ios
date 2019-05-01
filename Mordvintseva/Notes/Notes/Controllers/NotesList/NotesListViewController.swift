@@ -27,6 +27,7 @@ class NotesListViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
 
         navigationController?.navigationBar.topItem?.title = "Notes"
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(goToAddNoteController))
         NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData, object: nil)
 
@@ -69,7 +70,10 @@ class NotesListViewController: UIViewController, UITableViewDelegate {
 extension NotesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if notes.isEmpty == true {
-            self.tableView.setEmptyView(title: "You don't have any notes")
+            if let emptyView = Bundle.main.loadNibNamed("EmptyView", owner: self, options: nil)?.first as? EmptyView {
+                emptyView.setMessage(title: "No notes found", message: "Add a note or change search parameters")
+                self.tableView.backgroundView = emptyView
+            }
         } else {
             tableView.restore()
         }

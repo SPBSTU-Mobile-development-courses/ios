@@ -15,4 +15,6 @@ extension String {
     // addNoteViewController
     static let addNoteViewControllerID = "addNoteViewController"
     static let addNoteStoryboard = "AddNote"
+    // emptyView
+    static let emptyViewNibName = "EmptyView"
 }

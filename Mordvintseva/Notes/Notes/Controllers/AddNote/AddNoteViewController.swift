@@ -52,6 +52,7 @@ class AddNoteViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
         noteView.translatesAutoresizingMaskIntoConstraints = false
         titleView.placeholder = "Title"
         noteView.placeholder = "Note"
