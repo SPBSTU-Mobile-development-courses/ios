@@ -1,19 +1,16 @@
 //
-//  UIImageView.swift
+//  ImageService.swift
 //  Notes
 //
-//  Created by Mordvintseva Alena on 13/04/2019.
+//  Created by Mordvintseva Alena on 01/05/2019.
 //  Copyright © 2019 Mordvintseva Alena. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-extension UIImageView {
-    func saveImage() -> String? {
-        guard let image = self.image else {
-            return nil
-        }
-
+class ImageService: ImageServiceProtocol {
+    func save(image: UIImage) -> String {
         let fileManager = FileManager.default
         let dateString = DateService().getDate()
         let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(dateString)
@@ -22,12 +19,12 @@ extension UIImageView {
         return imagePath
     }
 
-    func getImage(path: String) {
+    func get(imagePath: String) -> UIImage? {
         let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: path) {
-            self.image = UIImage(contentsOfFile: path)
-        } else {
-            print("No image. Path: \(path)")
+        if fileManager.fileExists(atPath: imagePath) {
+            return UIImage(contentsOfFile: imagePath)
         }
+        print("No image. Path: \(imagePath)")
+        return nil
     }
 }

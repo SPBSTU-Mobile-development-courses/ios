@@ -17,11 +17,12 @@
 		F7709681226A613D00E69959 /* NotesListCellWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7709680226A613D00E69959 /* NotesListCellWithImage.xib */; };
 		F7709685226A61CA00E69959 /* NotesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7709684226A61CA00E69959 /* NotesListViewModel.swift */; };
 		F7709688226A639400E69959 /* NotesListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7709687226A639400E69959 /* NotesListViewModelProtocol.swift */; };
-		F781EB3D226247A400CDDD3E /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781EB3C226247A400CDDD3E /* UIImageView.swift */; };
 		F781EB402262496700CDDD3E /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781EB3F2262496700CDDD3E /* DateService.swift */; };
 		F79A11FA225FADAF0008D40B /* AddNote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A11F9225FADAF0008D40B /* AddNote.storyboard */; };
 		F79A11FD225FAE9B0008D40B /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A11FC225FAE9B0008D40B /* AddNoteViewController.swift */; };
 		F7A0DC932279C76E0092AF70 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC922279C76E0092AF70 /* CellProtocol.swift */; };
+		F7A0DC952279D61F0092AF70 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC942279D61F0092AF70 /* ImageService.swift */; };
+		F7A0DC982279D6440092AF70 /* ImageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC972279D6440092AF70 /* ImageServiceProtocol.swift */; };
 		F7C5A018226112E500570201 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5A017226112E500570201 /* Notification.Name.swift */; };
 		F7D660BF226340050059F79D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660BE226340050059F79D /* String.swift */; };
 		F7D660D222636D530059F79D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660D122636D530059F79D /* UITableView.swift */; };
@@ -57,11 +58,12 @@
 		F7709680226A613D00E69959 /* NotesListCellWithImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesListCellWithImage.xib; sourceTree = "<group>"; };
 		F7709684226A61CA00E69959 /* NotesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewModel.swift; sourceTree = "<group>"; };
 		F7709687226A639400E69959 /* NotesListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewModelProtocol.swift; sourceTree = "<group>"; };
-		F781EB3C226247A400CDDD3E /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		F781EB3F2262496700CDDD3E /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
 		F79A11F9225FADAF0008D40B /* AddNote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNote.storyboard; sourceTree = "<group>"; };
 		F79A11FC225FAE9B0008D40B /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		F7A0DC922279C76E0092AF70 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
+		F7A0DC942279D61F0092AF70 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		F7A0DC972279D6440092AF70 /* ImageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceProtocol.swift; sourceTree = "<group>"; };
 		F7C5A017226112E500570201 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		F7D660BE226340050059F79D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F7D660D122636D530059F79D /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -174,8 +176,10 @@
 		F733E576226B955300241583 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F7A0DC962279D6240092AF70 /* Protocols */,
 				F781EB3F2262496700CDDD3E /* DateService.swift */,
 				F7FB2DC52260E89000CE852C /* DBService.swift */,
+				F7A0DC942279D61F0092AF70 /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -216,12 +220,19 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		F7A0DC962279D6240092AF70 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F7A0DC972279D6440092AF70 /* ImageServiceProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		F7C5A016226112CC00570201 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				F7D660BE226340050059F79D /* String.swift */,
 				F7C5A017226112E500570201 /* Notification.Name.swift */,
-				F781EB3C226247A400CDDD3E /* UIImageView.swift */,
 				F7D660D122636D530059F79D /* UITableView.swift */,
 			);
 			path = Extensions;
@@ -443,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7709688226A639400E69959 /* NotesListViewModelProtocol.swift in Sources */,
+				F7A0DC952279D61F0092AF70 /* ImageService.swift in Sources */,
 				F708317E225E7D0100630A1A /* NotesListViewController.swift in Sources */,
 				F7D660BF226340050059F79D /* String.swift in Sources */,
 				F7F0F8FE226FA5F600BB3119 /* NotesListCell.swift in Sources */,
@@ -450,10 +462,10 @@
 				F7FB2DC32260E3D900CE852C /* Note.swift in Sources */,
 				F7D660D222636D530059F79D /* UITableView.swift in Sources */,
 				F7FB2DC62260E89000CE852C /* DBService.swift in Sources */,
-				F781EB3D226247A400CDDD3E /* UIImageView.swift in Sources */,
 				F770967F226A587500E69959 /* NotesListCellWithImage.swift in Sources */,
 				F79A11FD225FAE9B0008D40B /* AddNoteViewController.swift in Sources */,
 				F708317C225E7D0100630A1A /* AppDelegate.swift in Sources */,
+				F7A0DC982279D6440092AF70 /* ImageServiceProtocol.swift in Sources */,
 				F7709685226A61CA00E69959 /* NotesListViewModel.swift in Sources */,
 				F7C5A018226112E500570201 /* Notification.Name.swift in Sources */,
 				F781EB402262496700CDDD3E /* DateService.swift in Sources */,

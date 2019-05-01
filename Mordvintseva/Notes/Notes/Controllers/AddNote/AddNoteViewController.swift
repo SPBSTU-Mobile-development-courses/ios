@@ -39,7 +39,8 @@ class AddNoteViewController: UIViewController, UINavigationControllerDelegate {
         }
 
         var data: [String: String] = [:]
-        if let imagePath = imageView.saveImage() {
+        if let image = imageView.image {
+            let imagePath = ImageService().save(image: image)
             data["imagePath"] = imagePath
         }
         data["title"] = titleView.text ?? ""
