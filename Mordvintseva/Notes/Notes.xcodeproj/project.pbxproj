@@ -21,6 +21,7 @@
 		F781EB402262496700CDDD3E /* DateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F781EB3F2262496700CDDD3E /* DateService.swift */; };
 		F79A11FA225FADAF0008D40B /* AddNote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A11F9225FADAF0008D40B /* AddNote.storyboard */; };
 		F79A11FD225FAE9B0008D40B /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A11FC225FAE9B0008D40B /* AddNoteViewController.swift */; };
+		F7A0DC932279C76E0092AF70 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC922279C76E0092AF70 /* CellProtocol.swift */; };
 		F7C5A018226112E500570201 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5A017226112E500570201 /* Notification.Name.swift */; };
 		F7D660BF226340050059F79D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660BE226340050059F79D /* String.swift */; };
 		F7D660D222636D530059F79D /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660D122636D530059F79D /* UITableView.swift */; };
@@ -60,6 +61,7 @@
 		F781EB3F2262496700CDDD3E /* DateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateService.swift; sourceTree = "<group>"; };
 		F79A11F9225FADAF0008D40B /* AddNote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNote.storyboard; sourceTree = "<group>"; };
 		F79A11FC225FAE9B0008D40B /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		F7A0DC922279C76E0092AF70 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
 		F7C5A017226112E500570201 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		F7D660BE226340050059F79D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F7D660D122636D530059F79D /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -162,8 +164,7 @@
 		F7083193225E834500630A1A /* NotesList */ = {
 			isa = PBXGroup;
 			children = (
-				F7F0F8FA226FA54F00BB3119 /* Cell */,
-				F7709682226A619C00E69959 /* CellWithImage */,
+				F7A0DC912279C74A0092AF70 /* Cells */,
 				F7709686226A637900E69959 /* ViewModel */,
 				F708317D225E7D0100630A1A /* NotesListViewController.swift */,
 			);
@@ -203,6 +204,16 @@
 				F7709684226A61CA00E69959 /* NotesListViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F7A0DC912279C74A0092AF70 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F7A0DC922279C76E0092AF70 /* CellProtocol.swift */,
+				F7709682226A619C00E69959 /* CellWithImage */,
+				F7F0F8FA226FA54F00BB3119 /* Cell */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		F7C5A016226112CC00570201 /* Extensions */ = {
@@ -435,6 +446,7 @@
 				F708317E225E7D0100630A1A /* NotesListViewController.swift in Sources */,
 				F7D660BF226340050059F79D /* String.swift in Sources */,
 				F7F0F8FE226FA5F600BB3119 /* NotesListCell.swift in Sources */,
+				F7A0DC932279C76E0092AF70 /* CellProtocol.swift in Sources */,
 				F7FB2DC32260E3D900CE852C /* Note.swift in Sources */,
 				F7D660D222636D530059F79D /* UITableView.swift in Sources */,
 				F7FB2DC62260E89000CE852C /* DBService.swift in Sources */,

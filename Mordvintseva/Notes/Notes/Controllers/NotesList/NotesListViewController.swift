@@ -7,6 +7,7 @@
 //
 
 import RealmSwift
+import Reusable
 import UIKit
 
 class NotesListViewController: UIViewController, UITableViewDelegate {
@@ -37,10 +38,8 @@ class NotesListViewController: UIViewController, UITableViewDelegate {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
-        let nib = UINib(nibName: .notesListCellNibName, bundle: nil)
-        let nibWithImage = UINib(nibName: .notesListCellWithImageNibName, bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: .notesListCellID)
-        self.tableView.register(nibWithImage, forCellReuseIdentifier: .notesListCellWithImageID)
+        self.tableView.register(cellType: NotesListCell.self)
+        self.tableView.register(cellType: NotesListCellWithImage.self)
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 400
         self.tableView.tableFooterView = UIView()
@@ -78,30 +77,22 @@ extension NotesListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: CellProtocol
         if notes[indexPath.row].imagePath.isEmpty == true {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: .notesListCellID, for: indexPath) as? NotesListCell else {
-                fatalError("Cell can not be displayed")
-            }
-
-            cell.setInfo(note: notes[indexPath.row])
-            return cell
+            cell = tableView.dequeueReusableCell(for: indexPath) as NotesListCell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: .notesListCellWithImageID, for: indexPath) as? NotesListCellWithImage else {
-                fatalError("Cell can not be displayed")
-            }
-
-            cell.setInfo(note: notes[indexPath.row])
-            return cell
+            cell = tableView.dequeueReusableCell(for: indexPath) as NotesListCellWithImage
         }
+
+        cell.setInfo(note: notes[indexPath.row])
+        // swiftlint:disable:next force_cast
+        return cell as! UITableViewCell
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            viewModel.delete(notes[indexPath.row])
-            tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.endUpdates()
-        }
+        guard editingStyle == .delete else { return }
+        viewModel.delete(notes[indexPath.row])
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 }
 
