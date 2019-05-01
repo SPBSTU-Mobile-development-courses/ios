@@ -7,4 +7,5 @@ target 'Notes' do
   pod 'SwiftLint'
   pod 'RealmSwift'
   pod 'UITextView+Placeholder'
+  pod 'Reusable'
 end

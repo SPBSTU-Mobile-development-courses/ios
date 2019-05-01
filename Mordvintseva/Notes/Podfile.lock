@@ -1,14 +1,20 @@
 PODS:
-  - Realm (3.13.1):
-    - Realm/Headers (= 3.13.1)
-  - Realm/Headers (3.13.1)
-  - RealmSwift (3.13.1):
-    - Realm (= 3.13.1)
-  - SwiftLint (0.31.0)
+  - Realm (3.14.2):
+    - Realm/Headers (= 3.14.2)
+  - Realm/Headers (3.14.2)
+  - RealmSwift (3.14.2):
+    - Realm (= 3.14.2)
+  - Reusable (4.0.5):
+    - Reusable/Storyboard (= 4.0.5)
+    - Reusable/View (= 4.0.5)
+  - Reusable/Storyboard (4.0.5)
+  - Reusable/View (4.0.5)
+  - SwiftLint (0.32.0)
   - "UITextView+Placeholder (1.2.1)"
 
 DEPENDENCIES:
   - RealmSwift
+  - Reusable
   - SwiftLint
   - "UITextView+Placeholder"
 
@@ -16,15 +22,17 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Realm
     - RealmSwift
+    - Reusable
     - SwiftLint
     - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
-  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
-  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
-  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
+  Realm: 179c6706e3a49dbfe112e572fd3c03d3169bea35
+  RealmSwift: 1797f272fb51c555b764fada32e82159a2c65247
+  Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
+  SwiftLint: 009a898ef2a1c851f45e1b59349bf6ff2ddc990d
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
 
-PODFILE CHECKSUM: 78fcf600998560ee6498b3f760ec2b38d5d4913c
+PODFILE CHECKSUM: fc7f787e206ba0f663d848d7d69643787779a82a
 
 COCOAPODS: 1.6.1
