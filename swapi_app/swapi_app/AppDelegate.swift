@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  swapi_app
 //
-//  Created by Andrew on 21/04/2019.
+//  Created by Andrew on 27/04/2019.
 //  Copyright © 2019 SPbSTU. All rights reserved.
 //
 
@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         return true
     }
 }

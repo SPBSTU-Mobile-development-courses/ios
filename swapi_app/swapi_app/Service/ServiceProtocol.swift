@@ -2,7 +2,7 @@
 //  ServiceProtocol.swift
 //  swapi_app
 //
-//  Created by Andrew on 21/04/2019.
+//  Created by Andrew on 27/04/2019.
 //  Copyright © 2019 SPbSTU. All rights reserved.
 //
 

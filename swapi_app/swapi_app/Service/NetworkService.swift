@@ -2,7 +2,7 @@
 //  NetworkService.swift
 //  swapi_app
 //
-//  Created by Andrew on 21/04/2019.
+//  Created by Andrew on 27/04/2019.
 //  Copyright © 2019 SPbSTU. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import Foundation
 
 class NetworkService: ServiceProtocol {
     
-    public var requestUrl: String? = "https://swapi.co/api/people"
+    var requestUrl: String? = "https://swapi.co/api/people"
     
     func getPage(_ completionHandler: @escaping (([Person]) -> Void)) {
         guard let currentUrl = self.requestUrl else { return }
@@ -26,7 +26,7 @@ class NetworkService: ServiceProtocol {
                 completionHandler(page.results)
             case .failure(let error):
                 print("Something went wrong: \(error)")
-                //TODO: present Alert?
+                //show alert
             }
         }
     }

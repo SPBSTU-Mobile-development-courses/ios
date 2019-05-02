@@ -2,7 +2,7 @@
 //  DetailViewController.swift
 //  swapi_app
 //
-//  Created by Andrew on 25/04/2019.
+//  Created by Andrew on 02/05/2019.
 //  Copyright © 2019 SPbSTU. All rights reserved.
 //
 
@@ -10,8 +10,6 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    var person: Person?
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var massLabel: UILabel!
@@ -20,11 +18,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var eyeColorLabel: UILabel!
     @IBOutlet weak var birthYearLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
-    @IBOutlet weak var homeworldLabel: UILabel!
+    @IBOutlet weak var avatarImage: UIImageView!
+    
+    
+    var person: Person?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         nameLabel.text = person?.name
         heightLabel.text = person?.height
         massLabel.text = person?.mass
@@ -33,6 +34,12 @@ class DetailViewController: UIViewController {
         eyeColorLabel.text = person?.eyeColor
         birthYearLabel.text = person?.birthYear
         genderLabel.text = person?.gender
-        homeworldLabel.text = person?.homeworld
+        if(person?.gender == "male") {
+            avatarImage.image = UIImage(named: "avatar-male")
+        } else if(person?.gender == "female") {
+            avatarImage.image = UIImage(named: "female-avatar")
+        } else {
+            avatarImage.image = UIImage(named: "generic-avatar")
+        }
     }
 }

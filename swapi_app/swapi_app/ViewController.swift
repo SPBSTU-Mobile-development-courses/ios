@@ -2,56 +2,63 @@
 //  ViewController.swift
 //  swapi_app
 //
-//  Created by Andrew on 21/04/2019.
+//  Created by Andrew on 27/04/2019.
 //  Copyright © 2019 SPbSTU. All rights reserved.
 //
 
+//TODO: createAlert func in .failure case of NetworkService
+
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
-    //Проблема 1 - стучится в сеть по одной и той же ссылке, хотя я ее меняю явно в замыкании
-    //Проблема 2 - не могу сделать подгрузку данных в таблице по скроллу
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
-    
-    var persons =  [Person]()
-    var service = NetworkService()
-    let cellID = "cell"
-    let segueID = "detailSegue"
-    
+    private var people = [Person]()
+    private var service = NetworkService()
+    private let cellID = "cell"
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getPersons()
+        self.getPeople()
     }
     
-    func getPersons() {
-        service.getPage() { currentPage in
-            self.persons.append(contentsOf: currentPage)
+    
+    //MARK: - completionHandler for NetworkService
+    func getPeople() {
+        self.service.getPage { result in
+            self.people.append(contentsOf: result)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
     
-
+    //MARK: - Alertion
+//    func createAlert() -> Void {
+//        let alert = UIAlertController(title: "Oooops!", message: "Some problems with internet connection!\n Cached data extracting...", preferredStyle: UIAlertController.Style.alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
+//            alert.dismiss(animated: true)
+//        }))
+//        self.present(alert, animated: true)
+//    }
     
-//    Проблема 3 - не работает deselection по нажатой ячейке
-//    Проблема 4 - как прикрутить данный алерт к failure case'у в замыкании, он на меня орет, когда явно вызываю
-    func showAlert() -> Void {
-        let alert = UIAlertController(title: "Ooops!", message: "Something went wrong!\nCached data extracting...", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
-            alert.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    //MARK: - UITableView methods
+    //MARK: - tableView methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return persons.count
+        return people.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        cell.textLabel?.text = persons[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CustomTableViewCell
+        let person = self.people[indexPath.row]
+        if(person.gender == "male") {
+            cell.avatar.image = UIImage(named: "avatar-male")
+        } else if(person.gender == "female") {
+            cell.avatar.image = UIImage(named: "female-avatar")
+        } else {
+            cell.avatar.image = UIImage(named: "generic-avatar")
+        }
+        cell.nameLabel.text = person.name
+        cell.genderLabel.text = person.gender
         return cell
     }
     
@@ -59,26 +66,20 @@ class ViewController: UIViewController, UITableViewDataSource {
         return 1
     }
     
-    //MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let detail = segue.destination as? DetailViewController else { return }
-        guard let cell = sender as? UITableViewCell else { return }
-        let row = tableView.indexPath(for: cell)?.row
-        if let indexPath = row {
-            detail.person = persons[indexPath]
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if(indexPath.row == people.count - 1 && self.service.requestUrl != nil) {
+            self.getPeople()
         }
     }
     
-//  Проблема 5 - segue не работает вообще под любым соусом!
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
-//        performSegue(withIdentifier: segueID, sender: indexPath)
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
-
-//    open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if indexPath.row == persons.count-1 && service.requestUrl != nil {
-//            getPersons()
-//        }
-//    }
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? DetailViewController
+        let index = tableView.indexPathForSelectedRow?.row
+        destination?.person = people[index!]
+    }
 }
