@@ -12,11 +12,17 @@ import XCTest
 class NotesTests: XCTestCase {
     // swiftlint:disable:next implicitly_unwrapped_optional
     private var viewModel: NotesListViewModel!
-    private let note = ["title": "Title", "text": "Text", "imagePath": ""]
+    private let notes = [
+        Note(data: ["title": "First title", "text": "Text"]),
+        Note(data: ["title": "Dont forget!", "text": "Some words"]),
+        Note(data: ["title": "Third title", "text": "And some new words"])
+    ]
+    private let note = Note(data: ["title": "test note", "text": ""])
 
     override func setUp() {
         super.setUp()
-        viewModel = NotesListViewModel(database: DBService())
+        viewModel = NotesListViewModel(database: MockDBService())
+        notes.forEach { viewModel.add($0) }
     }
 
     override func tearDown() {
@@ -25,71 +31,108 @@ class NotesTests: XCTestCase {
     }
 
     func testOnNotesChanged() {
+        // check onNotesChangedCalled
         var onNotesChangedWasCalled = false
         viewModel.onNotesChanged = { _ in
             onNotesChangedWasCalled = true
         }
         viewModel.load()
+
         XCTAssertTrue(onNotesChangedWasCalled)
     }
 
     func testAddNote() {
+        // add new note and compare size of notes data
         var initValue = 0, finalValue = 0
+
+        // get InitValue
         viewModel.onNotesChanged = { notes in
             initValue = notes.count
         }
         viewModel.load()
 
+        // add new note and get finalValue
         viewModel.onNotesChanged = { notes in
             finalValue = notes.count
         }
         viewModel.add(note)
         viewModel.load()
 
-        XCTAssertNotEqual(initValue, finalValue)
-        viewModel.delete(Note(data: note))
+        XCTAssertEqual(initValue, finalValue - 1)
+
+        // delete test note from DB
+        viewModel.delete(note)
     }
 
     func testDeleteNote() {
-        var initValue = 0, finalValue = 0
-        let record = Note(data: note)
+        // delete note with text "some words" and then check notes size
+        var initValue = 0
+
+        // get initValue
         viewModel.onNotesChanged = { notes in
             initValue = notes.count
         }
-        viewModel.add(record)
+        viewModel.search("some words")
 
-        viewModel.onNotesChanged = { notes in
-            finalValue = notes.count
-        }
-        viewModel.delete(record)
-
-        XCTAssertTrue(finalValue == initValue - 1)
+        XCTAssertEqual(initValue, 1)
     }
 
     func testSearchNote() {
-        var initNotes = [Note]()
-        var finalNotes = [Note]()
-        let record = Note(data: note)
+        // find note with title "First note", its size 1
+        var result = [Note]()
 
-        viewModel.deleteAll()
         viewModel.onNotesChanged = { notes in
-            initNotes = notes
+            result = notes
         }
-        viewModel.add(record)
+        viewModel.search("First title")
+        print(result)
+
+        XCTAssertEqual(result.count, 1)
+        if let firstRecord = result.first {
+            let note = notes[0]
+            XCTAssertEqual(firstRecord.title, note.title)
+            XCTAssertEqual(firstRecord.text, note.text)
+            XCTAssertEqual(firstRecord.imagePath, note.imagePath)
+            XCTAssertEqual(firstRecord.created, note.created)
+        }
+    }
+
+    func testSearchSeveralNotes() {
+        // find all notes with title contains "title" word, its size 2
+        var result = [Note]()
+
+        viewModel.onNotesChanged = { notes in
+            result = notes
+        }
         viewModel.search("Title")
 
-        viewModel.onNotesChanged = { notes in
-            finalNotes = notes
-        }
-        viewModel.search("nope")
+        XCTAssertEqual(result.count, 2)
+    }
+}
 
-        XCTAssertEqual(initNotes.count, 1)
-        if let firstRecord = initNotes.first {
-            XCTAssertEqual(firstRecord.text, record.text)
-            XCTAssertEqual(firstRecord.title, record.title)
-            XCTAssertEqual(firstRecord.imagePath, record.imagePath)
-            XCTAssertEqual(firstRecord.created, record.created)
+private class MockDBService: DBService {
+    private var notes: [Note] = []
+
+    func getAll() -> [Note] {
+        return notes
+    }
+
+    func add(_ note: Note) {
+        notes.append(note)
+    }
+
+    func delete(_ note: Note) {
+        if let index = notes.index(of: note) {
+            notes.remove(at: index)
         }
-        XCTAssertTrue(finalNotes.isEmpty)
+    }
+
+    func deleteAll() {
+        notes = []
+    }
+
+    func search(_ text: String) -> [Note] {
+        let result = notes.filter { $0.title.lowercased().contains(text.lowercased()) || $0.text.lowercased().contains(text.lowercased()) }
+        return result
     }
 }
