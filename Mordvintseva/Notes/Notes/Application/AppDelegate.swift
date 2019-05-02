@@ -6,6 +6,7 @@
 //  Copyright © 2019 Mordvintseva Alena. All rights reserved.
 //
 
+import Reusable
 import UIKit
 
 @UIApplicationMain
@@ -15,12 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // swiftlint:disable:next discouraged_optional_collection
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-        let storyboard = UIStoryboard(name: .mainStoryboardName, bundle: nil)
-        if let notesListViewController = storyboard.instantiateViewController(withIdentifier: .notesListViewControllerID) as? NotesListViewController {
-            notesListViewController.viewModel = NotesListViewModel(database: DBServiceRealm())
-            let navigationController = UINavigationController(rootViewController: notesListViewController)
-            window?.rootViewController = navigationController
-        }
+        let notesListViewController = NotesListViewController.instantiate()
+        notesListViewController.viewModel = NotesListViewModel(database: DBServiceRealm())
+        let navigationController = UINavigationController(rootViewController: notesListViewController)
+        window?.rootViewController = navigationController
 
         return true
     }

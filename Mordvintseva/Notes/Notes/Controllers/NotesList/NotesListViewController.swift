@@ -10,7 +10,8 @@ import RealmSwift
 import Reusable
 import UIKit
 
-class NotesListViewController: UIViewController, UITableViewDelegate {
+class NotesListViewController: UIViewController, UITableViewDelegate, StoryboardSceneBased {
+    static let sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
     @IBOutlet private var tableView: UITableView!
     private let searchController = UISearchController(searchResultsController: nil)
     private var notes = [Note]() {
@@ -51,10 +52,7 @@ class NotesListViewController: UIViewController, UITableViewDelegate {
     }
 
     @objc func goToAddNoteController() {
-        let storyboard = UIStoryboard(name: .addNoteStoryboard, bundle: nil)
-        guard let addNoteViewController = storyboard.instantiateViewController(withIdentifier: .addNoteViewControllerID) as? AddNoteViewController else {
-            fatalError("Can't instantiate addNoteViewController")
-        }
+        let addNoteViewController = AddNoteViewController.instantiate()
         addNoteViewController.onAddNote = { note in
             self.viewModel.add(note)
         }
@@ -65,10 +63,9 @@ class NotesListViewController: UIViewController, UITableViewDelegate {
 extension NotesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if notes.isEmpty == true {
-            if let emptyView = Bundle.main.loadNibNamed("EmptyView", owner: self, options: nil)?.first as? EmptyView {
-                emptyView.setMessage(title: "No notes found", message: "Add a note or change search parameters")
-                self.tableView.backgroundView = emptyView
-            }
+            let emptyView = EmptyView.loadFromNib()
+            emptyView.setMessage(title: "No notes found", message: "Add a note or change search parameters")
+            self.tableView.backgroundView = emptyView
         } else {
             tableView.restore()
         }

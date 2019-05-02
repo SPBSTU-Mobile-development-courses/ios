@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0do-em-kPK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Add Note View Controller-->
         <scene sceneID="bne-lD-Fsf">
             <objects>
-                <viewController storyboardIdentifier="addNoteViewController" id="0do-em-kPK" customClass="AddNoteViewController" customModule="Notes" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNoteViewController" id="0do-em-kPK" customClass="AddNoteViewController" customModule="Notes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uTd-yb-OQl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

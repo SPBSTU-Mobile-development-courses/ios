@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import Reusable
 import UIKit
 
-class EmptyView: UIView {
+class EmptyView: UIView, NibLoadable {
     @IBOutlet private var title: UILabel!
     @IBOutlet private var message: UILabel!
 

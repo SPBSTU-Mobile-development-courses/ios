@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import Reusable
 import UIKit
 import UITextView_Placeholder
 
-class AddNoteViewController: UIViewController, UINavigationControllerDelegate {
+class AddNoteViewController: UIViewController, UINavigationControllerDelegate, StoryboardBased {
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var titleView: UITextField!
     @IBOutlet private var noteView: UITextView!
