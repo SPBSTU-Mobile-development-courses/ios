@@ -13,6 +13,7 @@
 		F7083181225E7D0100630A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F708317F225E7D0100630A1A /* Main.storyboard */; };
 		F7083183225E7D0200630A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7083182225E7D0200630A1A /* Assets.xcassets */; };
 		F7083186225E7D0200630A1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7083184225E7D0200630A1A /* LaunchScreen.storyboard */; };
+		F70EBA6B227AFB6100EF7085 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70EBA6A227AFB6100EF7085 /* DBService.swift */; };
 		F770967F226A587500E69959 /* NotesListCellWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770967E226A587500E69959 /* NotesListCellWithImage.swift */; };
 		F7709681226A613D00E69959 /* NotesListCellWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7709680226A613D00E69959 /* NotesListCellWithImage.xib */; };
 		F7709685226A61CA00E69959 /* NotesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7709684226A61CA00E69959 /* NotesListViewModel.swift */; };
@@ -21,8 +22,8 @@
 		F79A11FA225FADAF0008D40B /* AddNote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F79A11F9225FADAF0008D40B /* AddNote.storyboard */; };
 		F79A11FD225FAE9B0008D40B /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79A11FC225FAE9B0008D40B /* AddNoteViewController.swift */; };
 		F7A0DC932279C76E0092AF70 /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC922279C76E0092AF70 /* CellProtocol.swift */; };
-		F7A0DC952279D61F0092AF70 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC942279D61F0092AF70 /* ImageService.swift */; };
-		F7A0DC982279D6440092AF70 /* ImageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC972279D6440092AF70 /* ImageServiceProtocol.swift */; };
+		F7A0DC952279D61F0092AF70 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC942279D61F0092AF70 /* ImageRepository.swift */; };
+		F7A0DC982279D6440092AF70 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC972279D6440092AF70 /* ImageService.swift */; };
 		F7A0DC9B2279E2540092AF70 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7A0DC9A2279E2540092AF70 /* EmptyView.xib */; };
 		F7A0DC9D2279E3C70092AF70 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC9C2279E3C70092AF70 /* EmptyView.swift */; };
 		F7D660BF226340050059F79D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660BE226340050059F79D /* String.swift */; };
@@ -31,7 +32,7 @@
 		F7F0F8FC226FA59C00BB3119 /* NotesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F0F8FB226FA59C00BB3119 /* NotesListCell.xib */; };
 		F7F0F8FE226FA5F600BB3119 /* NotesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F0F8FD226FA5F600BB3119 /* NotesListCell.swift */; };
 		F7FB2DC32260E3D900CE852C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2DC22260E3D900CE852C /* Note.swift */; };
-		F7FB2DC62260E89000CE852C /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2DC52260E89000CE852C /* DBService.swift */; };
+		F7FB2DC62260E89000CE852C /* DBServiceRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FB2DC52260E89000CE852C /* DBServiceRealm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		F7083182225E7D0200630A1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7083185225E7D0200630A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7083187225E7D0300630A1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F70EBA6A227AFB6100EF7085 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		F770967E226A587500E69959 /* NotesListCellWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListCellWithImage.swift; sourceTree = "<group>"; };
 		F7709680226A613D00E69959 /* NotesListCellWithImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesListCellWithImage.xib; sourceTree = "<group>"; };
 		F7709684226A61CA00E69959 /* NotesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewModel.swift; sourceTree = "<group>"; };
@@ -63,8 +65,8 @@
 		F79A11F9225FADAF0008D40B /* AddNote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNote.storyboard; sourceTree = "<group>"; };
 		F79A11FC225FAE9B0008D40B /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		F7A0DC922279C76E0092AF70 /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
-		F7A0DC942279D61F0092AF70 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
-		F7A0DC972279D6440092AF70 /* ImageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceProtocol.swift; sourceTree = "<group>"; };
+		F7A0DC942279D61F0092AF70 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		F7A0DC972279D6440092AF70 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		F7A0DC9A2279E2540092AF70 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		F7A0DC9C2279E3C70092AF70 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		F7D660BE226340050059F79D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -75,7 +77,7 @@
 		F7F0F8FB226FA59C00BB3119 /* NotesListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesListCell.xib; sourceTree = "<group>"; };
 		F7F0F8FD226FA5F600BB3119 /* NotesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListCell.swift; sourceTree = "<group>"; };
 		F7FB2DC22260E3D900CE852C /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		F7FB2DC52260E89000CE852C /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
+		F7FB2DC52260E89000CE852C /* DBServiceRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBServiceRealm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +183,8 @@
 			children = (
 				F7A0DC962279D6240092AF70 /* Protocols */,
 				F781EB3F2262496700CDDD3E /* DateService.swift */,
-				F7FB2DC52260E89000CE852C /* DBService.swift */,
-				F7A0DC942279D61F0092AF70 /* ImageService.swift */,
+				F7FB2DC52260E89000CE852C /* DBServiceRealm.swift */,
+				F7A0DC942279D61F0092AF70 /* ImageRepository.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -226,7 +228,8 @@
 		F7A0DC962279D6240092AF70 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				F7A0DC972279D6440092AF70 /* ImageServiceProtocol.swift */,
+				F7A0DC972279D6440092AF70 /* ImageService.swift */,
+				F70EBA6A227AFB6100EF7085 /* DBService.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -466,7 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7709688226A639400E69959 /* NotesListViewModelProtocol.swift in Sources */,
-				F7A0DC952279D61F0092AF70 /* ImageService.swift in Sources */,
+				F7A0DC952279D61F0092AF70 /* ImageRepository.swift in Sources */,
 				F708317E225E7D0100630A1A /* NotesListViewController.swift in Sources */,
 				F7D660BF226340050059F79D /* String.swift in Sources */,
 				F7F0F8FE226FA5F600BB3119 /* NotesListCell.swift in Sources */,
@@ -474,11 +477,12 @@
 				F7FB2DC32260E3D900CE852C /* Note.swift in Sources */,
 				F7A0DC9D2279E3C70092AF70 /* EmptyView.swift in Sources */,
 				F7D660D222636D530059F79D /* UITableView+restore.swift in Sources */,
-				F7FB2DC62260E89000CE852C /* DBService.swift in Sources */,
+				F7FB2DC62260E89000CE852C /* DBServiceRealm.swift in Sources */,
 				F770967F226A587500E69959 /* NotesListCellWithImage.swift in Sources */,
 				F79A11FD225FAE9B0008D40B /* AddNoteViewController.swift in Sources */,
+				F70EBA6B227AFB6100EF7085 /* DBService.swift in Sources */,
 				F708317C225E7D0100630A1A /* AppDelegate.swift in Sources */,
-				F7A0DC982279D6440092AF70 /* ImageServiceProtocol.swift in Sources */,
+				F7A0DC982279D6440092AF70 /* ImageService.swift in Sources */,
 				F7709685226A61CA00E69959 /* NotesListViewModel.swift in Sources */,
 				F781EB402262496700CDDD3E /* DateService.swift in Sources */,
 			);

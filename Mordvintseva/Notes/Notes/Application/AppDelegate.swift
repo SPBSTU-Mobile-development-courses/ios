@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         let storyboard = UIStoryboard(name: .mainStoryboardName, bundle: nil)
         if let notesListViewController = storyboard.instantiateViewController(withIdentifier: .notesListViewControllerID) as? NotesListViewController {
-            notesListViewController.viewModel = NotesListViewModel(database: DBService())
+            notesListViewController.viewModel = NotesListViewModel(database: DBServiceRealm())
             let navigationController = UINavigationController(rootViewController: notesListViewController)
             window?.rootViewController = navigationController
         }

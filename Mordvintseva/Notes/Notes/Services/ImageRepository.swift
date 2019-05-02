@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ImageService: ImageServiceProtocol {
+class ImageRepository: ImageService {
     func save(image: UIImage) -> String {
         let fileManager = FileManager.default
         let dateString = DateService().getDate()

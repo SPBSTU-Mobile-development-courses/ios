@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class DBService {
+class DBServiceRealm: DBService {
     private var realm: Realm {
         guard let realm = try? Realm() else {
             fatalError("Realm can't be initialized")

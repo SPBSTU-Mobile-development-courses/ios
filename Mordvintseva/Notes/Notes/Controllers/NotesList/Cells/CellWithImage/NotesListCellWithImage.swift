@@ -19,7 +19,7 @@ class NotesListCellWithImage: UITableViewCell, CellProtocol {
         titleView.text = note.title
         noteView.text = note.text
         if note.imagePath.isEmpty != true {
-            noteImage.image = ImageService().get(imagePath: note.imagePath)
+            noteImage.image = ImageRepository().get(imagePath: note.imagePath)
         }
     }
 }

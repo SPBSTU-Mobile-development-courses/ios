@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol ImageServiceProtocol {
+protocol ImageService {
     func save(image: UIImage) -> String
     func get(imagePath: String) -> UIImage?
 }
