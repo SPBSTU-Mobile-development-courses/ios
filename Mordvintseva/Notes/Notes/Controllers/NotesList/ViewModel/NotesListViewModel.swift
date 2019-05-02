@@ -26,12 +26,6 @@ final class NotesListViewModel: NotesListViewModelProtocol {
         notes = database.getAll()
     }
 
-    func add(_ data: [String: String]) {
-        let note = Note(data: data)
-        database.add(note)
-        notes = database.getAll()
-    }
-
     func add(_ note: Note) {
         database.add(note)
         notes = database.getAll()

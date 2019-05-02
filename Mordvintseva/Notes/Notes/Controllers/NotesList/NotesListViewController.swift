@@ -29,7 +29,6 @@ class NotesListViewController: UIViewController, UITableViewDelegate {
         navigationController?.navigationBar.topItem?.title = "Notes"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(goToAddNoteController))
-        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData(_:)), name: .didReceiveData, object: nil)
 
         self.searchController.searchBar.delegate = self
         self.searchController.searchBar.placeholder = "Search note"
@@ -56,14 +55,10 @@ class NotesListViewController: UIViewController, UITableViewDelegate {
         guard let addNoteViewController = storyboard.instantiateViewController(withIdentifier: .addNoteViewControllerID) as? AddNoteViewController else {
             fatalError("Can't instantiate addNoteViewController")
         }
-        self.navigationController?.pushViewController(addNoteViewController, animated: true)
-    }
-
-    @objc func onDidReceiveData(_ notification: Notification) {
-        print("Data did receive")
-        if let data = notification.userInfo as? [String: String] {
-            viewModel.add(data)
+        addNoteViewController.onAddNote = { note in
+            self.viewModel.add(note)
         }
+        self.navigationController?.pushViewController(addNoteViewController, animated: true)
     }
 }
 

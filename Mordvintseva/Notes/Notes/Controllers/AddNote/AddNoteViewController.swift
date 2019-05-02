@@ -17,6 +17,7 @@ class AddNoteViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet private var textViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var imageViewHeightConstraint: NSLayoutConstraint!
+    var onAddNote: ((Note) -> Void)?
 
     @IBAction private func cancelButton(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)
@@ -47,7 +48,8 @@ class AddNoteViewController: UIViewController, UINavigationControllerDelegate {
         data["title"] = titleView.text ?? ""
         data["text"] = noteView.text ?? ""
 
-        NotificationCenter.default.post(name: .didReceiveData, object: nil, userInfo: data)
+        let note = Note(data: data)
+        onAddNote?(note)
         _ = navigationController?.popViewController(animated: true)
     }
 

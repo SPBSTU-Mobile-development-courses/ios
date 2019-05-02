@@ -12,7 +12,6 @@ protocol NotesListViewModelProtocol {
     var onNotesChanged: (([Note]) -> Void)? { get set }
 
     func load()
-    func add(_ data: [String: String])
     func add(_ note: Note)
     func delete(_ note: Note)
     func deleteAll()

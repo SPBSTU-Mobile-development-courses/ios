@@ -25,7 +25,6 @@
 		F7A0DC982279D6440092AF70 /* ImageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC972279D6440092AF70 /* ImageServiceProtocol.swift */; };
 		F7A0DC9B2279E2540092AF70 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7A0DC9A2279E2540092AF70 /* EmptyView.xib */; };
 		F7A0DC9D2279E3C70092AF70 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0DC9C2279E3C70092AF70 /* EmptyView.swift */; };
-		F7C5A018226112E500570201 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C5A017226112E500570201 /* Notification.Name.swift */; };
 		F7D660BF226340050059F79D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660BE226340050059F79D /* String.swift */; };
 		F7D660D222636D530059F79D /* UITableView+restore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D660D122636D530059F79D /* UITableView+restore.swift */; };
 		F7E954D5226AF07B0087C963 /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E954D4226AF07B0087C963 /* NotesTests.swift */; };
@@ -68,7 +67,6 @@
 		F7A0DC972279D6440092AF70 /* ImageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceProtocol.swift; sourceTree = "<group>"; };
 		F7A0DC9A2279E2540092AF70 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		F7A0DC9C2279E3C70092AF70 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
-		F7C5A017226112E500570201 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		F7D660BE226340050059F79D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F7D660D122636D530059F79D /* UITableView+restore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+restore.swift"; sourceTree = "<group>"; };
 		F7E954D2226AF07B0087C963 /* NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				F7D660BE226340050059F79D /* String.swift */,
-				F7C5A017226112E500570201 /* Notification.Name.swift */,
 				F7D660D122636D530059F79D /* UITableView+restore.swift */,
 			);
 			path = Extensions;
@@ -483,7 +480,6 @@
 				F708317C225E7D0100630A1A /* AppDelegate.swift in Sources */,
 				F7A0DC982279D6440092AF70 /* ImageServiceProtocol.swift in Sources */,
 				F7709685226A61CA00E69959 /* NotesListViewModel.swift in Sources */,
-				F7C5A018226112E500570201 /* Notification.Name.swift in Sources */,
 				F781EB402262496700CDDD3E /* DateService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
