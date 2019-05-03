@@ -7,5 +7,5 @@
 //
 
 protocol ServiceProtocol {
-    func getPage(_ completionHandler: @escaping (([Person]) -> Void))
+    func getPage(_ completionHandler: @escaping (([Person], Bool) -> Void))
 }

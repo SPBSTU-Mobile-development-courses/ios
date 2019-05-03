@@ -6,11 +6,9 @@
 //  Copyright © 2019 SPbSTU. All rights reserved.
 //
 
-//TODO: createAlert func in .failure case of NetworkService
-
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var people = [Person]()
@@ -25,8 +23,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //MARK: - completionHandler for NetworkService
     func getPeople() {
-        self.service.getPage { result in
-            self.people.append(contentsOf: result)
+        self.service.getPage { result, network in
+            if network {
+                self.people.append(contentsOf: result)
+            } else {
+                self.createAlert()
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -34,15 +36,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     //MARK: - Alertion
-//    func createAlert() -> Void {
-//        let alert = UIAlertController(title: "Oooops!", message: "Some problems with internet connection!\n Cached data extracting...", preferredStyle: UIAlertController.Style.alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
-//            alert.dismiss(animated: true)
-//        }))
-//        self.present(alert, animated: true)
-//    }
+    func createAlert() -> Void {
+        let alert = UIAlertController(title: "Oooops!", message: "Some problems with internet connection!\n Cached data extracting...", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
+            alert.dismiss(animated: true)
+        }))
+        self.present(alert, animated: true)
+    }
     
-    //MARK: - tableView methods
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? DetailViewController
+        let index = tableView.indexPathForSelectedRow?.row
+        destination?.person = people[index!]
+    }
+    
+}
+
+//MARK: - tableView methods
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return people.count
     }
@@ -74,12 +86,5 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    //MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as? DetailViewController
-        let index = tableView.indexPathForSelectedRow?.row
-        destination?.person = people[index!]
     }
 }

@@ -13,7 +13,7 @@ class NetworkService: ServiceProtocol {
     
     var requestUrl: String? = "https://swapi.co/api/people"
     
-    func getPage(_ completionHandler: @escaping (([Person]) -> Void)) {
+    func getPage(_ completionHandler: @escaping (([Person], Bool) -> Void)) {
         guard let currentUrl = self.requestUrl else { return }
         Alamofire.request(currentUrl).responseData { response in
             switch response.result {
@@ -23,10 +23,9 @@ class NetworkService: ServiceProtocol {
                 let parsedPage = try? jsonDecoder.decode(Page.self, from: data)
                 guard let page = parsedPage else { return }
                 self.requestUrl = page.next
-                completionHandler(page.results)
-            case .failure(let error):
-                print("Something went wrong: \(error)")
-                //show alert
+                completionHandler(page.results, true)
+            case .failure(_):
+                completionHandler([], false)
             }
         }
     }
