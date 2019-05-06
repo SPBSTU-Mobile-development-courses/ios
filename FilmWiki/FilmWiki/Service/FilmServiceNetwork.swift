@@ -18,10 +18,13 @@ class FilmServiceNetwork: NetworkService {
         request(Const.posterURL + "\(page)").responseData {
             switch $0.result {
             case let .success(data):
-                let films = try? JSONDecoder().decode(FilmResponse.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let films = try? decoder.decode(FilmResponse.self, from: data)
                 self.page += 1
                 completionHandler(films?.results ?? [])
             case let .failure(error):
+                completionHandler([])
                 print("Error: \(error)")
             }
         }

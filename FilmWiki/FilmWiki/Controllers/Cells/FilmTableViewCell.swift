@@ -31,7 +31,7 @@ class FilmTableViewCell: UITableViewCell, NibReusable {
         self.posterImageView.layer.cornerRadius = 8.0
         self.posterImageView.clipsToBounds = true
         self.titleLabel.text = film.title
-        self.shortDescriptionLabel.text = film.description
+        self.shortDescriptionLabel.text = film.overview
         self.shortDescriptionLabel.sizeToFit()
         self.moreInfoButton.layer.cornerRadius = 8.0
         self.moreInfoButton.clipsToBounds = true

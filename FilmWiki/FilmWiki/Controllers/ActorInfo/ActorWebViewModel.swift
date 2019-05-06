@@ -8,8 +8,8 @@
 
 import Foundation
 
-class ActorWebViewModel<Service>: ActorWebViewModelProtocol where Service: NetworkService {
-    private var actorService: Service
+class ActorWebViewModel: ActorWebViewModelProtocol {
+    private var actorService: ActorServiceNetwork
     private var request: URLRequest? {
         didSet {
             guard let request = request else { return }
@@ -18,13 +18,13 @@ class ActorWebViewModel<Service>: ActorWebViewModelProtocol where Service: Netwo
     }
     var onActorRequestChanged: ((URLRequest) -> Void)?
     
-    init(actorService: Service) {
+    init(actorService: ActorServiceNetwork) {
         self.actorService = actorService
     }
     
     func getRequest() {
         actorService.getData { [weak self] requests in
-            guard let request = requests.first as? URLRequest else { return }
+            guard let request = requests.first else { return }
             self?.request = request
         }
     }

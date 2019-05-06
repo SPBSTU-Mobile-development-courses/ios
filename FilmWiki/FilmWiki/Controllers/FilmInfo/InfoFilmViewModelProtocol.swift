@@ -10,6 +10,7 @@ import Foundation
 
 protocol InfoFilmViewModelProtocol {
     var onActorsChanged: (([Actor]) -> Void)? { get set }
+    var onActorsNotUploaded: (() -> Void)? { get set }
     
     func loadMore()
 }

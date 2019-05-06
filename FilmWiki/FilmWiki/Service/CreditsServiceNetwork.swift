@@ -23,7 +23,9 @@ class CreditsServiceNetwork: NetworkService {
         request(filmURL).responseData {
             switch $0.result {
             case let .success(data):
-                let credits = try? JSONDecoder().decode(CreditsResponse.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let credits = try? decoder.decode(CreditsResponse.self, from: data)
                 completionHandler(credits?.cast ?? [])
             case let .failure(error):
                 print("Error: \(error)")

@@ -10,20 +10,19 @@ import Reusable
 import UIKit
 
 class InfoFilmTableViewController: UITableViewController {
-    private enum Const {
-        static let cellIdentifier = "ActorCell"
-        static let bottomIndent: CGFloat = 40
-    }
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var dateLabel: UILabel!
     @IBOutlet private var ratingLabel: UILabel!
     @IBOutlet private var descriptionTextView: UITextView!
     @IBOutlet private var actorsCollectionView: UICollectionView!
-    private var infoFilmViewModel: InfoFilmViewModel<CreditsServiceNetwork>?
+    @IBOutlet private var actorsCollectionHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private var errorActorLoadLabel: UILabel!
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    private var infoFilmViewModel: InfoFilmViewModelProtocol!
     private var actors = [Actor]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
-                self?.actorsCollectionView.reloadData()
+                 self?.actorsCollectionView.reloadData()
             }
         }
     }
@@ -38,8 +37,12 @@ class InfoFilmTableViewController: UITableViewController {
         super.viewDidLoad()
         titleLabel.text = film?.title
         dateLabel.text = film?.releaseDate
-        ratingLabel.text = "\(film?.rating ?? 0)"
-        descriptionTextView.text = film?.description
+        ratingLabel.text = "\(film?.voteAverage ?? 0)"
+        descriptionTextView.text = film?.overview
+        infoFilmViewModel.onActorsNotUploaded = { [weak self] in
+            self?.actorsCollectionHeightConstraint.constant = 0
+            self?.errorActorLoadLabel.isHidden = false
+        }
         infoFilmViewModel?.onActorsChanged = { [weak self] actors in
             self?.actors = actors
         }
@@ -47,7 +50,7 @@ class InfoFilmTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row == 4 ? actorsCollectionView.frame.height + Const.bottomIndent : UITableView.automaticDimension
+        return UITableView.automaticDimension
     }
 }
 
@@ -58,13 +61,11 @@ extension InfoFilmTableViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.actors.count
+        return actors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Const.cellIdentifier, for: indexPath) as? ActorsCollectionViewCell else {
-            fatalError("TableView setup is not correct")
-        }
+        let cell = collectionView.dequeueReusableCell(for: indexPath) as ActorsCollectionViewCell
         cell.set(actor: actors[indexPath.row])
         return cell
     }

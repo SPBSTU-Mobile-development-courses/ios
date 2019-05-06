@@ -50,7 +50,7 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaF-AB-lC5">
-                                                    <rect key="frame" x="158" y="169" width="204" height="40"/>
+                                                    <rect key="frame" x="157.5" y="169" width="203.5" height="40"/>
                                                     <color key="backgroundColor" red="0.318430095911026" green="0.50681954622268677" blue="0.72100365161895752" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="sss-OS-RFw"/>
@@ -62,7 +62,7 @@
                                                         <action selector="getMoreFilmInfo:" destination="Jvq-Ta-7aX" eventType="touchUpInside" id="lLv-J9-dv6"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to train your dragon: the hidden world" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFD-a0-3i9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to train your dragon: the hidden world" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="BFD-a0-3i9">
                                                     <rect key="frame" x="157.5" y="11" width="203.5" height="54"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>

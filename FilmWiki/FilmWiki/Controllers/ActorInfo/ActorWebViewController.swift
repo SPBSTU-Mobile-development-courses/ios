@@ -12,7 +12,8 @@ import WebKit
 
 class ActorWebViewController: UIViewController {
     @IBOutlet private var actorWebView: WKWebView!
-    private var actorWebViewModel: ActorWebViewModel<ActorServiceNetwork>?
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    private var actorWebViewModel: ActorWebViewModel!
     private var actorURLRequest: URLRequest? {
         didSet {
             guard let actorURLRequest = actorURLRequest else { return }

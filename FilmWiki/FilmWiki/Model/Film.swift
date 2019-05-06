@@ -9,19 +9,10 @@
 import Foundation
 
 public struct Film: Decodable {
-    var id: Int
-    var title: String
-    var releaseDate: String
-    var rating: Double
-    var posterPath: String?
-    var description: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case description = "overview"
-        case releaseDate = "release_date"
-        case rating = "vote_average"
-        case posterPath = "poster_path"
-    }
+    let id: Int
+    let title: String
+    let releaseDate: String
+    let voteAverage: Double
+    let posterPath: String?
+    let overview: String
 }

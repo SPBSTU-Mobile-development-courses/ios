@@ -8,8 +8,8 @@
 
 import Foundation
 
-class FilmViewModel<Service>: FilmViewModelProtocol where Service: NetworkService {
-    private let filmService: Service
+class FilmViewModel: FilmViewModelProtocol {
+    private let filmService: FilmServiceNetwork
     private var films = [Film]() {
         didSet {
             onFilmsAppended?(films)
@@ -17,14 +17,13 @@ class FilmViewModel<Service>: FilmViewModelProtocol where Service: NetworkServic
     }
     var onFilmsAppended: (([Film]) -> Void)?
     
-    init(filmService: Service) {
+    init(filmService: FilmServiceNetwork) {
         self.filmService = filmService
     }
     
     func loadMore() {
         filmService.getData { [weak self] films in
             guard let self = self else { return }
-            guard let films = films as? [Film] else { return }
             self.films = films
         }
     }

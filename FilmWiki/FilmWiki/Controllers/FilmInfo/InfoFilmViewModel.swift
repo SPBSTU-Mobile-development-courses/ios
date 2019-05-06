@@ -8,23 +8,27 @@
 
 import Foundation
 
-class InfoFilmViewModel<Service>: InfoFilmViewModelProtocol where Service: NetworkService {
-    private let infoFilmService: Service
+class InfoFilmViewModel: InfoFilmViewModelProtocol {
+    private let infoFilmService: CreditsServiceNetwork
     private var actors = [Actor]() {
         didSet {
             onActorsChanged?(actors)
         }
     }
     var onActorsChanged: (([Actor]) -> Void)?
+    var onActorsNotUploaded: (() -> Void)?
     
-    init(infoFilmService: Service) {
+    init(infoFilmService: CreditsServiceNetwork) {
         self.infoFilmService = infoFilmService
     }
     
     func loadMore() {
         infoFilmService.getData { [weak self] actors in
             guard let self = self else { return }
-            guard let actors = actors as? [Actor] else { return }
+            guard !actors.isEmpty else {
+                self.onActorsNotUploaded?()
+                return
+            }
             self.actors = actors
         }
     }

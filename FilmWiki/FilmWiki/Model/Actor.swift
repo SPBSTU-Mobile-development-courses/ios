@@ -9,6 +9,7 @@
 import Foundation
 
 public struct Actor: Decodable {
-    var character: String
-    var name: String
+    let castId: Int
+    let character: String
+    let name: String
 }
