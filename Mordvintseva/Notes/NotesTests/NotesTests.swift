@@ -11,7 +11,7 @@ import XCTest
 
 class NotesTests: XCTestCase {
     // swiftlint:disable:next implicitly_unwrapped_optional
-    private var viewModel: NotesListViewModel!
+    private var viewModel: NotesListViewModelTest!
     private let notes = [
         Note(data: ["title": "First title", "text": "Text"]),
         Note(data: ["title": "Dont forget!", "text": "Some words"]),
@@ -21,17 +21,18 @@ class NotesTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        viewModel = NotesListViewModel(database: MockDBService())
+        viewModel = NotesListViewModelTest(database: MockDBService())
         notes.forEach(viewModel.add)
     }
 
     override func tearDown() {
+        viewModel.deleteAll()
+        viewModel.clear()
         viewModel = nil
         super.tearDown()
     }
 
-    func testOnNotesChanged() {
-        // check onNotesChangedCalled
+    func testOnNotesChangedCalled() {
         var onNotesChangedWasCalled = false
         viewModel.onNotesChanged = { _ in
             onNotesChangedWasCalled = true
@@ -42,16 +43,13 @@ class NotesTests: XCTestCase {
     }
 
     func testAddNote() {
-        // add new note and compare size of notes data
         var initValue = 0, finalValue = 0
 
-        // get InitValue
         viewModel.onNotesChanged = { notes in
             initValue = notes.count
         }
         viewModel.load()
 
-        // add new note and get finalValue
         viewModel.onNotesChanged = { notes in
             finalValue = notes.count
         }
@@ -59,16 +57,11 @@ class NotesTests: XCTestCase {
         viewModel.load()
 
         XCTAssertEqual(initValue, finalValue - 1)
-
-        // delete test note from DB
-        viewModel.delete(note)
     }
 
     func testDeleteNote() {
-        // delete note with text "some words" and then check notes size
         var initValue = 0
 
-        // get initValue
         viewModel.onNotesChanged = { notes in
             initValue = notes.count
         }
@@ -78,7 +71,6 @@ class NotesTests: XCTestCase {
     }
 
     func testSearchNote() {
-        // find note with title "First note", its size 1
         var result = [Note]()
 
         viewModel.onNotesChanged = { notes in
@@ -98,7 +90,6 @@ class NotesTests: XCTestCase {
     }
 
     func testSearchSeveralNotes() {
-        // find all notes with title contains "title" word, its size 2
         var result = [Note]()
 
         viewModel.onNotesChanged = { notes in
@@ -134,5 +125,15 @@ private class MockDBService: DBService {
     func search(_ text: String) -> [Note] {
         let result = notes.filter { $0.title.lowercased().contains(text.lowercased()) || $0.text.lowercased().contains(text.lowercased()) }
         return result
+    }
+}
+
+extension NotesTests {
+    class NotesListViewModelTest: NotesListViewModel {
+        var database: DBService?
+
+        func clear() {
+            self.database = nil
+        }
     }
 }

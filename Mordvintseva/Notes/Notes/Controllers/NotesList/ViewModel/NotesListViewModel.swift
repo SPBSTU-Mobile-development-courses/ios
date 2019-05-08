@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class NotesListViewModel: NotesListViewModelProtocol {
+class NotesListViewModel: NotesListViewModelProtocol {
     private let database: DBService
     private var notes = [Note]() {
         didSet {
