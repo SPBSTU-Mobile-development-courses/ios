@@ -22,7 +22,7 @@ class NotesTests: XCTestCase {
     override func setUp() {
         super.setUp()
         viewModel = NotesListViewModel(database: MockDBService())
-        notes.forEach { viewModel.add($0) }
+        notes.forEach(viewModel.add)
     }
 
     override func tearDown() {

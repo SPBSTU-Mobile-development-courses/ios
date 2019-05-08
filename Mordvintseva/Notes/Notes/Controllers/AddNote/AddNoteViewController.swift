@@ -18,6 +18,7 @@ class AddNoteViewController: UIViewController, UINavigationControllerDelegate, S
     @IBOutlet private var textViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var imageViewHeightConstraint: NSLayoutConstraint!
+    private let imageService = ImageRepository()
     var onAddNote: ((Note) -> Void)?
 
     @IBAction private func cancelButton(_ sender: Any) {
@@ -43,7 +44,7 @@ class AddNoteViewController: UIViewController, UINavigationControllerDelegate, S
 
         var data: [String: String] = [:]
         if let image = imageView.image {
-            let imagePath = ImageRepository().save(image: image)
+            let imagePath = imageService.save(image: image)
             data["imagePath"] = imagePath
         }
         data["title"] = titleView.text ?? ""
