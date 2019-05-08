@@ -65,8 +65,8 @@ class AddNoteViewController: UIViewController, UINavigationControllerDelegate, S
         noteView.delegate = self
         createToolbar()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
 
     func createToolbar() {
