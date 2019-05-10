@@ -34,11 +34,12 @@ class DetailViewController: UIViewController {
         eyeColorLabel.text = person?.eyeColor
         birthYearLabel.text = person?.birthYear
         genderLabel.text = person?.gender
-        if(person?.gender == "male") {
+        switch person?.gender {
+        case "male":
             avatarImage.image = UIImage(named: "avatar-male")
-        } else if(person?.gender == "female") {
+        case "female":
             avatarImage.image = UIImage(named: "female-avatar")
-        } else {
+        default:
             avatarImage.image = UIImage(named: "generic-avatar")
         }
     }

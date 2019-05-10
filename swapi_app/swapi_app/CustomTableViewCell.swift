@@ -10,16 +10,19 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet private var avatar: UIImageView!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var genderLabel: UILabel!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    public func setAvatar(img: String) {
+        avatar.image = UIImage(named: img)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    
+    public func setNameLabel(name: String) {
+        nameLabel.text = name
+    }
+    
+    public func setGenderLabel(gender: String) {
+        genderLabel.text = gender
     }
 }

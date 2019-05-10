@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     
     //MARK: - completionHandler for NetworkService
     func getPeople() {
-        self.service.getPage { result, network in
-            if network {
+        self.service.getPage { result, hasNetworkConnection in
+            if hasNetworkConnection {
                 self.people.append(contentsOf: result)
             } else {
                 self.createAlert()
@@ -62,15 +62,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! CustomTableViewCell
         let person = self.people[indexPath.row]
-        if(person.gender == "male") {
-            cell.avatar.image = UIImage(named: "avatar-male")
-        } else if(person.gender == "female") {
-            cell.avatar.image = UIImage(named: "female-avatar")
-        } else {
-            cell.avatar.image = UIImage(named: "generic-avatar")
+        switch person.gender {
+        case "male":
+            cell.setAvatar(img: "avatar-male")
+        case "female":
+            cell.setAvatar(img: "female-avatar")
+        default:
+            cell.setAvatar(img: "generic-avatar")
         }
-        cell.nameLabel.text = person.name
-        cell.genderLabel.text = person.gender
+        cell.setNameLabel(name: person.name)
+        cell.setGenderLabel(gender: person.gender)
         return cell
     }
     
