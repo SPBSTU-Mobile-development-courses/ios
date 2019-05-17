@@ -6,21 +6,23 @@
 //  Copyright © 2019 SPbSTU. All rights reserved.
 //
 
-struct Person: Decodable {
-    let name: String
-    let height: String
-    let mass: String
-    let hairColor: String
-    let skinColor: String
-    let eyeColor: String
-    let birthYear: String
-    let gender: String
-    let homeworld: String
-    let films: [String]
-    let species: [String]
-    let vehicles: [String]
-    let starships: [String]
-    let created: String
-    let edited: String
-    let url: String
+import RealmSwift
+
+class Person: Object, Decodable{
+    @objc dynamic var name: String
+    @objc dynamic var height: String
+    @objc dynamic var mass: String
+    @objc dynamic var hairColor: String
+    @objc dynamic var skinColor: String
+    @objc dynamic var eyeColor: String
+    @objc dynamic var birthYear: String
+    @objc dynamic var gender: String
+    @objc dynamic var homeworld: String
+    @objc dynamic var films: [String]
+    @objc dynamic var species: [String]
+    @objc dynamic var vehicles: [String]
+    @objc dynamic var starships: [String]
+    @objc dynamic var created: String
+    @objc dynamic var edited: String
+    @objc dynamic var url: String
 }

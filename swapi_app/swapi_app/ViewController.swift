@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var people = [Person]()
+    private var storageService = StorageService()
     private var service = NetworkService()
     private let cellID = "cell"
 
@@ -26,8 +27,11 @@ class ViewController: UIViewController {
         self.service.getPage { result, hasNetworkConnection in
             if hasNetworkConnection {
                 self.people.append(contentsOf: result)
+                self.storageService.clear()
+                self.storageService.store(data: self.people)
             } else {
                 self.createAlert()
+                self.people = self.storageService.getData()
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()

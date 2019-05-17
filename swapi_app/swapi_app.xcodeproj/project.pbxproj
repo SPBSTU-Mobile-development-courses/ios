@@ -11,6 +11,7 @@
 		492CF18B2273BA6800C7C2A1 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CF18A2273BA6800C7C2A1 /* Person.swift */; };
 		492CF18D2273BB9100C7C2A1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CF18C2273BB9100C7C2A1 /* CustomTableViewCell.swift */; };
 		4964ACD8227ADBCE00C2E6D8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4964ACD7227ADBCE00C2E6D8 /* DetailViewController.swift */; };
+		49985241228CBAA000DC1C0D /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49985240228CBAA000DC1C0D /* StorageService.swift */; };
 		49A79EA12273BF67004A2B00 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A79EA02273BF67004A2B00 /* Page.swift */; };
 		49A79EA42273BF8F004A2B00 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A79EA32273BF8F004A2B00 /* ServiceProtocol.swift */; };
 		49A79EA62273BFB2004A2B00 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A79EA52273BFB2004A2B00 /* NetworkService.swift */; };
@@ -26,6 +27,7 @@
 		492CF18A2273BA6800C7C2A1 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		492CF18C2273BB9100C7C2A1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		4964ACD7227ADBCE00C2E6D8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		49985240228CBAA000DC1C0D /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = swapi_app/Service/StorageService.swift; sourceTree = SOURCE_ROOT; };
 		49A79EA02273BF67004A2B00 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		49A79EA32273BF8F004A2B00 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		49A79EA52273BFB2004A2B00 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				49A79EA32273BF8F004A2B00 /* ServiceProtocol.swift */,
 				49A79EA52273BFB2004A2B00 /* NetworkService.swift */,
+				49985240228CBAA000DC1C0D /* StorageService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -201,12 +204,16 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-swapi_app/Pods-swapi_app-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -249,6 +256,7 @@
 				49F8F1372273B9CA005AF11A /* AppDelegate.swift in Sources */,
 				49A79EA12273BF67004A2B00 /* Page.swift in Sources */,
 				49A79EA62273BFB2004A2B00 /* NetworkService.swift in Sources */,
+				49985241228CBAA000DC1C0D /* StorageService.swift in Sources */,
 				4964ACD8227ADBCE00C2E6D8 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
