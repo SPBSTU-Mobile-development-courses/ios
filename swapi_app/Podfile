@@ -1,0 +1,10 @@
+platform :ios, '12.0'
+
+target 'swapi_app' do
+  use_frameworks!
+
+  pod 'SwiftLint'
+  pod 'Alamofire'
+  pod 'RealmSwift'
+
+end
