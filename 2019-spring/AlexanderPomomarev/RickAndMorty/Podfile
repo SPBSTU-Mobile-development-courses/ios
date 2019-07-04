@@ -1,0 +1,9 @@
+platform :ios, '12.0'
+use_frameworks!
+target 'hw1' do
+    pod 'SwiftLint'
+    pod 'Alamofire'
+    pod 'RealmSwift'
+    pod 'Kingfisher'
+    pod 'ReachabilitySwift'
+end
