@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" rowHeight="84" id="KGk-i7-Jjw" customClass="InfoTableViewCell" customModule="Dictionary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="83.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Definitionf" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jac-y0-QtA">
+                        <rect key="frame" x="16" y="5" width="288" height="36"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rj-ra-7du">
+                        <rect key="frame" x="16" y="39" width="288" height="34"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <color key="backgroundColor" red="0.99991267920000004" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="jac-y0-QtA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="74x-ox-46W"/>
+                    <constraint firstItem="8Rj-ra-7du" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="CUW-rB-Pw6"/>
+                    <constraint firstAttribute="trailing" secondItem="8Rj-ra-7du" secondAttribute="trailing" constant="16" id="GgE-DB-zKL"/>
+                    <constraint firstAttribute="bottom" secondItem="8Rj-ra-7du" secondAttribute="bottom" constant="10.5" id="Hnl-Qn-AWB"/>
+                    <constraint firstItem="8Rj-ra-7du" firstAttribute="top" secondItem="jac-y0-QtA" secondAttribute="bottom" constant="-2" id="Tye-Oq-Tg3"/>
+                    <constraint firstItem="jac-y0-QtA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Uya-Zl-uhn"/>
+                    <constraint firstAttribute="trailing" secondItem="jac-y0-QtA" secondAttribute="trailing" constant="16" id="vMX-mI-khS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="definitionTextView" destination="jac-y0-QtA" id="RHS-cx-lYp"/>
+                <outlet property="exampleTextView" destination="8Rj-ra-7du" id="lrk-UR-Fq0"/>
+            </connections>
+            <point key="canvasLocation" x="88" y="77.361319340329842"/>
+        </tableViewCell>
+    </objects>
+</document>
