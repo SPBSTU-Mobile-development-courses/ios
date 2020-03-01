@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='0-who-is-me'/>
+        <page name='1-hello'/>
+        <page name='2-variables'/>
+        <page name='3-data-types-class'/>
+        <page name='4-data-types-struct'/>
+        <page name='5-enums'/>
+        <page name='6-properties'/>
+        <page name='7-methods'/>
+        <page name='8-init'/>
+        <page name='9-optional'/>
+        <page name='10-generic'/>
+        <page name='11-collections&amp;cycles'/>
+        <page name='12-type-casting'/>
+        <page name='13-frameworks'/>
+        <page name='HomeWork'/>
+    </pages>
+</playground>
