@@ -16,4 +16,7 @@ a.add(element: 3)
 a.add(element: 4)
 a.add(element: 5)
 a.add(element: 6)
-a.contains(element: 6)
+print(a.contains(element: 6))
+a.remove(element: 6)
+print(a.contains(element: 6))
+
