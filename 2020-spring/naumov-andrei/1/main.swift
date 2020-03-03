@@ -1,95 +1,110 @@
 import Foundation
 
-class Tree<T: Comparable> {
-    init(value: T, left: Tree?, right: Tree?, parent: Tree?) {
+class Node<T: Comparable>{
+    var value: T
+    var height: Int
+    var left: Node?
+    var right: Node?
+    
+    init(value: T, height: Int, left: Node?, right: Node?) {
         self.value = value
+        self.height = height
         self.left = left
         self.right = right
-        self.parent = parent
     }
-    
-    var value: T
-    var left: Tree?
-    var right: Tree?
-    var parent: Tree?
-    
-    func insert(newValue: T) -> Bool? {
-        if newValue < value {
-            if left != nil {
-                return left?.insert(newValue: newValue)
-            } else {
-                left = Tree(value: newValue, left: nil, right: nil, parent: self)
-                return true
-            }
-        } else if newValue > value {
-            if right != nil {
-                return right?.insert(newValue: newValue)
-            } else {
-                right = Tree(value: newValue, left: nil, right: nil, parent: self)
-                return true
-            }
+}
+
+func height<T>(node: Node<T>?) -> Int {
+    return node != nil ? 0 : node!.height
+}
+
+func balanceFactor<T>(node: Node<T>?) -> Int {
+    return height(node: node?.left) - height(node: node?.right)
+}
+
+func fixHeight<T>(node: Node<T>?) {
+    var leftHeight = height(node: node!.left)
+    var rightHeight = height(node: node!.right)
+    node!.height = (leftHeight > rightHeight ? leftHeight : rightHeight) + 1
+}
+
+func rightRotate<T>(node: Node<T>) -> Node<T> {
+    var temp = node.left
+    node.left = temp?.right
+    temp!.right = node
+    fixHeight(node: node)
+    fixHeight(node: temp)
+    return temp!
+}
+
+func leftRotate<T>(node: Node<T>) -> Node<T> {
+    var temp = node.right
+    node.right = temp?.left
+    temp!.left = node
+    fixHeight(node: node)
+    fixHeight(node: temp)
+    return temp!
+}
+
+func balance<T>(node: Node<T>) -> Node<T> {
+    fixHeight(node: node)
+    if balanceFactor(node: node) == 2 {
+        if balanceFactor(node: node.right) < 0 {
+            node.right = rightRotate(node: node.right!)
         }
-        return false
+        return leftRotate(node: node)
     }
-    
-    private func removeFromRoot() -> Bool? {
-        if left == nil && right == nil {
-            return false
-        } else if left != nil && right == nil {
-            left?.parent = nil
-        } else if left == nil && right != nil {
-            right?.parent = nil
-        } else {
-            var temp = left
-            while temp?.right != nil {
-                temp = temp?.right
-            }
-            temp?.right = right
-            right?.parent = temp
+    if balanceFactor(node: node) == -2 {
+        if balanceFactor(node: node.left) < 0 {
+            node.left = leftRotate(node: node.left!)
         }
-        return true
+        return rightRotate(node: node)
     }
-    
-    func remove(valueToRemove: T) -> Bool? {
-        if valueToRemove < value {
-            if left != nil {
-                if left?.value == valueToRemove {
-                    if left?.removeFromRoot() == false {
-                        left = nil
-                    }
-                    return true
-                }
-                return left?.remove(valueToRemove: valueToRemove)
-            }
-            return false
-        } else if valueToRemove > value {
-            if right != nil {
-                if right?.value == valueToRemove {
-                    if right?.removeFromRoot() == false {
-                        right = nil
-                    }
-                    return true
-                }
-                return right?.remove(valueToRemove: valueToRemove)
-            }
-            return false
+    return node
+}
+
+func insert<T>(node: Node<T>?, value: T) -> Node<T>? {
+    if node == nil {
+        return Node(value: value, height: 1, left: nil, right: nil)
+    }
+    if value < node!.value {
+        node?.left = insert(node: node!.left, value: value)
+    } else {
+        node?.right = insert(node: node!.right, value: value)
+    }
+    return balance(node: node!)
+}
+
+func findMin<T>(node: Node<T>) -> Node<T> {
+    return node.left == nil ? node : findMin(node: node.left!)
+}
+
+func removeMin<T>(node: Node<T>) -> Node<T>? {
+    if node.left == nil {
+        return node.right
+    }
+    node.left = removeMin(node: node.left!)
+    return balance(node: node)
+}
+
+func remove<T>(node: Node<T>?, value: T) -> Node<T>? {
+    if node == nil {
+        return nil
+    }
+    if value < node!.value {
+        node?.left = remove(node: node?.left, value: value)
+    } else if value > node!.value {
+        node?.right = remove(node: node?.right, value: value)
+    } else {
+        var temp1 = node?.left
+        var temp2 = node?.right
+        if temp2 == nil {
+            return temp1
         }
-        return removeFromRoot()
+        var min = findMin(node: temp2!)
+        min.right = removeMin(node: temp2!)
+        min.left = temp1
+        return balance(node: min)
     }
-    
-    func search(valueToSearch: T) -> Bool? {
-        if valueToSearch < value {
-            if left != nil {
-                return left?.search(valueToSearch: valueToSearch)
-            }
-            return false
-        } else if valueToSearch > value {
-            if right != nil {
-                return right?.search(valueToSearch: valueToSearch)
-            }
-            return false
-        }
-        return true
-    }
-    
+    return balance(node: node!)
 }
