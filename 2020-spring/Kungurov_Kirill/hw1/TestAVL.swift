@@ -6,3 +6,33 @@
 //
 
 import Foundation
+
+let nums = [2,3,4,5,6,7]
+var bst = BinaryTree<Int>()
+for num in nums {
+    bst.put(num)
+}
+
+/*
+ AVL tree
+           5
+       3       6
+    2     4       7
+*/
+
+assert(bst.root?.height == 3)
+assert(bst.contains(6))
+assert(bst.remove(6) == true)
+assert(bst.contains(6) == false)
+assert(bst.remove(1) == false)
+
+bst.put(8)
+bst.put(9)
+/*
+ AVL tree
+            5
+        3       7
+    2       4       8
+                       9
+ */
+assert(bst.root?.height == 4)
