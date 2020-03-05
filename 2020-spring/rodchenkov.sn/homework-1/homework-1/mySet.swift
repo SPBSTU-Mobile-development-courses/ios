@@ -2,24 +2,27 @@ import Foundation
 
 class MySet<Key : Comparable> {
     
-    // public:
+    public private(set) var size = 0
+    private var root_: Node? = nil
     
-    init(_ keys: Key...) {
+    public var empty: Bool { size == 0 }
+    
+    convenience init(_ keys: Key...) {
+        self.init(keys)
+    }
+    
+    init(_ keys: [Key] = []) {
         for key in keys {
             insert(key)
         }
     }
     
-    public var size: Int { get { size_ } }
-    public var empty: Bool { get { size_ == 0 } }
-    
     public func insert(_ key: Key) -> Bool {
-        guard root_ != nil else {
+        guard var curr = root_ else {
             root_ = Node(key)
-            size_ += 1
+            size += 1
             return true
         }
-        var curr = root_!
         while true {
             if key == curr.key { return false }
             if key > curr.key {
@@ -27,7 +30,7 @@ class MySet<Key : Comparable> {
                     curr = curr.right!
                 } else {
                     curr.right = Node(key, curr)
-                    size_ += 1
+                    size += 1
                     splay(curr.right!)
                     return true
                 }
@@ -36,7 +39,7 @@ class MySet<Key : Comparable> {
                     curr = curr.left!
                 } else {
                     curr.left = Node(key, curr)
-                    size_ += 1
+                    size += 1
                     splay(curr.left!)
                     return true
                 }
@@ -60,7 +63,7 @@ class MySet<Key : Comparable> {
             root_ = root_!.right
             root_?.parent = nil
         }
-        size_ -= 1
+        size -= 1
         return true
     }
     
@@ -69,24 +72,22 @@ class MySet<Key : Comparable> {
             return false
         }
         var curr = root_
-        var prev: Node? = nil
-        while curr != nil {
-            prev = curr
-            if curr!.key == key {
-                splay(curr!)
+        var prev: Node?
+        while let node = curr {
+            prev = node
+            if node.key == key {
+                splay(node)
                 return true
             }
-            if key > curr!.key {
-                curr = curr!.right
+            if key > node.key {
+                curr = node.right
             } else {
-                curr = curr!.left
+                curr = node.left
             }
         }
         splay(prev!)
         return false
     }
-    
-    // private:
     
     private class Node {
         public var left: Node? = nil
@@ -101,79 +102,77 @@ class MySet<Key : Comparable> {
     
     private func rotateLeft(_ n: Node)
     {
-        let p = n.parent;
-        let r = n.right!;
-        n.right = r.left;
+        let p = n.parent
+        let r = n.right!
+        n.right = r.left
         if r.left != nil {
-            r.left!.parent = n;
+            r.left!.parent = n
         }
-        r.left = n;
-        n.parent = r;
-        r.parent = p;
-        if p != nil {
-            if p!.left === n {
-                p!.left = r;
+        r.left = n
+        n.parent = r
+        r.parent = p
+        if let parent = p {
+            if parent.left === n {
+                parent.left = r
             } else {
-                p!.right = r;
+                parent.right = r
             }
         }
     }
 
     private func rotateRight(_ n: Node)
     {
-        let p = n.parent;
-        let l = n.left!;
-        n.left = l.right;
+        let p = n.parent
+        let l = n.left!
+        n.left = l.right
         if l.right != nil {
-            l.right!.parent = n;
+            l.right!.parent = n
         }
-        l.right = n;
-        n.parent = l;
-        l.parent = p;
-        if p != nil {
-            if p!.left === n {
-                p!.left = l;
+        l.right = n
+        n.parent = l
+        l.parent = p
+        if let parent = p {
+            if parent.left === n {
+                parent.left = l
             } else {
-                p!.right = l;
+                parent.right = l
             }
         }
     }
     private func maximum(_ n: Node) -> Node {
         var curr = n
-        while curr.right != nil {
-            curr = curr.right!
+        while let right = curr.right {
+            curr = right
         }
         return curr
     }
     
     private func splay(_ n: Node)
     {
-        while n.parent != nil {
-            if n === n.parent!.left {
-                if n.parent!.parent == nil {
-                    rotateRight(n.parent!);
-                } else if n.parent! === n.parent!.parent!.left {
-                    rotateRight(n.parent!.parent!);
-                    rotateRight(n.parent!);
+        while let parent = n.parent {
+            if n === parent.left {
+                if parent.parent == nil {
+                    rotateRight(parent)
+                } else if parent === parent.parent!.left {
+                    rotateRight(parent.parent!)
+                    rotateRight(parent)
                 } else {
-                    rotateRight(n.parent!);
-                    rotateLeft(n.parent!);
+                    rotateRight(parent)
+                    rotateLeft(parent)
                 }
             } else {
-                if n.parent!.parent == nil {
-                    rotateLeft(n.parent!);
-                } else if n.parent! === n.parent!.parent!.right {
-                    rotateLeft(n.parent!.parent!);
-                    rotateLeft(n.parent!);
+                if parent.parent == nil {
+                    rotateLeft(parent)
+                } else if parent === parent.parent!.right {
+                    rotateLeft(parent.parent!)
+                    rotateLeft(parent)
                 } else {
-                    rotateLeft(n.parent!);
-                    rotateRight(n.parent!);
+                    rotateLeft(parent)
+                    rotateRight(parent)
                 }
             }
         }
-        root_ = n;
+        root_ = n
     }
-    private var size_ = 0
-    private var root_: Node? = nil
     
 }

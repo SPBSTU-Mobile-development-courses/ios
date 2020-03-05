@@ -1,21 +1,16 @@
 import Foundation
 
-func isRangeInSet(low: Int, high: Int, set: MySet<Int>) {
-    for i in low...high {
-        print("\(i) in set? \(set.contains(i))")
-    }
-}
-
 var mySet = MySet(1, 2, 3, 4, 5)
-isRangeInSet(low: 1, high: 5, set: mySet)
-mySet.remove(3)
-isRangeInSet(low: 1, high: 5, set: mySet)
-for i in 1...4 {
-    mySet.remove(i)
+assert(mySet.size == 5)
+for i in 1...5 {
+    assert(mySet.contains(i))
 }
-isRangeInSet(low: 1, high: 5, set: mySet)
-mySet.insert(3)
-isRangeInSet(low: 1, high: 5, set: mySet)
-mySet.remove(3)
-mySet.remove(5)
-print("set empty? \(mySet.empty)")
+assert(mySet.remove(3))
+assert(mySet.contains(3) == false)
+for i in [1, 2, 4, 5] {
+    assert(mySet.contains(i))
+}
+for i in 1...2 {
+    assert(mySet.remove(i))
+}
+assert(mySet.size == 2)
