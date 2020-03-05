@@ -10,8 +10,8 @@ import Foundation
 
 class BinaryTree<DataType: Comparable>{
     private class TreeNode{
-        var left: TreeNode? = nil
-        var right: TreeNode? = nil
+        var left: TreeNode?
+        var right: TreeNode?
         var height: Int = 1
         let data: DataType
         init(data: DataType){
@@ -34,91 +34,90 @@ class BinaryTree<DataType: Comparable>{
         rmv(curr: head,element: element)
     }
     private func insert(curr: TreeNode?, element: DataType) -> TreeNode? {
-        if(curr == nil)
+        guard let currentElement = curr else
         {
             return TreeNode(data: element)
         }
-        if(element < curr!.data)
+        if(element < currentElement.data)
         {
-            curr!.left = insert(curr: curr!.left, element: element)
+            currentElement.left = insert(curr: currentElement.left, element: element)
         }
         else
         {
-            curr!.right = insert(curr: curr!.right, element: element)
+            currentElement.right = insert(curr: currentElement.right, element: element)
         }
-        return balance(node: curr!)
+        return balance(node: currentElement)
     }
     private func rmv(curr: TreeNode?, element: DataType) -> TreeNode?{
-        if(curr == nil)
+        guard let currentElement = curr else
         {
             return nil
         }
-        if(element < curr!.data)
+        if(element < currentElement.data)
         {
-            curr!.left = rmv(curr: curr!.left, element: element)
+            currentElement.left = rmv(curr: currentElement.left, element: element)
         }
-        else if(element > curr!.data)
+        else if(element > currentElement.data)
         {
-            curr!.right = rmv(curr: curr!.right,element: element)
+            currentElement.right = rmv(curr: currentElement.right,element: element)
         }
         else
         {
-            let q = curr!.left
-            let r = curr!.right
-            if (r == nil)
+            let left = currentElement.left
+            guard let right = currentElement.right else
             {
-                return q
+                return left
             }
-            let min = findMinimalNode(node: r!)
-            min.right = removeMinimalNode(node: r!)
-            min.left = q
+            let min = findMinimalNode(node: right)
+            min.right = removeMinimalNode(node: right)
+            min.left = left
             return balance(node: min)
         }
-        return balance(node: curr!)
+        return balance(node: currentElement)
     }
     
     private func find(element: DataType, curr: TreeNode?)-> TreeNode? {
-        if(curr == nil)
+        guard let currentElement = curr else
         {
             return nil
         }
-        if(curr!.data == element){
-            return curr
+        if(currentElement.data == element){
+            return currentElement
         }
-        let l = find(element: element, curr: curr?.left)
-        let r = find(element: element, curr: curr?.right)
-        if(l != nil)
+        let left = find(element: element, curr: currentElement.left)
+        let right = find(element: element, curr: currentElement.right)
+        if(left != nil)
         {
-            return l
+            return left
         }
-        if(r != nil)
+        if(right != nil)
         {
-            return r
+            return right
         }
         return nil
     }
     private func findParent(element: DataType, curr: TreeNode?) -> TreeNode?{
-        if(curr == nil)
+        guard let currentElement = curr else
         {
             return nil
         }
-        if(curr!.left?.data == element)
+        if(currentElement.left?.data == element)
         {
             return curr
         }
-        if(curr!.right?.data == element)
+        if(currentElement.right?.data == element)
         {
             return curr
         }
-        let l = findParent(element: element, curr: curr!.left)
-        let r = findParent(element: element, curr: curr!.right)
-        if(l != nil )
+        let left = findParent(element: element, curr: currentElement.left)
+        let right = findParent(element: element, curr: currentElement.right)
+        if(left != nil )
         {
-            return l
+            return left
         }
-        if(r != nil)
+        if(right != nil)
         {
-            return r
+            return right
         }
         return nil
     }
@@ -135,32 +134,32 @@ class BinaryTree<DataType: Comparable>{
     }
     
     private func fixHeight(node: TreeNode){
-        let hl = height(node: node.left)
-        let hr = height(node: node.right)
-        node.height = max(hl,hr)+1
+        let heightLeft = height(node: node.left)
+        let heightRight = height(node: node.right)
+        node.height = max(heightLeft,heightRight)+1
         
     }
     private func rotateRight(node: TreeNode) -> TreeNode?{
-        let q = node.left
-        node.left = q?.right
-        q?.right = node
+        let left = node.left
+        node.left = left?.right
+        left?.right = node
         fixHeight(node: node)
-        if(q != nil)
+        if(left != nil)
         {
-            fixHeight(node: q!)
+            fixHeight(node: left!)
         }
-        return q
+        return left
     }
     private func rotateLeft(node: TreeNode) -> TreeNode?{
-        let p = node.right
-        node.right = p?.left
-        p?.left = node
-        if(p != nil)
+        let right = node.right
+        node.right = right?.left
+        right?.left = node
+        if(right != nil)
         {
-            fixHeight(node: p!)
+            fixHeight(node: right!)
         }
         fixHeight(node: node)
-        return p
+        return right
     }
     private func balance(node: TreeNode) -> TreeNode?{
         fixHeight(node: node)
