@@ -2,7 +2,7 @@ import UIKit
 
 class BinaryTree<T: Comparable>{
     
-    var root: Node?
+    private var root: Node?
     
     init(_ node: Node? = nil){
         self.root = node
@@ -65,53 +65,55 @@ class BinaryTree<T: Comparable>{
     }
     
     private func removeMin(_ rootNode: Node?) -> Node?{
-        if let rootNode = rootNode{
-            if (rootNode.left == nil) {
-                return rootNode.right
-            }
-            rootNode.left = removeMin(rootNode.left)
-            fixHeight(rootNode)
-            return balance(rootNode)
-        } else{
+        guard let rootNode = rootNode else {
             return nil
         }
+        if (rootNode.left == nil) {
+            return rootNode.right
+        }
+        rootNode.left = removeMin(rootNode.left)
+        fixHeight(rootNode)
+        return balance(rootNode)
     }
     
     func remove(_ value: T) -> Bool{
-        if let rootNode = remove(self.root, value) {
-            self.root = rootNode
-            return true
-        } else {
+        guard let rootNode = remove(self.root, value) else {
             return false
         }
+        self.root = rootNode
+        return true
     }
     
     private func remove(_ rootNode: Node?,_ value: T) -> Node?{
-        if let rootNode = rootNode {
-            if !contains(rootNode, value) {
-                return nil
-            }
-            if (value < rootNode.data) {
-                rootNode.left = remove(rootNode.left, value)
-            } else if (value > rootNode.data){
-                rootNode.right = remove(rootNode.right, value)
-            } else {
-                if (rootNode.left == nil){
-                    return rootNode.right
-                }
-                if (rootNode.right == nil) {
-                    return rootNode.left
-                }
-                let tmp = min(rootNode.right!)
-                tmp.right = removeMin(rootNode.right!)
-                tmp.left = rootNode.left
-                return balance(tmp)
-                
-            }
-            fixHeight(rootNode)
-            return balance(rootNode)
+        guard let rootNode = rootNode else{
+            return nil
         }
-        return nil
+        if !contains(rootNode, value) {
+            return nil
+        }
+        if (value < rootNode.data) {
+            rootNode.left = remove(rootNode.left, value)
+        } else if (value > rootNode.data){
+            rootNode.right = remove(rootNode.right, value)
+        } else {
+            if (rootNode.left == nil){
+                return rootNode.right
+            }
+            if (rootNode.right == nil) {
+                return rootNode.left
+            }
+            let tmp = min(rootNode.right!)
+            tmp.right = removeMin(rootNode.right!)
+            tmp.left = rootNode.left
+            fixHeight(rootNode)
+            return balance(tmp)
+        }
+        fixHeight(rootNode)
+        return balance(rootNode)
+    }
+    
+    func height() -> Int{
+        return self.height(self.root)
     }
     
     private func height(_ rootNode: Node?) -> Int{
@@ -119,11 +121,10 @@ class BinaryTree<T: Comparable>{
     }
     
     private func balanceFactor(_ rootNode: Node?) -> Int{
-        if let rootNode = rootNode{
-            return height(rootNode.left) - height(rootNode.right)
-        } else{
+        guard let rootNode = rootNode  else {
             return 0
         }
+        return height(rootNode.left) - height(rootNode.right)
     }
     
     private func fixHeight(_ rootNode: Node){
@@ -134,8 +135,8 @@ class BinaryTree<T: Comparable>{
         let right = rootNode.right!
         rootNode.right = right.left
         right.left = rootNode
-        fixHeight(right)
         fixHeight(rootNode)
+        fixHeight(right)
         return right
     }
     
@@ -143,8 +144,8 @@ class BinaryTree<T: Comparable>{
         let left = rootNode.left!
         rootNode.left = left.right
         left.right = rootNode
-        fixHeight(left)
         fixHeight(rootNode)
+        fixHeight(left)
         return left
     }
     
