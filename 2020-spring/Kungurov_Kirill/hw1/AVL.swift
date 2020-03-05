@@ -1,10 +1,4 @@
-//
-//  AVL.swift
-//
-//  Created by Kirill Kungurov on 04.03.2020.
-//
-
-import Foundation
+import UIKit
 
 class BinaryTree<T: Comparable>{
     
@@ -28,22 +22,22 @@ class BinaryTree<T: Comparable>{
         }
         
     }
-
+    
     func contains(_ value: T) -> Bool{
         contains(self.root, value)
     }
     
     private func contains(_ rootNode: Node?, _ value: T) -> Bool{
-        if let rootNode = rootNode {
-            if (value > rootNode.data){
-                return contains(rootNode.right, value)
-            } else if (value < rootNode.data){
-                return contains(rootNode.left, value)
-            } else {
-                return true
-            }
+        guard let rootNode = rootNode else {
+            return false
         }
-        return false
+        if (value > rootNode.data){
+            return contains(rootNode.right, value)
+        } else if (value < rootNode.data){
+            return contains(rootNode.left, value)
+        } else {
+            return true
+        }
     }
     
     func put(_ value: T){
@@ -51,20 +45,19 @@ class BinaryTree<T: Comparable>{
     }
     
     private func put(_ rootNode: Node?,_ value: T) -> Node{
-        if let rootNode = rootNode {
-            if (rootNode.data > value){
-                rootNode.left = put(rootNode.left, value)
-            } else if (rootNode.data < value){
-                rootNode.right = put(rootNode.right, value)
-            } else{
-                rootNode.data = value
-                return rootNode
-            }
-            fixHeight(rootNode)
-            return balance(rootNode)
-        } else {
+        guard let rootNode = rootNode else {
             return Node(value)
         }
+        if (rootNode.data > value){
+            rootNode.left = put(rootNode.left, value)
+        } else if (rootNode.data < value){
+            rootNode.right = put(rootNode.right, value)
+        } else{
+            rootNode.data = value
+            return rootNode
+        }
+        fixHeight(rootNode)
+        return balance(rootNode)
     }
     
     private func min(_ rootNode: Node) -> Node{
@@ -94,7 +87,7 @@ class BinaryTree<T: Comparable>{
     }
     
     private func remove(_ rootNode: Node?,_ value: T) -> Node?{
-        if var rootNode = rootNode {
+        if let rootNode = rootNode {
             if !contains(rootNode, value) {
                 return nil
             }
@@ -109,7 +102,7 @@ class BinaryTree<T: Comparable>{
                 if (rootNode.right == nil) {
                     return rootNode.left
                 }
-                var tmp = min(rootNode.right!)
+                let tmp = min(rootNode.right!)
                 tmp.right = removeMin(rootNode.right!)
                 tmp.left = rootNode.left
                 return balance(tmp)
@@ -122,18 +115,15 @@ class BinaryTree<T: Comparable>{
     }
     
     private func height(_ rootNode: Node?) -> Int{
-        if let rootNode = rootNode {
-            return rootNode.height
-        } else {
-            return 0
-        }
+        return rootNode?.height ?? 0
     }
     
     private func balanceFactor(_ rootNode: Node?) -> Int{
-        guard let rootNode = rootNode else{
+        if let rootNode = rootNode{
+            return height(rootNode.left) - height(rootNode.right)
+        } else{
             return 0
         }
-        return height(rootNode.left) - height(rootNode.right)
     }
     
     private func fixHeight(_ rootNode: Node){
