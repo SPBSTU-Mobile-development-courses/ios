@@ -16,6 +16,7 @@ class TreeNode<T> {
 
 class BinaryTree<T: Comparable & CustomStringConvertible> {
     
+    
     var rootNode: TreeNode<T>?
     
     func insert(element: T) {
@@ -45,4 +46,24 @@ class BinaryTree<T: Comparable & CustomStringConvertible> {
             }
         }
     }
+    
+    func remove<T: Comparable>(treeNode: TreeNode<T>?, value: T) -> TreeNode<T>? {
+        if treeNode == nil {
+            return nil
+        }
+        if value < treeNode!.data {
+            treeNode?.leftNode = remove(treeNode: treeNode?.leftNode, value: value)
+        } else if value > treeNode!.data {
+            treeNode?.rightNode = remove(treeNode: treeNode?.rightNode, value: value)
+        } else {
+            let temp1 = treeNode?.leftNode
+            let temp2 = treeNode?.rightNode
+            if temp2 == nil {
+                return temp1
+            }
+        }
+        return treeNode
+    }
 }
+
+
