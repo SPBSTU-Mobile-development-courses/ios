@@ -7,15 +7,15 @@
  */
 
 class Foo {
-    var property: Int
-    
-    init(property: Int) {
-        self.property = property
+    var property: Int  
+    init(property: Int) 
+    {
+        self.property = property //аналог this
     }
 }
 
 let one = Foo(property: 1)
-let two = one
+var two = one
 two.property = 2
 //
 print(one.property)

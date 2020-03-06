@@ -1,12 +1,12 @@
 /*:
  * дженерик позволяет сделать «заготовку» типа, функции, переменной
  * использование дженерик-типов без однозначной спецификации запрещено
- * определенные условия на дженерики
+ * определенные условия на дженерики // аналог шаблона походу
  * SomeClass<String> и SomeClass<Int> - разные типы
  * дженерик типы не могут иметь статических методов/функций
  */
 
-func swapTwoDoubles<T>(_ a: inout T, _ b: inout T) {
+func swapTwoDoubles<T>(_ a: inout T, _ b: inout T) { 
     let temporaryA = a
     a = b
     b = temporaryA
@@ -24,6 +24,7 @@ struct Stack<Element> {
     }
 }
 
+
 var stackOfStrings = Stack<Int>()
 stackOfStrings.push(1)
 //stackOfStrings.push("dos")
@@ -36,7 +37,7 @@ stackOfStrings.push(1)
 
 
 
-func findIndex<T: Equatable>(of valueToFind: T, in array:[T]) -> Int? {
+func findIndex<T: Equatable>(of valueToFind: T, in array:[T]) -> Int? {  //Equatable - A type that can be compared for value equality.
     for (index, value) in array.enumerated() {
         if value == valueToFind {
             return index

@@ -7,6 +7,7 @@
 
 struct Foo {
     var property: Int
+
 }
 
 let one = Foo(property: 1)
@@ -18,7 +19,7 @@ print(two.property)
 
 
 //________________
-func changeToFive(foo: inout Foo) {
+func changeToFive(foo: inout Foo) {  //inout для того чтоб менять можно было, иначе констатанта
     foo.property = 5
 }
 
