@@ -129,6 +129,7 @@ func delete1(root: inout Node, data: Int) {
 			}
 
 	}
+	
 	else {
 
 			if (root.leftNode == nil) {
