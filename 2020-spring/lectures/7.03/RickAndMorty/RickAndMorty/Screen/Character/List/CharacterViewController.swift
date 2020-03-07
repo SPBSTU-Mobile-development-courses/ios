@@ -11,8 +11,9 @@ import UIKit
 final class CharacterViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     private var characters = [Character]() {
+        // didSet/willSet вызывается при каждом присваивании свойства. Массив value type, присваивается заново даже при изменении
         didSet {
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { // можно общаться с UI только на главном потоке, прочитать про GCD самим
                 self.tableView.reloadData()
             }
         }
@@ -31,6 +32,7 @@ final class CharacterViewController: UIViewController {
 }
 
 // MARK: - UITableViewDelegate
+// определения протоколов принято выносить в extension. Это удобно визуально разделяет код на группы методов
 extension CharacterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == characters.count - 1 else { return }
@@ -41,13 +43,14 @@ extension CharacterViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let viewController = UIStoryboard(name: "Main", bundle: nil)
+        // этого не было на лекции. Метод вызывается при клике на ячейку. Мы хотим открыть детальную информацию о ней
+        guard let viewController = UIStoryboard(name: "Main", bundle: nil) // открываем главный сториборд и достаем оттуда viewController по идентфикатору. Как с ячейкой
             .instantiateViewController(withIdentifier: "CharacterDetailViewController") as? CharacterDetailViewController else {
                 return
         }
         viewController.character = characters[indexPath.row]
-        navigationController?.pushViewController(viewController, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(viewController, animated: true) // в сториборде добавился navigationController
+        tableView.deselectRow(at: indexPath, animated: true) // снимаем выделение ячейки
     }
 }
 
@@ -59,7 +62,7 @@ extension CharacterViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CharacterTableViewCell else {
-            fatalError("TableView wasn't configured")
+            fatalError("TableView wasn't configured") // или можно например вернуть здесь пустую ячейку просто return UITableViewCell()
         }
         let character = characters[indexPath.row]
         cell.setup(with: character)

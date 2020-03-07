@@ -23,4 +23,3 @@ extension Character {
 // MARK: - Decodable
 extension Character: Decodable {
 }
-

@@ -15,12 +15,14 @@ final class CharacterTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        avatarImageView.image = nil
         avatarLoadTask?.cancel()
     }
 
+    // хорошая практика сделать метод настройки ячейки, а аутлтеты сделать приватными
+    // легче контролировать, весь код в одном месте
     func setup(with character: Character) {
         nameLabel.text = character.name
-        avatarImageView.image = nil
         guard let imageUrl = character.imageUrl else { return }
         avatarLoadTask = URLSession.shared.dataTask(with: imageUrl) { data, _, _ in
             guard let data = data, let image = UIImage(data: data) else { return }
