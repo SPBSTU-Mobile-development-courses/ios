@@ -34,3 +34,34 @@
 #### Материалы
  * [Swift.org](https://swift.org)/[swiftbook.ru](https://swiftbook.ru/content/languageguide) - документация по Swift с подробными примерами
  * [iOS-Developer-Roadmap](https://github.com/BohdanOrlov/iOS-Developer-Roadmap) - что должен знать junior/middle/senior ios разработчик. Вопросы и ссылки на статьи
+ 
+ ## 3 Марта, ДЗ №2
+ #### Запись лекции
+ [Проверка домашки](https://vk.com/video-176491001_456239028)
+ [Делаем приложение](https://vk.com/video-176491001_456239029)
+ #### Сделать: 
+ Создать приложение, выводящее таблицу сущностей, полученных из сети. Это уже реализовано на лекции, не стесняйтесь сверяться с проектом [RickAndMorty](https://github.com/SPBSTU-Mobile-development-courses/ios/tree/master/2020-spring/lectures/7.03/RickAndMorty).
+ Главное, проделайте все сами, а не просто копируйте.  
+ Можно использовать любое апи отсюда: https://github.com/public-apis/public-apis
+ Я, например, взял это - https://rickandmortyapi.com/. можете использовать его же.
+ 
+ Проверьте, что в API:
+ * есть пагинация (вам возвращают ссылку на следующую страницу сущностей или номер следующей страницы)
+ * есть картинки (сущность содержит ссылку на картинку/аватар сущности)
+ 
+ Приложение должно:
+ * выводить таблицу, где каждая ядейка содержит информацию об одной сущности (например, имя и картинка)
+ * при скроле до конца таблицы загружать новую порцию сущностей
+ * при клике на ячейку открывать детальный экран с информацией о выбранной сущности (UINavigationController в гугле)
+ 
+ #### Прочитать
+ * Что такое SOLID?
+ * Зачем нужны strong, weak, unowned ссылки?
+ * Чем асинхронность отличается от многопоточности?
+ * Что такое GCD? Расскажите про виды очередей?
+ 
+ #### Материалы
+ * [Стиль кода](https://github.com/raywenderlich/swift-style-guide)
+ * [Автоматическая проверка стиля кода](https://github.com/realm/SwiftLint/blob/master/Rules.md) - научимся в следующий раз
+ * [Туториалы по iOS](https://www.raywenderlich.com/5370-grand-central-dispatch-tutorial-for-swift-4-part-1-2)
+ * [Что такое POP? Доклад Александра Зимина](https://youtu.be/71AS4rMrAVk)
