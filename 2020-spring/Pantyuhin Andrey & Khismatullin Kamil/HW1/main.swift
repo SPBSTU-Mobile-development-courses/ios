@@ -75,192 +75,204 @@ class Element<T: Comparable>{
             }
         }
     }
-    func recPrint(height: Int){
-        let newHeight = height + 1
-        var spaces: String = ""
-        for _ in 1...newHeight{
-            spaces = spaces + " "
+
+    func recPrint(){
+        if (self.height != 1)
+        {
+            var spaces: String = ""
+            for _ in 1...(self.height-1){
+                spaces = spaces + " "
+            }
+            print(spaces.dropLast(), value)
+        } else {
+            print(value)
         }
-        print(spaces, value)
-        left?.recPrint(height: (newHeight))
-        right?.recPrint(height: (newHeight))
-        
+        left?.recPrint()
+        right?.recPrint()
     }
-    func recChangeHeight(height: Int){
-        setHeight(value: (getHeight() + height))
-//        if (left != nil)
-//        {
-            left?.recChangeHeight(height: height)
-//        }
-//        if (right != nil)
-//        {
-            right?.recChangeHeight(height: height)
-//        }
+
+    func recAddHeight(height: Int){
+        self.height = self.height + height
+        left?.recAddHeight(height: height)
+        right?.recAddHeight(height: height)
     }
+
     func recFind(value: T) -> DoubleElement<T>?{
         var result: DoubleElement<T>?
         if (self.value == value){
             result = DoubleElement<T>()
             result!.setElement(element: self)
-            return result
         } else {
             if (value > self.value) {
-                if (right == nil) {
-                    return nil;
-                } else {
-                    result = right!.recFind(value: value)
-                    if (result != nil) {
-                        if ((result!.getParentElement()) != nil) {
-                            return result
-                        } else {
-                            result!.setParentElement(element: self)
-                            return result
-                        }
-                    }
-                    return nil
+                result = right?.recFind(value: value)
+                if ((result?.getParentElement()) == nil) {
+                    result?.setParentElement(element: self)
                 }
             } else {
-                if (left == nil) {
-                    return nil;
-                } else {
-                        result = left!.recFind(value: value)!
-                        if (result != nil) {
-                            if ((result!.getParentElement()) != nil) {
-                                return result
-                            } else {
-                                result!.setParentElement(element: self)
-                                return result
-                            }
-                        }
-                    return nil
-                    }
+                result = left?.recFind(value: value)!
+                if ((result?.getParentElement()) == nil) {
+                    result?.setParentElement(element: self)
+                }
             }
         }
+        return result
     }
 }
 
 class Tree<T: Comparable>{
-    var head: Element<T>
+    var head: Element<T>?
     
+	init() {
+		self.head = nil
+	}
+	
     init(value: T){
         self.head = Element(value: value, parentHeight: 0)
     }
     
     func add(value: T) {
-        let parentElement = head.recAdd(value: value)
-        if (parentElement == nil) {
+        if (head == nil)
+        {
+            head = Element(value: value, parentHeight: 0)
+            Swift.print("Seed planted")
             return
         }
+        let parentElement = head?.recAdd(value: value)
+        if (parentElement == nil) {
+            Swift.print("This value already exist:", value)
+            return
+        }
+		var parentHeight = parentElement!.getHeight()
         if (value > parentElement!.getValue()!) {
-            parentElement?.setRight(element: Element(value: value, parentHeight: parentElement!.getHeight()))
+            parentElement?.setRight(element: Element(value: value, parentHeight: parentHeight))
         } else {
-            parentElement?.setLeft(element: Element(value: value, parentHeight: parentElement!.getHeight()))
+            parentElement?.setLeft(element: Element(value: value, parentHeight: parentHeight))
         }
-       
     }
+
     func print(){
-        head.recPrint(height: 0)
+        head?.recPrint()
     }
+
     func find(value: T) -> Element<T>?{
-        let result = head.recFind(value: value)
-        if ((result != nil) && (result?.getParentElement() != nil)) {
-//            Swift.print(result!.getParentElement()!.getValue())
+        let result = head?.recFind(value: value)
+        if (result != nil)
+        {
+            return result?.getElement()
         }
-        return result?.getElement()
+        Swift.print("Element don't exist in this tree:", value)
+        return nil
     }
+
     func delete(value: T){
-        var element = head.recFind(value: value)?.getElement()
-        var parent = head.recFind(value: value)?.getParentElement()
+        var finded = head?.recFind(value: value)
+        if (finded == nil)
+        {
+            Swift.print("Can't find element to delete:", value)
+            return
+        }
+        var element = finded!.getElement()
+        var parent = finded!.getParentElement()
         
-        if (head.getValue() != value) {
-            if (parent?.getRight() != nil) && (parent?.getRight()?.getValue() == value){
-            
+        if (parent != nil) {
+            if (parent?.getRight()?.getValue() == value){
                 if (element!.getRight() != nil) {
-                    parent?.setRight(element: element!.getRight()!)
+                    parent!.setRight(element: element!.getRight()!)
+                    parent!.getRight()!.recAddHeight(height: -1)
                     if (element!.getLeft() != nil) {
                         var tmp: Element<T> = (element?.getRight())!
                         while (tmp.getLeft() != nil){
                             tmp = tmp.getLeft()!
                         }
                         tmp.setLeft(element: element!.getLeft()!)
-                    } else {
-                        parent?.setRight(element: nil)
-                    }
-                    
+						var lastLHeight = tmp.getHeight()
+						var currentLHeight = tmp.getLeft()!.getHeight()
+                        tmp.getLeft()!.recAddHeight(height: (lastLHeight - currentLHeight + 1))
+                    } 
                 } else {
                     if (element!.getLeft() != nil) {
                         parent?.setRight(element: element!.getLeft()!)
-                    } else { parent?.setRight(element: nil) }
+                        parent!.getRight()!.recAddHeight(height: -1)
+                    } else {
+                        parent?.setRight(element: nil)
+                    }
                 }
             } else if (parent?.getLeft() != nil) {
                 if (element!.getRight() != nil) {
                     parent?.setLeft(element: element!.getRight()!)
+                    parent!.getLeft()!.recAddHeight(height: -1)
                     if (element!.getLeft() != nil) {
                        var tmp: Element<T> = (element?.getRight())!
                         while (tmp.getLeft() != nil){
                             tmp = tmp.getLeft()!
                         }
                         tmp.setLeft(element: element!.getLeft()!)
-                    } else {
-                        parent?.setLeft(element: nil)
-                    }
-                    
+                        var lastLHeight = tmp.getHeight()
+						var currentLHeight = tmp.getLeft()!.getHeight()
+                        tmp.getLeft()!.recAddHeight(height: (lastLHeight - currentLHeight + 1))
+                    } 
                 } else {
                     if (element!.getLeft() != nil) {
                         parent?.setLeft(element: element!.getLeft()!)
-                    } else { parent?.setLeft(element: nil) }
+                        parent!.getLeft()!.recAddHeight(height: -1)
+                    } else {
+                        parent?.setLeft(element: nil)
+                    }
                 }
             }
         } else {
-            if (head.getLeft() == nil){
-                if (head.getRight() == nil)
+            if (head!.getLeft() == nil){
+                if (head!.getRight() == nil)
                 {
-                    Swift.print("tree has been cuzzzzzzt")
+                    head = nil
+                    Swift.print("Tree has been cut")
                 } else {
-                    self.head = head.getRight()!
+                    self.head = head!.getRight()!
+                    self.head!.recAddHeight(height: -1)
                 }
             } else {
-                if (head.getRight() == nil)
+                if (head!.getRight() == nil)
                 {
-                    self.head = head.getLeft()!
+                    self.head = head!.getLeft()!
+                    self.head!.recAddHeight(height: -1)
                 } else {
-                    var tmp: Element<T> = (head.getRight())!
+                    self.head!.getRight()!.recAddHeight(height: -1)
+                    var tmp: Element<T> = (head?.getRight())!
                     while (tmp.getLeft() != nil){
                         tmp = tmp.getLeft()!
                     }
-                    tmp.setLeft(element: head.getLeft()!)
-                    self.head = head.getRight()!
+                    tmp.setLeft(element: head?.getLeft()!)
+                    var lastLHeight = tmp.getHeight()
+					var currentLHeight = tmp.getLeft()!.getHeight()
+                    tmp.getLeft()!.recAddHeight(height: (lastLHeight - currentLHeight + 1))
+                    self.head = head!.getRight()!
                 }
-                
             }
         }
-        //parent.setRight(element: element.getRight)
-            //удаление
-        
     }
 }
 
-var oak: Tree<Int> = Tree<Int>(value: 6)
-//var i: Int = 0
-//for i in 1...10{
-//    oak.add(value: i)
-//}
+var oak: Tree<Int> = Tree<Int>()
 
-oak.add(value: 5)
-oak.add(value: 6)
-oak.add(value: 3)
-oak.add(value: 1)
+oak.add(value: 20)
+oak.add(value: 30)
+oak.add(value: 33)
+oak.add(value: 34)
+oak.add(value: 32)
+oak.add(value: 25)
+oak.add(value: 28)
+oak.add(value: 21)
+oak.add(value: 15)
+oak.add(value: 17)
+oak.add(value: 18)
+oak.add(value: 16)
+oak.add(value: 12)
+oak.add(value: 10)
 oak.add(value: 13)
+oak.add(value: 30)
 
 oak.print()
 Swift.print()
 
-//if (oak.find(value: 1) == nil) {
-//    print("пусто")
-//} else {
-//    print(oak.find(value: 1)?.getRight()?.getValue() ?? 0)
-//
-//}
-
-oak.delete(value: 13)
+oak.delete(value: 15)
 oak.print()
