@@ -1,16 +1,18 @@
 import Foundation
 
-let tree = BinaryTree<Int>()
+
+let treeInt = BinaryTree<Int>()
 let treeChar = BinaryTree<Character>()
 
+treeInt.insert(element: 3)
+treeInt.getInfo()
 
-tree.insert(element: 3)
-tree.insert(element: 4)
-tree.insert(element: 2)
-tree.insert(element: 1)
-tree.search(element: 1)
+treeInt.insert(element: 4)
+treeInt.insert(element: 2)
+treeInt.insert(element: 1)
 
-tree.getInfo()
+treeInt.remove(treeNode: treeInt.rootNode, value: 4)
+treeInt.getInfo()
 
 
 
