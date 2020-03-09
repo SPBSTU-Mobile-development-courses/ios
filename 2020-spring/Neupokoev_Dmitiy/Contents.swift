@@ -17,7 +17,7 @@
 * [iOS-Developer-Roadmap](https://github.com/BohdanOrlov/iOS-Developer-Roadmap)
 
 */
-
+// ЭТО СЛАБАЯ РАБОТА, НО ЗАТО ЧЕСТНАЯ 
 
 class Tree<T: Comparable> {
 

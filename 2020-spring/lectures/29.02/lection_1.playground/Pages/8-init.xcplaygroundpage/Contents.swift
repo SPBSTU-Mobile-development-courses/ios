@@ -39,14 +39,13 @@ class Boring {
         self.init(a: "a")
     }
     
-    init?(checked: String) { 
+    init?(checked: String) {
         if checked != "a" {
             return nil
         }
         self.a = checked
     }
 }
-
 
 let boring = Boring(checked: "b")
 
@@ -56,8 +55,7 @@ struct MyStruct {
     var b: String
     
     public init(a: String, b: String) {
-        self.a = a
-        self.b = b
+        
     }
 }
 
