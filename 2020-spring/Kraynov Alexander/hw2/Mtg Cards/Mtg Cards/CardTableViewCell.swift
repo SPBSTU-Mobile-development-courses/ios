@@ -9,8 +9,8 @@
 import UIKit
 
 final class CardTableViewCell: UITableViewCell {
-    @IBOutlet weak private var nameLabel: UILabel!
-    @IBOutlet weak private var cardImageView: UIImageView!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var cardImageView: UIImageView!
     private var cardLoadTask: URLSessionTask?
     override func prepareForReuse() {
         super.prepareForReuse()

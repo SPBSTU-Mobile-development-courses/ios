@@ -10,11 +10,11 @@ import UIKit
 
 final class CardDetailViewController : UIViewController{
     var card: Card?
-    @IBOutlet weak private var nameLabel: UILabel!
-    @IBOutlet weak private var cardImageView: UIImageView!
-    @IBOutlet weak private var flavourTextLabel: UILabel!
-    @IBOutlet weak private var artistLabel: UILabel!
-    @IBOutlet weak private var rarityLabel: UILabel!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var cardImageView: UIImageView!
+    @IBOutlet private var flavourTextLabel: UILabel!
+    @IBOutlet private var artistLabel: UILabel!
+    @IBOutlet private var rarityLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = (card?.name ?? "") + " card details"

@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     private var cards = [Card]() {
         didSet {
             DispatchQueue.main.async {
