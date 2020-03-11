@@ -9,12 +9,12 @@
 import Foundation
 
 struct Card: Decodable {
-    let name: String
-    let artist: String?
-    let rarity: String
-    let flavor_text: String?
-    let image_uris: CardFaceImages?
     struct CardFaceImages: Decodable {
         let normal: String?
     }
+    let name: String
+    let artist: String?
+    let rarity: String
+    let flavorText: String?
+    let imageUris: CardFaceImages?
 }

@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     }
     private let cardService: CardService = CardServiceImpl()
     private let cellIdentifier = "CardTableViewCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cardService.getCards { cardArray in
@@ -32,6 +33,7 @@ class ViewController: UIViewController {
         tableView.rowHeight = 350
     }
 }
+
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cards.count
@@ -46,6 +48,7 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
 }
+
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == cards.count - 1 else {

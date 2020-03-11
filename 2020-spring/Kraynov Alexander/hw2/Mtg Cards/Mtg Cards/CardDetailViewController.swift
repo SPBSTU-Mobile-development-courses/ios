@@ -15,15 +15,19 @@ final class CardDetailViewController : UIViewController{
     @IBOutlet private var flavourTextLabel: UILabel!
     @IBOutlet private var artistLabel: UILabel!
     @IBOutlet private var rarityLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = (card?.name ?? "") + " card details"
-        nameLabel.text = "Name: " + (card?.name ?? "")
-        flavourTextLabel.text = "Flavor text: \n" + (card?.flavor_text ?? "")
+        guard let card = card else {
+            return
+        }
+        title = "\(card.name)  card details"
+        nameLabel.text = "Name: \(card.name)"
+        flavourTextLabel.text = "Flavor text: \n\(card.flavorText ?? "")"
         flavourTextLabel.sizeToFit()
-        artistLabel.text = "Artist: " + (card?.artist ?? "")
-        rarityLabel.text = "Rarity: " + (card?.rarity ?? "")
-        guard let imageURL = URL(string: card?.image_uris?.normal ?? "") else {
+        artistLabel.text = "Artist: \(card.artist ?? "")"
+        rarityLabel.text = "Rarity: \(card.rarity)"
+        guard let imageURL = URL(string: card.imageUris?.normal ?? "") else {
             return
         }
         let cardLoadTask = URLSession.shared.dataTask(with: imageURL) { data, _, _ in

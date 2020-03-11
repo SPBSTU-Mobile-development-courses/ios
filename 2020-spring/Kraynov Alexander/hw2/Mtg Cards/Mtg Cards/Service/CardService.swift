@@ -10,12 +10,14 @@ import Foundation
 
 protocol CardService {
     typealias CardCompletion = ([Card]?) -> Void
-    
     func getCards(completion: @escaping CardCompletion)
     func getMoreCards(completion: @escaping CardCompletion)
 }
 
 final class CardServiceImpl: CardService {
+    private let baseURL = "https://api.scryfall.com/cards"
+    private var nextPage: URL?
+    
     func getCards(completion: @escaping CardCompletion) {
         guard let url = URL(string: baseURL) else {
             completion(nil)
@@ -42,18 +44,16 @@ final class CardServiceImpl: CardService {
             var page: CardPage<Card>? = nil
             do
             {
-            page = try JSONDecoder().decode(CardPage<Card>.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                page = try decoder.decode(CardPage<Card>.self, from: data)
             }
             catch let error {
                 print(error.localizedDescription)
             }
-                self.nextPage = URL(string: page?.next_page ?? "")
+                self.nextPage = URL(string: page?.nextPage ?? "")
             completion(page?.data)
         }
     .resume()
     }
-    
-    private let baseURL = "https://api.scryfall.com/cards"
-    private var nextPage: URL?
-    
 }

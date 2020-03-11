@@ -20,7 +20,7 @@ final class CardTableViewCell: UITableViewCell {
     
     func setup(with card: Card) {
         nameLabel.text = card.name
-        guard let imageURL = URL(string: card.image_uris?.normal ?? "") else {
+        guard let imageURL = URL(string: card.imageUris?.normal ?? "") else {
             return
         }
         cardLoadTask = URLSession.shared.dataTask(with: imageURL) { data, _, _ in

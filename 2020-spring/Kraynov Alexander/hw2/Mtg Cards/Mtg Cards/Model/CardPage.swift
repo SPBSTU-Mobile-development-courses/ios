@@ -9,6 +9,6 @@
 import Foundation
 
 struct CardPage<T:Decodable>: Decodable {
-    let next_page: String
+    let nextPage: String
     let data : [T]
 }
