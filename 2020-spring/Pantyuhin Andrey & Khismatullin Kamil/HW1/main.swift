@@ -39,6 +39,12 @@ class Element<T: Comparable>{
     func setRight(element: Element?){
         self.right = element
     }
+    func setValue(value: T){
+        self.value = value
+    }
+    func setHeight(height: Int){
+        self.height = height
+    }
     func getLeft() -> Element?{
         return self.left
     }
@@ -48,12 +54,35 @@ class Element<T: Comparable>{
     func getValue() -> T?{
         return self.value
     }
-    
-    func setHeight(value: Int){
-        self.height = value
-    }
     func getHeight() -> Int{
         return self.height
+    }
+    
+    func fixHeight(){
+        getLeft()?.setHeight(height: height + 1)
+        getLeft()?.fixHeight()
+        getRight()?.setHeight(height: height + 1)
+        getRight()?.fixHeight()
+    }
+    
+    func getMaxHeight() -> Int{
+        if (getLeft() == nil) {
+            if (getRight() == nil) {
+                return height
+            } else {
+                return getRight()!.getMaxHeight()
+            }
+        } else {
+            if (getRight() == nil) {
+                return getLeft()!.getMaxHeight()
+            } else {
+                if (getRight()!.getMaxHeight() > getLeft()!.getMaxHeight()) {
+                    return getRight()!.getMaxHeight()
+                } else {
+                    return getLeft()!.getMaxHeight()
+                }
+            }
+        }
     }
     
     func recAdd(value: T) -> Element<T>?{
@@ -75,28 +104,28 @@ class Element<T: Comparable>{
             }
         }
     }
-
+    
     func recPrint(){
-        if (self.height != 1)
+        if (height != 1)
         {
             var spaces: String = ""
             for _ in 1...(self.height-1){
                 spaces = spaces + " "
             }
-            print(spaces.dropLast(), value)
+            print(spaces.dropLast(), value, " height: ", height)
         } else {
-            print(value)
+            print(value, " height: ", height)
         }
         left?.recPrint()
         right?.recPrint()
     }
-
+    
     func recAddHeight(height: Int){
         self.height = self.height + height
         left?.recAddHeight(height: height)
         right?.recAddHeight(height: height)
     }
-
+    
     func recFind(value: T) -> DoubleElement<T>?{
         var result: DoubleElement<T>?
         if (self.value == value){
@@ -117,23 +146,117 @@ class Element<T: Comparable>{
         }
         return result
     }
+    
+    func balanceFactor() -> Int{
+        var a: Int? = self.getRight()?.getMaxHeight()
+        var b: Int? = self.getLeft()?.getMaxHeight()
+        if (a == nil) {a = height}
+        if (b == nil) {b = height}
+        return (a! - b!)
+    }
+    
+    func rotateLeft() -> Element<T>{
+        let newHead: Element<T> = getRight()!;
+        setRight(element: newHead.getLeft());
+        newHead.setLeft(element: self);
+        
+        newHead.setHeight(height: newHead.getHeight() - 1)
+        newHead.getLeft()?.setHeight(height: newHead.getLeft()!.getHeight() + 1)
+        
+        newHead.getLeft()?.getLeft()?.recAddHeight(height: 1)
+        newHead.getRight()?.recAddHeight(height: -1)
+        
+        return newHead;
+    }
+    
+    func rotateRight() -> Element<T>{
+        let newHead: Element<T> = getLeft()!;
+        setLeft(element: newHead.getRight());
+        newHead.setRight(element: self);
+        
+        newHead.setHeight(height: newHead.getHeight() - 1)
+        newHead.getRight()?.setHeight(height: newHead.getRight()!.getHeight() + 1)
+        
+        newHead.getLeft()?.recAddHeight(height: -1)
+        newHead.getRight()?.getRight()?.recAddHeight(height: 1)
+        
+        
+        return newHead;
+    }
+    
+    func balance() -> Element<T>{
+        if (balanceFactor() == 2)
+        {
+            if (getRight()!.balanceFactor() < 0) {
+                setRight(element: getRight()!.rotateRight())
+            }
+//            Swift.print("factor = ", balanceFactor())
+            return rotateLeft()
+        } else if (balanceFactor() == -2) {
+            
+            if (getLeft()!.balanceFactor() > 0) {
+                setLeft(element: getLeft()!.rotateLeft())
+            }
+//            Swift.print("factor = ", balanceFactor())
+            return rotateRight()
+        }
+//        Swift.print("factor = ", balanceFactor())
+        return self
+    }
+    
+    func findMin() -> Element<T> {
+        if (getLeft() == nil)
+        {
+            return self
+        } else {
+            return getLeft()!.findMin()
+        }
+    }
+    
+    func removeMin() -> Element<T>{
+        if (getLeft() == nil) {
+            return getRight()!
+        }
+        setLeft(element: getLeft()!.removeMin())
+        return balance()
+    }
+        
+    func delete(value: T) -> Element<T>?{
+            
+        if (value < getValue()!){
+            setLeft(element: getLeft()!.delete(value: value))
+            getLeft()?.fixHeight()
+        } else if (value > getValue()!) {
+            setRight(element: getRight()!.delete(value: value))
+            getRight()?.fixHeight()
+        } else {
+            if (getRight() == nil) { return getLeft() }
+            let min: Element<T> = getRight()!.findMin()
+            min.setRight(element: getRight()!.removeMin())
+            min.setLeft(element: getLeft())
+            min.fixHeight()
+            return min.balance()
+        }
+        return balance()
+        
+    }
 }
 
 class Tree<T: Comparable>{
     var head: Element<T>?
     
-	init() {
-		self.head = nil
-	}
-	
+    init() {
+        self.head = nil
+    }
+    
     init(value: T){
-        self.head = Element(value: value, parentHeight: 0)
+        self.head = Element<T>(value: value, parentHeight: 0)
     }
     
     func add(value: T) {
         if (head == nil)
         {
-            head = Element(value: value, parentHeight: 0)
+            head = Element<T>(value: value, parentHeight: 0)
             Swift.print("Seed planted")
             return
         }
@@ -142,18 +265,19 @@ class Tree<T: Comparable>{
             Swift.print("This value already exist:", value)
             return
         }
-		var parentHeight = parentElement!.getHeight()
+        let parentHeight = parentElement!.getHeight()
         if (value > parentElement!.getValue()!) {
-            parentElement?.setRight(element: Element(value: value, parentHeight: parentHeight))
+            parentElement?.setRight(element: Element<T>(value: value, parentHeight: parentHeight))
         } else {
-            parentElement?.setLeft(element: Element(value: value, parentHeight: parentHeight))
+            parentElement?.setLeft(element: Element<T>(value: value, parentHeight: parentHeight))
         }
+        head = head!.balance()
     }
-
+    
     func print(){
         head?.recPrint()
     }
-
+    
     func find(value: T) -> Element<T>?{
         let result = head?.recFind(value: value)
         if (result != nil)
@@ -163,91 +287,13 @@ class Tree<T: Comparable>{
         Swift.print("Element don't exist in this tree:", value)
         return nil
     }
-
+    
     func delete(value: T){
-        var finded = head?.recFind(value: value)
-        if (finded == nil)
+        if (head?.recFind(value: value) == nil)
         {
             Swift.print("Can't find element to delete:", value)
-            return
-        }
-        var element = finded!.getElement()
-        var parent = finded!.getParentElement()
-        
-        if (parent != nil) {
-            if (parent?.getRight()?.getValue() == value){
-                if (element!.getRight() != nil) {
-                    parent!.setRight(element: element!.getRight()!)
-                    parent!.getRight()!.recAddHeight(height: -1)
-                    if (element!.getLeft() != nil) {
-                        var tmp: Element<T> = (element?.getRight())!
-                        while (tmp.getLeft() != nil){
-                            tmp = tmp.getLeft()!
-                        }
-                        tmp.setLeft(element: element!.getLeft()!)
-						var lastLHeight = tmp.getHeight()
-						var currentLHeight = tmp.getLeft()!.getHeight()
-                        tmp.getLeft()!.recAddHeight(height: (lastLHeight - currentLHeight + 1))
-                    } 
-                } else {
-                    if (element!.getLeft() != nil) {
-                        parent?.setRight(element: element!.getLeft()!)
-                        parent!.getRight()!.recAddHeight(height: -1)
-                    } else {
-                        parent?.setRight(element: nil)
-                    }
-                }
-            } else if (parent?.getLeft() != nil) {
-                if (element!.getRight() != nil) {
-                    parent?.setLeft(element: element!.getRight()!)
-                    parent!.getLeft()!.recAddHeight(height: -1)
-                    if (element!.getLeft() != nil) {
-                       var tmp: Element<T> = (element?.getRight())!
-                        while (tmp.getLeft() != nil){
-                            tmp = tmp.getLeft()!
-                        }
-                        tmp.setLeft(element: element!.getLeft()!)
-                        var lastLHeight = tmp.getHeight()
-						var currentLHeight = tmp.getLeft()!.getHeight()
-                        tmp.getLeft()!.recAddHeight(height: (lastLHeight - currentLHeight + 1))
-                    } 
-                } else {
-                    if (element!.getLeft() != nil) {
-                        parent?.setLeft(element: element!.getLeft()!)
-                        parent!.getLeft()!.recAddHeight(height: -1)
-                    } else {
-                        parent?.setLeft(element: nil)
-                    }
-                }
-            }
         } else {
-            if (head!.getLeft() == nil){
-                if (head!.getRight() == nil)
-                {
-                    head = nil
-                    Swift.print("Tree has been cut")
-                } else {
-                    self.head = head!.getRight()!
-                    self.head!.recAddHeight(height: -1)
-                }
-            } else {
-                if (head!.getRight() == nil)
-                {
-                    self.head = head!.getLeft()!
-                    self.head!.recAddHeight(height: -1)
-                } else {
-                    self.head!.getRight()!.recAddHeight(height: -1)
-                    var tmp: Element<T> = (head?.getRight())!
-                    while (tmp.getLeft() != nil){
-                        tmp = tmp.getLeft()!
-                    }
-                    tmp.setLeft(element: head?.getLeft()!)
-                    var lastLHeight = tmp.getHeight()
-					var currentLHeight = tmp.getLeft()!.getHeight()
-                    tmp.getLeft()!.recAddHeight(height: (lastLHeight - currentLHeight + 1))
-                    self.head = head!.getRight()!
-                }
-            }
+            head!.delete(value: value)
         }
     }
 }
@@ -255,24 +301,24 @@ class Tree<T: Comparable>{
 var oak: Tree<Int> = Tree<Int>()
 
 oak.add(value: 20)
-oak.add(value: 30)
-oak.add(value: 33)
-oak.add(value: 34)
-oak.add(value: 32)
 oak.add(value: 25)
+oak.add(value: 22)
 oak.add(value: 28)
-oak.add(value: 21)
+oak.add(value: 26)
+oak.add(value: 27)
+oak.add(value: 32)
 oak.add(value: 15)
 oak.add(value: 17)
-oak.add(value: 18)
-oak.add(value: 16)
-oak.add(value: 12)
-oak.add(value: 10)
 oak.add(value: 13)
-oak.add(value: 30)
+oak.add(value: 19)
+oak.add(value: 18)
 
 oak.print()
 Swift.print()
+Swift.print("deleating:")
 
 oak.delete(value: 15)
+
 oak.print()
+
+
