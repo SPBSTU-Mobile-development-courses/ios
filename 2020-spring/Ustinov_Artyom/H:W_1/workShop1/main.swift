@@ -1,6 +1,5 @@
 import Foundation
 
-
 let treeInt = BinaryTree<Int>()
 let treeChar = BinaryTree<Character>()
 
