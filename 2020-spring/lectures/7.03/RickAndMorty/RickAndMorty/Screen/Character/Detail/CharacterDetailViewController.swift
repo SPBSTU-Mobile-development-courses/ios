@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CharacterDetailViewController: UIViewController {
+final class CharacterDetailViewController: UIViewController{
     var character: Character?
 
     override func viewDidLoad() {
@@ -16,3 +16,4 @@ final class CharacterDetailViewController: UIViewController {
         print(character ?? "No character")
     }
 }
+

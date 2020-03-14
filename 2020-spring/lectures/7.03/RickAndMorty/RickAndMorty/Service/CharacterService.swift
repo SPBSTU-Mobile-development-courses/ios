@@ -42,7 +42,7 @@ final class CharacterServiceImpl: CharacterService {
                 return
             }
             let page = try? JSONDecoder().decode(Page<Character>.self, from: data)
-            self.nextPage = URL(string: page?.info.next ?? "")
+            self.nextPage = URL(string: page .info.next ?? "")
             completion(page?.results)
         }
         .resume()

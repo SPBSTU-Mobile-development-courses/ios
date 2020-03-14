@@ -27,6 +27,7 @@ final class CharacterViewController: UIViewController {
             guard let characters = $0 else { return }
             self.characters = characters
         }
+        tableView.dataSource = self
         tableView.rowHeight = 120
     }
 }
