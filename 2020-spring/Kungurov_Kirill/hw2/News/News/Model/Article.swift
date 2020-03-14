@@ -29,7 +29,6 @@ extension Article {
         URL(string: url)
     }
     var date: String {
-        //return "13/10/2019"
         return String(publishedAt.split(separator: "T")[0])
     }
 }
