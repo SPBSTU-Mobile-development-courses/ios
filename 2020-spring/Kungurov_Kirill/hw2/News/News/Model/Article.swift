@@ -29,7 +29,7 @@ extension Article {
         URL(string: url)
     }
     var date: String {
-        return String(publishedAt.split(separator: "T")[0])
+        String(publishedAt.split(separator: "T")[0])
     }
 }
 
