@@ -22,7 +22,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="271"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rO3-QZ-SQb">
-                                                <rect key="frame" x="0.0" y="5" width="414" height="261"/>
+                                                <rect key="frame" x="0.0" y="10" width="414" height="251"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -30,9 +30,8 @@
                                             <constraint firstItem="rO3-QZ-SQb" firstAttribute="centerX" secondItem="dBn-rp-2jG" secondAttribute="centerX" id="KED-2z-kGY"/>
                                             <constraint firstItem="rO3-QZ-SQb" firstAttribute="centerY" secondItem="dBn-rp-2jG" secondAttribute="centerY" id="Oct-g8-aSf"/>
                                             <constraint firstAttribute="trailing" secondItem="rO3-QZ-SQb" secondAttribute="trailing" id="lXB-tp-gb9"/>
-                                            <constraint firstItem="rO3-QZ-SQb" firstAttribute="top" secondItem="dBn-rp-2jG" secondAttribute="top" constant="5" id="p0h-0q-fkK"/>
+                                            <constraint firstItem="rO3-QZ-SQb" firstAttribute="top" secondItem="dBn-rp-2jG" secondAttribute="top" constant="10" id="p0h-0q-fkK"/>
                                             <constraint firstItem="rO3-QZ-SQb" firstAttribute="leading" secondItem="dBn-rp-2jG" secondAttribute="leading" id="uTg-hP-JL2"/>
-                                            <constraint firstAttribute="bottom" secondItem="rO3-QZ-SQb" secondAttribute="bottom" constant="5" id="ugh-Rd-Yeq"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="me4-HM-CgC" userLabel="Labels Stack View">
