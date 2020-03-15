@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import Reusable
 
-final class CardDetailViewController : UIViewController{
+final class CardDetailViewController: UIViewController, StoryboardSceneBased {
+    static var sceneStoryboard = UIStoryboard(name: "CardDetail", bundle: nil)
     var card: Card?
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var cardImageView: UIImageView!
     @IBOutlet private var flavourTextLabel: UILabel!
     @IBOutlet private var artistLabel: UILabel!
     @IBOutlet private var rarityLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let card = card else {
@@ -23,7 +24,7 @@ final class CardDetailViewController : UIViewController{
         }
         title = "\(card.name)  card details"
         nameLabel.text = "Name: \(card.name)"
-        flavourTextLabel.text = "Flavor text: \n\(card.flavorText ?? "")"
+        flavourTextLabel.text = "Flavor text: \(card.flavorText ?? "")"
         flavourTextLabel.sizeToFit()
         artistLabel.text = "Artist: \(card.artist ?? "")"
         rarityLabel.text = "Rarity: \(card.rarity)"

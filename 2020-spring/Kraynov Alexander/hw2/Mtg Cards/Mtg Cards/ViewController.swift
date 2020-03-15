@@ -18,8 +18,6 @@ class ViewController: UIViewController {
         }
     }
     private let cardService: CardService = CardServiceImpl()
-    private let cellIdentifier = "CardTableViewCell"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         cardService.getCards { cardArray in
@@ -28,6 +26,7 @@ class ViewController: UIViewController {
             }
             self.cards = cardArray
         }
+        tableView.register(cellType: CardTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 350
@@ -38,11 +37,8 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cards.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CardTableViewCell else {
-            fatalError("TableView wasn't configured")
-        }
+        let cell = tableView.dequeueReusableCell(for: indexPath) as CardTableViewCell
         let card = cards[indexPath.row]
         cell.setup(with: card)
         return cell
@@ -62,13 +58,9 @@ extension ViewController: UITableViewDelegate {
         }
     }
     func tableView( _ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let viewController =  UIStoryboard(name: "Main", bundle: nil)
-            .instantiateViewController(withIdentifier: "CardDetailViewController") as? CardDetailViewController else {
-                return
-        }
+        let viewController =  CardDetailViewController.instantiate() as CardDetailViewController
         viewController.card = cards[indexPath.row]
         navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
-

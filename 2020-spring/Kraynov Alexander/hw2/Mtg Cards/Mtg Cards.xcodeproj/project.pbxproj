@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110E5C46241E78B000EEDBD1 /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110E5C45241E78B000EEDBD1 /* CardTableViewCell.xib */; };
 		11A8B00624140FAF00EB9C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B00524140FAF00EB9C1F /* AppDelegate.swift */; };
 		11A8B00824140FAF00EB9C1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B00724140FAF00EB9C1F /* SceneDelegate.swift */; };
 		11A8B00A24140FAF00EB9C1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B00924140FAF00EB9C1F /* ViewController.swift */; };
@@ -18,9 +19,12 @@
 		11A8B022241416A500EB9C1F /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B021241416A500EB9C1F /* CardService.swift */; };
 		11A8B0242414250000EB9C1F /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B0232414250000EB9C1F /* CardTableViewCell.swift */; };
 		11DC524D2415287F00967B71 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC524C2415287F00967B71 /* CardDetailViewController.swift */; };
+		11E746A0241E449100B8AAD0 /* CardDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E7469F241E449100B8AAD0 /* CardDetail.storyboard */; };
+		C58CE046F1519C3317B1FC23 /* Pods_Mtg_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2083EA0E4D181C0B7707B36C /* Pods_Mtg_Cards.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		110E5C45241E78B000EEDBD1 /* CardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
 		11A8B00224140FAF00EB9C1F /* Mtg Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mtg Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A8B00524140FAF00EB9C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11A8B00724140FAF00EB9C1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +38,10 @@
 		11A8B021241416A500EB9C1F /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
 		11A8B0232414250000EB9C1F /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		11DC524C2415287F00967B71 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		11E7469F241E449100B8AAD0 /* CardDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CardDetail.storyboard; sourceTree = "<group>"; };
+		190B708B5DC4374ED7DDFC47 /* Pods-Mtg Cards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mtg Cards.release.xcconfig"; path = "Target Support Files/Pods-Mtg Cards/Pods-Mtg Cards.release.xcconfig"; sourceTree = "<group>"; };
+		2083EA0E4D181C0B7707B36C /* Pods_Mtg_Cards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mtg_Cards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BACF25A4BE303B20F5896FB /* Pods-Mtg Cards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mtg Cards.debug.xcconfig"; path = "Target Support Files/Pods-Mtg Cards/Pods-Mtg Cards.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58CE046F1519C3317B1FC23 /* Pods_Mtg_Cards.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +61,8 @@
 			children = (
 				11A8B00424140FAF00EB9C1F /* Mtg Cards */,
 				11A8B00324140FAF00EB9C1F /* Products */,
+				6A07400165B378217704091C /* Pods */,
+				56F00B514557CEA63352DE74 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +83,8 @@
 				11A8B00724140FAF00EB9C1F /* SceneDelegate.swift */,
 				11A8B00924140FAF00EB9C1F /* ViewController.swift */,
 				11A8B00B24140FAF00EB9C1F /* Main.storyboard */,
+				110E5C45241E78B000EEDBD1 /* CardTableViewCell.xib */,
+				11E7469F241E449100B8AAD0 /* CardDetail.storyboard */,
 				11A8B00E24140FB400EB9C1F /* Assets.xcassets */,
 				11A8B01024140FB400EB9C1F /* LaunchScreen.storyboard */,
 				11A8B01324140FB400EB9C1F /* Info.plist */,
@@ -98,6 +111,23 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		56F00B514557CEA63352DE74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2083EA0E4D181C0B7707B36C /* Pods_Mtg_Cards.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A07400165B378217704091C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BACF25A4BE303B20F5896FB /* Pods-Mtg Cards.debug.xcconfig */,
+				190B708B5DC4374ED7DDFC47 /* Pods-Mtg Cards.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -105,9 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11A8B01624140FB400EB9C1F /* Build configuration list for PBXNativeTarget "Mtg Cards" */;
 			buildPhases = (
+				B0B59A4F5B4004E46EB1E50A /* [CP] Check Pods Manifest.lock */,
 				11A8AFFE24140FAF00EB9C1F /* Sources */,
 				11A8AFFF24140FAF00EB9C1F /* Frameworks */,
 				11A8B00024140FAF00EB9C1F /* Resources */,
+				11E7469E241E39EC00B8AAD0 /* Errors */,
+				118E44D4DA375A86CE471D8B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -157,12 +190,74 @@
 			buildActionMask = 2147483647;
 			files = (
 				11A8B01224140FB400EB9C1F /* LaunchScreen.storyboard in Resources */,
+				11E746A0241E449100B8AAD0 /* CardDetail.storyboard in Resources */,
 				11A8B00F24140FB400EB9C1F /* Assets.xcassets in Resources */,
 				11A8B00D24140FAF00EB9C1F /* Main.storyboard in Resources */,
+				110E5C46241E78B000EEDBD1 /* CardTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		118E44D4DA375A86CE471D8B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mtg Cards/Pods-Mtg Cards-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mtg Cards/Pods-Mtg Cards-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mtg Cards/Pods-Mtg Cards-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		11E7469E241E39EC00B8AAD0 /* Errors */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Errors;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		B0B59A4F5B4004E46EB1E50A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mtg Cards-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		11A8AFFE24140FAF00EB9C1F /* Sources */ = {
@@ -318,6 +413,7 @@
 		};
 		11A8B01724140FB400EB9C1F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BACF25A4BE303B20F5896FB /* Pods-Mtg Cards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -335,6 +431,7 @@
 		};
 		11A8B01824140FB400EB9C1F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 190B708B5DC4374ED7DDFC47 /* Pods-Mtg Cards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

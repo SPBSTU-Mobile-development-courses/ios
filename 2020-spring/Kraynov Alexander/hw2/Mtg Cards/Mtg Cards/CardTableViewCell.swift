@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Reusable
 
-final class CardTableViewCell: UITableViewCell {
+final class CardTableViewCell: UITableViewCell, NibReusable {
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var cardImageView: UIImageView!
     private var cardLoadTask: URLSessionTask?
@@ -17,7 +18,7 @@ final class CardTableViewCell: UITableViewCell {
         cardImageView.image = nil
         cardLoadTask?.cancel()
     }
-    
+
     func setup(with card: Card) {
         nameLabel.text = card.name
         guard let imageURL = URL(string: card.imageUris?.normal ?? "") else {
