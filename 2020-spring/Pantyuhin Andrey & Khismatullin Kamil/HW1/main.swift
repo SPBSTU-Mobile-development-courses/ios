@@ -21,4 +21,5 @@ oak.delete(value: 15)
 
 oak.print()
 
+oak.find(value: 21)
 

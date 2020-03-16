@@ -28,7 +28,7 @@ class TreeElement<T: Comparable>{
     func getRight() -> TreeElement?{
         return self.right
     }
-    func getValue() -> T?{
+    func getValue() -> T{
         return self.value
     }
     func getHeight() -> Int{
@@ -43,23 +43,24 @@ class TreeElement<T: Comparable>{
     }
     
     func getMaxHeight() -> Int{
-        if (getLeft() == nil) {
-            if (getRight() == nil) {
+        
+        guard let left = getLeft() else {
+            guard let right = getRight() else {
                 return height
-            } else {
-                return getRight()!.getMaxHeight()
             }
-        } else {
-            if (getRight() == nil) {
-                return getLeft()!.getMaxHeight()
-            } else {
-                if (getRight()!.getMaxHeight() > getLeft()!.getMaxHeight()) {
-                    return getRight()!.getMaxHeight()
-                } else {
-                    return getLeft()!.getMaxHeight()
-                }
-            }
+            return right.getMaxHeight()
         }
+        
+        guard let right = getRight() else {
+            return left.getMaxHeight()
+        }
+        
+        if (right.getMaxHeight() > left.getMaxHeight()) {
+            return right.getMaxHeight()
+        } else {
+            return left.getMaxHeight()
+        }
+        
     }
     
     func recAdd(value: T) -> TreeElement<T>?{
@@ -68,17 +69,18 @@ class TreeElement<T: Comparable>{
         }
         
         if (value > self.value) {
-            if (right == nil){
+            
+            guard let tmpRight = right else {
                 return self
-            } else {
-                return right!.recAdd(value: value)
             }
+            return tmpRight.recAdd(value: value)
+            
         } else {
-            if (left == nil){
+            
+            guard let tmpLeft = left else {
                 return self
-            } else {
-                return left!.recAdd(value: value)
             }
+            return tmpLeft.recAdd(value: value)
         }
     }
     
@@ -115,7 +117,7 @@ class TreeElement<T: Comparable>{
                     result?.setParentElement(element: self)
                 }
             } else {
-                result = left?.recFind(value: value)!
+                result = left?.recFind(value: value)
                 if ((result?.getParentElement()) == nil) {
                     result?.setParentElement(element: self)
                 }
@@ -132,13 +134,20 @@ class TreeElement<T: Comparable>{
         return (a! - b!)
     }
     
-    func rotateLeft() -> TreeElement<T>{
-        let newHead: TreeElement<T> = getRight()!;
-        setRight(element: newHead.getLeft());
-        newHead.setLeft(element: self);
+    func rotateLeft() -> TreeElement<T>?{
+        guard let newHead = getRight() else {
+            Swift.print("error while rotating")
+            return nil
+        }
+        setRight(element: newHead.getLeft())
+        newHead.setLeft(element: self)
         
         newHead.setHeight(height: newHead.getHeight() - 1)
-        newHead.getLeft()?.setHeight(height: newHead.getLeft()!.getHeight() + 1)
+        guard let left = newHead.getLeft() else {
+            Swift.print("error while rotating")
+            return nil
+        }
+        newHead.getLeft()?.setHeight(height: left.getHeight() + 1)
         
         newHead.getLeft()?.getLeft()?.recAddHeight(height: 1)
         newHead.getRight()?.recAddHeight(height: -1)
@@ -146,13 +155,21 @@ class TreeElement<T: Comparable>{
         return newHead;
     }
     
-    func rotateRight() -> TreeElement<T>{
-        let newHead: TreeElement<T> = getLeft()!;
-        setLeft(element: newHead.getRight());
-        newHead.setRight(element: self);
+    func rotateRight() -> TreeElement<T>?{
+        guard let newHead = getLeft() else {
+            Swift.print("error while rotating")
+            return nil
+        }
+        
+        setLeft(element: newHead.getRight())
+        newHead.setRight(element: self)
         
         newHead.setHeight(height: newHead.getHeight() - 1)
-        newHead.getRight()?.setHeight(height: newHead.getRight()!.getHeight() + 1)
+        guard let right = newHead.getRight() else {
+            Swift.print("error while rotating")
+            return nil
+        }
+        newHead.getRight()?.setHeight(height: right.getHeight() + 1)
         
         newHead.getLeft()?.recAddHeight(height: -1)
         newHead.getRight()?.getRight()?.recAddHeight(height: 1)
@@ -161,52 +178,75 @@ class TreeElement<T: Comparable>{
         return newHead;
     }
     
-    func balance() -> TreeElement<T>{
+    func balance() -> TreeElement<T>?{
         if (balanceFactor() == 2)
         {
-            if (getRight()!.balanceFactor() < 0) {
-                setRight(element: getRight()!.rotateRight())
+            guard let right = getRight() else {
+                Swift.print("error while balancing")
+                return nil
+            }
+            
+            if (right.balanceFactor() < 0) {
+                setRight(element: right.rotateRight())
             }
             return rotateLeft()
         } else if (balanceFactor() == -2) {
             
-            if (getLeft()!.balanceFactor() > 0) {
-                setLeft(element: getLeft()!.rotateLeft())
+            guard let left = getLeft() else {
+                Swift.print("error while balancing")
+                return nil
+            }
+            
+            if (left.balanceFactor() > 0) {
+                setLeft(element: left.rotateLeft())
             }
             return rotateRight()
         }
         return self
     }
     
-    func findMin() -> TreeElement<T> {
-        if (getLeft() == nil)
-        {
+    func findMin() -> TreeElement<T>?{
+        guard let left = getLeft() else {
             return self
-        } else {
-            return getLeft()!.findMin()
         }
+        return left.findMin()
     }
     
-    func removeMin() -> TreeElement<T>{
-        if (getLeft() == nil) {
-            return getRight()!
+    func removeMin() -> TreeElement<T>?{
+        guard let left = getLeft() else {
+            return getRight()
         }
-        setLeft(element: getLeft()!.removeMin())
+        setLeft(element: left.removeMin())
         return balance()
     }
-        
+    
     func delete(value: T) -> TreeElement<T>?{
-            
-        if (value < getValue()!){
-            setLeft(element: getLeft()!.delete(value: value))
+        if (value < self.value){
+            guard let left = getLeft() else {
+                Swift.print("error while deleting")
+                return nil
+            }
+            setLeft(element: left.delete(value: value))
             getLeft()?.fixHeight()
-        } else if (value > getValue()!) {
-            setRight(element: getRight()!.delete(value: value))
+        } else if (value > self.value) {
+            guard let right = getRight() else {
+                Swift.print("error while deleting")
+                return nil
+            }
+            setRight(element: right.delete(value: value))
             getRight()?.fixHeight()
         } else {
             if (getRight() == nil) { return getLeft() }
-            let min: TreeElement<T> = getRight()!.findMin()
-            min.setRight(element: getRight()!.removeMin())
+            guard let right = getRight() else {
+                Swift.print("error while deleting")
+                return nil
+            }
+            guard let tmpMin = right.findMin() else {
+                Swift.print("error while deleting")
+                return nil
+            }
+            let min: TreeElement<T> = tmpMin
+            min.setRight(element: right.removeMin())
             min.setLeft(element: getLeft())
             min.fixHeight()
             return min.balance()
