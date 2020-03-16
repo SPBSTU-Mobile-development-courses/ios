@@ -5,39 +5,33 @@
 //  Created by Kirill Chistyakov on 06.03.2020.
 //  Copyright © 2020 Kirill Chistyakov. All rights reserved.
 //
-
-class Node<T: Comparable> {
-    private(set) var value: T?
-    internal var parent: Node?
-    internal var left: Node?
-    internal var right: Node?
-    var balanceFactor: Int {
-        return (right?.height() ?? 0) - (left?.height() ?? 0)
-    }
-    init (value: T) {
-        self.value = value
-    }
-    init () { self.value = nil }
-    public func height() -> Int {
-        if left == nil && right == nil { return 0 }
-        return 1 + Swift.max(left?.height() ?? 0, right?.height() ?? 0)
-    }
-}
-
 class HappyTree<T: Comparable> {
+    class Node<T: Comparable> {
+        private(set) var value: T?
+        internal var parent: Node?
+        internal var left: Node?
+        internal var right: Node?
+        var balanceFactor: Int {
+            return (right?.height() ?? 0) - (left?.height() ?? 0)
+        }
+        init(value: T? = nil) {
+            self.value = value
+        }
+        public func height() -> Int {
+            if left == nil && right == nil { return 0 }
+            return 1 + Swift.max(left?.height() ?? 0, right?.height() ?? 0)
+        }
+    }
+
     private(set) var root: Node<T>
     private(set) var size = 0
-    public init(value: T) {
+    public init(value: T? = nil) {
         self.root = Node(value: value)
-    }
-    public init() {
-        self.root = Node()
     }
 
     private func insert(node: Node<T>?, value: T) -> Node<T> {
         guard let node = node else {
-            let newNode: Node = Node(value: value)
-            return newNode
+            return Node(value: value)
         }
         guard let nodeValue = node.value else { return Node() }
         if value < nodeValue {
@@ -125,8 +119,8 @@ class HappyTree<T: Comparable> {
     }
 
     public func getSuccessor(node: Node<T>) -> Node<T> {
-        var leftSuccess: Node<T> = node
-        var rightSuccess: Node<T> = node
+        var leftSuccess: Node = node
+        var rightSuccess: Node = node
         if let left = node.left {
             leftSuccess = max(node: left)
         }
@@ -306,7 +300,7 @@ class HappyTree<T: Comparable> {
 
     public func insert(value: T) {
         guard root.value != nil else {
-            self.root = Node<T>(value: value)
+            self.root = Node(value: value)
             return
         }
         if search(value: value) == nil {
