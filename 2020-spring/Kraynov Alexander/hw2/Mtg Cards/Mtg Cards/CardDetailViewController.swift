@@ -5,18 +5,17 @@
 //  Created by alexander on 08.03.2020.
 //  Copyright © 2020 alexander. All rights reserved.
 //
-
-import UIKit
 import Reusable
+import UIKit
 
-final class CardDetailViewController: UIViewController, StoryboardSceneBased {
-    static var sceneStoryboard = UIStoryboard(name: "CardDetail", bundle: nil)
+final class CardDetailViewController: UIViewController, StoryboardBased {
     var card: Card?
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var cardImageView: UIImageView!
     @IBOutlet private var flavourTextLabel: UILabel!
     @IBOutlet private var artistLabel: UILabel!
     @IBOutlet private var rarityLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let card = card else {

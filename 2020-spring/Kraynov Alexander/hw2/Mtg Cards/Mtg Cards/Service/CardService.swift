@@ -8,12 +8,6 @@
 
 import Foundation
 
-protocol CardService {
-    typealias CardCompletion = ([Card]?) -> Void
-    func getCards(completion: @escaping CardCompletion)
-    func getMoreCards(completion: @escaping CardCompletion)
-}
-
 final class CardServiceImpl: CardService {
     private let baseURL = "https://api.scryfall.com/cards"
     private var nextPage: URL?
@@ -42,16 +36,18 @@ final class CardServiceImpl: CardService {
             }
 
             var page: CardPage<Card>?
-            do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                page = try decoder.decode(CardPage<Card>.self, from: data)
-            } catch let error {
-                print(error.localizedDescription)
-            }
+                page = try? decoder.decode(CardPage<Card>.self, from: data)
                 self.nextPage = URL(string: page?.nextPage ?? "")
             completion(page?.data)
         }
     .resume()
     }
+}
+
+protocol CardService {
+    typealias CardCompletion = ([Card]?) -> Void
+    func getCards(completion: @escaping CardCompletion)
+    func getMoreCards(completion: @escaping CardCompletion)
 }

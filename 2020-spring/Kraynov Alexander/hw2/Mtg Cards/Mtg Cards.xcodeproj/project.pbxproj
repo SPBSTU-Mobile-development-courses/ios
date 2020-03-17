@@ -18,8 +18,9 @@
 		11A8B01D2414104900EB9C1F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B01C2414104900EB9C1F /* Card.swift */; };
 		11A8B022241416A500EB9C1F /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B021241416A500EB9C1F /* CardService.swift */; };
 		11A8B0242414250000EB9C1F /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B0232414250000EB9C1F /* CardTableViewCell.swift */; };
+		11B8420B2420F1FA004BDD5C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 11B8420A2420F1FA004BDD5C /* .swiftlint.yml */; };
 		11DC524D2415287F00967B71 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC524C2415287F00967B71 /* CardDetailViewController.swift */; };
-		11E746A0241E449100B8AAD0 /* CardDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E7469F241E449100B8AAD0 /* CardDetail.storyboard */; };
+		11E746A0241E449100B8AAD0 /* CardDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E7469F241E449100B8AAD0 /* CardDetailViewController.storyboard */; };
 		C58CE046F1519C3317B1FC23 /* Pods_Mtg_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2083EA0E4D181C0B7707B36C /* Pods_Mtg_Cards.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +38,9 @@
 		11A8B01C2414104900EB9C1F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		11A8B021241416A500EB9C1F /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
 		11A8B0232414250000EB9C1F /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		11B8420A2420F1FA004BDD5C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		11DC524C2415287F00967B71 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
-		11E7469F241E449100B8AAD0 /* CardDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CardDetail.storyboard; sourceTree = "<group>"; };
+		11E7469F241E449100B8AAD0 /* CardDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CardDetailViewController.storyboard; sourceTree = "<group>"; };
 		190B708B5DC4374ED7DDFC47 /* Pods-Mtg Cards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mtg Cards.release.xcconfig"; path = "Target Support Files/Pods-Mtg Cards/Pods-Mtg Cards.release.xcconfig"; sourceTree = "<group>"; };
 		2083EA0E4D181C0B7707B36C /* Pods_Mtg_Cards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mtg_Cards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BACF25A4BE303B20F5896FB /* Pods-Mtg Cards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mtg Cards.debug.xcconfig"; path = "Target Support Files/Pods-Mtg Cards/Pods-Mtg Cards.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		11A8AFF924140FAF00EB9C1F = {
 			isa = PBXGroup;
 			children = (
+				11B8420A2420F1FA004BDD5C /* .swiftlint.yml */,
 				11A8B00424140FAF00EB9C1F /* Mtg Cards */,
 				11A8B00324140FAF00EB9C1F /* Products */,
 				6A07400165B378217704091C /* Pods */,
@@ -84,7 +87,7 @@
 				11A8B00924140FAF00EB9C1F /* ViewController.swift */,
 				11A8B00B24140FAF00EB9C1F /* Main.storyboard */,
 				110E5C45241E78B000EEDBD1 /* CardTableViewCell.xib */,
-				11E7469F241E449100B8AAD0 /* CardDetail.storyboard */,
+				11E7469F241E449100B8AAD0 /* CardDetailViewController.storyboard */,
 				11A8B00E24140FB400EB9C1F /* Assets.xcassets */,
 				11A8B01024140FB400EB9C1F /* LaunchScreen.storyboard */,
 				11A8B01324140FB400EB9C1F /* Info.plist */,
@@ -189,8 +192,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B8420B2420F1FA004BDD5C /* .swiftlint.yml in Resources */,
 				11A8B01224140FB400EB9C1F /* LaunchScreen.storyboard in Resources */,
-				11E746A0241E449100B8AAD0 /* CardDetail.storyboard in Resources */,
+				11E746A0241E449100B8AAD0 /* CardDetailViewController.storyboard in Resources */,
 				11A8B00F24140FB400EB9C1F /* Assets.xcassets in Resources */,
 				11A8B00D24140FAF00EB9C1F /* Main.storyboard in Resources */,
 				110E5C46241E78B000EEDBD1 /* CardTableViewCell.xib in Resources */,
@@ -233,7 +237,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		B0B59A4F5B4004E46EB1E50A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -6,13 +6,14 @@
 //  Copyright © 2020 alexander. All rights reserved.
 //
 
-import UIKit
 import Reusable
+import UIKit
 
 final class CardTableViewCell: UITableViewCell, NibReusable {
+    private var cardLoadTask: URLSessionTask?
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var cardImageView: UIImageView!
-    private var cardLoadTask: URLSessionTask?
+
     override func prepareForReuse() {
         super.prepareForReuse()
         cardImageView.image = nil

@@ -12,6 +12,7 @@ struct Card: Decodable {
     struct CardFaceImages: Decodable {
         let normal: String?
     }
+
     let name: String
     let artist: String?
     let rarity: String

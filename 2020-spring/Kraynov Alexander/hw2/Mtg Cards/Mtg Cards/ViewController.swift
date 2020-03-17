@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet private var tableView: UITableView!
     private var cards = [Card]() {
         didSet {
             DispatchQueue.main.async {
@@ -18,6 +17,8 @@ class ViewController: UIViewController {
         }
     }
     private let cardService: CardService = CardServiceImpl()
+    @IBOutlet private var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         cardService.getCards { cardArray in
@@ -58,7 +59,7 @@ extension ViewController: UITableViewDelegate {
         }
     }
     func tableView( _ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController =  CardDetailViewController.instantiate() as CardDetailViewController
+        let viewController = CardDetailViewController.instantiate() as CardDetailViewController
         viewController.card = cards[indexPath.row]
         navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
