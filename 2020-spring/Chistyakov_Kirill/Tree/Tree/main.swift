@@ -8,9 +8,9 @@
 class HappyTree<T: Comparable> {
     class Node<T: Comparable> {
         private(set) var value: T?
-        internal var parent: Node?
-        internal var left: Node?
-        internal var right: Node?
+        var parent: Node?
+        var left: Node?
+        var right: Node?
         var balanceFactor: Int {
             return (right?.height() ?? 0) - (left?.height() ?? 0)
         }
