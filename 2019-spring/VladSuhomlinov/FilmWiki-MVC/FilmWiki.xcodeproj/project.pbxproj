@@ -27,10 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D9652FFDD4B500D99E18FD3 /* Pods-StarWarsWiki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsWiki.debug.xcconfig"; path = "Target Support Files/Pods-StarWarsWiki/Pods-StarWarsWiki.debug.xcconfig"; sourceTree = "<group>"; };
+		2FC77892109EDB308BF0A4B5 /* Pods-FIlmWiki.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FIlmWiki.debug.xcconfig"; path = "Target Support Files/Pods-FIlmWiki/Pods-FIlmWiki.debug.xcconfig"; sourceTree = "<group>"; };
 		4CBB592722398A6E00BD77C0 /* FilmResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmResponse.swift; sourceTree = "<group>"; };
 		4CBB592D2239AAD900BD77C0 /* CreditsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsResponse.swift; sourceTree = "<group>"; };
 		5FBC5F6708B61DB9B8077C27 /* Pods_FIlmWiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FIlmWiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9D6D0F6AA34E07E4772EB00 /* Pods-StarWarsWiki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarWarsWiki.release.xcconfig"; path = "Target Support Files/Pods-StarWarsWiki/Pods-StarWarsWiki.release.xcconfig"; sourceTree = "<group>"; };
 		C65F178DFA4E71027EEE0357 /* Pods_StarWarsWiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarWarsWiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA83982F5A5A92AF6ADEA321 /* Pods-FIlmWiki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FIlmWiki.release.xcconfig"; path = "Target Support Files/Pods-FIlmWiki/Pods-FIlmWiki.release.xcconfig"; sourceTree = "<group>"; };
 		FE6379B322357104005DD171 /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
 		FE9DD88922345A3A00B2E6E6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FE9DD88B22345ABA00B2E6E6 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
@@ -61,6 +65,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		078205F0488F033DF25E4C9D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D9652FFDD4B500D99E18FD3 /* Pods-StarWarsWiki.debug.xcconfig */,
+				A9D6D0F6AA34E07E4772EB00 /* Pods-StarWarsWiki.release.xcconfig */,
+				2FC77892109EDB308BF0A4B5 /* Pods-FIlmWiki.debug.xcconfig */,
+				FA83982F5A5A92AF6ADEA321 /* Pods-FIlmWiki.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		31C685321706C912C5BB296F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +122,7 @@
 			children = (
 				FE9E04FD2234478900FB228D /* FilmWiki */,
 				FE9E04FC2234478900FB228D /* Products */,
+				078205F0488F033DF25E4C9D /* Pods */,
 				31C685321706C912C5BB296F /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -429,6 +445,7 @@
 		};
 		FE9E050E2234478900FB228D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FC77892109EDB308BF0A4B5 /* Pods-FIlmWiki.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -451,6 +468,7 @@
 		};
 		FE9E050F2234478900FB228D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA83982F5A5A92AF6ADEA321 /* Pods-FIlmWiki.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
