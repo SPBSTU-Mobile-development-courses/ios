@@ -10,10 +10,10 @@ import UIKit
 import WebKit
 
 final class OriginalArticleController: UIViewController {
-    @IBOutlet private var articleWebView: WKWebView!
-
     var articleTitle: String?
     var baseUrl: URL?
+
+    @IBOutlet private var articleWebView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

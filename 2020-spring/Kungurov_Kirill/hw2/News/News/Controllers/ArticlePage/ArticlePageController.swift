@@ -10,12 +10,12 @@ import Kingfisher
 import UIKit
 
 final class ArticlePageController: UIViewController {
+    var article: Article?
+
     @IBOutlet private var articleImage: UIImageView!
     @IBOutlet private var articleAuthor: UILabel!
     @IBOutlet private var aritcleDate: UILabel!
     @IBOutlet private var articleContent: UILabel!
-
-    var article: Article?
 
     override func viewDidLoad() {
         super.viewDidLoad()

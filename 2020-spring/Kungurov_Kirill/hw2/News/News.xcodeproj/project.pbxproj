@@ -15,6 +15,7 @@
 		9540C659241D36AD004C87C8 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540C658241D36AD004C87C8 /* Article.swift */; };
 		9540C65B241D3804004C87C8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540C65A241D3804004C87C8 /* Response.swift */; };
 		9540C65D241D3876004C87C8 /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9540C65C241D3876004C87C8 /* ArticleService.swift */; };
+		959D8A4D242128BC0053EB22 /* ArticleServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D8A4C242128BC0053EB22 /* ArticleServiceImpl.swift */; };
 		95EBCEA0241D3D45004CF27E /* ArticleListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBCE9F241D3D45004CF27E /* ArticleListController.swift */; };
 		95EBCEAA241D3DD2004CF27E /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBCEA9241D3DD2004CF27E /* ArticleTableViewCell.swift */; };
 		95EBCEAC241D5A87004CF27E /* ArticlePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EBCEAB241D5A87004CF27E /* ArticlePageController.swift */; };
@@ -35,6 +36,7 @@
 		9540C658241D36AD004C87C8 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		9540C65A241D3804004C87C8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		9540C65C241D3876004C87C8 /* ArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleService.swift; sourceTree = "<group>"; };
+		959D8A4C242128BC0053EB22 /* ArticleServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleServiceImpl.swift; sourceTree = "<group>"; };
 		95EBCE9F241D3D45004CF27E /* ArticleListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListController.swift; sourceTree = "<group>"; };
 		95EBCEA9241D3DD2004CF27E /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		95EBCEAB241D5A87004CF27E /* ArticlePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePageController.swift; sourceTree = "<group>"; };
@@ -117,9 +119,18 @@
 		9540C656241D366C004C87C8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				959D8A4B242128A10053EB22 /* Impl */,
 				9540C65C241D3876004C87C8 /* ArticleService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		959D8A4B242128A10053EB22 /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				959D8A4C242128BC0053EB22 /* ArticleServiceImpl.swift */,
+			);
+			path = Impl;
 			sourceTree = "<group>";
 		};
 		95EBCEA1241D3D4B004CF27E /* Controllers */ = {
@@ -299,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				959D8A4D242128BC0053EB22 /* ArticleServiceImpl.swift in Sources */,
 				9540C659241D36AD004C87C8 /* Article.swift in Sources */,
 				95EBCEA0241D3D45004CF27E /* ArticleListController.swift in Sources */,
 				9540C65D241D3876004C87C8 /* ArticleService.swift in Sources */,

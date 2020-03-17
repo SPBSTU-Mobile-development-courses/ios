@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 final class ArticleListController: UIViewController {
-    @IBOutlet private var tableView: UITableView!
-
     private var articleService: ArticleService = ArticleServiceImpl()
     private let cellIdentifier = "ArticleTableViewCell"
     private var articles = [Article]() {
@@ -21,6 +19,8 @@ final class ArticleListController: UIViewController {
             }
         }
     }
+
+    @IBOutlet private var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
