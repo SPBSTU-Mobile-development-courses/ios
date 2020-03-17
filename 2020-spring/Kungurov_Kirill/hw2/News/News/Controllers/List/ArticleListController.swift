@@ -33,6 +33,7 @@ final class ArticleListController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension ArticleListController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         articles.count
@@ -48,6 +49,7 @@ extension ArticleListController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension ArticleListController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == articles.count - 1 else { return }

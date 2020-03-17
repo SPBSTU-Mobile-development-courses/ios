@@ -28,8 +28,16 @@ extension Article {
     var articleUrl: URL? {
         URL(string: url)
     }
-    var date: String {
-        String(publishedAt.split(separator: "T")[0])
+    var date: String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        guard let startDate = dateFormatter.date(from: publishedAt) else { return nil }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        guard let endDate = formatter.string(for: startDate) else { return nil }
+        return endDate
     }
 }
 
