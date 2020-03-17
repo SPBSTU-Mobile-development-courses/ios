@@ -65,3 +65,23 @@
  * [Автоматическая проверка стиля кода](https://github.com/realm/SwiftLint/blob/master/Rules.md) - научимся в следующий раз
  * [Туториалы по iOS](https://www.raywenderlich.com/5370-grand-central-dispatch-tutorial-for-swift-4-part-1-2)
  * [Что такое POP? Доклад Александра Зимина](https://youtu.be/71AS4rMrAVk)
+
+ ## 12 марта, ДЗ №3
+ #### Запись лекции
+ [Верстка, Линтер](https://vk.com/video-176491001_456239031) 
+ #### Сделать
+ * Добавить зависимость через [CocoaPods](https://cocoapods.org/). Как минимум линтер, но можешь использовать что-то интереснее.
+ * Добавить линтер. Я сделал для тебя [конфиг файл с нужными правилами](https://github.com/SPBSTU-Mobile-development-courses/ios/blob/master/2020-spring/.swiftlint.yml). Его нужно положить в корень своего проекта. Можно спросить, зачем то или иное правило нужно
+ * Добавить [констрейнты (autolayout)](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html), приложение должно нормально выглядеть на всех айфонах
+ 
+ #### Прочитать
+ * Что такое deadlock/livelock? Приведи пример, как добиться в iOS
+ * Что такое KISS и DRY?
+ * Перечислите все способы работы с optional в Swift?
+ * В чем разница Dependency Injection и Dependency Inversion? Пример?
+ * Что такое method dispatch? Какиой бывают в свифте?
+
+ #### Материалы
+ * [Autolayout](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html)
+ * [Как сверстано лента VK](https://habr.com/ru/company/vk/blog/481626/)
+ 
