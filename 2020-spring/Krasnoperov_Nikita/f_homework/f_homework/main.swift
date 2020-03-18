@@ -9,16 +9,13 @@
 
 import Foundation
 
-var tree = Tree<Int>(value: 13)
+var tree = Tree<Int>(value: 9)
 var root = tree.getRoot()
-print(tree.getRoot()!.value)
 tree.add(value: 15, root: &root)
 tree.add(value: 11, root: &root)
-print(tree.findNode(nodeValue: 15)!.value)
-tree.remove(nodeValue: 15, root: &root)
+tree.remove(value: 15, root: &root)
 tree.add(value: 10, root: &root)
-print(tree.getRoot()!.value)
 tree.add(value: 20, root: &root)
 tree.add(value: 21, root: &root)
 tree.add(value: 12, root: &root)
-print(root!.value)
+tree.traverseLNR(root: tree.getRoot())
