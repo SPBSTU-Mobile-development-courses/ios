@@ -7,7 +7,7 @@ class AvlTree<T: Comparable> {
         var left: Node<T>?
         var right: Node<T>?
         var height: Int
-    
+        
         public init (element: T, left: Node<T>? = nil, right: Node<T>? = nil, height: Int = 1) {
             self.element = element
             self.left = left
@@ -26,7 +26,7 @@ class AvlTree<T: Comparable> {
         guard var currentRoot : AvlTree<T>.Node<T>? = root else {
             return nil
         }
-        while (currentRoot != nil) {
+        while currentRoot != nil {
             if (currentRoot!.element > element) {
                 currentRoot = currentRoot!.left
             } else if (currentRoot!.element < element) {
@@ -39,10 +39,7 @@ class AvlTree<T: Comparable> {
     }
     
     private func height(rootNode: Node<T>?) -> Int {
-        if rootNode == nil {
-            return 0
-        }
-        return rootNode!.height
+        return rootNode?.height ?? 0
     }
     
     private func fixHeight(rootNode: Node<T>?) {
@@ -50,7 +47,9 @@ class AvlTree<T: Comparable> {
     }
     
     private func rotateRight(rootNode: Node<T>) -> Node<T>{
-        let left = rootNode.left!
+        guard let left = rootNode.left else {
+            return rootNode
+        }
         rootNode.left = left.right
         left.right = rootNode
         fixHeight(rootNode: rootNode)
@@ -59,7 +58,9 @@ class AvlTree<T: Comparable> {
     }
     
     private func rotateLeft(rootNode: Node<T>) -> Node<T> {
-        let right = rootNode.right!
+        guard let right = rootNode.right else {
+            return rootNode
+        }
         rootNode.right = right.left
         right.left = rootNode
         fixHeight(rootNode: rootNode)
@@ -68,10 +69,10 @@ class AvlTree<T: Comparable> {
     }
     
     private func disbalanceHeight(rootNode: Node<T>?) -> Int {
-        if rootNode == nil {
+        guard let rootNode = rootNode else {
             return 0
         }
-        return height(rootNode: rootNode!.left) - height(rootNode: rootNode!.right)
+        return height(rootNode: rootNode.left) - height(rootNode: rootNode.right)
     }
     
     private func balance(rootNode: Node<T>) -> Node<T> {
@@ -126,30 +127,29 @@ class AvlTree<T: Comparable> {
     }
     
     private func deleteNode(rootNode: Node<T>?, element: T) -> Node<T>? {
-        if let rootNode = rootNode {
-            if element > rootNode.element {
-                rootNode.right = deleteNode(rootNode: rootNode.right, element: element)
-            } else if element < rootNode.element {
-                rootNode.left = deleteNode(rootNode: rootNode.left, element: element)
-            } else {
-                if rootNode.left == nil {
-                    return rootNode.right
-                }
-                if rootNode.right == nil {
-                    return rootNode.left
-                }
-                let temp = max(node: rootNode.left!)
-                temp.left = removeMax(node: rootNode.left!)
-                temp.right = rootNode.right!
-                
-                return balance(rootNode: temp)
+        guard let rootNode = rootNode else {
+            return nil
+        }
+        if element > rootNode.element {
+            rootNode.right = deleteNode(rootNode: rootNode.right, element: element)
+        } else if element < rootNode.element {
+            rootNode.left = deleteNode(rootNode: rootNode.left, element: element)
+        } else {
+            if rootNode.left == nil {
+                return rootNode.right
             }
+            if rootNode.right == nil {
+                return rootNode.left
+            }
+            let temp = max(node: rootNode.left!)
+            temp.left = removeMax(node: rootNode.left!)
+            temp.right = rootNode.right!
             
-            fixHeight(rootNode: rootNode)
-            return balance(rootNode: rootNode)
+            return balance(rootNode: temp)
         }
         
-        return nil
+        fixHeight(rootNode: rootNode)
+        return balance(rootNode: rootNode)
     }
     
     public func deleteElement(element: T) -> Bool {
