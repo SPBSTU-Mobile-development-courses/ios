@@ -21,12 +21,11 @@ class Tree<T: Comparable> {
 
     func search(_ value: T) -> Bool {
         let node = Node(value: value)
-        if let rootNode = self.rootNode {
-            if self.search(rootNode, node) {
-                return true
-            }
+        guard let rootNode = self.rootNode else {
+            return false
         }
-        return false
+        let result = self.search(rootNode, node) ? true : false
+        return result
     }
     
     private func search(_ root: Node<T>, _ node: Node<T>) -> Bool {
@@ -46,17 +45,21 @@ class Tree<T: Comparable> {
         return false
     }
     
-    func minValue() -> T {
-        return minValue(rootNode).value
+    func minValue() -> T? {
+        guard let root = rootNode else {
+            return rootNode?.value
+        }
+        return minValue(root).value
     }
 
-    private func minValue(_ node: Node<T>?) -> Node<T> {
-        var tempNode = node
-        
-        while let next = tempNode?.left {
+    private func minValue(_ node: Node<T>) -> Node<T> {
+        guard var tempNode = node.left else {
+            return node
+        }
+        while let next = tempNode.left {
             tempNode = next
         }
-        return tempNode!
+        return tempNode
     }
     
     private func removeMin(_ node: Node<T>) -> Node<T>? {
@@ -101,7 +104,6 @@ class Tree<T: Comparable> {
         } else {
             self.rootNode = node
         }
-        
     }
     
     private func delete(_ root: Node<T>?, _ node: Node<T>) -> Node<T>? {
@@ -113,27 +115,20 @@ class Tree<T: Comparable> {
         } else if node.value > root.value {
             root.right = delete(root.right, node)
         } else {
-            guard let rightNode = root.right else {
-                return root.left
+            guard let rightNode = root.right, let leftNode = root.left else {
+                return nil
             }
             
-            guard let leftNode = root.left else {
-                return root.right
-            }
-            
-            root = minValue(rightNode)
             root.right = removeMin(rightNode)
             root.left = leftNode
-            return balance(node)
+            root = minValue(rightNode)
+            return balance(root)
         }
-        return balance(node)
+        return balance(root)
     }
     
     private func height(_ node: Node<T>?) -> Int {
-        if (node == nil) {
-            return 0
-        }
-        return node!.height
+        return node?.height ?? 0
     }
     
     private func balanceCoef(_ node: Node<T>?) -> Int {
@@ -147,34 +142,44 @@ class Tree<T: Comparable> {
     }
     
     private func rotateRight(_ node: Node<T>) -> Node<T> {
-        let temp = node.left
-        node.left = temp?.right
-        temp?.right = node
+        guard let temp = node.left else {
+            return node
+        }
+        node.left = temp.right
+        temp.right = node
         changeHeight(node)
         changeHeight(temp)
-        return temp!
+        return temp
     }
     
     private func rotateLeft(_ node: Node<T>) -> Node<T> {
-        let temp = node.right
-        node.right = temp?.left
-        temp!.left = node
+        guard let temp = node.right else {
+            return node
+        }
+        node.right = temp.left
+        temp.left = node
         changeHeight(node)
         changeHeight(temp)
-        return temp!
+        return temp
     }
     
     private func balance(_ node: Node<T>) -> Node<T> {
         changeHeight(node)
         if balanceCoef(node) == 2 {
             if balanceCoef(node.right) < 0 {
-                node.right = rotateRight(node.right!)
+                guard let rightNode = node.right else {
+                    return node
+                }
+                node.right = rotateRight(rightNode)
             }
             return rotateLeft(node)
         }
         if balanceCoef(node) == -2 {
             if balanceCoef(node.left) < 0 {
-                node.left = rotateLeft(node.left!)
+                guard let leftNode = node.left else {
+                    return node
+                }
+                node.left = rotateLeft(leftNode)
             }
             return rotateRight(node)
         }
@@ -194,36 +199,36 @@ class Tree<T: Comparable> {
     }
     
     private func inorder(_ node: Node<T>?) {
-        guard let _ = node else {
+        guard let treeNode = node else {
             return
         }
-        self.inorder(node?.left)
-        print("\(node!.value)", terminator: " ")
-        self.inorder(node?.right)
+        self.inorder(treeNode.left)
+        print("\(treeNode.value)", terminator: " ")
+        self.inorder(treeNode.right)
     }
     
     private func preorder(_ node: Node<T>?) {
-        guard let _ = node else {
+        guard let treeNode = node else {
             return
         }
-        print("\(node!.value)", terminator: " ")
-        self.preorder(node?.left)
-        self.preorder(node?.right)
+        print("\(treeNode.value)", terminator: " ")
+        self.preorder(treeNode.left)
+        self.preorder(treeNode.right)
     }
     
     private func postorder(_ node: Node<T>?) {
-        guard let _ = node else {
+        guard let treeNode = node else {
             return
         }
-        self.postorder(node?.left)
-        self.postorder(node?.right)
-        print("\(node!.value)", terminator: " ")
+        self.postorder(treeNode.left)
+        self.postorder(treeNode.right)
+        print("\(treeNode.value)", terminator: " ")
     }
     
 }
 
 
-let numberList : Array<Int> = [8, 2, 10, 9, 11, 1, 7]
+let numberList = [8, 2, 10, 9, 11, 1, 7]
 var root = Tree<Int>()
 for number in numberList {
     root.insert(number)
@@ -251,7 +256,7 @@ print(root.search(111))
 
 print("\n-------------")
 print("min value\n")
-print(root.minValue())
+print(root.minValue() ?? "tree is empty")
 
 print("\n-------------")
 print("delete 9\n")
