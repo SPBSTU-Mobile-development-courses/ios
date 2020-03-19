@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CharacterService {
-    typealias CharactersCompletion = ([Character]?) -> Void
+    typealias CharactersCompletion = ([Character]?) -> Void // просто чтобы не писать тип каждый раз
 
     func getCharacters(completion: @escaping CharactersCompletion)
     func getMoreCharacters(completion: @escaping CharactersCompletion)
@@ -17,7 +17,7 @@ protocol CharacterService {
 
 final class CharacterServiceImpl: CharacterService {
     private let baseURL = "https://rickandmortyapi.com/api/character/"
-    private var nextPage: URL?
+    private var nextPage: URL? // храним внутри ссылку на следующую страницу
     
     func getCharacters(completion: @escaping CharactersCompletion) {
         guard let url = URL(string: baseURL) else {
