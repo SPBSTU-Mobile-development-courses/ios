@@ -33,7 +33,7 @@ class Tree< Value> {
         return node?.height ?? 0
     }
     
-    private func recultHeight(node: Node)
+    private func recalcHeight(node: Node)
     {
         node.height = max(_height(node: node.left), _height(node: node.right)) + 1
     }
@@ -47,8 +47,8 @@ class Tree< Value> {
         let newRoot = node.right
         node.right = newRoot!.left
         newRoot!.left = node
-        recultHeight(node: node)
-        recultHeight(node: newRoot!)
+        recalcHeight(node: node)
+        recalcHeight(node: newRoot!)
         return newRoot!
     }
     
@@ -57,14 +57,14 @@ class Tree< Value> {
         let newRoot = node.left
         node.left = newRoot?.right
         newRoot?.right = node
-        recultHeight(node: node)
-        recultHeight(node: newRoot!)
+        recalcHeight(node: node)
+        recalcHeight(node: newRoot!)
         return newRoot!
     }
     
     private func balance(node: Node) -> Node
     {
-        recultHeight(node: node)
+        recalcHeight(node: node)
         if (deltaHeight(node: node) < -1)
         {
             if (node.left != nil && deltaHeight(node: node.left!) > 0)
@@ -84,21 +84,22 @@ class Tree< Value> {
     }
     private func _add(key: String, value: Value, node: Node?) -> Node
     {
-        if (node == nil)
-        {
+        guard let tmp = node else {
             return Node(_key: key, _value: value)
-        } else if (key < node!.key) {
-            node!.left = _add(key: key, value: value, node: node!.left)
-        } else if (key == node!.key)
+        }
+        if (key < tmp.key) {
+            tmp.left = _add(key: key, value: value, node: tmp.left)
+        } else if (key == tmp.key)
         {
-            node?.value = value
-            return node!
+            tmp.value = value
+            return tmp
         } else
         {
-            node!.right = _add(key: key, value: value, node: node!.right)
+            tmp.right = _add(key: key, value: value, node: tmp.right)
         }
-        return balance(node: node!)
+        return balance(node: tmp)
     }
+    
     func add(key: String, value: Value)
     {
         if (key != "") {
@@ -108,52 +109,48 @@ class Tree< Value> {
     
     private func findmin(node: Node) -> Node
     {
-        if ( node.left == nil)
+        guard let tmp = node.left else
         {
             return node
         }
-        else
-        {
-            return findmin(node: node.left!)
-        }
+        return findmin(node: tmp)
     }
 
     private func removemin(node: Node) -> Node?
     {
-        if( node.left==nil )
-        {
+        guard let tmp = node.left else {
             return node.right;
         }
-        node.left = removemin(node: node.left!);
+        node.left = removemin(node: tmp);
         return balance(node: node);
     }
 
     private func _remove(node: Node?, key: String) -> Node?
     {
-        if( node == nil ) {
+        guard let tmp = node else {
             return nil
         }
         if( key < node!.key )
         {
-            node!.left = _remove(node: node!.left,key: key);
+            tmp.left = _remove(node: tmp.left,key: key);
         }
         else if( key > node!.key )
         {
-            node!.right = _remove(node: node!.right,key: key);
+            tmp.right = _remove(node: tmp.right,key: key);
         }
         else
         {
-            let q = node!.left;
-            let r = node!.right;
-            if( r == nil ) {
+            let q = tmp.left;
+            let r = tmp.right;
+            guard let right = r else {
                 return q;
             }
-            let min = findmin(node:r!);
-            min.right = removemin(node:r!);
+            let min = findmin(node:right);
+            min.right = removemin(node:right);
             min.left = q;
             return balance(node:min);
         }
-        return balance(node:node!);
+        return balance(node:tmp);
     }
     func remove(key:String)
     {
