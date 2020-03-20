@@ -13,13 +13,13 @@ oak.add(value: 13)
 oak.add(value: 19)
 oak.add(value: 18)
 
-oak.print()
-Swift.print()
-Swift.print("deleating:")
+oak.printValues()
+print()
+print("deleating:")
 
 oak.delete(value: 15)
 
-oak.print()
+oak.printValues()
 
 oak.find(value: 21)
 
