@@ -130,11 +130,11 @@ class Tree< Value> {
         guard let tmp = node else {
             return nil
         }
-        if( key < node!.key )
+        if( key < tmp.key )
         {
             tmp.left = _remove(node: tmp.left,key: key);
         }
-        else if( key > node!.key )
+        else if( key > tmp.key )
         {
             tmp.right = _remove(node: tmp.right,key: key);
         }
