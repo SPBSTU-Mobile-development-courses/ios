@@ -1,11 +1,3 @@
-//
-//  CharacterTableViewCell.swift
-//  HomeWork2
-//
-//  Created by Артем Устинов on 19.03.2020.
-//  Copyright © 2020 Артем Устинов. All rights reserved.
-//
-
 import UIKit
 
 class ChatacterTableViewCell: UITableViewCell {
@@ -20,8 +12,6 @@ class ChatacterTableViewCell: UITableViewCell {
        avatarLoadTask?.cancel()
    }
 
-   // хорошая практика сделать метод настройки ячейки, а аутлтеты сделать приватными
-   // легче контролировать, весь код в одном месте
    func setup(with character: Character) {
        label.text = character.name
 

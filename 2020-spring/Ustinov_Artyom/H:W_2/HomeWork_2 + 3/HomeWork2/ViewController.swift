@@ -1,6 +1,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+  
   @IBOutlet weak var tableView: UITableView!
   let charactersService = CharacterService()
   var characters = [Character]()
@@ -8,8 +9,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    charactersService.getCharacters(completion: { (newCharacters) in
-      guard let newCharacters = newCharacters else {return}
+    charactersService.getCharacters(completion: { newCharacters in
+      guard let newCharacters = newCharacters else { return }
       self.characters = newCharacters
       DispatchQueue.main.async {
         self.tableView.reloadData()
@@ -17,11 +18,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     })
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.rowHeight = 128
+    tableView.rowHeight = 60
+//    tableView.rowHeight = UITableView.automaticDimension
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return characters.count
+    characters.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,7 +41,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
       return
     }
     charactersService.getMoreCharacters { newCharacters in
-      guard let newCharacters = newCharacters else {return}
+      guard let newCharacters = newCharacters else { return }
       self.characters.append(contentsOf: newCharacters)
       DispatchQueue.main.async {
         self.tableView.reloadData()

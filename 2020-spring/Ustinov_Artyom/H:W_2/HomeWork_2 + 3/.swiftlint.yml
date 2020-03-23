@@ -1,4 +1,3 @@
-
 disabled_rules: # rule identifiers to exclude from running
   - legacy_constructor
   - variable_name

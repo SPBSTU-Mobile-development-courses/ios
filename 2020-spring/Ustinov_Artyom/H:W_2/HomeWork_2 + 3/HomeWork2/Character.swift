@@ -14,6 +14,7 @@ struct Page<T: Decodable> {
 // MARK: - Decodable
 extension Page: Decodable {
 }
+
 struct Character: Decodable {
   let name: String
   let image: String

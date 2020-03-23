@@ -5,7 +5,7 @@ class CharacterService {
   typealias CharactersCompletion = ([Character]?) -> Void
 
   private let baseURL = "https://rickandmortyapi.com/api/character/"
-  private var nextPage: URL? // храним внутри ссылку на следующую страницу
+  private var nextPage: URL? 
 
   func getCharacters(completion: @escaping CharactersCompletion) {
     guard let url = URL(string: baseURL) else {
