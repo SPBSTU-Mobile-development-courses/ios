@@ -19,9 +19,8 @@
                                 <rect key="frame" x="183" y="424" width="49" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGU-g1-fie">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGU-g1-fie">
                                 <rect key="frame" x="121" y="355" width="172" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">Loading memes... 
 prepare to scream </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -30,6 +29,12 @@ prepare to scream </string>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lGU-g1-fie" secondAttribute="trailing" constant="121" id="BcC-9S-C2D"/>
+                            <constraint firstItem="lGU-g1-fie" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="311" id="K1q-JT-HeM"/>
+                            <constraint firstItem="lGU-g1-fie" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="121" id="X3P-cN-iuo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lGU-g1-fie" secondAttribute="bottom" constant="437" id="wTz-LW-Jsy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
