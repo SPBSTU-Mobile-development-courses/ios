@@ -47,7 +47,7 @@
                                                     <rect key="frame" x="15" y="47.666666666666671" width="345" height="253.33333333333331"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imk-tU-VZP">
-                                                    <rect key="frame" x="20" y="10.999999999999998" width="340" height="20.333333333333329"/>
+                                                    <rect key="frame" x="19.999999999999996" y="10.999999999999998" width="41.666666666666657" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -56,9 +56,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="guu-1b-nq8" secondAttribute="trailing" constant="54" id="4V1-Cl-dqo"/>
                                                 <constraint firstItem="guu-1b-nq8" firstAttribute="top" secondItem="imk-tU-VZP" secondAttribute="bottom" constant="16.329999999999998" id="DZy-cw-JAF"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="imk-tU-VZP" secondAttribute="trailing" constant="34" id="K5i-8a-Hws"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="imk-tU-VZP" secondAttribute="trailing" id="K5i-8a-Hws"/>
                                                 <constraint firstItem="guu-1b-nq8" firstAttribute="leading" secondItem="pgf-bQ-JRy" secondAttribute="leading" constant="15" id="PBM-B3-8e2"/>
-                                                <constraint firstItem="guu-1b-nq8" firstAttribute="top" secondItem="imk-tU-VZP" secondAttribute="bottom" constant="16.329999999999998" id="Vfc-Nh-0Se"/>
                                                 <constraint firstAttribute="bottom" secondItem="guu-1b-nq8" secondAttribute="bottom" constant="11" id="cPO-m1-Alz"/>
                                                 <constraint firstItem="imk-tU-VZP" firstAttribute="leading" secondItem="pgf-bQ-JRy" secondAttribute="leadingMargin" id="hiN-3V-P7b"/>
                                                 <constraint firstItem="imk-tU-VZP" firstAttribute="top" secondItem="pgf-bQ-JRy" secondAttribute="topMargin" id="yY8-cz-ybK"/>
@@ -100,10 +99,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R6d-BD-PDF">
-                                <rect key="frame" x="0.0" y="133.33333333333331" width="414" height="628.33333333333348"/>
+                                <rect key="frame" x="0.0" y="100.33333333333331" width="414" height="661.33333333333348"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ne-OZ-0Ud">
-                                <rect key="frame" x="16" y="97" width="378" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ne-OZ-0Ud">
+                                <rect key="frame" x="16" y="64" width="382" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -119,8 +118,8 @@
                         <constraints>
                             <constraint firstItem="EJc-oV-hgw" firstAttribute="trailing" secondItem="3ne-OZ-0Ud" secondAttribute="trailing" constant="16" id="2IL-52-Iil"/>
                             <constraint firstItem="EJc-oV-hgw" firstAttribute="trailing" secondItem="jxs-lM-gaE" secondAttribute="trailing" constant="16" id="6kh-8S-lmy"/>
+                            <constraint firstItem="3ne-OZ-0Ud" firstAttribute="top" secondItem="EJc-oV-hgw" secondAttribute="top" constant="20" id="9GS-PP-yrQ"/>
                             <constraint firstItem="R6d-BD-PDF" firstAttribute="top" secondItem="3ne-OZ-0Ud" secondAttribute="bottom" constant="16" id="9Kj-vY-gsp"/>
-                            <constraint firstItem="3ne-OZ-0Ud" firstAttribute="top" secondItem="EJc-oV-hgw" secondAttribute="top" constant="53" id="CKg-Kf-Qmf"/>
                             <constraint firstItem="R6d-BD-PDF" firstAttribute="trailing" secondItem="EJc-oV-hgw" secondAttribute="trailing" id="DNs-Ng-074"/>
                             <constraint firstItem="3ne-OZ-0Ud" firstAttribute="leading" secondItem="EJc-oV-hgw" secondAttribute="leading" constant="16" id="GDh-Xh-B6L"/>
                             <constraint firstItem="R6d-BD-PDF" firstAttribute="leading" secondItem="EJc-oV-hgw" secondAttribute="leading" id="WuC-GS-9jx"/>
