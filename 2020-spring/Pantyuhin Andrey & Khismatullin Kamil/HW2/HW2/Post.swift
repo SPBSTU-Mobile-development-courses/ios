@@ -29,7 +29,7 @@ struct Tag: Decodable {
 struct Image: Decodable{
    let id: String?
    let title: String?
-   let type: String?
+   let type: String
    let link: String
 }
 extension Image{

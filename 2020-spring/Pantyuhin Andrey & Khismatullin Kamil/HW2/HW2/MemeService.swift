@@ -55,12 +55,12 @@ class MemeService {
             
             var index: Int = 0
             
-            while index < page.data!.count {
-                if page.data![index].images == nil {
-                    page.data!.remove(at: index)
+            while index < pageData.count {
+                if pageData[index].images == nil {
+                    pageData.remove(at: index)
                 } else {
-                    if (page.data![index].images![0].type != "image/jpeg") && (page.data![index].images![0].type != "image/png") {
-                        page.data!.remove(at: index)
+                    if (pageData[index].images![0].type != "image/jpeg") && (pageData[index].images![0].type != "image/png") {
+                        pageData.remove(at: index)
                     }
                 }
                 
@@ -68,7 +68,7 @@ class MemeService {
             }
                 print(page.success)
                 print(page.status)
-                completion(page.data)
+                completion(pageData)
                 //            completion(page.success)
             }.resume()
         }

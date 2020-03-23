@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         memeService.getMemes(completion: {
             (newMemes) in
             guard let newMemes = newMemes else { return }
@@ -25,9 +26,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.tableView.reloadData()
             }
         })
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 325
+//        tableView.estimatedRowHeight = 325
+//        tableView.rowHeight = UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

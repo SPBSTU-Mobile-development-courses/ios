@@ -24,18 +24,24 @@ final class DetailViewController: UIViewController {
         }
         descriptionLabel.text = post.title
         descriptionTags.text = "tags: "
-        if (post.tags == nil)
+        if post.tags == nil
         {
             descriptionTags.text = "no tags"
         } else {
-            var index: Int
-            for index in 0...(post.tags!.count - 2) {
-                if post.tags![index].name != nil {
-                    descriptionTags.text! += post.tags![index].name! + ", "
+            if post.tags!.count == 0
+            {
+                descriptionTags.text = "no tags"
+            } else {
+                if post.tags!.count > 2 {
+                    for index in 0...(post.tags!.count - 2) {
+                        if post.tags![index].name != nil {
+                            descriptionTags.text! += post.tags![index].name! + ", "
+                        }
+                    }
                 }
-            }
-            if post.tags![post.tags!.count - 1].name != nil {
-                descriptionTags.text! += post.tags![post.tags!.count - 1].name!
+                if post.tags![post.tags!.count - 1].name != nil {
+                   descriptionTags.text! += post.tags![post.tags!.count - 1].name!
+                }
             }
         }
         guard let url = post.images?[0].url else { return }
