@@ -18,6 +18,7 @@
 		0B6AD4022424F53B00BC5C9E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6AD4012424F53B00BC5C9E /* Post.swift */; };
 		0B6AD4062424F67000BC5C9E /* MemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6AD4052424F67000BC5C9E /* MemeService.swift */; };
 		0B6AD4082424FE6D00BC5C9E /* MemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6AD4072424FE6D00BC5C9E /* MemeCell.swift */; };
+		0B9A5E8A242BB9C900D877D0 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9A5E89242BB9C900D877D0 /* Page.swift */; };
 		0BCBF2942428C658001DAF9B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCBF2932428C658001DAF9B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		0B6AD4012424F53B00BC5C9E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0B6AD4052424F67000BC5C9E /* MemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeService.swift; sourceTree = "<group>"; };
 		0B6AD4072424FE6D00BC5C9E /* MemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCell.swift; sourceTree = "<group>"; };
+		0B9A5E89242BB9C900D877D0 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		0BCBF2932428C658001DAF9B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 				0B6AD4052424F67000BC5C9E /* MemeService.swift */,
 				0B6AD4072424FE6D00BC5C9E /* MemeCell.swift */,
 				0BCBF2932428C658001DAF9B /* DetailViewController.swift */,
+				0B9A5E89242BB9C900D877D0 /* Page.swift */,
 			);
 			path = HW2;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			files = (
 				0B6AD3D62424EF3000BC5C9E /* ViewController.swift in Sources */,
 				0B6AD4022424F53B00BC5C9E /* Post.swift in Sources */,
+				0B9A5E8A242BB9C900D877D0 /* Page.swift in Sources */,
 				0B6AD3D22424EF3000BC5C9E /* AppDelegate.swift in Sources */,
 				0B6AD4082424FE6D00BC5C9E /* MemeCell.swift in Sources */,
 				0B6AD4062424F67000BC5C9E /* MemeService.swift in Sources */,

@@ -9,67 +9,36 @@ import Foundation
 
 class MemeService {
     typealias PostsCompletion = ([Post]?) -> Void
-    private var currentPage: Int?
+    private var currentPage: Int = -1
     
     func getURL(page: Int) -> String{
-        print("THIS PAGE :",String(page))
         return("https://api.imgur.com/3/gallery/search/viral/all/" + String(page) + "?q=memes&q_type=jpg")
     }
     
     func getMemes(completion: @escaping PostsCompletion) {
-        if (self.currentPage == nil) {
-            self.currentPage = 0
-        } else {
-            self.currentPage! += 1
-        }
-        guard let page = self.currentPage else {
+        self.currentPage += 1
+        guard let searchUrl = URL(string: getURL(page: self.currentPage)) else {
             completion(nil)
-            print("wrong page number")
-            return
-        }
-        guard let searchUrl = URL(string: getURL(page: page)) else {
-            completion(nil)
-            print("error in URL")
             return
         }
         var searchRequest = URLRequest(url: searchUrl)
         searchRequest.setValue("Client-ID c8828f10f679ec3", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: searchRequest) { (data, response, error) in
-            guard let data = data, error == nil else {
-                completion(nil)
-                print("error")
-                return
-            }
-            guard var page = try? JSONDecoder().decode(Page.self, from: data) else {
-                completion(nil)
-                print("decode failed")
-                return
-            }
             
-            guard var pageData = page.data else {
+            guard let data = data, let page = try? JSONDecoder().decode(Page.self, from: data), var pageData = page.data, error == nil else {
                 completion(nil)
-                print("decode failed")
                 return
             }
             
             var index: Int = 0
-            
             while index < pageData.count {
-                if pageData[index].images == nil {
+                if pageData[index].images == nil || ((pageData[index].images![0].type != "image/jpeg") && (pageData[index].images![0].type != "image/png")) {
                     pageData.remove(at: index)
-                } else {
-                    if (pageData[index].images![0].type != "image/jpeg") && (pageData[index].images![0].type != "image/png") {
-                        pageData.remove(at: index)
-                    }
                 }
-                
                 index += 1
             }
-                print(page.success)
-                print(page.status)
-                completion(pageData)
-                //            completion(page.success)
-            }.resume()
-        }
+            completion(pageData)
+        }.resume()
+    }
 }

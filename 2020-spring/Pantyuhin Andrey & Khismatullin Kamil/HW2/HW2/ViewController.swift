@@ -30,10 +30,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 325
-//        tableView.estimatedRowHeight = 325
-//        tableView.rowHeight = UITableView.automaticDimension
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
@@ -44,9 +42,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             fatalError("Table view is not configured")
         }
         let post: Post = posts[indexPath.row]
-
-
-        print(post.images![0].type)
         
         cell.setup(with: post)
         return cell
@@ -57,7 +52,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard indexPath.row == posts.count - 1 else { return }
         memeService.getMemes {
             guard let posts = $0 else {
-                print("post is nil")
                 return }
             self.posts.append(contentsOf: posts)
             DispatchQueue.main.async {
@@ -65,16 +59,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // этого не было на лекции. Метод вызывается при клике на ячейку. Мы хотим открыть детальную информацию о ней
-        guard let viewController = UIStoryboard(name: "Main", bundle: nil) // открываем главный сториборд и достаем оттуда viewController по идентфикатору. Как с ячейкой
+        guard let viewController = UIStoryboard(name: "Main", bundle: nil)
             .instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
                 return
         }
+        guard let cell = tableView.cellForRow(at: indexPath) as? MemeCell else {
+            fatalError("Cell is not configured")
+        }
         viewController.post = posts[indexPath.row]
-        navigationController?.pushViewController(viewController, animated: true) // в сториборде добавился navigationController
-        tableView.deselectRow(at: indexPath, animated: true) // снимаем выделение ячейки
+        viewController.image = cell.picture.image
+        navigationController?.pushViewController(viewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
