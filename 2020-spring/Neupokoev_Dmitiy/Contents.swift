@@ -51,23 +51,20 @@ class Tree<T: Comparable> {
 
 
 	func push(root: inout Node, data: Node) {
-		if (data.data > root.data)
+		if data.data > root.data
 		{
-			if (root.rightNode == nil) {
+			guard var unwRight = root.rightNode else {
 				root.rightNode = data
-			}
-			else {
-				push(root: &root.rightNode!, data: data)
-			}
-
+				return
+			} 
+			push(root: &unwRight, data: data)
 		}
-		else if (data.data < root.data) {
-			if (root.leftNode == nil) {
+		else if data.data < root.data {
+			guard var unwLeft = root.leftNode else {
 				root.leftNode = data
-			}
-			else {
-				push(root: &root.leftNode!, data: data)
-			}
+				return
+			} 
+			push(root: &unwLeft, data: data)
 		}
 		balance(root: &root)
 	}
@@ -75,30 +72,24 @@ class Tree<T: Comparable> {
 /////////////////////// FIND FIND FIND FIND FIND FIND ///////////////////////////
 
 	func find(root: Node, data: T) -> Bool {
-		if (data == root.data)
+		if data == root.data
 		{
 			print("\(data) is exist")
 			return true
 		} else if (data > root.data) {
 
-
-		if (root.rightNode == nil) {
-			print("\(data) is not exist")
-			return false
-			} else {
-				return find(root: root.rightNode!, data: data)
-			}
-
-		}
-		else {
-
-			if (root.leftNode == nil) {
+		guard let unwRight = root.rightNode else {
 				print("\(data) is not exist")
 				return false
-			}
-			else {
-				return find(root: root.leftNode!, data: data)
-			}
+			} 
+		return find(root: unwRight, data: data)			
+		}
+		else {
+		guard let unwLeft = root.leftNode else {
+				print("\(data) is not exist")
+				return false
+			} 
+		return find(root: unwLeft, data: data)	
 		}
 	}
 
@@ -175,16 +166,16 @@ class Tree<T: Comparable> {
 	}
 
 	private func check_nodes(root: Node) -> node_info { // проаерка веток у ветки
-		if (root.rightNode != nil) && (root.leftNode != nil)
-		{
-			return .RL_node
-		} else if (root.rightNode != nil) {
+		guard root.rightNode != nil && root.leftNode != nil else {
+			guard root.rightNode != nil else {
+				guard root.leftNode != nil else {
+					return .no_node
+				}
+				return .L_node
+			}
 			return .R_node
-		} else if (root.leftNode != nil) {
-			return .L_node
-		} else {
-				return .no_node
 		}
+		return .RL_node
 	}
 
 ///////////////////////BALANCE BALANCE BALANCE BALANCE BALANCE BALANCE ////////////////////
@@ -193,15 +184,14 @@ class Tree<T: Comparable> {
 	{
 
 		calcHeight(root: &root)
-
-		if (getBalanceFactor(root: root) == 2) {
-			if (getBalanceFactor(root: root.leftNode!) < 0) {
+		if getBalanceFactor(root: root) == 2 {
+			if getBalanceFactor(root: root.leftNode!) < 0 {
 				turnLeft(root: &root.leftNode!)
 			}
 			turnRight(root: &root)
 		}
-		else if (getBalanceFactor(root: root) == -2) {
-			if (getBalanceFactor(root: root.rightNode!) > 0) {
+		else if getBalanceFactor(root: root) == -2 {
+			if getBalanceFactor(root: root.rightNode!) > 0 {
 				turnRight(root: &root.rightNode!)
 			}
 			turnLeft(root: &root)
@@ -211,7 +201,7 @@ class Tree<T: Comparable> {
 	private func calcHeight(root: inout Node) {
 	switch check_nodes(root: root) {
 		case .RL_node:
-		if (root.leftNode!.height > root.rightNode!.height) {
+		if root.leftNode!.height > root.rightNode!.height {
 			root.height = root.leftNode!.height + 1
 			} else {
 				root.height = root.rightNode!.height + 1
@@ -248,7 +238,7 @@ class Tree<T: Comparable> {
 	}
 
 	private func turnLeft(root: inout Node) {
-		var newRoot = root.rightNode   //
+		var newRoot = root.rightNode   
 		root.rightNode = root.rightNode!.leftNode
 		newRoot!.leftNode = root
 		calcHeight(root: &root)
