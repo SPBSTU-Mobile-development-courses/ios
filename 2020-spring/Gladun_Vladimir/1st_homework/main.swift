@@ -26,7 +26,8 @@ class Tree<T: Comparable> {
     }
    
     func remove(value: T) {
-        root = remove(node: root, value: value)
+      print("\n REMOVING \(value)")
+      root = remove(node: root, value: value)
     }
    
     func insert(value: T) {
@@ -34,8 +35,9 @@ class Tree<T: Comparable> {
     }
    
     func search(value: T) {
-        search(node: root, value: value)
-    }
+      if (!search(node: root, value: value))
+         {print("Tree does not contain element \(value)")}
+  }
     
     func printTree(){
         print(" PREORDER")
@@ -43,7 +45,7 @@ class Tree<T: Comparable> {
     }
    
     private func height(node: Node<T>?) -> Int {
-        return node == nil ? 0 : node!.height
+        return node?.height ?? 0
     }
    
     private func balanceFactor(node: Node<T>?) -> Int {
@@ -68,17 +70,18 @@ class Tree<T: Comparable> {
     private func leftRotate(node: Node<T>) -> Node<T> {
         let tmp = node.right
         node.right = tmp?.left
-        tmp!.left = node
+        tmp?.left = node
         fixHeight(node: node)
         fixHeight(node: tmp)
         return tmp!
     }
    
-    private func balance(node: Node<T>) -> Node<T> {
+    private func balance(node: Node<T>?) -> Node<T>? {
+      guard let node = node else {return nil}
         fixHeight(node: node)
         if balanceFactor(node: node) == 2 {
             if balanceFactor(node: node) < 0 {
-                node.right = rightRotate(node: node.right!)
+              node.right = rightRotate(node: node.right!)
             }
             return leftRotate(node: node)
         }
@@ -90,53 +93,57 @@ class Tree<T: Comparable> {
         }
         return node
     }
+  
    
     private func search(node: Node<T>?, value: T) -> Bool {
-        if node != nil {
-            let nodeValue = node!.value
-          if value == node!.value {
-            print("Tree contains element \(value)")
-            return true
-          } else if value < nodeValue {
-                 search(node: node!.left, value: value)
-          } else {
-                 search(node: node!.right, value: value)
-          }
-      } else {
-        print("Tree does not contain element \(value)")
-            return false
+      guard let node = node else {return false}
+      let nodeValue = node.value
+      if value == node.value {
+        print("Tree contains element \(value)")
+        return true
+      } else if value < nodeValue {
+        search(node: node.left, value: value)
+      } else if value > nodeValue {
+        search(node: node.right, value: value)
       }
-    return false
+      return false
     }
+
    
-    private func insert(node: Node<T>?, value: T) -> Node<T> {
+    private func insert(node: Node<T>?, value: T) -> Node<T>? {
         if node == nil {
             return Node(value: value, height: 1, left: nil, right: nil)
         }
         if value < node!.value {
-            node?.left = insert(node: node!.left, value: value)
+            node?.left = insert(node: node?.left, value: value)
         } else {
-            node?.right = insert(node: node!.right, value: value)
+            node?.right = insert(node: node?.right, value: value)
         }
-        return balance(node: node!)
-    }
-   
-    private func findMin(node: Node<T>) -> Node<T> {
-        return node.left == nil ? node : findMin(node: node.left!)
-    }
-   
-    private func removeMin(node: Node<T>) -> Node<T>? {
-        if node.left == nil {
-            return node.right
-        }
-        node.left = removeMin(node: node.left!)
         return balance(node: node)
     }
    
+    private func findMin(node: Node<T>?) -> Node<T>? {
+      guard let node = node else {return nil}
+      if node.left == nil {
+          return node
+      }
+      node.left = findMin(node: node.left)
+      fixHeight(node: node)
+      return balance(node: node)
+    }
+    
+   
+    private func removeMin(node: Node<T>?) -> Node<T>? {
+      guard let node = node else {return nil}
+      if node.left == nil {
+        return node.right
+      }
+      node.left = removeMin(node: node.left!)
+      return balance(node: node)
+    }
+   
     private func remove(node: Node<T>?, value: T) -> Node<T>? {
-        if node == nil {
-            return nil
-        }
+        if node == nil {return nil}
         if value < node!.value {
             node?.left = remove(node: node?.left, value: value)
         } else if (value > node!.value) {
@@ -144,13 +151,11 @@ class Tree<T: Comparable> {
         } else {
             let tmp1 = node?.left
             let tmp2 = node?.right
-            if tmp2 == nil {
-                return tmp1
-            }
-            let min = findMin(node: tmp2!)
-            min.right = removeMin(node: tmp2!)
-            min.left = tmp1
-            return balance(node: min)
+            if tmp2 == nil {return tmp1}
+            let min = findMin(node: tmp2)
+            min!.right = removeMin(node: tmp2)
+            min!.left = tmp1
+            return balance(node: min!)
         }
         return balance(node: node!)
     }
@@ -173,5 +178,4 @@ tree.search(value: 2)
 tree.search(value: 7)
 tree.printTree()
 tree.remove(value: 1)
-print("\n AFTER REMOVING")
 tree.printTree()
