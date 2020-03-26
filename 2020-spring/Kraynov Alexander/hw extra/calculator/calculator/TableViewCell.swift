@@ -10,9 +10,8 @@ import UIKit
 
 final class TableViewCell: UITableViewCell {
     @IBOutlet private var textInside: UILabel!
-    
-    func setup (text: String)
-    {
+
+    func setup (text: String) {
         textInside.text = text
     }
 }

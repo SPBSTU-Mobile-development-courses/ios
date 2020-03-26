@@ -8,14 +8,37 @@
 
 import UIKit
 
-class AddToTableViewController: UIViewController{
-    @IBOutlet weak var editText: UITextField!
-    @IBAction func confirmButtonPressed(_ sender: UIButton) {
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        delegate.data.append(editText.text ?? "")
-    }
-    @IBOutlet weak var scrollView: UIScrollView!
+class AddToTableViewController: UIViewController {
+    @IBOutlet private var editText: UITextView!
+    @IBOutlet private var scrollView: UIScrollView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(AddToTableViewController.keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+
+    @IBAction private func confirmButtonPressed(_ sender: UIButton) {
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        delegate.data.append(editText.text ?? "")
+        editText.endEditing(true)
+        editText.text = ""
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        let textFrame = editText.superview?.convert(editText.frame, to: nil)
+        let notchOffset = self.view.safeAreaInsets.top
+        scrollView.setContentOffset(CGPoint(x: 0, y: (textFrame?.minY ?? 0) - notchOffset), animated: true)
+    }
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        editText.resignFirstResponder()
     }
 }
