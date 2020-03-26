@@ -31,13 +31,11 @@ class MemeService {
                 return
             }
             
-            var index: Int = 0
-            while index < pageData.count {
-                if pageData[index].images == nil || ((pageData[index].images![0].type != "image/jpeg") && (pageData[index].images![0].type != "image/png")) {
-                    pageData.remove(at: index)
-                }
-                index += 1
+            pageData.removeAll { post in
+                guard let image = post.images?.first, image.type == "image/jpeg" ||  image.type == "image/png" else { return true }
+                return false
             }
+            
             completion(pageData)
         }.resume()
     }

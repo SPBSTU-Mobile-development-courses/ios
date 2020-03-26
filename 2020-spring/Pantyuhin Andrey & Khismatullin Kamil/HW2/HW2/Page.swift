@@ -11,6 +11,5 @@ import Foundation
 struct Page: Decodable{
     var data: [Post]?
     let success: Bool?
-    let status: Int?
-    
+    let status: Int?    
 }

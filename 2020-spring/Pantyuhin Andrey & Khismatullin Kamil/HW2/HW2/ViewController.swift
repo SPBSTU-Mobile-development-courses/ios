@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
     @IBOutlet var tableView: UITableView!
     let memeService = MemeService()
     var posts = [Post]()
@@ -65,11 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             .instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
                 return
         }
-        guard let cell = tableView.cellForRow(at: indexPath) as? MemeCell else {
-            fatalError("Cell is not configured")
-        }
         viewController.post = posts[indexPath.row]
-        viewController.image = cell.picture.image
         navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }

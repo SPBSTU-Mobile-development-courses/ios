@@ -13,7 +13,6 @@ final class DetailViewController: UIViewController {
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var descriptionTags: UILabel!
     
-    var image: UIImage?
     var post: Post?
     
     override func viewDidLoad() {
@@ -25,18 +24,19 @@ final class DetailViewController: UIViewController {
         }
         descriptionLabel.text = post.title
         descriptionTags.text = "tags: "
-        self.descriptionImage.image = image
-        
+        guard let url = post.images?[0].url else { return }
+        _ = URLSession.shared.dataTask(with: url) { data, _, _  in
+            guard let data = data, let image = UIImage(data: data) else { return }
+            DispatchQueue.main.async {
+                self.descriptionImage.image = image
+            }
+        }.resume()
         guard let tags = post.tags, tags.count != 0 else {
             descriptionTags.text = "no tags"
             return
         }
-        
-        if tags.count > 1 {
-            for index in 0...(tags.count - 2) {
-                descriptionTags.text? += tags[index].name + ", "
-            }
-        }
-        descriptionTags.text? += tags[tags.count - 1].name
+        var tagsNames = [String]()
+        tags.forEach{tag in tagsNames.append(tag.name)}
+        descriptionTags.text! += tagsNames.joined(separator: ", ")
     }
 }
