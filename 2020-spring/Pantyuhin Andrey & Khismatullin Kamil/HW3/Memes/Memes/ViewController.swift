@@ -26,7 +26,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
-        //tableView.rowHeight = 312
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
