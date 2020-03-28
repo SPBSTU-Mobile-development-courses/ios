@@ -30,15 +30,18 @@ class AddToTableViewController: UIViewController {
         }
         delegate.data.append(editText.text ?? "")
         editText.endEditing(true)
+        scrollView.contentInset.bottom = 0
         editText.text = ""
     }
 
     @objc func keyboardWillShow(notification: NSNotification) {
-        let textFrame = editText.superview?.convert(editText.frame, to: nil)
-        let notchOffset = self.view.safeAreaInsets.top
-        scrollView.setContentOffset(CGPoint(x: 0, y: (textFrame?.minY ?? 0) - notchOffset), animated: true)
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardSize.height
+            scrollView.contentInset.bottom = keyboardHeight
+        }
     }
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         editText.resignFirstResponder()
+        scrollView.contentInset.bottom = 0
     }
 }
