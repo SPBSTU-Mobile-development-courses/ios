@@ -85,3 +85,26 @@
  * [Autolayout](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/AutolayoutPG/index.html)
  * [Как сверстано лента VK](https://habr.com/ru/company/vk/blog/481626/)
  
+ ## 29 марта, ДЗ №4
+ #### Запись лекции
+ [Realm, кэш](https://vk.com/video-176491001_456239032)
+ [Устройство на работу](https://vk.com/video-176491001_456239033)
+ 
+ #### Сделать
+ * Добавить поддержку оффлайн режима в приложение. Сохранить в базу загружаемые с API сущности и показывать их, если нет подключения. Можно использовать Realm/CoreData/SQLite
+ * Добавить в приложение [pull-to-refresh](https://developer.apple.com/design/human-interface-guidelines/ios/controls/refresh-content-controls/)
+ * (опционально) добавить в приложение индикатор загрузки следующей страницы данных с API. Долистали до низу таблицы -> показали индикатор активности -> отправили запрос -> дождались ответа -> спрятали индикатор активности
+ * (опционально) подписаться на [мой подкаст](https://soundcloud.com/kuluarnyiy)
+ 
+ #### Прочитать
+ * (не успели в прошлый раз) В чем разница Dependency Injection и Dependency Inversion? Пример?
+ * (не успели в прошлый раз) Что такое method dispatch? Какиой бывают в свифте?
+ * Расшифровать и объяснить аббревиатуры CRUD и ACID
+ * Функции высшего порядка: что это, зачем нужно, приведи пример в Swift
+ * Что такое view.frame и view.bounds? Чем отличаются?
+ 
+ #### Материалы
+ [Map, filter, reduce](https://www.appcoda.com/higher-order-functions-swift/)
+ [Про собесы от гуру](https://youtu.be/z1uTOrDqRfU)
+ [Интересный видос про autolayout](https://developer.apple.com/videos/play/wwdc2018/220)
+ 
