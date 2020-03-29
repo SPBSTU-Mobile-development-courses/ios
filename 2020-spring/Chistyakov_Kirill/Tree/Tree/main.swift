@@ -274,7 +274,6 @@ class HappyTree<T: Comparable> {
             return replacement
         } else {
             return replacement
-
         }
 
     }
