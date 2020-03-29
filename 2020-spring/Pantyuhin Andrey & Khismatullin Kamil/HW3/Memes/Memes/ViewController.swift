@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    let memeService = MemeService()
-    var posts = [Post]()
+class ViewController: UIViewController {
+    private let memeService = MemeService()
+    private var posts = [Post]()
 
     @IBOutlet private var tableView: UITableView!
 
@@ -27,7 +27,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
     }
+}
 
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         posts.count
     }
@@ -41,12 +43,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.setup(with: post)
         return cell
     }
+}
 
+extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == posts.count - 1 else { return }
         memeService.getMemes {
-            guard let posts = $0 else {
-                return }
+            guard let posts = $0 else { return }
             self.posts.append(contentsOf: posts)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -63,5 +66,4 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         navigationController?.present(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
 }

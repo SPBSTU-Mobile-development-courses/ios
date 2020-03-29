@@ -191,11 +191,11 @@
 			buildConfigurationList = 0BCADC14242F733400B764A3 /* Build configuration list for PBXNativeTarget "Memes" */;
 			buildPhases = (
 				A8A458F09D7499D7F7FBAFC5 /* [CP] Check Pods Manifest.lock */,
+				0BCADC29242F7E2A00B764A3 /* Errors(SwiftLint) */,
 				0BCADBE6242F733300B764A3 /* Sources */,
 				0BCADBE7242F733300B764A3 /* Frameworks */,
 				0BCADBE8242F733300B764A3 /* Resources */,
 				F4EA19C13B32D39F14ADED69 /* [CP] Embed Pods Frameworks */,
-				0BCADC29242F7E2A00B764A3 /* Errors(SwiftLint) */,
 			);
 			buildRules = (
 			);

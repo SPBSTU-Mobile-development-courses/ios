@@ -22,18 +22,16 @@ final class DetailViewController: UIViewController {
             return
         }
         descriptionLabel.text = post.title
-        descriptionTags.text = "tags: "
-        guard var textField = descriptionTags.text else {
-            return
-        }
+
         guard let url = post.images?[0].url else { return }
         descriptionImage.kf.setImage(with: url)
-        guard let tags = post.tags, tags.isEmpty else {
+        guard let tags = post.tags, !(tags.isEmpty) else {
             descriptionTags.text = "no tags"
             return
         }
-        var tagsNames = [String]()
-        tags.forEach { tag in tagsNames.append(tag.name) }
-        textField += tagsNames.joined(separator: ", ")
+
+        var textField: String = "tags: "
+        textField += tags.map { $0.name }.joined(separator: ", ")
+        descriptionTags.text = textField
     }
 }

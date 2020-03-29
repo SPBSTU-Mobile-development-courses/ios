@@ -10,19 +10,26 @@ import Foundation
 class MemeService {
     typealias PostsCompletion = ([Post]?) -> Void
 
-    private var currentPage: Int = -1
-
-    func getURL(page: Int) -> String {
-        return("https://api.imgur.com/3/gallery/search/viral/all/" + String(page) + "?q=memes&q_type=jpg")
+    private var currentPage: Int = 0
+    private var components: URL? {
+        var tmp = URLComponents()
+        tmp.scheme = "https"
+        tmp.host = "api.imgur.com"
+        tmp.path = "/3/gallery/search/viral/all/"
+        tmp.queryItems = [
+            URLQueryItem(name: "q", value: "memes"),
+            URLQueryItem(name: "q_types", value: "jpg"),
+            URLQueryItem(name: "page", value: "\(self.currentPage)")
+        ]
+        return tmp.url
     }
 
     func getMemes(completion: @escaping PostsCompletion) {
-        self.currentPage += 1
-        guard let searchUrl = URL(string: getURL(page: self.currentPage)) else {
+        guard let searchURL = components else {
             completion(nil)
             return
         }
-        var searchRequest = URLRequest(url: searchUrl)
+        var searchRequest = URLRequest(url: searchURL)
         searchRequest.setValue("Client-ID c8828f10f679ec3", forHTTPHeaderField: "Authorization")
 
         URLSession.shared.dataTask(with: searchRequest) { data, _, error in
@@ -39,5 +46,6 @@ class MemeService {
             completion(pageData)
         }
         .resume()
+        self.currentPage += 1
     }
 }
