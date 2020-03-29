@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="notesListCellWithImageID" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="418" id="vf2-8q-9o8" customClass="NotesListCellWithImage" customModule="Notes" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="418"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vf2-8q-9o8" id="QQA-MN-RMO">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="417.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-2o-abU">
+                        <rect key="frame" x="161.5" y="11" width="52" height="33.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KL0-Pv-QAx">
+                        <rect key="frame" x="16" y="52.5" width="343" height="257.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="KL0-Pv-QAx" secondAttribute="height" multiplier="4:3" id="pPq-gR-ax7"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5a8-iG-5S9">
+                        <rect key="frame" x="16" y="318" width="343" height="89"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="KL0-Pv-QAx" firstAttribute="top" secondItem="0zP-2o-abU" secondAttribute="bottom" constant="8" id="1ce-h9-yth"/>
+                    <constraint firstItem="5a8-iG-5S9" firstAttribute="top" secondItem="KL0-Pv-QAx" secondAttribute="bottom" constant="8" id="2CD-ES-Xut"/>
+                    <constraint firstItem="5a8-iG-5S9" firstAttribute="leading" secondItem="QQA-MN-RMO" secondAttribute="leadingMargin" id="7z9-lR-rXJ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="KL0-Pv-QAx" secondAttribute="trailing" id="Div-Nh-dHx"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="5a8-iG-5S9" secondAttribute="bottom" id="FeK-aa-bLu"/>
+                    <constraint firstItem="0zP-2o-abU" firstAttribute="centerX" secondItem="QQA-MN-RMO" secondAttribute="centerX" id="Gac-k8-iUK"/>
+                    <constraint firstItem="0zP-2o-abU" firstAttribute="top" secondItem="QQA-MN-RMO" secondAttribute="topMargin" id="IxG-qU-bx7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="5a8-iG-5S9" secondAttribute="trailing" id="Zml-iM-8JN"/>
+                    <constraint firstItem="KL0-Pv-QAx" firstAttribute="leading" secondItem="QQA-MN-RMO" secondAttribute="leadingMargin" id="mBp-EB-c9m"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="noteImage" destination="KL0-Pv-QAx" id="OL7-FF-Y1T"/>
+                <outlet property="noteView" destination="5a8-iG-5S9" id="u0B-CP-K8J"/>
+                <outlet property="titleView" destination="0zP-2o-abU" id="3ob-On-DIs"/>
+            </connections>
+            <point key="canvasLocation" x="408.80000000000001" y="118.74062968515743"/>
+        </tableViewCell>
+    </objects>
+</document>

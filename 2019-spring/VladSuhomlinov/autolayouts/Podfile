@@ -1,0 +1,8 @@
+platform :ios, '9.0'
+
+target 'autolayouts' do
+    use_frameworks!
+
+  pod 'SwiftLint'
+
+end
