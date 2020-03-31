@@ -43,7 +43,7 @@ class BinaryTree<T: Comparable> {
                 return balance(node: node)
             }
             self.insert(root: left, node: node)
-         } else {
+        } else {
             guard let right = root.right else {
                 root.right = node
                 return balance(node: node)
@@ -73,9 +73,9 @@ class BinaryTree<T: Comparable> {
             guard let right = tempNode.right else {
                 return left
             }
-           let min = findMin(node: right)
-           min.left = left
-           return balance(node: min)
+            let min = findMin(node: right)
+            min.left = left
+            return balance(node: min)
         }
         return balance(node: tempNode)
     }
