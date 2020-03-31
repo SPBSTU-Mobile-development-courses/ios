@@ -68,9 +68,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == posts.count - 1 else { return }
-        if activity.isAnimating {
-            memeFacade.loadMore()
-        }
+        memeFacade.loadMore()
         activity.stopAnimating()
     }
 
