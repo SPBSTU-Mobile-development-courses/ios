@@ -43,14 +43,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="312"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="guu-1b-nq8">
-                                                    <rect key="frame" x="15" y="48" width="384" height="253"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="guu-1b-nq8" secondAttribute="height" multiplier="384:253" id="gcs-e0-QB5"/>
-                                                    </constraints>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="guu-1b-nq8" customClass="SelfScalingUIImageView" customModule="Memes" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="47.333333333333329" width="384" height="253.66666666666669"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imk-tU-VZP">
-                                                    <rect key="frame" x="19.999999999999996" y="11" width="41.666666666666657" height="21"/>
+                                                    <rect key="frame" x="19.999999999999996" y="10.999999999999998" width="41.666666666666657" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

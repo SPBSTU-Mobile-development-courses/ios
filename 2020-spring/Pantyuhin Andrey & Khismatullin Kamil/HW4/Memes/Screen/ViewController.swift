@@ -18,6 +18,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        MemeCell.viewController = self
         memeFacade.getMemes(completion: { newMemes in
             guard let newMemes = newMemes else { return }
             self.posts = newMemes
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 400
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
         tableView.tableFooterView = activity
@@ -58,7 +60,7 @@ extension ViewController: UITableViewDataSource {
         }
         let post: Post = posts[indexPath.row]
 
-        cell.setup(with: post)
+        cell.setup(with: post, controller: self, index: indexPath)
         if !activity.isAnimating { activity.startAnimating() }
         return cell
     }
@@ -80,5 +82,15 @@ extension ViewController: UITableViewDelegate {
         viewController.post = posts[indexPath.row]
         navigationController?.present(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension ViewController {
+    func updateCell(row: Int, section: Int) {
+        tableView.reloadRows(at: [IndexPath(row: row, section: section)], with: .automatic)
+    }
+    func updateCells() {
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 }

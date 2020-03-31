@@ -10,8 +10,10 @@ import Kingfisher
 import UIKit
 
 class MemeCell: UITableViewCell {
+    static var viewController: UIViewController?
+
     @IBOutlet private var label: UILabel!
-    @IBOutlet private var picture: UIImageView!
+    @IBOutlet private var picture: SelfScalingUIImageView!
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -19,9 +21,18 @@ class MemeCell: UITableViewCell {
         picture.kf.cancelDownloadTask()
     }
 
-    func setup(with meme: Post) {
+    func setup(with meme: Post, controller: ViewController, index: IndexPath) {
         label.text = meme.title
         guard let url = meme.images?[0].url else { return }
-        picture.kf.setImage(with: url)
+        picture.kf.setImage(with: url) { result in
+            switch result {
+            case .success(let value):
+                if value.cacheType == .disk {
+                    controller.updateCell(row: index.row, section: index.section)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
