@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         tableView.rowHeight = 350
     }
 
-    @objc private func refreshTableData(_: Any) {
+    @objc private func refreshTableData() {
         cardFacade.getCards { cardArray in
             guard let cardArray = cardArray else {
                 return
