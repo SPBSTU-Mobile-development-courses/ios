@@ -33,22 +33,22 @@ class BinaryTree<T: Comparable> {
         insert(root: root, node: Node(value: value))
     }
 
-     private func insert(root: Node<T>, node: Node<T>) -> Node<T>? {
-         if root.value == node.value {
-             root.counter += 1
-             return nil
-         } else if root.value > node.value {
-             if let left = root.left {
-                 self.insert(root: left, node: node)
-             } else {
-                 root.left = node
-             }
+    private func insert(root: Node<T>, node: Node<T>) -> Node<T>? {
+        if root.value == node.value {
+            root.counter += 1
+            return nil
+        } else if root.value > node.value {
+            guard let left = root.left else {
+                root.left = node
+                return balance(node: node)
+            }
+            self.insert(root: left, node: node)
          } else {
-             if let right = root.right {
-                 self.insert(root: right, node: node)
-             } else {
-                 root.right = node
-             }
+            guard let right = root.right else {
+                root.right = node
+                return balance(node: node)
+            }
+            self.insert(root: right, node: node)
         }
         return balance(node: node)
     }
@@ -61,13 +61,13 @@ class BinaryTree<T: Comparable> {
         guard let tempNode = node else {
             return nil
         }
-        if value < tempNode.value {
+        if tempNode.counter > 1 {
+            tempNode.counter -= 1
+            return nil
+        } else if value < tempNode.value {
             remove(node: &tempNode.left, value: value)
         } else if value > tempNode.value {
             remove(node: &tempNode.right, value: value)
-        } else if tempNode.counter > 1 {
-            tempNode.counter -= 1
-            return nil
         } else {
             let left = tempNode.left
             guard let right = tempNode.right else {
@@ -112,15 +112,47 @@ class BinaryTree<T: Comparable> {
         }
         self.printInOrder(node: tempNode.right)
     }
-
-    private func getLevel(node: Node<T>?) -> Int {
-        return node?.level ?? 0
+    
+    private func balance(node: Node<T>) -> Node<T> {
+        fixLevel(node: node)
+        switch balanceFactor(node: node) {
+        case 2:
+            return balanceHelp1(node: node)
+        case -2:
+            return balanceHelp2(node: node)
+        default:
+            return node
+        }
+    }
+    
+    private func balanceHelp1(node: Node<T>) -> Node<T> {
+        if balanceFactor(node: node.right) < 0 {
+            guard let right = node.right else {
+                return node
+            }
+            node.right = rotateRight(node: right)
+        }
+        return rotateLeft(node: node)
+    }
+    
+    private func balanceHelp2(node: Node<T>) -> Node<T> {
+        if balanceFactor(node: node.left) < 0 {
+            guard let left = node.left else {
+                return node
+            }
+            node.left = rotateLeft(node: left)
+        }
+        return rotateRight(node: node)
     }
 
     private func balanceFactor(node: Node<T>?) -> Int {
         return getLevel(node: node?.right) - getLevel(node: node?.left)
     }
-
+    
+    private func getLevel(node: Node<T>?) -> Int {
+        return node?.level ?? 0
+    }
+    
     private func fixLevel(node: Node<T>?) {
         let left = getLevel(node: node?.left)
         let right = getLevel(node: node?.right)
@@ -147,29 +179,6 @@ class BinaryTree<T: Comparable> {
         fixLevel(node: node)
         fixLevel(node: right)
         return right
-    }
-
-    private func balance(node: Node<T>) -> Node<T> {
-        fixLevel(node: node)
-        if balanceFactor(node: node) == 2 {
-            if balanceFactor(node: node.right) < 0 {
-                guard let right = node.right else {
-                    return node
-                }
-                node.right = rotateRight(node: right)
-            }
-            return rotateLeft(node: node)
-        }
-        if balanceFactor(node: node) == -2 {
-            if balanceFactor(node: node.left) < 0 {
-                guard let left = node.left else {
-                    return node
-                }
-                node.left = rotateLeft(node: left)
-            }
-            return rotateRight(node: node)
-        }
-        return node
     }
 
     private func findMin(node: Node<T>) -> Node<T> {
