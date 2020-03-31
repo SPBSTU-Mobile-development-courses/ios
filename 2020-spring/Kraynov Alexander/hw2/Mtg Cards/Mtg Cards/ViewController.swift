@@ -16,12 +16,15 @@ class ViewController: UIViewController {
             }
         }
     }
-    private let cardService: CardService = CardServiceImpl()
+    private let refreshControl = UIRefreshControl()
+    private let cardFacade: CardFacade = CardFacadeImpl(cardService: CardServiceImpl(), cardRepository: CardRepositoryImpl())
     @IBOutlet private var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cardService.getCards { cardArray in
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshTableData(_:)), for: .valueChanged)
+        cardFacade.getCards { cardArray in
             guard let cardArray = cardArray else {
                 return
             }
@@ -31,6 +34,15 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 350
+    }
+    @objc private func refreshTableData(_ sender: Any) {
+        cardFacade.getCards { cardArray in
+            guard let cardArray = cardArray else {
+                return
+            }
+            self.cards = cardArray
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 
@@ -51,11 +63,17 @@ extension ViewController: UITableViewDelegate {
         guard indexPath.row == cards.count - 1 else {
             return
         }
-        cardService.getMoreCards { cardArray in
-            guard let cards = cardArray else {
-                return
+        let spinner = UIActivityIndicatorView(style: .medium)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+
+        self.tableView.tableFooterView = spinner
+        self.tableView.tableFooterView?.isHidden = false
+        cardFacade.loadMore {_ in
+            DispatchQueue.main.async {
+                spinner.stopAnimating()
+                self.tableView.tableFooterView?.isHidden = true
             }
-            self.cards.append(contentsOf: cards)
         }
     }
     func tableView( _ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

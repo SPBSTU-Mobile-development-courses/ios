@@ -13,6 +13,7 @@ struct Card: Decodable {
         let normal: String?
     }
 
+    let id: String
     let name: String
     let artist: String?
     let rarity: String
