@@ -15,13 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8aX-KI-dtK">
-                                <rect key="frame" x="183" y="424" width="49" height="49"/>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGU-g1-fie">
-                                <rect key="frame" x="121" y="355" width="172" height="70"/>
-                                <string key="text">Loading memes...
-prepare to scream </string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading memes... prepare to scream" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEG-ex-xST">
+                                <rect key="frame" x="117" y="411.66666666666669" width="180" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="LfL-hc-rGO"/>
+                                    <constraint firstAttribute="height" constant="73" id="e1s-zK-hyR"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -29,14 +28,8 @@ prepare to scream </string>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lGU-g1-fie" secondAttribute="trailing" constant="121" id="BcC-9S-C2D"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8aX-KI-dtK" secondAttribute="bottom" constant="389" id="Icf-Nm-Pmv"/>
-                            <constraint firstItem="8aX-KI-dtK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="380" id="Ika-Ob-cS1"/>
-                            <constraint firstItem="lGU-g1-fie" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="311" id="K1q-JT-HeM"/>
-                            <constraint firstItem="lGU-g1-fie" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="121" id="X3P-cN-iuo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8aX-KI-dtK" secondAttribute="trailing" constant="182" id="ZZG-Ox-tjU"/>
-                            <constraint firstItem="8aX-KI-dtK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="183" id="c4h-w9-yT3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lGU-g1-fie" secondAttribute="bottom" constant="437" id="wTz-LW-Jsy"/>
+                            <constraint firstItem="LEG-ex-xST" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="KY5-Vs-ZkN"/>
+                            <constraint firstItem="LEG-ex-xST" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NhU-Sk-3py"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

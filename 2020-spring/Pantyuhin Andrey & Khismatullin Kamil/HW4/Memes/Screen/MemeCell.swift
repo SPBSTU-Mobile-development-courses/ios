@@ -27,11 +27,12 @@ class MemeCell: UITableViewCell {
         picture.kf.setImage(with: url) { result in
             switch result {
             case .success(let value):
-                if value.cacheType == .disk {
+                if value.cacheType != .memory {
                     controller.updateCell(row: index.row, section: index.section)
                 }
             case .failure(let error):
                 print(error)
+                controller.updateCell(row: index.row, section: index.section)
             }
         }
     }
