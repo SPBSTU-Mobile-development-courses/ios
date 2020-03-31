@@ -8,6 +8,13 @@
 
 import Foundation
 import RealmSwift
+//swiftlint:disable:next file_types_order
+protocol CardFacade {
+    typealias OnUpdateCompletion = ([Card]?) -> Void
+
+    func getCards(completion: @escaping OnUpdateCompletion)
+    func loadMore(completion: @escaping OnUpdateCompletion)
+}
 
 final class CardFacadeImpl: CardFacade {
     private let cardRepository: CardRepository
@@ -41,11 +48,4 @@ final class CardFacadeImpl: CardFacade {
             completion(Array(cards))
         }
     }
-}
-
-protocol CardFacade {
-    typealias OnUpdateCompletion = ([Card]?) -> Void
-
-    func getCards(completion: @escaping OnUpdateCompletion)
-    func loadMore(completion: @escaping OnUpdateCompletion)
 }

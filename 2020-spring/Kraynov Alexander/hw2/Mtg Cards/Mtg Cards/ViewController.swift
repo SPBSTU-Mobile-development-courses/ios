@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshTableData(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
         cardFacade.getCards { cardArray in
             guard let cardArray = cardArray else {
                 return
@@ -35,13 +35,16 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = 350
     }
-    @objc private func refreshTableData(_ sender: Any) {
+
+    @objc private func refreshTableData(_: Any) {
         cardFacade.getCards { cardArray in
             guard let cardArray = cardArray else {
                 return
             }
             self.cards = cardArray
-            self.refreshControl.endRefreshing()
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
 }
@@ -50,6 +53,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cards.count
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as CardTableViewCell
         let card = cards[indexPath.row]
@@ -68,14 +72,14 @@ extension ViewController: UITableViewDelegate {
         spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
 
         self.tableView.tableFooterView = spinner
-        self.tableView.tableFooterView?.isHidden = false
+        spinner.hidesWhenStopped = true
         cardFacade.loadMore {_ in
             DispatchQueue.main.async {
                 spinner.stopAnimating()
-                self.tableView.tableFooterView?.isHidden = true
             }
         }
     }
+
     func tableView( _ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = CardDetailViewController.instantiate() as CardDetailViewController
         viewController.card = cards[indexPath.row]

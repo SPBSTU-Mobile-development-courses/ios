@@ -8,6 +8,13 @@
 
 import Foundation
 
+//swiftlint:disable:next file_types_order
+protocol CardService {
+    typealias CardCompletion = ([Card]?) -> Void
+    func getCards(completion: @escaping CardCompletion)
+    func getMoreCards(completion: @escaping CardCompletion)
+}
+
 final class CardServiceImpl: CardService {
     private let baseURL = "https://api.scryfall.com/cards"
     private var nextPage: URL?
@@ -44,10 +51,4 @@ final class CardServiceImpl: CardService {
         }
     .resume()
     }
-}
-
-protocol CardService {
-    typealias CardCompletion = ([Card]?) -> Void
-    func getCards(completion: @escaping CardCompletion)
-    func getMoreCards(completion: @escaping CardCompletion)
 }
