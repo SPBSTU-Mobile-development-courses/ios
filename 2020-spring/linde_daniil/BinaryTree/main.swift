@@ -6,13 +6,12 @@ class BinaryTree<T: Comparable> {
         var left: Node?
         var right: Node?
 
-    init(value: T, level: Int = 1, counter: Int = 1, left: Node? = nil, right:Node? = nil) {
-        self.value = value
-        self.level = level
-        self.counter = counter
-        self.left = left
-        self.right = right
-
+        init(value: T, level: Int = 1, counter: Int = 1, left: Node? = nil, right:Node? = nil) {
+            self.value = value
+            self.level = level
+            self.counter = counter
+            self.left = left
+            self.right = right
         }
     }
 
@@ -39,15 +38,15 @@ class BinaryTree<T: Comparable> {
              root.counter += 1
              return nil
          } else if root.value > node.value {
-         if let left = root.left {
-             self.insert(root: left, node: node)
+             if let left = root.left {
+                 self.insert(root: left, node: node)
+             } else {
+                 root.left = node
+             }
          } else {
-             root.left = node
-         }
-     } else {
-         if let right = root.right {
+             if let right = root.right {
                  self.insert(root: right, node: node)
-         } else {
+             } else {
                  root.right = node
              }
         }
