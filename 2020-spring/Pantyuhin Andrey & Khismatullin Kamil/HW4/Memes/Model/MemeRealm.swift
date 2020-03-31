@@ -20,6 +20,7 @@ class MemeRealm: Object {
     }
 }
 
+// MARK: - MemeRealm
 extension MemeRealm {
     var post: Post {
         Post(id: id, title: title, tags: [Post.Tag(name: tags)], images: [Post.Image(id: nil, title: nil, type: nil, link: image)])

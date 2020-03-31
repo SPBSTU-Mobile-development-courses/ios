@@ -8,6 +8,13 @@
 
 import RealmSwift
 
+protocol MemeRepository {
+    func save(_ posts: [Post])
+    func getMemes() -> Results<MemeRealm>
+    func clear()
+    func count() -> Int
+}
+
 final class MemeRepositoryImpl: MemeRepository {
     var realm: Realm {
         do {
@@ -37,11 +44,4 @@ final class MemeRepositoryImpl: MemeRepository {
     func count() -> Int {
         realm.objects(MemeRealm.self).count
     }
-}
-
-protocol MemeRepository {
-    func save(_ posts: [Post])
-    func getMemes() -> Results<MemeRealm>
-    func clear()
-    func count() -> Int
 }

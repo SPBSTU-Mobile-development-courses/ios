@@ -46,6 +46,7 @@ class ViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         posts.count
@@ -63,6 +64,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == posts.count - 1 else { return }
