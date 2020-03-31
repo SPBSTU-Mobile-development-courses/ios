@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  HW2
+//  Memes
 //
 //  Created by panandafog on 20.03.2020.
 //  Copyright © 2020 panandafog. All rights reserved.
@@ -9,14 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private let memeService = MemeService()
+    private let memeFacade: MemeFacade = MemeFacadeImpl(memeService: MemeService(), memeRepository: MemeRepositoryImpl())
+    private let activity = UIActivityIndicatorView()
+    private let service = MemeService()
     private var posts = [Post]()
 
     @IBOutlet private var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        memeService.getMemes(completion: { newMemes in
+        memeFacade.getMemes(completion: { newMemes in
             guard let newMemes = newMemes else { return }
             self.posts = newMemes
             DispatchQueue.main.async {
@@ -26,6 +28,21 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+        tableView.tableFooterView = activity
+    }
+
+    @objc func handleRefreshControl() {
+        memeFacade.getRepository().clear()
+        memeFacade.getMemes(completion: { newMemes in
+            guard let newMemes = newMemes else { return }
+            self.posts = newMemes
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
+        tableView.refreshControl?.endRefreshing()
     }
 }
 
@@ -41,6 +58,7 @@ extension ViewController: UITableViewDataSource {
         let post: Post = posts[indexPath.row]
 
         cell.setup(with: post)
+        if !activity.isAnimating { activity.startAnimating() }
         return cell
     }
 }
@@ -48,13 +66,8 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == posts.count - 1 else { return }
-        memeService.getMemes {
-            guard let posts = $0 else { return }
-            self.posts.append(contentsOf: posts)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        if activity.isAnimating { memeFacade.loadMore() }
+        activity.stopAnimating()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

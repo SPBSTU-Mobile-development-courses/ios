@@ -1,6 +1,6 @@
 //
 //  DetailViewController.swift
-//  HW2
+//  Memes
 //
 //  Created by panandafog on 23.03.2020.
 //  Copyright © 2020 panandafog. All rights reserved.

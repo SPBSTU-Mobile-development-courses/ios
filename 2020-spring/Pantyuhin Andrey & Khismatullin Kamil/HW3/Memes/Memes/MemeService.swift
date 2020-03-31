@@ -47,5 +47,6 @@ class MemeService {
         }
         .resume()
         self.currentPage += 1
+        print(currentPage)
     }
 }

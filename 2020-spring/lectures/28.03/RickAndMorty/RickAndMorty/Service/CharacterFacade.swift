@@ -12,7 +12,7 @@ protocol CharacterFacade {
     typealias OnUpdateCharacters = ([Character]?) -> Void
 
     func getCharacters(completion: @escaping OnUpdateCharacters)
-    func loadMore()
+    func loadMore() -> bool
 }
 
 final class CharacterFacadeImpl: CharacterFacade {
