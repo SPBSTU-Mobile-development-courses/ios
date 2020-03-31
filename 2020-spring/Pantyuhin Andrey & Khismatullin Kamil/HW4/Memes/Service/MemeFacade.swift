@@ -19,9 +19,11 @@ final class MemeFacadeImpl: MemeFacade {
     }
 
     func loadMore() {
+        let originalMemeCount = self.memeRepository.count()
         memeService.getMemes(newPage: true, completion: {
             guard let posts = $0 else { return }
             self.memeRepository.save(posts)
+            if self.memeRepository.count() <= originalMemeCount { self.loadMore() }
         })
     }
 

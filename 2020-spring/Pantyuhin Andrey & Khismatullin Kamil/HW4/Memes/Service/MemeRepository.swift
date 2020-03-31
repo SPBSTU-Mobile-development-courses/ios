@@ -33,10 +33,15 @@ final class MemeRepositoryImpl: MemeRepository {
           realm.deleteAll()
         }
     }
+
+    func count() -> Int {
+        realm.objects(MemeRealm.self).count
+    }
 }
 
 protocol MemeRepository {
     func save(_ posts: [Post])
     func getMemes() -> Results<MemeRealm>
     func clear()
+    func count() -> Int
 }
