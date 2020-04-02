@@ -10,13 +10,13 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     let characterService = CharacterService()
     var characters = [Character]()
     override func viewDidLoad() {
         super.viewDidLoad()
         characterService.getCharacters(completion: {(newCharacters) in
-            guard let newCharacters = newCharacters else {return}
+            guard let newCharacters = newCharacters else { return }
             self.characters = newCharacters
             DispatchQueue.main.async {
                  self.tableView.reloadData()

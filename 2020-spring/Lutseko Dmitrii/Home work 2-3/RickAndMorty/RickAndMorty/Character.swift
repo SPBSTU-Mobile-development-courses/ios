@@ -15,10 +15,10 @@ struct Page<T: Decodable> {
     let info: Info
 }
 
-extension Page: Decodable {
+struct Character: Decodable {
+    let image: String
+    let name: String
 }
 
-struct Character: Decodable {
-    let image:String
-    let name: String
+extension Page: Decodable {
 }

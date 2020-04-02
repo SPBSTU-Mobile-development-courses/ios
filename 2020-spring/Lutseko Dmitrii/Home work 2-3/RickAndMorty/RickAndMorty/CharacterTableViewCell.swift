@@ -1,11 +1,13 @@
 import UIKit
 class CharacterTableViewCell: UITableViewCell {
-    @IBOutlet var avatarImageView: UIImageView!
-    @IBOutlet var label:UILabel?
+    @IBOutlet private var avatarImageView: UIImageView!
+    @IBOutlet private var label: UILabel?
     private var avatarLoadTask: URLSessionTask?
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        avatarImageView.image = nil
+        avatarLoadTask?.cancel()
     }
     func setup(with character: Character) {
         label?.text = character.name

@@ -16,7 +16,8 @@
 		7B3F31782428D730002DE694 /* RickAndMortyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F31772428D730002DE694 /* RickAndMortyTests.swift */; };
 		7B3F31832428D8CF002DE694 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F31822428D8CF002DE694 /* Character.swift */; };
 		7B3F31852428D928002DE694 /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F31842428D928002DE694 /* CharacterService.swift */; };
-		7B3F31892428DE4B002DE694 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F31882428DE4B002DE694 /* CharacterTableViewCell.swift */; };
+		7B53CF5224360D1E000F934E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7B53CF5124360D1D000F934E /* .swiftlint.yml */; };
+		7B53CF5424360EFB000F934E /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B53CF5324360EFB000F934E /* CharacterTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,8 @@
 		7B3F31792428D730002DE694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B3F31822428D8CF002DE694 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		7B3F31842428D928002DE694 /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
-		7B3F31882428DE4B002DE694 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		7B53CF5124360D1D000F934E /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		7B53CF5324360EFB000F934E /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		D4B857B98B7130EC85BDD10E /* Pods-RickAndMortyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyTests.debug.xcconfig"; path = "Target Support Files/Pods-RickAndMortyTests/Pods-RickAndMortyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FA3990923E97E5154811493A /* Pods-RickAndMortyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyTests.release.xcconfig"; path = "Target Support Files/Pods-RickAndMortyTests/Pods-RickAndMortyTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +111,8 @@
 		7B3F315F2428D72F002DE694 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				7B53CF5324360EFB000F934E /* CharacterTableViewCell.swift */,
+				7B53CF5124360D1D000F934E /* .swiftlint.yml */,
 				7B3F31602428D72F002DE694 /* AppDelegate.swift */,
 				7B3F31622428D72F002DE694 /* SceneDelegate.swift */,
 				7B3F31642428D72F002DE694 /* ViewController.swift */,
@@ -118,7 +122,6 @@
 				7B3F316E2428D730002DE694 /* Info.plist */,
 				7B3F31822428D8CF002DE694 /* Character.swift */,
 				7B3F31842428D928002DE694 /* CharacterService.swift */,
-				7B3F31882428DE4B002DE694 /* CharacterTableViewCell.swift */,
 			);
 			path = RickAndMorty;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B53CF5224360D1E000F934E /* .swiftlint.yml in Resources */,
 				7B3F316D2428D730002DE694 /* LaunchScreen.storyboard in Resources */,
 				7B3F316A2428D730002DE694 /* Assets.xcassets in Resources */,
 				7B3F31682428D72F002DE694 /* Main.storyboard in Resources */,
@@ -306,7 +310,7 @@
 				7B3F31612428D72F002DE694 /* AppDelegate.swift in Sources */,
 				7B3F31632428D72F002DE694 /* SceneDelegate.swift in Sources */,
 				7B3F31832428D8CF002DE694 /* Character.swift in Sources */,
-				7B3F31892428DE4B002DE694 /* CharacterTableViewCell.swift in Sources */,
+				7B53CF5424360EFB000F934E /* CharacterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
