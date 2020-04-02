@@ -1,4 +1,9 @@
 PODS:
+  - Realm (4.4.0):
+    - Realm/Headers (= 4.4.0)
+  - Realm/Headers (4.4.0)
+  - RealmSwift (4.4.0):
+    - Realm (= 4.4.0)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
@@ -7,18 +12,23 @@ PODS:
   - SwiftLint (0.39.1)
 
 DEPENDENCIES:
+  - RealmSwift
   - Reusable
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - Realm
+    - RealmSwift
     - Reusable
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Realm: e125f464884cda953ebefe70c671b75b03b81b9b
+  RealmSwift: 33656a42bd300959a081fc13347376bc478071af
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: 6059150a644721af3f9114ed723e50e36c7cde09
+PODFILE CHECKSUM: 06bf45a38e87a0ad094a3fc41485841e3a7a67dc
 
 COCOAPODS: 1.9.1

@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'Mtg Cards' do
   use_frameworks!
@@ -6,4 +6,5 @@ target 'Mtg Cards' do
   # Pods for Mtg Cards
    pod 'SwiftLint'
    pod 'Reusable'
+   pod 'RealmSwift'
 end
