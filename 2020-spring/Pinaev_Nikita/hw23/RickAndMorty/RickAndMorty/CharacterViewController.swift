@@ -27,9 +27,11 @@ class CharacterViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.delegate = self
         tableView.rowHeight = 150
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characters.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterTableViewCell", for: indexPath)
         guard let characterCell = cell as? CharacterTableViewCell else {
@@ -39,6 +41,7 @@ class CharacterViewController: UIViewController, UITableViewDataSource, UITableV
         characterCell.setup(with: characer)
         return cell
     }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == characters.count - 1 else {
             return
@@ -51,6 +54,7 @@ class CharacterViewController: UIViewController, UITableViewDataSource, UITableV
             }
         }
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             guard let viewController = UIStoryboard(name: "Main", bundle: nil)
                 .instantiateViewController(withIdentifier:
