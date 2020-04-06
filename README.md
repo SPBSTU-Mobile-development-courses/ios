@@ -108,3 +108,23 @@
  [Про собесы от гуру](https://youtu.be/z1uTOrDqRfU)
  [Интересный видос про autolayout](https://developer.apple.com/videos/play/wwdc2018/220)
  
+ ## 4 апреля, ДЗ №5 (на две недели)
+ #### Запись лекции
+ 
+ #### Сделать
+ * Придумать и реализовать анимацию. Если идей нет, то сделай квадрат с тенью, бесконечно двигающийся по треугольной траектории
+ * Реализовать поиск по таблице сущностей (по имени/тэгам). Обновление таблицы должно быть анимировано. Нужно считать поисковый запрос, получить отфильтрованный массив сущностей и найти его diff с изначальным. Затем к diff применить анимацию insert/delete/reload. Для поиска diff лучше использовать фреймворк
+ 
+ #### Прочитать
+ * (неправильно в прошлый раз) Что такое method dispatch? Какие виды есть в Swift? Назвать отличия
+ * (неправильно в прошлый раз) Frame vs bounds? Когда bounds.origin не (0,0)?
+ * Что такое CALayer? Зачем нужен? Отличие от UIView?
+ * Что такое Explicit/implicit анимация?
+ * Что такое layer model/presentation? В каких ситуациях у layer model/presentation разные значения?
+ * Кто получает событие первым UIView или GestureRecognizer на нем?
+ * Как рисовать на CPU, а как на GPU?
+ 
+ #### Материалы
+ [Diffable datasource, поможет в поиске](https://wwdcbysundell.com/2019/diffable-data-sources-first-look/)
+ [Легко найти diff двух массивов](https://github.com/onmyway133/DeepDiff)
+ [Про анимации от Apple](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/CreatingBasicAnimations/CreatingBasicAnimations.html)
