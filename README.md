@@ -104,9 +104,9 @@
  * Что такое view.frame и view.bounds? Чем отличаются?
  
  #### Материалы
- [Map, filter, reduce](https://www.appcoda.com/higher-order-functions-swift/)
- [Про собесы от гуру](https://youtu.be/z1uTOrDqRfU)
- [Интересный видос про autolayout](https://developer.apple.com/videos/play/wwdc2018/220)
+ * [Map, filter, reduce](https://www.appcoda.com/higher-order-functions-swift/)
+ * [Про собесы от гуру](https://youtu.be/z1uTOrDqRfU)
+ * [Интересный видос про autolayout](https://developer.apple.com/videos/play/wwdc2018/220)
  
  ## 4 апреля, ДЗ №5 (на две недели)
  #### Запись лекции
@@ -125,6 +125,6 @@
  * Как рисовать на CPU, а как на GPU?
  
  #### Материалы
- [Diffable datasource, поможет в поиске](https://wwdcbysundell.com/2019/diffable-data-sources-first-look/)
- [Легко найти diff двух массивов](https://github.com/onmyway133/DeepDiff)
- [Про анимации от Apple](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/CreatingBasicAnimations/CreatingBasicAnimations.html)
+ * [Diffable datasource, поможет в поиске](https://wwdcbysundell.com/2019/diffable-data-sources-first-look/)
+ * [Легко найти diff двух массивов](https://github.com/onmyway133/DeepDiff)
+ * [Про анимации от Apple](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/CreatingBasicAnimations/CreatingBasicAnimations.html)
