@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         })
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 85
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,4 +45,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CharacterDetailViewController") as? CharacterDetailViewController else {return}
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterTableViewCell", for: indexPath)
+        guard let characterCell = cell as? CharacterTableViewCell
+            else {
+            fatalError("Table view is not configured")
+        }
+        viewController.setup(with: characterCell)
+        navigationController?.present(viewController, animated: true)
+        self.tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
 }

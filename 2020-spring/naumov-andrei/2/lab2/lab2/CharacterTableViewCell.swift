@@ -11,7 +11,7 @@ class CharacterTableViewCell: UITableViewCell {
     }
     
     func setup(with character: Character) {
-        label.text = character.name
+        label.text = Array(repeating: character.name, count: 10).joined()
         avatarView.image = nil
         guard let imageURL = URL(string: character.image) else { return }
         avatarLoadTask = URLSession.shared.dataTask(with: imageURL) { data, _, _ in

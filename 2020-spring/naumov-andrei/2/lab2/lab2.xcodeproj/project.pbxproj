@@ -17,6 +17,8 @@
 		8446B19D24389D8000B8C461 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B19C24389D8000B8C461 /* Character.swift */; };
 		8446B19F24389DBA00B8C461 /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B19E24389DBA00B8C461 /* CharacterService.swift */; };
 		8446B1A12438A5BE00B8C461 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B1A02438A5BE00B8C461 /* CharacterTableViewCell.swift */; };
+		8446B1A3243BB16900B8C461 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446B1A2243BB16900B8C461 /* CharacterDetailViewController.swift */; };
+		84B2BC95243E54F900A71FF1 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2BC94243E54F900A71FF1 /* CharacterDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		8446B19C24389D8000B8C461 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		8446B19E24389DBA00B8C461 /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
 		8446B1A02438A5BE00B8C461 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		8446B1A2243BB16900B8C461 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		84B2BC94243E54F900A71FF1 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,12 @@
 		84083434241E846F009A41EE /* lab2 */ = {
 			isa = PBXGroup;
 			children = (
+				8446B19E24389DBA00B8C461 /* CharacterService.swift */,
+				8446B19C24389D8000B8C461 /* Character.swift */,
+				8446B1A02438A5BE00B8C461 /* CharacterTableViewCell.swift */,
+				84B2BC94243E54F900A71FF1 /* CharacterDetailView.swift */,
+				8446B1A2243BB16900B8C461 /* CharacterDetailViewController.swift */,
+				84B2BC97243E6FFB00A71FF1 /* character */,
 				84083435241E8470009A41EE /* AppDelegate.swift */,
 				84083437241E8470009A41EE /* SceneDelegate.swift */,
 				84083439241E8470009A41EE /* ViewController.swift */,
@@ -108,9 +118,6 @@
 				8408343E241E847B009A41EE /* Assets.xcassets */,
 				84083440241E847B009A41EE /* LaunchScreen.storyboard */,
 				84083443241E847B009A41EE /* Info.plist */,
-				8446B19C24389D8000B8C461 /* Character.swift */,
-				8446B19E24389DBA00B8C461 /* CharacterService.swift */,
-				8446B1A02438A5BE00B8C461 /* CharacterTableViewCell.swift */,
 			);
 			path = lab2;
 			sourceTree = "<group>";
@@ -122,6 +129,29 @@
 				8408344E241E847B009A41EE /* Info.plist */,
 			);
 			path = lab2Tests;
+			sourceTree = "<group>";
+		};
+		84B2BC96243E6FC200A71FF1 /* details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = details;
+			sourceTree = "<group>";
+		};
+		84B2BC97243E6FFB00A71FF1 /* character */ = {
+			isa = PBXGroup;
+			children = (
+				84B2BC98243E71F300A71FF1 /* cell */,
+				84B2BC96243E6FC200A71FF1 /* details */,
+			);
+			path = character;
+			sourceTree = "<group>";
+		};
+		84B2BC98243E71F300A71FF1 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +289,10 @@
 				8408343A241E8470009A41EE /* ViewController.swift in Sources */,
 				84083436241E8470009A41EE /* AppDelegate.swift in Sources */,
 				84083438241E8470009A41EE /* SceneDelegate.swift in Sources */,
+				8446B1A3243BB16900B8C461 /* CharacterDetailViewController.swift in Sources */,
 				8446B19D24389D8000B8C461 /* Character.swift in Sources */,
 				8446B1A12438A5BE00B8C461 /* CharacterTableViewCell.swift in Sources */,
+				84B2BC95243E54F900A71FF1 /* CharacterDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
