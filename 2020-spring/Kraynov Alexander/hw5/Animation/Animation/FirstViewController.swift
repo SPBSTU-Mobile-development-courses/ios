@@ -19,6 +19,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBackground()
+        self.powerLabel.alpha = 0
     }
 
     @IBAction private func powerButtonPressed(_ sender: UIButton) {
@@ -30,7 +31,9 @@ class FirstViewController: UIViewController {
             }
         )
         powerMeterView.setupPower(Double(Int.random(in: 1...100))) {
-            self.powerLabel.isHidden = false
+            UIView.animate(withDuration: 1) {
+                self.powerLabel.alpha = 1
+            }
         }
     }
 
