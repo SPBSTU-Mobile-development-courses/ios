@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="lab2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="RMProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharacterTableViewCell" rowHeight="85" id="e53-VW-HPo" customClass="CharacterTableViewCell" customModule="lab2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharacterTableViewCell" rowHeight="85" id="e53-VW-HPo" customClass="CharacterTableViewCell" customModule="RMProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e53-VW-HPo" id="5yC-vt-0TL">
@@ -51,8 +51,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="avatarView" destination="mVE-NK-rkx" id="wkS-kI-cOv"/>
-                                            <outlet property="label" destination="Z4Y-sq-jD7" id="GdO-OJ-k4U"/>
+                                            <outlet property="avatarView" destination="mVE-NK-rkx" id="MgY-N0-Aqm"/>
+                                            <outlet property="name" destination="Z4Y-sq-jD7" id="c5e-qJ-Brl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -69,7 +69,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="mbf-Lh-pHG"/>
                     <connections>
-                        <outlet property="tableView" destination="BDZ-bn-gK2" id="gvc-8f-aap"/>
+                        <outlet property="tableView" destination="BDZ-bn-gK2" id="B1G-wH-7qa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -79,13 +79,13 @@
         <!--Character Detail View Controller-->
         <scene sceneID="nuh-pz-WU0">
             <objects>
-                <viewController storyboardIdentifier="CharacterDetailViewController" title="Character Detail View Controller" id="loS-dD-91I" customClass="CharacterDetailViewController" customModule="lab2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CharacterDetailViewController" title="Character Detail View Controller" id="loS-dD-91I" customClass="CharacterDetailViewController" customModule="RMProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sYl-il-5mw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9j-j7-Bxj">
-                                <rect key="frame" x="57" y="397" width="262" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9j-j7-Bxj">
+                                <rect key="frame" x="94" y="490" width="188.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -96,20 +96,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="X9j-j7-Bxj" firstAttribute="leading" secondItem="e9C-sH-R7k" secondAttribute="leading" constant="57" id="DfC-cq-XcR"/>
+                            <constraint firstItem="X9j-j7-Bxj" firstAttribute="width" secondItem="sYl-il-5mw" secondAttribute="width" multiplier="0.5" constant="1" id="CAL-Zx-28c"/>
+                            <constraint firstItem="X9j-j7-Bxj" firstAttribute="centerY" secondItem="sYl-il-5mw" secondAttribute="centerY" multiplier="1.5" id="Ep5-vK-tNO"/>
                             <constraint firstItem="YPX-io-iAZ" firstAttribute="height" secondItem="sYl-il-5mw" secondAttribute="height" multiplier="0.5" id="gq5-HA-HCA"/>
                             <constraint firstItem="YPX-io-iAZ" firstAttribute="centerY" secondItem="sYl-il-5mw" secondAttribute="centerY" multiplier="0.5" id="hve-3Q-ltt"/>
                             <constraint firstItem="YPX-io-iAZ" firstAttribute="centerX" secondItem="sYl-il-5mw" secondAttribute="centerX" id="lHf-9r-ofI"/>
-                            <constraint firstItem="X9j-j7-Bxj" firstAttribute="top" secondItem="e9C-sH-R7k" secondAttribute="top" constant="397" id="oNk-ca-qw3"/>
+                            <constraint firstItem="X9j-j7-Bxj" firstAttribute="centerX" secondItem="sYl-il-5mw" secondAttribute="centerX" constant="0.5" id="piw-ui-ncq"/>
                             <constraint firstItem="YPX-io-iAZ" firstAttribute="width" secondItem="sYl-il-5mw" secondAttribute="width" multiplier="0.5" id="xYK-ie-T2R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e9C-sH-R7k"/>
                     </view>
                     <navigationItem key="navigationItem" id="UoW-cQ-ss5"/>
                     <connections>
-                        <outlet property="avatarView" destination="YPX-io-iAZ" id="HcB-VV-Otn"/>
-                        <outlet property="characterDetailView" destination="sYl-il-5mw" id="cJx-2k-pzo"/>
-                        <outlet property="name" destination="X9j-j7-Bxj" id="Ocl-W0-IHF"/>
+                        <outlet property="avatarView" destination="YPX-io-iAZ" id="jCV-4D-20d"/>
+                        <outlet property="name" destination="X9j-j7-Bxj" id="yqL-w7-3lg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Hu-ww-lx7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -125,7 +125,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ILv-cV-pKh"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6IU-dB-ogy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="46c-uw-vef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

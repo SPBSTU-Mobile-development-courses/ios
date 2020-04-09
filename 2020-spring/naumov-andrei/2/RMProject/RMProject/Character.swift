@@ -1,3 +1,5 @@
+import Foundation
+
 struct Info: Decodable {
     let count: Int
     let pages: Int
@@ -12,4 +14,10 @@ struct Page<T: Decodable>: Decodable {
 struct Character: Decodable {
     let name: String
     let image: String
+}
+
+extension Character {
+    var imageURL: URL? {
+        URL(string: image)
+    }
 }
