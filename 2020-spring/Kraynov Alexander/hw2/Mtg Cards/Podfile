@@ -7,4 +7,5 @@ target 'Mtg Cards' do
    pod 'SwiftLint'
    pod 'Reusable'
    pod 'RealmSwift'
+   pod 'DeepDiff'
 end
