@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		652E8B70242F6C86004EB112 /* minion-loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 652E8B6F242F6C86004EB112 /* minion-loading.png */; };
+		652E8B72242FA3B9004EB112 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652E8B71242FA3B9004EB112 /* CardDetailViewController.swift */; };
+		65489C07242E5541007B3E9C /* Belwe-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65489C05242E5541007B3E9C /* Belwe-Bold.ttf */; };
+		65489C0E242E9F7D007B3E9C /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65489C0D242E9F7D007B3E9C /* bg.jpg */; };
+		65489C12242EA2F5007B3E9C /* bg-dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 65489C11242EA2F5007B3E9C /* bg-dark.jpg */; };
+		65489C14242EAA77007B3E9C /* hsLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65489C13242EAA76007B3E9C /* hsLogo.png */; };
+		657768BF2421291100150610 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657768BE2421291100150610 /* CardTableViewCell.swift */; };
+		657768C224212C5A00150610 /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657768C124212C5A00150610 /* CardService.swift */; };
+		657768C524212CC700150610 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657768C424212CC700150610 /* Card.swift */; };
+		657768C72423AE4D00150610 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657768C62423AE4D00150610 /* Page.swift */; };
+		65CCE8B6241E42D400685453 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCE8B5241E42D400685453 /* AppDelegate.swift */; };
+		65CCE8B8241E42D400685453 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCE8B7241E42D400685453 /* SceneDelegate.swift */; };
+		65CCE8BA241E42D400685453 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCE8B9241E42D400685453 /* CardViewController.swift */; };
+		65CCE8BD241E42D400685453 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65CCE8BB241E42D400685453 /* Main.storyboard */; };
+		65CCE8BF241E42D600685453 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65CCE8BE241E42D600685453 /* Assets.xcassets */; };
+		65CCE8C2241E42D600685453 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65CCE8C0241E42D600685453 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		657768DF2423D9AE00150610 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		652E8B6F242F6C86004EB112 /* minion-loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minion-loading.png"; sourceTree = "<group>"; };
+		652E8B71242FA3B9004EB112 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		65489C01242E54C7007B3E9C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65489C04242E5541007B3E9C /* Belwe-Bold.woff */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Belwe-Bold.woff"; sourceTree = "<group>"; };
+		65489C05242E5541007B3E9C /* Belwe-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Belwe-Bold.ttf"; sourceTree = "<group>"; };
+		65489C0D242E9F7D007B3E9C /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		65489C11242EA2F5007B3E9C /* bg-dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-dark.jpg"; sourceTree = "<group>"; };
+		65489C13242EAA76007B3E9C /* hsLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hsLogo.png; sourceTree = "<group>"; };
+		657768BE2421291100150610 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		657768C124212C5A00150610 /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
+		657768C424212CC700150610 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		657768C62423AE4D00150610 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		65CCE8B2241E42D400685453 /* hsCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hsCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65CCE8B5241E42D400685453 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		65CCE8B7241E42D400685453 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		65CCE8B9241E42D400685453 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		65CCE8BC241E42D400685453 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65CCE8BE241E42D600685453 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65CCE8C1241E42D600685453 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65CCE8AF241E42D400685453 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65489C03242E5541007B3E9C /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				65489C04242E5541007B3E9C /* Belwe-Bold.woff */,
+				65489C05242E5541007B3E9C /* Belwe-Bold.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		65489C0A242E5CF9007B3E9C /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				65489C13242EAA76007B3E9C /* hsLogo.png */,
+				652E8B6F242F6C86004EB112 /* minion-loading.png */,
+				65489C11242EA2F5007B3E9C /* bg-dark.jpg */,
+				65489C0D242E9F7D007B3E9C /* bg.jpg */,
+				65489C03242E5541007B3E9C /* fonts */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		657768C024212C3000150610 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				657768C124212C5A00150610 /* CardService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		657768C324212CBB00150610 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				657768C424212CC700150610 /* Card.swift */,
+				657768C62423AE4D00150610 /* Page.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		65CCE8A9241E42D400685453 = {
+			isa = PBXGroup;
+			children = (
+				65CCE8B4241E42D400685453 /* hsCards */,
+				65CCE8B3241E42D400685453 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65CCE8B3241E42D400685453 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65CCE8B2241E42D400685453 /* hsCards.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65CCE8B4241E42D400685453 /* hsCards */ = {
+			isa = PBXGroup;
+			children = (
+				65489C0A242E5CF9007B3E9C /* assets */,
+				657768C324212CBB00150610 /* Model */,
+				657768C024212C3000150610 /* Service */,
+				65CCE8B5241E42D400685453 /* AppDelegate.swift */,
+				65CCE8B7241E42D400685453 /* SceneDelegate.swift */,
+				65CCE8B9241E42D400685453 /* CardViewController.swift */,
+				652E8B71242FA3B9004EB112 /* CardDetailViewController.swift */,
+				65CCE8BB241E42D400685453 /* Main.storyboard */,
+				65CCE8BE241E42D600685453 /* Assets.xcassets */,
+				65489C01242E54C7007B3E9C /* Info.plist */,
+				65CCE8C0241E42D600685453 /* LaunchScreen.storyboard */,
+				657768BE2421291100150610 /* CardTableViewCell.swift */,
+			);
+			path = hsCards;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65CCE8B1241E42D400685453 /* hsCards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65CCE8C6241E42D600685453 /* Build configuration list for PBXNativeTarget "hsCards" */;
+			buildPhases = (
+				65CCE8AE241E42D400685453 /* Sources */,
+				65CCE8AF241E42D400685453 /* Frameworks */,
+				65CCE8B0241E42D400685453 /* Resources */,
+				65CCE8C9241E436200685453 /* ShellScript */,
+				657768DF2423D9AE00150610 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = hsCards;
+			productName = hsCards;
+			productReference = 65CCE8B2241E42D400685453 /* hsCards.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65CCE8AA241E42D400685453 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Kirill Chistyakov";
+				TargetAttributes = {
+					65CCE8B1241E42D400685453 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 65CCE8AD241E42D400685453 /* Build configuration list for PBXProject "hsCards" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65CCE8A9241E42D400685453;
+			productRefGroup = 65CCE8B3241E42D400685453 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65CCE8B1241E42D400685453 /* hsCards */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65CCE8B0241E42D400685453 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65489C07242E5541007B3E9C /* Belwe-Bold.ttf in Resources */,
+				65489C0E242E9F7D007B3E9C /* bg.jpg in Resources */,
+				652E8B70242F6C86004EB112 /* minion-loading.png in Resources */,
+				65CCE8C2241E42D600685453 /* LaunchScreen.storyboard in Resources */,
+				65CCE8BF241E42D600685453 /* Assets.xcassets in Resources */,
+				65CCE8BD241E42D400685453 /* Main.storyboard in Resources */,
+				65489C14242EAA77007B3E9C /* hsLogo.png in Resources */,
+				65489C12242EA2F5007B3E9C /* bg-dark.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		65CCE8C9241E436200685453 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65CCE8AE241E42D400685453 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65CCE8BA241E42D400685453 /* CardViewController.swift in Sources */,
+				657768C524212CC700150610 /* Card.swift in Sources */,
+				657768C224212C5A00150610 /* CardService.swift in Sources */,
+				657768C72423AE4D00150610 /* Page.swift in Sources */,
+				65CCE8B6241E42D400685453 /* AppDelegate.swift in Sources */,
+				652E8B72242FA3B9004EB112 /* CardDetailViewController.swift in Sources */,
+				65CCE8B8241E42D400685453 /* SceneDelegate.swift in Sources */,
+				657768BF2421291100150610 /* CardTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		65CCE8BB241E42D400685453 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65CCE8BC241E42D400685453 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		65CCE8C0241E42D600685453 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65CCE8C1241E42D600685453 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		65CCE8C4241E42D600685453 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		65CCE8C5241E42D600685453 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65CCE8C7241E42D600685453 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = hsCards/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.hsCards;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65CCE8C8241E42D600685453 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = hsCards/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.hsCards;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65CCE8AD241E42D400685453 /* Build configuration list for PBXProject "hsCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65CCE8C4241E42D600685453 /* Debug */,
+				65CCE8C5241E42D600685453 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65CCE8C6241E42D600685453 /* Build configuration list for PBXNativeTarget "hsCards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65CCE8C7241E42D600685453 /* Debug */,
+				65CCE8C8241E42D600685453 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 65CCE8AA241E42D400685453 /* Project object */;
+}
