@@ -13,7 +13,7 @@ class PowerMeterView: UIView {
     private var power = 0.0
     private var showPulse = 0
     private var completion: () -> Void = {}
-    private lazy var powerLabel = {
+    private lazy var powerLabel =
         UILabel(
             frame: CGRect(
                 origin: .zero,
@@ -24,37 +24,31 @@ class PowerMeterView: UIView {
             $0.textAlignment = .center
             $0.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }
-    }()
-    private lazy var foregroundLayer = {
-        CAShapeLayer().then {
-            $0.lineWidth = 10
-            $0.strokeColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
-            $0.lineCap = .round
-            $0.fillColor = UIColor.clear.cgColor
-            $0.strokeEnd = 0
-            $0.frame = bounds
-        }
-    }()
-    private lazy var backgroundLayer = {
-        CAShapeLayer().then {
-           $0.lineWidth = 10
-           $0.strokeColor = UIColor.lightGray.cgColor
-           $0.lineCap = .round
-           $0.fillColor = UIColor.clear.cgColor
-           $0.frame = bounds
-        }
-    }()
-    private lazy var foregroundGradientLayer: CAGradientLayer = {
-        let foregroundGradientLayer = CAGradientLayer().then {
-            $0.frame = bounds
-            let startColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1).cgColor
-            let secondColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1).cgColor
-            $0.colors = [startColor, secondColor]
-            $0.startPoint = .zero
-            $0.endPoint = CGPoint(x: 1, y: 1)
-        }
-        return foregroundGradientLayer
-    }()
+
+    private lazy var foregroundLayer = CAShapeLayer().then {
+        $0.lineWidth = 10
+        $0.strokeColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+        $0.lineCap = .round
+        $0.fillColor = UIColor.clear.cgColor
+        $0.strokeEnd = 0
+        $0.frame = bounds
+    }
+
+    private lazy var backgroundLayer = CAShapeLayer().then {
+        $0.lineWidth = 10
+        $0.strokeColor = UIColor.lightGray.cgColor
+        $0.lineCap = .round
+        $0.fillColor = UIColor.clear.cgColor
+        $0.frame = bounds
+    }
+    private lazy var foregroundGradientLayer = CAGradientLayer().then {
+        $0.frame = bounds
+        let startColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1).cgColor
+        let secondColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1).cgColor
+        $0.colors = [startColor, secondColor]
+        $0.startPoint = .zero
+        $0.endPoint = CGPoint(x: 1, y: 1)
+    }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
