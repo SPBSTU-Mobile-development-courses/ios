@@ -9,7 +9,6 @@ target 'Memes' do
   pod 'SwiftLint'
   pod 'RealmSwift'
   pod 'DeepDiff'
-  pod 'SwiftTryCatch'
   
   target 'MemesTests' do
     inherit! :search_paths

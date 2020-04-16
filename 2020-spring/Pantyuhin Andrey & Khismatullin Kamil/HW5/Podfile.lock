@@ -9,14 +9,12 @@ PODS:
   - RealmSwift (4.4.0):
     - Realm (= 4.4.0)
   - SwiftLint (0.39.1)
-  - SwiftTryCatch (0.0.1)
 
 DEPENDENCIES:
   - DeepDiff
   - Kingfisher
   - RealmSwift
   - SwiftLint
-  - SwiftTryCatch
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -25,7 +23,6 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SwiftLint
-    - SwiftTryCatch
 
 SPEC CHECKSUMS:
   DeepDiff: e5ae6c50d0321568e4508cec5930b9f10bb293fc
@@ -33,8 +30,7 @@ SPEC CHECKSUMS:
   Realm: e125f464884cda953ebefe70c671b75b03b81b9b
   RealmSwift: 33656a42bd300959a081fc13347376bc478071af
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
-  SwiftTryCatch: fb6d2b34abe48efd69578dac919293a44f95b481
 
-PODFILE CHECKSUM: 0058b8318766b84b29a802f3a0a984d0ad97c2fb
+PODFILE CHECKSUM: 483d4b21b1cebe6f51621925c3c7ae944fa58f73
 
 COCOAPODS: 1.5.2
