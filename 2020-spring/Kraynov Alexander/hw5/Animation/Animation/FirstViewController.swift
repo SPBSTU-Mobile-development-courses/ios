@@ -6,6 +6,7 @@
 //  Copyright © 2020 alexander. All rights reserved.
 //
 
+import Then
 import UIKit
 
 class FirstViewController: UIViewController {
@@ -16,12 +17,11 @@ class FirstViewController: UIViewController {
     @IBOutlet private var powerLabel: UILabel!
     @IBOutlet private var powerMeterView: PowerMeterView!
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         setUpBackground()
         self.powerLabel.alpha = 0
     }
-
     @IBAction private func powerButtonPressed(_ sender: UIButton) {
         UIView.animate(
             withDuration: 1.0,
@@ -54,12 +54,13 @@ class FirstViewController: UIViewController {
     func animateGradient() {
         currentColor += 1
         currentColor = currentColor % (gradientColors.count - 1)
-        let gradientAnimation = CABasicAnimation(keyPath: "colors")
-        gradientAnimation.duration = 5.0
-        gradientAnimation.toValue = gradientColors[currentColor]
-        gradientAnimation.fillMode = CAMediaTimingFillMode.forwards
-        gradientAnimation.delegate = self
-        gradientAnimation.isRemovedOnCompletion = false
+        let gradientAnimation = CABasicAnimation(keyPath: "colors").then {
+            $0.duration = 5.0
+            $0.toValue = gradientColors[currentColor]
+            $0.fillMode = CAMediaTimingFillMode.forwards
+            $0.delegate = self
+            $0.isRemovedOnCompletion = false
+        }
         gradient.add(gradientAnimation, forKey: "gradientChangeAnimation")
     }
 }

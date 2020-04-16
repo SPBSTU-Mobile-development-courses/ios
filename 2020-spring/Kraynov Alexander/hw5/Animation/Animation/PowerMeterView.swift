@@ -13,7 +13,7 @@ class PowerMeterView: UIView {
     private var power = 0.0
     private var showPulse = 0
     private var completion: () -> Void = {}
-    private lazy var powerLabel: UILabel = {
+    private lazy var powerLabel = {
         UILabel(
             frame: CGRect(
                 origin: .zero,
@@ -25,7 +25,7 @@ class PowerMeterView: UIView {
             $0.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         }
     }()
-    private lazy var foregroundLayer: CAShapeLayer = {
+    private lazy var foregroundLayer = {
         CAShapeLayer().then {
             $0.lineWidth = 10
             $0.strokeColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
@@ -35,7 +35,7 @@ class PowerMeterView: UIView {
             $0.frame = bounds
         }
     }()
-    private lazy var backgroundLayer: CAShapeLayer = {
+    private lazy var backgroundLayer = {
         CAShapeLayer().then {
            $0.lineWidth = 10
            $0.strokeColor = UIColor.lightGray.cgColor
