@@ -20,7 +20,6 @@ opt_in_rules:
 - conditional_returns_on_newline
 - contains_over_first_not_nil
 - convenience_type
-- discouraged_object_literal
 - discouraged_optional_boolean
 - discouraged_optional_collection
 - dynamic_inline
@@ -131,6 +130,4 @@ identifier_name:
     - id
     - x
     - y
-    - n
-    - i
   allowed_symbols: [_]
