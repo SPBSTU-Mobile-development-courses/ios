@@ -16,8 +16,8 @@ class FirstViewController: UIViewController {
     @IBOutlet private var powerLabel: UILabel!
     @IBOutlet private var powerMeterView: PowerMeterView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setUpBackground()
         self.powerLabel.alpha = 0
     }
@@ -41,9 +41,7 @@ class FirstViewController: UIViewController {
         let colorOne = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1).cgColor
         let colorTwo = #colorLiteral(red: 0.5382522345, green: 0.369204402, blue: 0.9478774667, alpha: 1).cgColor
         let colorThree = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1).cgColor
-        gradientColors.append([colorOne, colorTwo])
-        gradientColors.append([colorTwo, colorThree])
-        gradientColors.append([colorThree, colorOne])
+        gradientColors.append(contentsOf: [[colorOne, colorTwo], [colorTwo, colorThree], [colorThree, colorOne]])
         gradient.frame = self.view.bounds
         gradient.colors = gradientColors[currentColor]
         gradient.startPoint = CGPoint(x: 0, y: 0)
