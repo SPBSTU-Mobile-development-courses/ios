@@ -16,8 +16,6 @@ class ViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private let service = MemeService()
     private var posts = [Post]()
-    //    private var lastPosts = [Post]()
-    //    private var lastlastPosts = [Post]()
     private var filteredPosts = [Post]()
     private var isSearching = false
 
@@ -135,57 +133,48 @@ extension ViewController: UISearchResultsUpdating {
     }
 
     private var isFiltering: Bool {
-        searchController.isActive && !searchBarIsEmpty
+        searchController.isActive
     }
 
     private func filterContentForSearchText(_ searchText: String, scope: String = "Title") {
-        print("filter content")
         let newFilteredPosts = posts.filter({ (post: Post) -> Bool in
             if scope == "Title" {
                 return post.title.lowercased().contains(searchText.lowercased())
             }
             return post.tagsNames.lowercased().contains(searchText.lowercased())
         })
-        let changes = diff(old: posts, new: newFilteredPosts)
+        let changes = diff(old: filteredPosts, new: newFilteredPosts)
 
-//        SwiftTryCatch.try({
         self.tableView.reload(changes: changes, section: 0, replacementAnimation: UITableView.RowAnimation.none, updateData: {
                         self.filteredPosts = newFilteredPosts
         })
-//        }, catch: { NSInternalInconsistencyException in
-//            print("error occured while searching")
-//        }, finally: {})
     }
 
     func updateSearchResults(for searchController: UISearchController) {
         if !isSearching {
-            //lastPosts = posts
+            filteredPosts = posts
             isSearching = true
         }
-        print("update search")
         if !searchController.isActive {
             if searchController.isBeingDismissed {
-                //diff posts and filtered
-                print("dismissed")
+                isSearching = false
+                let changes = diff(old: filteredPosts, new: posts)
+                self.tableView.reload(changes: changes, section: 0, replacementAnimation: UITableView.RowAnimation.none, updateData: {
+                    self.filteredPosts = []
+                })
             }
-            isSearching = false
             return
         }
         guard let bar = searchController.searchBar.text else { return }
         let searchBar = searchController.searchBar
         guard let scope = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex] else { return }
         filterContentForSearchText(bar, scope: scope)
-        if !filteredPosts.isEmpty {
-            //          lastlastPosts = lastPosts
-            //          lastPosts = filteredPosts
-        }
     }
 }
 
 // MARK: - UISearchBar Delegate
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        print("search bar")
         guard let bar = searchController.searchBar.text else { return }
         guard let scope = searchBar.scopeButtonTitles?[selectedScope] else { return }
         filterContentForSearchText(bar, scope: scope)
