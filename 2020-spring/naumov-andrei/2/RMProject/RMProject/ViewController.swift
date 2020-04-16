@@ -1,9 +1,9 @@
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
-    let characterService = CharacterService()
-    var characters = [Character]()
+    private let characterService = CharacterService()
+    private var characters = [Character]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
     }
+}
 
+extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         characters.count
     }
@@ -31,9 +33,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         let character = characters[indexPath.row]
         characterCell.setup(with: character)
-        return cell
+        return characterCell
     }
+}
 
+extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == characters.count - 1 else { return }
         characterService.getMoreCharacters { newCharacters in
@@ -50,6 +54,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             as? CharacterDetailViewController else { return }
         navigationController?.present(viewController, animated: true)
         viewController.setup(with: characters[indexPath.row])
-        self.tableView.deselectRow(at: indexPath, animated: false)
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
