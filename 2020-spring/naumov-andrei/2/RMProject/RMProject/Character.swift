@@ -12,6 +12,7 @@ struct Page<T: Decodable>: Decodable {
 }
 
 struct Character: Decodable {
+    let id: Int
     let name: String
     let image: String
 }
