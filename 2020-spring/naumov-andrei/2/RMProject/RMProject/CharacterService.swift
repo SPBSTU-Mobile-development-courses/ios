@@ -1,10 +1,15 @@
 import Foundation
 
-class CharacterService {
+protocol CharacterService {
+    typealias CharactersCompletion = ([Character]?) -> Void
+
+    func getCharacters(completion: @escaping CharactersCompletion)
+    func getMoreCharacters(completion: @escaping CharactersCompletion)
+}
+
+class CharacterServiceImpl: CharacterService {
     private let baseURL = "https://rickandmortyapi.com/api/character/"
     private var nextURL: URL?
-
-    typealias CharactersCompletion = ([Character]?) -> Void
 
     func getCharacters(url: URL, completion: @escaping CharactersCompletion) {
         URLSession.shared.dataTask(with: url) { data, _, _ in

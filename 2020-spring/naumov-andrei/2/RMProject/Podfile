@@ -6,6 +6,7 @@ target 'RMProject' do
 
   pod 'Kingfisher'
   pod 'SwiftLint'
+  pod 'RealmSwift'
 
   target 'RMProjectTests' do
     inherit! :search_paths

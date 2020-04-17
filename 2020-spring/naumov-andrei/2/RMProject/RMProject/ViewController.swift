@@ -2,21 +2,38 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
-    private let characterService = CharacterService()
-    private var characters = [Character]()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        characterService.getCharacters { newCharacters in
-            guard let newCharacters = newCharacters else { return }
-            self.characters = newCharacters
+    private let characterFacade: CharacterFacade = CharacterFacadeImpl(characterService: CharacterServiceImpl(), characterRepository: CharacterRepositoryImpl())
+    private let activity = UIActivityIndicatorView()
+    private var characters = [Character]() {
+        didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        characterFacade.getCharacters {
+            guard let characters = $0 else { return }
+            self.characters = characters
+        }
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
+        activity.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+        tableView.tableFooterView = activity
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+
+    @objc func handleRefreshControl() {
+        characterFacade.clear()
+        characterFacade.getCharacters {
+            self.tableView.refreshControl?.endRefreshing()
+            guard let characters = $0 else { return }
+            self.characters = characters
+        }
     }
 }
 
@@ -40,13 +57,8 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == characters.count - 1 else { return }
-        characterService.getMoreCharacters { newCharacters in
-            guard let newCharacters = newCharacters else { return }
-            self.characters.append(contentsOf: newCharacters)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        activity.startAnimating()
+        characterFacade.loadMore()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
