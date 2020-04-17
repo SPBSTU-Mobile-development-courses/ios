@@ -3,6 +3,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     private let characterFacade: CharacterFacade = CharacterFacadeImpl(characterService: CharacterServiceImpl(), characterRepository: CharacterRepositoryImpl())
+    private let activity = UIActivityIndicatorView()
     private var characters = [Character]() {
         didSet {
             DispatchQueue.main.async {
@@ -20,6 +21,8 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
+        activity.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+        tableView.tableFooterView = activity
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
     }
@@ -27,11 +30,9 @@ class ViewController: UIViewController {
     @objc func handleRefreshControl() {
         characterFacade.clear()
         characterFacade.getCharacters {
+            self.tableView.refreshControl?.endRefreshing()
             guard let characters = $0 else { return }
             self.characters = characters
-        }
-        DispatchQueue.main.async {
-            self.tableView.refreshControl?.endRefreshing()
         }
     }
 }
@@ -56,11 +57,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == characters.count - 1 else { return }
-        let activity = UIActivityIndicatorView()
         activity.startAnimating()
-        activity.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-        tableView.tableFooterView = activity
-        tableView.tableFooterView?.isHidden = false
         characterFacade.loadMore()
     }
 
