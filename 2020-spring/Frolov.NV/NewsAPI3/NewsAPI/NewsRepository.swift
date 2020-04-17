@@ -38,6 +38,4 @@ final class NewsRepositoryImpl: NewsRepository {
     func getNews() -> Results<NewsRealm> {
         realm.objects(NewsRealm.self)
     }
-    
-    
 }

@@ -21,25 +21,15 @@ final class NewsFacade {
             self.newRepository.save(news)
         }
         let newsArray = newRepository.getNews()
-        newsToken = newRepository.getNews().observe{_ in
+        newsToken = newsArray.observe{_ in
             completion(newsArray.map{$0.news})
         }
     }
     
     func reload(completion: @escaping ([OneNew]?)-> Void) {
-        
         newRepository.cleare()
-        newsService.changeContry()
-        
-        newsService.getNews { (newsArray) in
-            guard let news = newsArray else {return}
-            self.newRepository.save(news)
-        }
-        
-        let newsArray = newRepository.getNews()
-        newsToken = newRepository.getNews().observe{_ in
-            completion(newsArray.map{$0.news})
-        }
+        newsService.changeCountry()
+        getNews(completion: completion)
     }
     
     func loadMore() {

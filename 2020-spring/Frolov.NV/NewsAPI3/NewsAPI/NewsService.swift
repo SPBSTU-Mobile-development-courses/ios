@@ -56,7 +56,7 @@ class NewsService {
         return newUrl
     }
     
-    public func changeContry() {
+    public func changeCountry() {
         contryId += 1;
         if (contryId >= 6) {
             contryId = 0

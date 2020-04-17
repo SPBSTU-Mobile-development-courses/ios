@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ViewControllSelectNew: UIViewController {
     @IBOutlet var imageNews:UIImageView!
@@ -25,13 +26,7 @@ class ViewControllSelectNew: UIViewController {
         labelNewsDiscription.text = news.description
         
         guard let imageUrl = URL(string: news.urlToImage ?? "") else {return}
-        imageLoadTask = URLSession.shared.dataTask(with: imageUrl) {data, _, _ in
-            guard let data = data, let image = UIImage(data: data) else {return}
-            DispatchQueue.main.async {
-                self.imageNews.image = image
-            }
-        }
-        imageLoadTask?.resume()
+        imageNews.kf.setImage(with: imageUrl)
     }
     
 }

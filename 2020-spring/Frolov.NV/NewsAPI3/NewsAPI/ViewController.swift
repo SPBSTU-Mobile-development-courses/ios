@@ -34,15 +34,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.rowHeight = 307
     }
     
-    @objc func refresh(sender:AnyObject) {
+    @objc func refresh(_:AnyObject) {
         newsFacade.reload(completion: {(newsArray) in
         guard let newsArray = newsArray else {return}
         self.news = newsArray
         DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+        self.refreshControl.endRefreshing()
         })
-        refreshControl.endRefreshing()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

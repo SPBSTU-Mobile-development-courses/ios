@@ -124,6 +124,7 @@
 				0586888C242B64C500B68342 /* Frameworks */,
 				0586888D242B64C500B68342 /* Resources */,
 				E6BFE8756AFAF8DA6B0BA631 /* [CP] Embed Pods Frameworks */,
+				059C1BCC244A235B00DB1BFE /* Errors */,
 			);
 			buildRules = (
 			);
@@ -181,6 +182,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		059C1BCC244A235B00DB1BFE /* Errors */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Errors;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "
+
+";
+		};
 		3D0D2D19C5D655F8A9FFF159 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

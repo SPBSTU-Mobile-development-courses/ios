@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class NewsTableViewCell: UITableViewCell {
     @IBOutlet var titleLabel:UILabel!
@@ -22,13 +23,7 @@ class NewsTableViewCell: UITableViewCell {
     func insert(with new: OneNew) {
         titleLabel.text = new.title
         guard let imageUrl = URL(string: new.urlToImage ?? "") else {return}
-        loadTask = URLSession.shared.dataTask(with: imageUrl) {data, _, _ in
-            guard let data = data, let image = UIImage(data: data) else {return}
-            DispatchQueue.main.async {
-                self.imageNewsView.image = image
-            }
-        }
-        loadTask?.resume()
+        imageNewsView.kf.setImage(with: imageUrl)
     }
 }
 
