@@ -1,0 +1,16 @@
+platform :ios, '10.0'
+
+target 'RickAndMorty' do
+  use_frameworks!
+
+  pod 'Kingfisher'
+  pod 'SwiftLint'
+  pod 'RealmSwift'
+  pod 'Reusable'
+
+  target 'RickAndMortyTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
