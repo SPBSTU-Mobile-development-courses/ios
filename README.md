@@ -128,3 +128,22 @@
  * [Diffable datasource, поможет в поиске](https://wwdcbysundell.com/2019/diffable-data-sources-first-look/)
  * [Легко найти diff двух массивов](https://github.com/onmyway133/DeepDiff)
  * [Про анимации от Apple](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CoreAnimation_guide/CreatingBasicAnimations/CreatingBasicAnimations.html)
+
+ ## 18 апреля, ДЗ №6
+ #### Запись лекции
+ [Архитектура и юнит тесты](https://vk.com/videos-176491001?z=video-176491001_456239035%2Fclub176491001%2Fpl_-176491001_-2)
+ 
+ ### Сделать
+ * Написать тесты на приложение. Минимальный набор: протестировать методы loadMore и getData по аналогии с лекционным проектом
+ * (Опционально) Внедрить в приложение любую понравившуюся архитектуру
+ 
+ #### Материалы
+ * [Обзор архитектур](https://habr.com/ru/company/badoo/blog/281162/)
+ * [Супер подробный ответ на frame vs bounds](https://stackoverflow.com/questions/1210047/cocoa-whats-the-difference-between-the-frame-and-the-bounds)
+ * [Тестирование и моки](https://www.raywenderlich.com/1752-unit-testing-tutorial-mocking-objects)
+ * [iOS вопросики](https://iosinterviewguide.com/ios-interview-questions-for-senior-developers-in-2020)
+ 
+  #### Прочитать
+  * Что такое layer model/presentation? В каких ситуациях у layer model/presentation разные значения?
+  * Mock vs stub vs spy?
+  * MVC, MVVM, VIPER - расшифруй, че-нибудь расскажи
