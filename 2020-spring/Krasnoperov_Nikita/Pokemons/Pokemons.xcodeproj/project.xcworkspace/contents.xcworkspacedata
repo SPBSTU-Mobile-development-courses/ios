@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:/Users/nikita/ios/2020-spring/Pokemons/Pokemons/CharacterService.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/nikita/ios/2020-spring/Pokemons/Pokemons/DescriptionViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
+   </FileRef>
+</Workspace>
