@@ -10,7 +10,7 @@
 		110E5C46241E78B000EEDBD1 /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 110E5C45241E78B000EEDBD1 /* CardTableViewCell.xib */; };
 		11A8B00624140FAF00EB9C1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B00524140FAF00EB9C1F /* AppDelegate.swift */; };
 		11A8B00824140FAF00EB9C1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B00724140FAF00EB9C1F /* SceneDelegate.swift */; };
-		11A8B00A24140FAF00EB9C1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B00924140FAF00EB9C1F /* ViewController.swift */; };
+		11A8B00A24140FAF00EB9C1F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A8B00924140FAF00EB9C1F /* MainViewController.swift */; };
 		11A8B00D24140FAF00EB9C1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A8B00B24140FAF00EB9C1F /* Main.storyboard */; };
 		11A8B00F24140FB400EB9C1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A8B00E24140FB400EB9C1F /* Assets.xcassets */; };
 		11A8B01224140FB400EB9C1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A8B01024140FB400EB9C1F /* LaunchScreen.storyboard */; };
@@ -21,6 +21,7 @@
 		11B8420B2420F1FA004BDD5C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 11B8420A2420F1FA004BDD5C /* .swiftlint.yml */; };
 		11DC524D2415287F00967B71 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC524C2415287F00967B71 /* CardDetailViewController.swift */; };
 		11E746A0241E449100B8AAD0 /* CardDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11E7469F241E449100B8AAD0 /* CardDetailViewController.storyboard */; };
+		8437BD392450BC800003C5C0 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437BD382450BC800003C5C0 /* MainViewPresenter.swift */; };
 		84FACFE924331CE7008EA231 /* CardRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACFE824331CE7008EA231 /* CardRealm.swift */; };
 		84FACFEB24331DC9008EA231 /* CardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACFEA24331DC9008EA231 /* CardRepository.swift */; };
 		84FACFED243321A8008EA231 /* CardFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FACFEC243321A8008EA231 /* CardFacade.swift */; };
@@ -35,7 +36,7 @@
 		11A8B00224140FAF00EB9C1F /* Mtg Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mtg Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A8B00524140FAF00EB9C1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11A8B00724140FAF00EB9C1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		11A8B00924140FAF00EB9C1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		11A8B00924140FAF00EB9C1F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		11A8B00C24140FAF00EB9C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11A8B00E24140FB400EB9C1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11A8B01124140FB400EB9C1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		11E7469F241E449100B8AAD0 /* CardDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CardDetailViewController.storyboard; sourceTree = "<group>"; };
 		190B708B5DC4374ED7DDFC47 /* Pods-Mtg Cards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mtg Cards.release.xcconfig"; path = "Target Support Files/Pods-Mtg Cards/Pods-Mtg Cards.release.xcconfig"; sourceTree = "<group>"; };
 		2083EA0E4D181C0B7707B36C /* Pods_Mtg_Cards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mtg_Cards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8437BD382450BC800003C5C0 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		84FACFE824331CE7008EA231 /* CardRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRealm.swift; sourceTree = "<group>"; };
 		84FACFEA24331DC9008EA231 /* CardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRepository.swift; sourceTree = "<group>"; };
 		84FACFEC243321A8008EA231 /* CardFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFacade.swift; sourceTree = "<group>"; };
@@ -92,19 +94,14 @@
 		11A8B00424140FAF00EB9C1F /* Mtg Cards */ = {
 			isa = PBXGroup;
 			children = (
+				8437BD372450BC720003C5C0 /* Presenter */,
+				8437BD342450BC210003C5C0 /* View */,
 				11A8B0202414154F00EB9C1F /* Service */,
 				11A8B01B2414101100EB9C1F /* Model */,
 				11A8B00524140FAF00EB9C1F /* AppDelegate.swift */,
 				11A8B00724140FAF00EB9C1F /* SceneDelegate.swift */,
-				11A8B00924140FAF00EB9C1F /* ViewController.swift */,
-				11A8B00B24140FAF00EB9C1F /* Main.storyboard */,
-				110E5C45241E78B000EEDBD1 /* CardTableViewCell.xib */,
-				11E7469F241E449100B8AAD0 /* CardDetailViewController.storyboard */,
 				11A8B00E24140FB400EB9C1F /* Assets.xcassets */,
-				11A8B01024140FB400EB9C1F /* LaunchScreen.storyboard */,
 				11A8B01324140FB400EB9C1F /* Info.plist */,
-				11A8B0232414250000EB9C1F /* CardTableViewCell.swift */,
-				11DC524C2415287F00967B71 /* CardDetailViewController.swift */,
 			);
 			path = "Mtg Cards";
 			sourceTree = "<group>";
@@ -147,6 +144,44 @@
 				190B708B5DC4374ED7DDFC47 /* Pods-Mtg Cards.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8437BD342450BC210003C5C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8437BD362450BC390003C5C0 /* Layouts */,
+				8437BD352450BC310003C5C0 /* Classes */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8437BD352450BC310003C5C0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				11A8B0232414250000EB9C1F /* CardTableViewCell.swift */,
+				11DC524C2415287F00967B71 /* CardDetailViewController.swift */,
+				11A8B00924140FAF00EB9C1F /* MainViewController.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8437BD362450BC390003C5C0 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				11A8B00B24140FAF00EB9C1F /* Main.storyboard */,
+				110E5C45241E78B000EEDBD1 /* CardTableViewCell.xib */,
+				11E7469F241E449100B8AAD0 /* CardDetailViewController.storyboard */,
+				11A8B01024140FB400EB9C1F /* LaunchScreen.storyboard */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		8437BD372450BC720003C5C0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8437BD382450BC800003C5C0 /* MainViewPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,8 +323,9 @@
 			files = (
 				11A8B01A2414100700EB9C1F /* CardPage.swift in Sources */,
 				84FACFE924331CE7008EA231 /* CardRealm.swift in Sources */,
+				8437BD392450BC800003C5C0 /* MainViewPresenter.swift in Sources */,
 				11A8B022241416A500EB9C1F /* CardService.swift in Sources */,
-				11A8B00A24140FAF00EB9C1F /* ViewController.swift in Sources */,
+				11A8B00A24140FAF00EB9C1F /* MainViewController.swift in Sources */,
 				84FACFED243321A8008EA231 /* CardFacade.swift in Sources */,
 				11A8B01D2414104900EB9C1F /* Card.swift in Sources */,
 				11A8B00624140FAF00EB9C1F /* AppDelegate.swift in Sources */,
