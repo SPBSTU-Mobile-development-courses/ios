@@ -23,8 +23,19 @@ class NewsHeaderFacade {
         }
     }
 
-    func update(_ item: NewsHeader) {
-        newsHeaderRepository.save([item])
+    func loadContent(_ selectedHeader: NewsHeader, _ completion: @escaping () -> Void) {
+        if let contentUrl = URL(string: "https://loripsum.net/api/\(selectedHeader.articleSize)/short/plaintext") {
+            URLSession.shared.dataTask(with: contentUrl) { data, _, _ in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        selectedHeader.content = String(decoding: data, as: UTF8.self)
+                        self.newsHeaderRepository.save([selectedHeader])
+                        completion()
+                    }
+                }
+            }
+            .resume()
+        }
     }
 
 }
