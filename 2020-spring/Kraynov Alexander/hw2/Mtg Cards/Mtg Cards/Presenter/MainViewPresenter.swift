@@ -14,10 +14,11 @@ class MainViewPresenter {
 
     private var cards = [Card]()
     private let view: MainViewController
-    private let cardFacade: CardFacade = CardFacadeImpl(cardService: CardServiceImpl(), cardRepository: CardRepositoryImpl())
+    private let cardFacade: CardFacade
 
-    init(view: MainViewController) {
+    init(view: MainViewController, facade: CardFacade = CardFacadeImpl(cardService: CardServiceImpl(), cardRepository: CardRepositoryImpl())) {
         self.view = view
+        self.cardFacade = facade
         cardFacade.getCards { cardArray in
             guard let cardArray = cardArray else {
                 return
@@ -27,6 +28,7 @@ class MainViewPresenter {
             view.reloadTableView()
         }
     }
+
     func getCards(completion: @escaping OnUpdateCompletion) {
         cardFacade.getCards { cardArray in
             guard let cardArray = cardArray else {
@@ -37,6 +39,7 @@ class MainViewPresenter {
             completion(self.cards)
         }
     }
+
     func loadMore(completion: @escaping OnUpdateCompletion) {
         cardFacade.loadMore(completion: completion)
     }

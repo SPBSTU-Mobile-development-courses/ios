@@ -9,9 +9,9 @@
 import DeepDiff
 import Foundation
 
-struct Card: Decodable, DiffAware {
+struct Card: Decodable, DiffAware, Equatable {
     typealias DiffId = String
-    struct CardFaceImages: Decodable {
+    struct CardFaceImages: Decodable, Equatable {
         let normal: String?
     }
 
@@ -23,6 +23,15 @@ struct Card: Decodable, DiffAware {
     let rarity: String
     let flavorText: String?
     let imageUris: CardFaceImages?
+
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        lhs.id == rhs.id &&
+        lhs.name == rhs.name &&
+        lhs.artist == rhs.artist &&
+        lhs.rarity == rhs.rarity &&
+        lhs.flavorText == rhs.flavorText &&
+        lhs.imageUris == rhs.imageUris
+    }
 
     static func compareContent(_ first: Card, _ second: Card) -> Bool {
         first.id == second.id
