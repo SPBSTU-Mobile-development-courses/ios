@@ -33,7 +33,5 @@ extension MemeRealm {
         guard let images = post.images, let first = images.first else { return }
         image = first.link
         self.tags = post.tagsNames
-//        guard let tags = post.tags else { return }
-//        self.tags = tags.map { $0.name }.joined(separator: ", ")
     }
 }
