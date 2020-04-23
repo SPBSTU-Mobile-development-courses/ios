@@ -5,12 +5,14 @@
 //  Created by panandafog on 23.04.2020.
 //  Copyright © 2020 panandafog. All rights reserved.
 //
+
 import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var image: UIImageView!
-    var originalSize: CGRect = CGRect()
+    var originalSize = CGRect()
+
+    @IBOutlet private var image: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +20,7 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        image.center.x  -= view.bounds.width
+        image.center.x -= view.bounds.width
         originalSize = image.frame
     }
 
@@ -28,16 +30,19 @@ class ViewController: UIViewController {
         image.layer.shouldRasterize = true
         image.layer.masksToBounds = false
 
-        UIView.animate(withDuration: 0.7, animations: {
+        UIView.animate(withDuration: 0.7,
+                       animations: {
             self.image.center.x += self.view.bounds.width
         }, completion: { _ in
-            UIView.animate(withDuration: 0.7, animations: {
+            UIView.animate(withDuration: 0.7,
+                           animations: {
                 self.image.frame.size.width *= 2.5
                 self.image.frame.size.height *= 4
                 self.image.center = self.view.center
             }, completion: { _ in
 
-                UIView.animate(withDuration: 2, animations: {
+                UIView.animate(withDuration: 2,
+                               animations: {
                     self.image.frame.size.width = self.originalSize.width * 1.4
                     self.image.frame.size.height = self.originalSize.height * 0.7
                     self.image.center = self.view.center
@@ -58,7 +63,8 @@ class ViewController: UIViewController {
                     self.view.addSubview(image2)
                     self.view.bringSubviewToFront(self.image)
 
-                    UIView.animate(withDuration: 2, animations: {
+                    UIView.animate(withDuration: 2,
+                                   animations: {
                         self.image.center.x = image2.center.x - self.image.frame.size.width / 4
                         self.image.frame.size.width /= 2
                     }, completion: { _ in
@@ -73,7 +79,8 @@ class ViewController: UIViewController {
     }
 
     func shake(image: UIImageView, upside: Bool) {
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.5,
+                       animations: {
             if upside {
                 image.center.y = image.frame.size.height / 2
             } else {

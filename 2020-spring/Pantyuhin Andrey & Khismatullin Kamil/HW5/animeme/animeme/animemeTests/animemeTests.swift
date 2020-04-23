@@ -1,15 +1,15 @@
 //
-//  animemeTests.swift
-//  animemeTests
+//  AnimemeTests.swift
+//  AnimemeTests
 //
 //  Created by panandafog on 23.04.2020.
 //  Copyright © 2020 panandafog. All rights reserved.
 //
 
-import XCTest
 @testable import animeme
+import XCTest
 
-class animemeTests: XCTestCase {
+class AnimemeTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -17,11 +17,6 @@ class animemeTests: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
     func testPerformanceExample() throws {
