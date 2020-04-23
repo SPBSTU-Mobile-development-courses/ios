@@ -6,4 +6,5 @@ protocol NHPresenter {
     func loadContent(_ selectedHeader: NewsHeader, _ completion: @escaping () -> Void)
     func filter(infix: String) -> [NewsHeader]
     func getDiff(old: [NewsHeader], new: [NewsHeader]) -> (insertions: [IndexPath], deletions: [IndexPath])
+    func showDetailsScreen(for selectedHeader: NewsHeader, on navigationController: UINavigationController?)
 }

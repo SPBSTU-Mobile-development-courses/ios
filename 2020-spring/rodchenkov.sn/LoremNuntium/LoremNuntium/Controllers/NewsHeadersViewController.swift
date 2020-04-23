@@ -71,18 +71,8 @@ class NewsHeadersViewController: UIViewController, UITableViewDataSource, UITabl
 
     func tableView( _ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedHeader = newsHeaders[indexPath.row]
-        let viewController = NewsDetailsViewController.instantiate() as NewsDetailsViewController
         tableView.deselectRow(at: indexPath, animated: false)
-        if selectedHeader.content == nil {
-            navigationController?.pushViewController(viewController, animated: true)
-            newsHeaderPresenter.loadContent(selectedHeader) {
-                viewController.newsHeader = selectedHeader
-                viewController.showDetails()
-            }
-        } else {
-            viewController.newsHeader = selectedHeader
-            navigationController?.pushViewController(viewController, animated: true)
-        }
+        newsHeaderPresenter.showDetailsScreen(for: selectedHeader, on: navigationController)
     }
 
     @objc private func refreshData() {

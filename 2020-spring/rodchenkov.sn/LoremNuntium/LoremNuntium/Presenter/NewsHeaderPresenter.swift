@@ -46,4 +46,18 @@ class NewsHeaderPresenter: NHPresenter {
        return (insertions, deletions)
     }
 
+    func showDetailsScreen(for selectedHeader: NewsHeader, on navigationController: UINavigationController?) {
+        let viewController = NewsDetailsViewController.instantiate() as NewsDetailsViewController
+        if selectedHeader.content == nil {
+            navigationController?.pushViewController(viewController, animated: true)
+            loadContent(selectedHeader) {
+                viewController.newsHeader = selectedHeader
+                viewController.showDetails()
+            }
+        } else {
+            viewController.newsHeader = selectedHeader
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+
 }
