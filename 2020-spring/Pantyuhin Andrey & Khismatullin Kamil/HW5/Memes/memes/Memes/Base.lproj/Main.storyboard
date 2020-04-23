@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qpd-YF-iCx">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="jcJ-kY-QbZ">
+            <objects>
+                <navigationController id="qpd-YF-iCx" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3o9-R3-hH8">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vvC-Lf-a1M"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qJT-uP-O94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-774" y="137"/>
+        </scene>
+        <!--Memes from Imgur-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Memes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="06I-l3-AOI">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemeCell" rowHeight="312" id="TL6-DD-lJz" customClass="MemeCell" customModule="Memes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="312"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TL6-DD-lJz" id="pgf-bQ-JRy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="312"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="guu-1b-nq8" customClass="SelfScalingUIImageView" customModule="Memes" customModuleProvider="target">
+                                                    <rect key="frame" x="15" y="47.333333333333329" width="384" height="253.66666666666669"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imk-tU-VZP">
+                                                    <rect key="frame" x="19.999999999999996" y="10.999999999999998" width="41.666666666666657" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="guu-1b-nq8" firstAttribute="leading" secondItem="pgf-bQ-JRy" secondAttribute="leading" constant="15" id="7BO-gS-gfp"/>
+                                                <constraint firstItem="guu-1b-nq8" firstAttribute="top" secondItem="imk-tU-VZP" secondAttribute="bottom" constant="16" id="DZy-cw-JAF"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="imk-tU-VZP" secondAttribute="trailing" id="K5i-8a-Hws"/>
+                                                <constraint firstAttribute="trailing" secondItem="guu-1b-nq8" secondAttribute="trailing" constant="15" id="QaK-ht-mMk"/>
+                                                <constraint firstAttribute="bottom" secondItem="guu-1b-nq8" secondAttribute="bottom" constant="11" id="cPO-m1-Alz"/>
+                                                <constraint firstItem="imk-tU-VZP" firstAttribute="leading" secondItem="pgf-bQ-JRy" secondAttribute="leadingMargin" id="hiN-3V-P7b"/>
+                                                <constraint firstItem="imk-tU-VZP" firstAttribute="top" secondItem="pgf-bQ-JRy" secondAttribute="topMargin" id="yY8-cz-ybK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="imk-tU-VZP" id="iZp-SY-1Xu"/>
+                                            <outlet property="picture" destination="guu-1b-nq8" id="cqf-NJ-WN5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="06I-l3-AOI" secondAttribute="trailing" id="4li-lB-EbY"/>
+                            <constraint firstItem="06I-l3-AOI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Kmj-r0-zzg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="06I-l3-AOI" secondAttribute="bottom" id="eF9-Ds-JHF"/>
+                            <constraint firstItem="06I-l3-AOI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ljf-cl-41h"/>
+                            <constraint firstItem="06I-l3-AOI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nZZ-6u-F1l"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Memes from Imgur" id="TSQ-Qa-oHA"/>
+                    <connections>
+                        <outlet property="tableView" destination="06I-l3-AOI" id="Fa8-Q4-IBY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.23188405797103" y="137.27678571428569"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Xdw-XP-MPN">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="PYa-io-D5g" customClass="DetailViewController" customModule="Memes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kKO-G3-Qrk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R6d-BD-PDF">
+                                <rect key="frame" x="0.0" y="100.33333333333331" width="414" height="661.33333333333348"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ne-OZ-0Ud">
+                                <rect key="frame" x="16" y="64" width="382" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxs-lM-gaE">
+                                <rect key="frame" x="16" y="769.66666666666663" width="382" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EJc-oV-hgw" firstAttribute="trailing" secondItem="3ne-OZ-0Ud" secondAttribute="trailing" constant="16" id="2IL-52-Iil"/>
+                            <constraint firstItem="EJc-oV-hgw" firstAttribute="trailing" secondItem="jxs-lM-gaE" secondAttribute="trailing" constant="16" id="6kh-8S-lmy"/>
+                            <constraint firstItem="3ne-OZ-0Ud" firstAttribute="top" secondItem="EJc-oV-hgw" secondAttribute="top" constant="20" id="9GS-PP-yrQ"/>
+                            <constraint firstItem="R6d-BD-PDF" firstAttribute="top" secondItem="3ne-OZ-0Ud" secondAttribute="bottom" constant="16" id="9Kj-vY-gsp"/>
+                            <constraint firstItem="3ne-OZ-0Ud" firstAttribute="leading" secondItem="EJc-oV-hgw" secondAttribute="leading" constant="16" id="GDh-Xh-B6L"/>
+                            <constraint firstItem="jxs-lM-gaE" firstAttribute="top" secondItem="R6d-BD-PDF" secondAttribute="bottom" constant="8" id="ZaA-0J-QqD"/>
+                            <constraint firstItem="R6d-BD-PDF" firstAttribute="trailing" secondItem="EJc-oV-hgw" secondAttribute="trailing" id="jUp-tQ-tuk"/>
+                            <constraint firstItem="R6d-BD-PDF" firstAttribute="leading" secondItem="EJc-oV-hgw" secondAttribute="leading" id="mtP-Xz-4kv"/>
+                            <constraint firstItem="jxs-lM-gaE" firstAttribute="leading" secondItem="EJc-oV-hgw" secondAttribute="leading" constant="16" id="sRf-R9-hkb"/>
+                            <constraint firstItem="EJc-oV-hgw" firstAttribute="bottom" secondItem="jxs-lM-gaE" secondAttribute="bottom" constant="72" id="zif-ub-ScD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EJc-oV-hgw"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionImage" destination="R6d-BD-PDF" id="r2A-YC-eWZ"/>
+                        <outlet property="descriptionLabel" destination="3ne-OZ-0Ud" id="pgO-VZ-WLV"/>
+                        <outlet property="descriptionTags" destination="jxs-lM-gaE" id="csS-Xd-9Ll"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gb1-Ag-gKe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="827.536231884058" y="135.9375"/>
+        </scene>
+    </scenes>
+</document>
