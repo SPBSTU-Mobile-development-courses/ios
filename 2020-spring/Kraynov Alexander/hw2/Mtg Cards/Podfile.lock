@@ -1,4 +1,5 @@
 PODS:
+  - DeepDiff (2.3.1)
   - Realm (4.4.0):
     - Realm/Headers (= 4.4.0)
   - Realm/Headers (4.4.0)
@@ -12,23 +13,26 @@ PODS:
   - SwiftLint (0.39.1)
 
 DEPENDENCIES:
+  - DeepDiff
   - RealmSwift
   - Reusable
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - DeepDiff
     - Realm
     - RealmSwift
     - Reusable
     - SwiftLint
 
 SPEC CHECKSUMS:
+  DeepDiff: e5ae6c50d0321568e4508cec5930b9f10bb293fc
   Realm: e125f464884cda953ebefe70c671b75b03b81b9b
   RealmSwift: 33656a42bd300959a081fc13347376bc478071af
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: 06bf45a38e87a0ad094a3fc41485841e3a7a67dc
+PODFILE CHECKSUM: 8322cbf5fd048d0bea926eff6c753dd3aca84679
 
 COCOAPODS: 1.9.1
