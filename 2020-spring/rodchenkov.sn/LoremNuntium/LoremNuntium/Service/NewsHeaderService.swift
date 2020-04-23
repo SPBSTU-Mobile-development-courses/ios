@@ -1,6 +1,6 @@
 import Foundation
 
-class NewsHeaderService {
+class NewsHeaderService: NHService {
 
     private var page = 1
 

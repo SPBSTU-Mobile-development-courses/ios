@@ -1,11 +1,16 @@
 import RealmSwift
 
-class NewsHeaderFacade {
+class NewsHeaderFacade: NHFacade {
 
-    private let newsHeaderService = NewsHeaderService()
-    private let newsHeaderRepository = NewsHeaderRepository()
+    private let newsHeaderService: NHService
+    private let newsHeaderRepository: NHRepository
 
     private var notificationToken: NotificationToken?
+
+    init(_ newsHeaderService: NHService, _ newsHeaderRepository: NHRepository) {
+        self.newsHeaderRepository = newsHeaderRepository
+        self.newsHeaderService = newsHeaderService
+    }
 
     func loadMore() {
         newsHeaderService.getNewsHeaders {

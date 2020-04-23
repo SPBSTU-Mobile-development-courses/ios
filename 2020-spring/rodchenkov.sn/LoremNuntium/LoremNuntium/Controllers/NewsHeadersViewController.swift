@@ -1,9 +1,9 @@
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,
+class NewsHeadersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,
                       UISearchResultsUpdating, UISearchBarDelegate {
 
-    private let newsHeaderPresenter = NewsHeaderPresenter()
+    var newsHeaderPresenter: NHPresenter!
 
     @IBOutlet private var tableView: UITableView!
 

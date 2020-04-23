@@ -2,7 +2,7 @@ import Foundation
 
 import DeepDiff
 
-class NewsHeader: Decodable, DiffAware {
+class NewsHeader: Decodable, DiffAware, Equatable {
 
     typealias DiffId = String
 
@@ -22,6 +22,15 @@ class NewsHeader: Decodable, DiffAware {
         case id
         case image = "download_url"
         case author
+    }
+
+    static func == (lhs: NewsHeader, rhs: NewsHeader) -> Bool {
+        lhs.id == rhs.id
+            && lhs.image == rhs.image
+            && lhs.author == rhs.author
+            && lhs.title == rhs.title
+            && lhs.articleSize == rhs.articleSize
+            && lhs.content == rhs.content
     }
 
     required init(from decoder: Decoder) throws {

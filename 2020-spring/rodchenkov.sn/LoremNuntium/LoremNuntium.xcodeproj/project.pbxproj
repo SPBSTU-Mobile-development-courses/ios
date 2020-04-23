@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69E22E65199489C833594CB2 /* Pods_LoremNuntiumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18931987D9D66CD0C0128F0 /* Pods_LoremNuntiumTests.framework */; };
 		84017695244BB22000E0AA4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84017694244BB22000E0AA4B /* AppDelegate.swift */; };
 		84017697244BB22000E0AA4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84017696244BB22000E0AA4B /* SceneDelegate.swift */; };
-		84017699244BB22000E0AA4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84017698244BB22000E0AA4B /* ViewController.swift */; };
-		8401769C244BB22000E0AA4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8401769A244BB22000E0AA4B /* Main.storyboard */; };
+		84017699244BB22000E0AA4B /* NewsHeadersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84017698244BB22000E0AA4B /* NewsHeadersViewController.swift */; };
+		8401769C244BB22000E0AA4B /* NewsHeadersViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8401769A244BB22000E0AA4B /* NewsHeadersViewController.storyboard */; };
 		8401769E244BB22400E0AA4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8401769D244BB22400E0AA4B /* Assets.xcassets */; };
 		840176A1244BB22400E0AA4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8401769F244BB22400E0AA4B /* LaunchScreen.storyboard */; };
 		840176AB244BB72A00E0AA4B /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840176AA244BB72A00E0AA4B /* NewsHeader.swift */; };
@@ -21,20 +22,37 @@
 		84088494244F8AFE00B1C07F /* NewsHeaderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84088493244F8AFE00B1C07F /* NewsHeaderRepository.swift */; };
 		84088496244F8DDC00B1C07F /* NewsHeaderFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84088495244F8DDC00B1C07F /* NewsHeaderFacade.swift */; };
 		84A9CFFF24509744007BD5B3 /* NewsHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9CFFE24509744007BD5B3 /* NewsHeaderPresenter.swift */; };
+		84A9D0102450D59F007BD5B3 /* NHService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9D00F2450D59F007BD5B3 /* NHService.swift */; };
+		84A9D0122450D6B8007BD5B3 /* NHRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9D0112450D6B8007BD5B3 /* NHRepository.swift */; };
+		84A9D0162450D766007BD5B3 /* NHFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9D0152450D766007BD5B3 /* NHFacade.swift */; };
+		84A9D0182450D85C007BD5B3 /* NHPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9D0172450D85C007BD5B3 /* NHPresenter.swift */; };
+		84A9D0202450FC98007BD5B3 /* NewsHeaderFacadeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9D01F2450FC98007BD5B3 /* NewsHeaderFacadeTests.swift */; };
+		84DFA1B22451BD7E0055AC98 /* NewsHeaderPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFA1B12451BD7E0055AC98 /* NewsHeaderPresenterTests.swift */; };
 		84F02DDC244CB6D3006325FC /* NewsDetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F02DDB244CB6D3006325FC /* NewsDetailsViewController.storyboard */; };
 		84F02DDE244CB6F3006325FC /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F02DDD244CB6F3006325FC /* NewsDetailsViewController.swift */; };
 		99CCE6D6004C8C7B92B25AF5 /* Pods_LoremNuntium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F5BBCEA714E9BBB953C1EC /* Pods_LoremNuntium.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		84A9D0222450FC98007BD5B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84017689244BB22000E0AA4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84017690244BB22000E0AA4B;
+			remoteInfo = LoremNuntium;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		10C37D194860B7BEA1B0D78A /* Pods-LoremNuntium.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoremNuntium.debug.xcconfig"; path = "Target Support Files/Pods-LoremNuntium/Pods-LoremNuntium.debug.xcconfig"; sourceTree = "<group>"; };
 		470844D320B62488DEBE859C /* Pods-LoremNuntium.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoremNuntium.release.xcconfig"; path = "Target Support Files/Pods-LoremNuntium/Pods-LoremNuntium.release.xcconfig"; sourceTree = "<group>"; };
+		4C8A1FBF4B973C6BF44B6E7C /* Pods-LoremNuntiumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoremNuntiumTests.release.xcconfig"; path = "Target Support Files/Pods-LoremNuntiumTests/Pods-LoremNuntiumTests.release.xcconfig"; sourceTree = "<group>"; };
 		53F5BBCEA714E9BBB953C1EC /* Pods_LoremNuntium.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoremNuntium.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84017691244BB22000E0AA4B /* LoremNuntium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoremNuntium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84017694244BB22000E0AA4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84017696244BB22000E0AA4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		84017698244BB22000E0AA4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8401769B244BB22000E0AA4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84017698244BB22000E0AA4B /* NewsHeadersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeadersViewController.swift; sourceTree = "<group>"; };
+		8401769B244BB22000E0AA4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NewsHeadersViewController.storyboard; sourceTree = "<group>"; };
 		8401769D244BB22400E0AA4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		840176A0244BB22400E0AA4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		840176A2244BB22400E0AA4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,8 +64,18 @@
 		84088493244F8AFE00B1C07F /* NewsHeaderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderRepository.swift; sourceTree = "<group>"; };
 		84088495244F8DDC00B1C07F /* NewsHeaderFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderFacade.swift; sourceTree = "<group>"; };
 		84A9CFFE24509744007BD5B3 /* NewsHeaderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderPresenter.swift; sourceTree = "<group>"; };
+		84A9D00F2450D59F007BD5B3 /* NHService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHService.swift; sourceTree = "<group>"; };
+		84A9D0112450D6B8007BD5B3 /* NHRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHRepository.swift; sourceTree = "<group>"; };
+		84A9D0152450D766007BD5B3 /* NHFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHFacade.swift; sourceTree = "<group>"; };
+		84A9D0172450D85C007BD5B3 /* NHPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHPresenter.swift; sourceTree = "<group>"; };
+		84A9D01D2450FC98007BD5B3 /* LoremNuntiumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoremNuntiumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A9D01F2450FC98007BD5B3 /* NewsHeaderFacadeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderFacadeTests.swift; sourceTree = "<group>"; };
+		84A9D0212450FC98007BD5B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84DFA1B12451BD7E0055AC98 /* NewsHeaderPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderPresenterTests.swift; sourceTree = "<group>"; };
 		84F02DDB244CB6D3006325FC /* NewsDetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsDetailsViewController.storyboard; sourceTree = "<group>"; };
 		84F02DDD244CB6F3006325FC /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
+		C2A3594EE3ECC42BDF746CD7 /* Pods-LoremNuntiumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoremNuntiumTests.debug.xcconfig"; path = "Target Support Files/Pods-LoremNuntiumTests/Pods-LoremNuntiumTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E18931987D9D66CD0C0128F0 /* Pods_LoremNuntiumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoremNuntiumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +87,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84A9D01A2450FC98007BD5B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69E22E65199489C833594CB2 /* Pods_LoremNuntiumTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -67,6 +103,8 @@
 			children = (
 				10C37D194860B7BEA1B0D78A /* Pods-LoremNuntium.debug.xcconfig */,
 				470844D320B62488DEBE859C /* Pods-LoremNuntium.release.xcconfig */,
+				C2A3594EE3ECC42BDF746CD7 /* Pods-LoremNuntiumTests.debug.xcconfig */,
+				4C8A1FBF4B973C6BF44B6E7C /* Pods-LoremNuntiumTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -75,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				84017693244BB22000E0AA4B /* LoremNuntium */,
+				84A9D01E2450FC98007BD5B3 /* LoremNuntiumTests */,
 				84017692244BB22000E0AA4B /* Products */,
 				6C8FF7960093310D6842008B /* Pods */,
 				C256793917B685DB9A5B0846 /* Frameworks */,
@@ -85,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				84017691244BB22000E0AA4B /* LoremNuntium.app */,
+				84A9D01D2450FC98007BD5B3 /* LoremNuntiumTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,18 +132,17 @@
 		84017693244BB22000E0AA4B /* LoremNuntium */ = {
 			isa = PBXGroup;
 			children = (
+				84A9D0002450A8EA007BD5B3 /* View */,
 				84A9CFFD245094E1007BD5B3 /* Presenter */,
 				840176B0244BBD5C00E0AA4B /* CellView */,
 				840176AF244BBA1700E0AA4B /* Controllers */,
 				840176AC244BB76A00E0AA4B /* Service */,
 				840176A9244BB55100E0AA4B /* Model */,
 				84017694244BB22000E0AA4B /* AppDelegate.swift */,
-				8401769A244BB22000E0AA4B /* Main.storyboard */,
 				84017696244BB22000E0AA4B /* SceneDelegate.swift */,
 				8401769D244BB22400E0AA4B /* Assets.xcassets */,
 				8401769F244BB22400E0AA4B /* LaunchScreen.storyboard */,
 				840176A2244BB22400E0AA4B /* Info.plist */,
-				84F02DDB244CB6D3006325FC /* NewsDetailsViewController.storyboard */,
 			);
 			path = LoremNuntium;
 			sourceTree = "<group>";
@@ -123,6 +162,9 @@
 				840176AD244BB7D000E0AA4B /* NewsHeaderService.swift */,
 				84088493244F8AFE00B1C07F /* NewsHeaderRepository.swift */,
 				84088495244F8DDC00B1C07F /* NewsHeaderFacade.swift */,
+				84A9D00F2450D59F007BD5B3 /* NHService.swift */,
+				84A9D0112450D6B8007BD5B3 /* NHRepository.swift */,
+				84A9D0152450D766007BD5B3 /* NHFacade.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -130,7 +172,7 @@
 		840176AF244BBA1700E0AA4B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				84017698244BB22000E0AA4B /* ViewController.swift */,
+				84017698244BB22000E0AA4B /* NewsHeadersViewController.swift */,
 				84F02DDD244CB6F3006325FC /* NewsDetailsViewController.swift */,
 			);
 			path = Controllers;
@@ -149,14 +191,35 @@
 			isa = PBXGroup;
 			children = (
 				84A9CFFE24509744007BD5B3 /* NewsHeaderPresenter.swift */,
+				84A9D0172450D85C007BD5B3 /* NHPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		84A9D0002450A8EA007BD5B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8401769A244BB22000E0AA4B /* NewsHeadersViewController.storyboard */,
+				84F02DDB244CB6D3006325FC /* NewsDetailsViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84A9D01E2450FC98007BD5B3 /* LoremNuntiumTests */ = {
+			isa = PBXGroup;
+			children = (
+				84A9D01F2450FC98007BD5B3 /* NewsHeaderFacadeTests.swift */,
+				84DFA1B12451BD7E0055AC98 /* NewsHeaderPresenterTests.swift */,
+				84A9D0212450FC98007BD5B3 /* Info.plist */,
+			);
+			path = LoremNuntiumTests;
 			sourceTree = "<group>";
 		};
 		C256793917B685DB9A5B0846 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				53F5BBCEA714E9BBB953C1EC /* Pods_LoremNuntium.framework */,
+				E18931987D9D66CD0C0128F0 /* Pods_LoremNuntiumTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -184,6 +247,25 @@
 			productReference = 84017691244BB22000E0AA4B /* LoremNuntium.app */;
 			productType = "com.apple.product-type.application";
 		};
+		84A9D01C2450FC98007BD5B3 /* LoremNuntiumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84A9D0242450FC98007BD5B3 /* Build configuration list for PBXNativeTarget "LoremNuntiumTests" */;
+			buildPhases = (
+				C17612991CA5D22888953163 /* [CP] Check Pods Manifest.lock */,
+				84A9D0192450FC98007BD5B3 /* Sources */,
+				84A9D01A2450FC98007BD5B3 /* Frameworks */,
+				84A9D01B2450FC98007BD5B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84A9D0232450FC98007BD5B3 /* PBXTargetDependency */,
+			);
+			name = LoremNuntiumTests;
+			productName = LoremNuntiumTests;
+			productReference = 84A9D01D2450FC98007BD5B3 /* LoremNuntiumTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -196,6 +278,10 @@
 				TargetAttributes = {
 					84017690244BB22000E0AA4B = {
 						CreatedOnToolsVersion = 11.4.1;
+					};
+					84A9D01C2450FC98007BD5B3 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 84017690244BB22000E0AA4B;
 					};
 				};
 			};
@@ -213,6 +299,7 @@
 			projectRoot = "";
 			targets = (
 				84017690244BB22000E0AA4B /* LoremNuntium */,
+				84A9D01C2450FC98007BD5B3 /* LoremNuntiumTests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,8 +312,15 @@
 				840176B4244BC07B00E0AA4B /* NewsHeaderCellView.xib in Resources */,
 				840176A1244BB22400E0AA4B /* LaunchScreen.storyboard in Resources */,
 				8401769E244BB22400E0AA4B /* Assets.xcassets in Resources */,
-				8401769C244BB22000E0AA4B /* Main.storyboard in Resources */,
+				8401769C244BB22000E0AA4B /* NewsHeadersViewController.storyboard in Resources */,
 				84F02DDC244CB6D3006325FC /* NewsDetailsViewController.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84A9D01B2450FC98007BD5B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +383,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C17612991CA5D22888953163 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LoremNuntiumTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -296,29 +412,50 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84017699244BB22000E0AA4B /* ViewController.swift in Sources */,
+				84017699244BB22000E0AA4B /* NewsHeadersViewController.swift in Sources */,
 				84A9CFFF24509744007BD5B3 /* NewsHeaderPresenter.swift in Sources */,
+				84A9D0182450D85C007BD5B3 /* NHPresenter.swift in Sources */,
 				84F02DDE244CB6F3006325FC /* NewsDetailsViewController.swift in Sources */,
 				840176AB244BB72A00E0AA4B /* NewsHeader.swift in Sources */,
 				84017695244BB22000E0AA4B /* AppDelegate.swift in Sources */,
 				84017697244BB22000E0AA4B /* SceneDelegate.swift in Sources */,
 				840176B2244BBF6500E0AA4B /* NewsHeaderCellView.swift in Sources */,
+				84A9D0122450D6B8007BD5B3 /* NHRepository.swift in Sources */,
 				840176AE244BB7D000E0AA4B /* NewsHeaderService.swift in Sources */,
 				84088496244F8DDC00B1C07F /* NewsHeaderFacade.swift in Sources */,
+				84A9D0102450D59F007BD5B3 /* NHService.swift in Sources */,
 				84088492244F86FF00B1C07F /* NewsHeaderRealm.swift in Sources */,
 				84088494244F8AFE00B1C07F /* NewsHeaderRepository.swift in Sources */,
+				84A9D0162450D766007BD5B3 /* NHFacade.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84A9D0192450FC98007BD5B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84DFA1B22451BD7E0055AC98 /* NewsHeaderPresenterTests.swift in Sources */,
+				84A9D0202450FC98007BD5B3 /* NewsHeaderFacadeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		84A9D0232450FC98007BD5B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84017690244BB22000E0AA4B /* LoremNuntium */;
+			targetProxy = 84A9D0222450FC98007BD5B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		8401769A244BB22000E0AA4B /* Main.storyboard */ = {
+		8401769A244BB22000E0AA4B /* NewsHeadersViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8401769B244BB22000E0AA4B /* Base */,
 			);
-			name = Main.storyboard;
+			name = NewsHeadersViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		8401769F244BB22400E0AA4B /* LaunchScreen.storyboard */ = {
@@ -453,6 +590,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LoremNuntium/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,6 +609,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LoremNuntium/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,6 +618,48 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		84A9D0252450FC98007BD5B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2A3594EE3ECC42BDF746CD7 /* Pods-LoremNuntiumTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LoremNuntiumTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.spbstu.LoremNuntiumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoremNuntium.app/LoremNuntium";
+			};
+			name = Debug;
+		};
+		84A9D0262450FC98007BD5B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C8A1FBF4B973C6BF44B6E7C /* Pods-LoremNuntiumTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LoremNuntiumTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.spbstu.LoremNuntiumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoremNuntium.app/LoremNuntium";
 			};
 			name = Release;
 		};
@@ -499,6 +680,15 @@
 			buildConfigurations = (
 				840176A6244BB22400E0AA4B /* Debug */,
 				840176A7244BB22400E0AA4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84A9D0242450FC98007BD5B3 /* Build configuration list for PBXNativeTarget "LoremNuntiumTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84A9D0252450FC98007BD5B3 /* Debug */,
+				84A9D0262450FC98007BD5B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

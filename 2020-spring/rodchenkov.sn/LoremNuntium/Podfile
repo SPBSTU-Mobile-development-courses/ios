@@ -14,4 +14,10 @@ target 'LoremNuntium' do
   pod 'SkeletonView'
   pod 'DeepDiff'
 
+  target 'LoremNuntiumTests' do
+
+  	inherit! :search_paths
+  	
+  end
+
 end

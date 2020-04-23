@@ -1,13 +1,19 @@
 import RealmSwift
 
-class NewsHeaderRepository {
+class NewsHeaderRepository: NHRepository {
+
+    private let config: Realm.Configuration
 
     private var realm: Realm {
         do {
-            return try Realm()
+            return try Realm(configuration: config)
         } catch {
             fatalError("could not create realm.")
         }
+    }
+
+    init(config: Realm.Configuration = .defaultConfiguration) {
+        self.config = config
     }
 
     func save(_ newsHeaders: [NewsHeader]) {

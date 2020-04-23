@@ -1,10 +1,14 @@
 import DeepDiff
 
-class NewsHeaderPresenter {
+class NewsHeaderPresenter: NHPresenter {
 
-    private let newsHeaderFacade = NewsHeaderFacade()
+    private let newsHeaderFacade: NHFacade
 
     private var newsHeaders = [NewsHeader]()
+
+    init(_ newsHeaderFacade: NHFacade) {
+        self.newsHeaderFacade = newsHeaderFacade
+    }
 
     func getNewsHeaders(completion: @escaping ([NewsHeader]) -> Void) {
         newsHeaderFacade.getNewsHeaders {
