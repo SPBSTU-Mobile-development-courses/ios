@@ -14,3 +14,7 @@ extension Character {
 
 extension Character: Decodable {
 }
+
+extension Character: Equatable {
+    
+}
