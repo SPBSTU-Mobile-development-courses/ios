@@ -6,12 +6,18 @@ protocol CharacterRepository {
 }
 
 final class CharacterRepositoryImpl: CharacterRepository {
+    private let configuration: Realm.Configuration
+    
     private var realm: Realm {
         do {
-            return try Realm()
+            return try Realm(configuration: configuration)
         } catch {
             fatalError("Cant create realm!!!")
         }
+    }
+    
+    init(configuration: Realm.Configuration) {
+        self.configuration = configuration
     }
     
     func save(_ characters: [Character]) {

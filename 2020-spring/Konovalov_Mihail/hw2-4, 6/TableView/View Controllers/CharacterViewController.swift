@@ -9,7 +9,8 @@ final class CharacterViewController: UIViewController {
             }
         }
     }
-    private let characterFacade: CharacterFacade = CharacterFacadeImpl(characterService: CharacterServiceImpl(), characterRepository: CharacterRepositoryImpl())
+    
+    var characterFacade: CharacterFacade!
     private let cellIdentifier = "CharacterTableViewCell"
     private let refresh = UIRefreshControl()
     
@@ -55,12 +56,13 @@ extension CharacterViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let viewController = UIStoryboard(name: "Main", bundle: nil)
+        guard let viewController = UIStoryboard(name: "DetailStoryboard", bundle: nil)
             .instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
                 return
         }
+        
         viewController.character = characters[indexPath.row]
-        navigationController?.pushViewController(viewController, animated: true) 
+        navigationController?.pushViewController(viewController, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
