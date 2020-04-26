@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var originalSize = CGRect()
+    var bound: CGFloat = 0.0
+    let duration = 4.0
 
     @IBOutlet private var image: UIImageView!
 
@@ -21,7 +22,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         image.center.x -= view.bounds.width
-        originalSize = image.frame
+        bound = image.frame.width / 2
+        image.center = CGPoint(x: bound, y: bound)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -30,71 +32,95 @@ class ViewController: UIViewController {
         image.layer.shouldRasterize = true
         image.layer.masksToBounds = false
 
-        UIView.animate(withDuration: 0.7,
-                       animations: {
-            self.image.center.x += self.view.bounds.width
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.7,
-                           animations: {
-                self.image.frame.size.width *= 2.5
-                self.image.frame.size.height *= 4
-                self.image.center = self.view.center
-            }, completion: { _ in
+        let image2 = UIImageView(image: self.image.image)
+        image2.frame = self.image.frame
 
-                UIView.animate(withDuration: 2,
-                               animations: {
-                    self.image.frame.size.width = self.originalSize.width * 1.4
-                    self.image.frame.size.height = self.originalSize.height * 0.7
-                    self.image.center = self.view.center
-                }, completion: { _ in
+        image2.layer.shouldRasterize = true
+        image2.layer.masksToBounds = false
 
-                    let image2 = UIImageView(image: self.image.image)
-                    image2.frame = self.image.frame
+        image2.frame.size = image.frame.size
+        image2.center = CGPoint(x: self.view.bounds.width - bound, y: self.view.bounds.height - bound)
+        self.view.addSubview(image2)
 
-                    image2.layer.shouldRasterize = true
-                    image2.layer.masksToBounds = false
-
-                    image2.frame.size.height = self.originalSize.height * 0.7
-                    image2.frame.size.width = self.originalSize.width * 0.7
-
-                    image2.center.x = self.image.center.x + self.image.frame.size.width / 4
-                    image2.center.y = self.image.center.y
-
-                    self.view.addSubview(image2)
-                    self.view.bringSubviewToFront(self.image)
-
-                    UIView.animate(withDuration: 2,
-                                   animations: {
-                        self.image.center.x = image2.center.x - self.image.frame.size.width / 4
-                        self.image.frame.size.width /= 2
-                    }, completion: { _ in
-                        self.setShadows(image: self.image)
-                        self.setShadows(image: image2)
-                        self.shake(image: self.image, upside: true)
-                        self.shake(image: image2, upside: false)
-                    })
-                })
-            })
-        })
-    }
-
-    func shake(image: UIImageView, upside: Bool) {
-        UIView.animate(withDuration: 0.5,
-                       animations: {
-            if upside {
-                image.center.y = image.frame.size.height / 2
-            } else {
-                image.center.y = self.view.bounds.height - image.frame.size.height / 2
-            }
-        }, completion: { _ in
-            self.shake(image: image, upside: !upside)
-        })
+        madFlex(image: image, startIndex: 0)
+        madFlex(image: image2, startIndex: 2)
     }
 
     func setShadows(image: UIImageView) {
-                image.layer.shadowColor = UIColor(named: "#df544a")?.cgColor
-                image.layer.shadowOpacity = 1
-                image.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
-                image.layer.shadowRadius = 10
+        image.layer.shadowColor = UIColor(named: "#df544a")?.cgColor
+        image.layer.shadowOpacity = 1
+        image.layer.shadowRadius = 10
+    }
+
+    func rotate(image: UIImageView) {
+        UIView.animate(withDuration: 0.5,
+                       animations: {
+                        image.transform = image.transform.rotated(by: CGFloat(Double.pi / 2))
+        }, completion: { _ in
+            self.rotate(image: image)
+        })
+    }
+
+    func madFlex(image: UIImageView, startIndex: Int) {
+        setShadows(image: image)
+        let move = CAKeyframeAnimation(keyPath: "position")
+        let way: [CGPoint]
+        switch startIndex {
+        case 0:
+            way = [
+                CGPoint(x: bound, y: bound),
+                CGPoint(x: self.view.bounds.width - bound * 1.5, y: bound * 1.5),
+                CGPoint(x: self.view.bounds.width - bound * 2, y: self.view.bounds.height - bound * 2),
+                CGPoint(x: bound * 1.5, y: self.view.bounds.height - bound * 1.5),
+                CGPoint(x: bound, y: bound)
+            ]
+        case 1:
+            way = [
+                CGPoint(x: self.view.bounds.width - bound, y: bound),
+                CGPoint(x: self.view.bounds.width - bound * 1.5, y: self.view.bounds.height - bound * 1.5),
+                CGPoint(x: bound * 2, y: self.view.bounds.height - bound * 2),
+                CGPoint(x: bound * 1.5, y: bound * 1.5),
+                CGPoint(x: self.view.bounds.width - bound, y: bound)
+            ]
+        case 2:
+            way = [
+                CGPoint(x: self.view.bounds.width - bound, y: self.view.bounds.height - bound),
+                CGPoint(x: bound * 1.5, y: self.view.bounds.height - bound * 1.5),
+                CGPoint(x: bound * 2, y: bound * 2),
+                CGPoint(x: self.view.bounds.width - bound * 1.5, y: bound * 1.5),
+                CGPoint(x: self.view.bounds.width - bound, y: self.view.bounds.height - bound)
+            ]
+        case 3:
+            way = [
+                   CGPoint(x: bound, y: self.view.bounds.height - bound),
+                   CGPoint(x: bound * 1.5, y: bound * 1.5),
+                   CGPoint(x: self.view.bounds.width - bound * 2, y: bound * 2),
+                   CGPoint(x: self.view.bounds.width - bound * 1.5, y: self.view.bounds.height - bound * 1.5),
+                   CGPoint(x: bound, y: self.view.bounds.height - bound)
+            ]
+        default:
+            print("wrong index")
+            return
+        }
+
+        move.values = way
+
+        move.duration = self.duration
+        move.autoreverses = false
+
+        let resize = CABasicAnimation(keyPath: "bounds.size")
+
+        resize.fromValue = image.layer.bounds.size
+        resize.toValue = CGSize(width: image.layer.bounds.width * 2, height: image.layer.bounds.height * 2)
+        resize.duration = self.duration / 2
+        resize.autoreverses = true
+        image.layer.add(resize, forKey: "animateBounds.size")
+
+        let group = CAAnimationGroup()
+        group.animations = [move, resize]
+        group.duration = self.duration
+        group.repeatCount = Float.greatestFiniteMagnitude
+        rotate(image: image)
+        image.layer.add(group, forKey: nil)
     }
 }
