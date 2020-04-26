@@ -63,7 +63,6 @@
 		11E7469F241E449100B8AAD0 /* CardDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CardDetailViewController.storyboard; sourceTree = "<group>"; };
 		190B708B5DC4374ED7DDFC47 /* Pods-Mtg Cards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mtg Cards.release.xcconfig"; path = "Target Support Files/Pods-Mtg Cards/Pods-Mtg Cards.release.xcconfig"; sourceTree = "<group>"; };
 		2083EA0E4D181C0B7707B36C /* Pods_Mtg_Cards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mtg_Cards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2832DEEA245213EC00453ED3 /* Mtg CardsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mtg CardsTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		2832DEEB245213ED00453ED3 /* CardFacadeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFacadeTest.swift; sourceTree = "<group>"; };
 		285FB037245224DA00BA71AB /* MainViewPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenterTest.swift; sourceTree = "<group>"; };
 		28EE77B62451E3D300F79D96 /* Mtg CardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mtg CardsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,7 +164,6 @@
 			children = (
 				28EE77BA2451E3D300F79D96 /* Info.plist */,
 				2832DEEB245213ED00453ED3 /* CardFacadeTest.swift */,
-				2832DEEA245213EC00453ED3 /* Mtg CardsTests-Bridging-Header.h */,
 				285FB037245224DA00BA71AB /* MainViewPresenterTest.swift */,
 			);
 			path = "Mtg CardsTests";

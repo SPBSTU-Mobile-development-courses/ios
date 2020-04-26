@@ -60,8 +60,12 @@ class MainViewPresenter {
     }
 
     func filter(with query: String) -> [Card] {
-        query.isEmpty ? cards : cards.filter {
-            $0.name.lowercased().contains(query.lowercased())
+        if query.isEmpty {
+            return cards
+        } else {
+            return cards.filter {
+                $0.name.lowercased().contains(query.lowercased())
+            }
         }
     }
 }

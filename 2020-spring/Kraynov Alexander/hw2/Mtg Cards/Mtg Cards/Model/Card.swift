@@ -24,15 +24,6 @@ struct Card: Decodable, DiffAware, Equatable {
     let flavorText: String?
     let imageUris: CardFaceImages?
 
-    static func == (lhs: Card, rhs: Card) -> Bool {
-        lhs.id == rhs.id &&
-        lhs.name == rhs.name &&
-        lhs.artist == rhs.artist &&
-        lhs.rarity == rhs.rarity &&
-        lhs.flavorText == rhs.flavorText &&
-        lhs.imageUris == rhs.imageUris
-    }
-
     static func compareContent(_ first: Card, _ second: Card) -> Bool {
         first.id == second.id
     }
