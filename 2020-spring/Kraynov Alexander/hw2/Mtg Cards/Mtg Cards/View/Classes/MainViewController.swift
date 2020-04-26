@@ -6,29 +6,21 @@
 //  Copyright © 2020 alexander. All rights reserved.
 //
 
-import DeepDiff
 import UIKit
 
-class ViewController: UIViewController {
-    private var cards = [Card]()
-    private var filteredData = [Card]()
+class MainViewController: UIViewController {
+    var filteredData = [Card]()
     private let refreshControl = UIRefreshControl()
     private var searchController = UISearchController()
-    private let cardFacade: CardFacade = CardFacadeImpl(cardService: CardServiceImpl(), cardRepository: CardRepositoryImpl())
+    // swiftlint:disable:next implicitly_unwrapped_optional
+    private var presenter: MainViewPresenter!
     @IBOutlet private var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = MainViewPresenter(view: self)
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
-        cardFacade.getCards { cardArray in
-            guard let cardArray = cardArray else {
-                return
-            }
-            self.cards = cardArray
-            self.filteredData = self.cards
-            self.tableView.reloadData()
-        }
         tableView.register(cellType: CardTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
@@ -37,18 +29,18 @@ class ViewController: UIViewController {
     }
 
     @objc private func refreshTableData() {
-        cardFacade.getCards { cardArray in
-            guard let cardArray = cardArray else {
-                return
-            }
-            self.cards = cardArray
-            self.filteredData = self.cards
+        presenter.getCards { _ in
             self.tableView.reloadData()
             DispatchQueue.main.async {
                 self.refreshControl.endRefreshing()
             }
         }
     }
+
+    func reloadTableView() {
+        tableView.reloadData()
+    }
+
     func setUpSearchController() {
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -60,7 +52,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         filteredData.count
     }
@@ -73,7 +65,7 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == filteredData.count - 1 && (searchController.searchBar.text == nil) else {
             return
@@ -84,7 +76,7 @@ extension ViewController: UITableViewDelegate {
 
         self.tableView.tableFooterView = spinner
         spinner.hidesWhenStopped = true
-        cardFacade.loadMore {_ in
+        presenter.loadMore {_ in
             DispatchQueue.main.async {
                 spinner.stopAnimating()
             }
@@ -99,41 +91,17 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController: UISearchResultsUpdating, UISearchBarDelegate {
+extension MainViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
-            let buf = filteredData
-            filteredData = searchText.isEmpty ? cards : cards.filter { card -> Bool in
-                card.name.contains(searchText)
-            }
-            let changes = diff(old: buf, new: filteredData)
-            var deleteIndicies: [IndexPath] = []
-            for n in changes {
-                guard let deleteIndex = n.delete?.index else {
-                    var insertIndicies: [IndexPath] = []
-                    for n in changes {
-                        guard let insertIndex = n.insert?.index else {
-                            return
-                        }
-                        insertIndicies.append(IndexPath(row: insertIndex, section: 0))
-                    }
-                    tableView.insertRows(at: insertIndicies, with: .automatic)
-                    return
-                }
-                deleteIndicies.append(IndexPath(row: deleteIndex, section: 0))
-            }
-            tableView.deleteRows(at: deleteIndicies, with: .fade)
-
-        } else {
-            let changes = diff(old: filteredData, new: cards)
-            var insertIndicies: [IndexPath] = []
-            for n in changes {
-                guard let insertIndex = n.insert?.index else {
-                    return
-                }
-                insertIndicies.append(IndexPath(row: insertIndex, section: 0))
-            }
-            tableView.insertRows(at: insertIndicies, with: .automatic)
+        let searchText = searchController.searchBar.text ??  ""
+        let buf = filteredData
+        filteredData = presenter.filter(with: searchText)
+        let changes = presenter.getDiff(old: filteredData, new: buf)
+        if !changes.0.isEmpty {
+            tableView.deleteRows(at: changes.0, with: .fade)
+        }
+        if !changes.1.isEmpty {
+            tableView.insertRows(at: changes.1, with: .fade)
         }
     }
 }

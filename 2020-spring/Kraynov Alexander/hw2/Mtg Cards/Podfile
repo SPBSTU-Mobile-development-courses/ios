@@ -8,4 +8,7 @@ target 'Mtg Cards' do
    pod 'Reusable'
    pod 'RealmSwift'
    pod 'DeepDiff'
+   target 'Mtg CardsTests' do
+     inherit! :search_paths
+   end
 end
