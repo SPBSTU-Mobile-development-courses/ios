@@ -1,8 +1,0 @@
-platform :ios, '9.0'
-
-target 'TableView' do
-  
-  use_frameworks!
-  pod 'Alamofire'
-  pod 'RealmSwift'	
-end

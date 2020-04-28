@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'LoremNuntium' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for LoremNuntium
+
+  pod 'Kingfisher'
+  pod 'SwiftLint'
+  pod 'Reusable'
+  pod 'RealmSwift'
+  pod 'SkeletonView'
+  pod 'DeepDiff'
+
+  target 'LoremNuntiumTests' do
+
+  	inherit! :search_paths
+  	
+  end
+
+end
