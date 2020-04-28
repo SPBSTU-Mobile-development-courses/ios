@@ -9,9 +9,9 @@
 import DeepDiff
 import Foundation
 
-struct Card: Decodable, DiffAware {
+struct Card: Decodable, DiffAware, Equatable {
     typealias DiffId = String
-    struct CardFaceImages: Decodable {
+    struct CardFaceImages: Decodable, Equatable {
         let normal: String?
     }
 
