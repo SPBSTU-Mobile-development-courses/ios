@@ -27,7 +27,6 @@ class MainViewPresenterTest: XCTestCase {
         cardFacadeStub = nil
         presenter = nil
         super.tearDown()
-        cardFacadeStub = nil
     }
 
     func testPresenterPassesGetCards() {

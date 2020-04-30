@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
         tableView.register(cellType: CardTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 5
+        tableView.rowHeight = 350
         setUpSearchController()
     }
 
