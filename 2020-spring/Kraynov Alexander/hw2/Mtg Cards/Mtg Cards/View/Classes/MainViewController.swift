@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
         tableView.register(cellType: CardTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 350
+        tableView.rowHeight = 5
         setUpSearchController()
     }
 
@@ -67,7 +67,7 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard indexPath.row == filteredData.count - 1 && (searchController.searchBar.text == nil) else {
+        guard indexPath.row >= filteredData.count - 1 && (searchController.searchBar.text?.isEmpty ?? true) else {
             return
         }
         let spinner = UIActivityIndicatorView(style: .medium)
