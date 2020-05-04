@@ -20,7 +20,8 @@ final class PicturesServiceImpl: PictureService {
       URLQueryItem(name: "key", value: "15846697-f4d84d0103154821222fb6535"),
       URLQueryItem(name: "image_type", value: "photo"),
       URLQueryItem(name: "page", value: "1")
-    ]; guard let url = urlComponents?.url else {
+    ]
+    guard let url = urlComponents?.url else {
       completion(nil)
       return
     }

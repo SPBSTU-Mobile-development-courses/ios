@@ -30,7 +30,7 @@ final class PictureDetailViewController: UIViewController {
     userName.text = "Author: " + picture.user
 
     guard let url = picture.url else { return }
-    _ = URLSession.shared.dataTask(with: url) { data, _, _  in
+    URLSession.shared.dataTask(with: url) { data, _, _  in
       guard let data = data, let image = UIImage(data: data) else { return }
       DispatchQueue.main.async {
         self.webImage.image = image
