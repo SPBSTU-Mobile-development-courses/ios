@@ -23,21 +23,15 @@ UISearchResultsUpdating{
         super.viewDidLoad()
         newsFacade = NewsFacade(string: country)
         refresh(newsFacade)
-//        newsFacade.getNews{(newsArray) in
-//            guard let newsArray = newsArray else {return}
-//            self.news = newsArray
-//            DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//        }
         refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
         refreshControl.attributedTitle = NSAttributedString(string: "Reload News, please wait...")
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Candies"
+        searchController.searchBar.placeholder = "Search News"
         navigationItem.searchController = searchController
+        navigationItem.title = "Favorite News"
         definesPresentationContext = true
         searchController.searchBar.delegate = self
        

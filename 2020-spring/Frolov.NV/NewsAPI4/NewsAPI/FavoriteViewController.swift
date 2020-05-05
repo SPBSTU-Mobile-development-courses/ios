@@ -13,6 +13,7 @@ class FavoriteViewController:UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet var tableView: UITableView!
     
     var searchController = UISearchController(searchResultsController: nil)
+    let refreshControl = UIRefreshControl()
     var news = [OneNew]()
     var searchingNews = [OneNew]()
     var newsFacade:NewsFacade!
@@ -20,23 +21,34 @@ class FavoriteViewController:UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         newsFacade = NewsFacade(string: "")
-        newsFacade.getFavoriteNews {(newsArray) in
-            guard let newsArray = newsArray else {return}
-            self.news = newsArray
-            DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-        }
+        refresh(newsFacade)
+    
+        refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl.attributedTitle = NSAttributedString(string: "Reload News, please wait...")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Candies"
+        searchController.searchBar.placeholder = "Search News"
         navigationItem.searchController = searchController
         definesPresentationContext = true
         searchController.searchBar.delegate = self
-       
+        
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.refreshControl = refreshControl
         tableView.rowHeight = 307
+    }
+    
+    @objc func refresh(_:AnyObject) {
+           newsFacade.getFavoriteNews(completion: {(newsArray) in
+           guard let newsArray = newsArray else {return}
+           self.news = newsArray
+           DispatchQueue.main.async {
+                   self.tableView.reloadData()
+               }
+           self.refreshControl.endRefreshing()
+           })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,6 +99,9 @@ class FavoriteViewController:UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: "delete") {_, indexPath in
             self.newsFacade.deleteFromFavorite(news: self.news[indexPath.row])
+            //self.news.remove(at: indexPath.row)
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            self.refresh(self.newsFacade)
         }
         return [delete]
     }

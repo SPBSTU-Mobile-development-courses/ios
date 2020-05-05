@@ -44,7 +44,6 @@ class NewsService {
         }
         urlComponents?.queryItems = [
             URLQueryItem(name: "country", value: country),
-            //URLQueryItem(name: "page", value: "1"),
             URLQueryItem(name: "apiKey", value: "e5a2d92c79b74e8aa40a9e618e6a1998"),
             URLQueryItem(name: "from", value: "\(yearF)-\(monthF)-\(dayF)"),
             URLQueryItem(name: "to", value: "\(year)-\(month)-\(day)")

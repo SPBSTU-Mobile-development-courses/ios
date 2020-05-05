@@ -14,6 +14,7 @@ protocol NewsRepository {
 }
 
 final class NewsRepositoryImpl: NewsRepository {
+    
     private var realm:Realm {
         do {
             return try Realm()
@@ -21,6 +22,7 @@ final class NewsRepositoryImpl: NewsRepository {
             fatalError("Can't create realm")
         }
     }
+    
     private var country = ""
     func installCountry(string: String) {
         country = string
