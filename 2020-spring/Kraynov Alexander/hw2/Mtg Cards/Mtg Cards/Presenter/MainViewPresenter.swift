@@ -41,7 +41,15 @@ class MainViewPresenter {
     }
 
     func loadMore(completion: @escaping OnUpdateCompletion) {
-        cardFacade.loadMore(completion: completion)
+        cardFacade.loadMore { cards in
+            guard let cards = cards else {
+                return
+            }
+            self.cards.append(contentsOf: cards)
+            self.view.filteredData = self.cards
+            self.view.reloadTableView()
+            completion(cards)
+        }
     }
 
     func getDiff(old: [Card], new: [Card]) -> ([IndexPath], [IndexPath]) {
