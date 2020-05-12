@@ -21,14 +21,64 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         setUpCharacter()
         addGradient()
-        addLayer()
-        setUpTimer()
         imageView.layer.borderWidth = 1.0
         imageView.layer.backgroundColor = UIColor.white.cgColor
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 //            self.animateLayer.frame = CGRect(x: self.animateLayerView.frame.size.width - 20, y: 0, width: 20, height: 20)
 //        }
 
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        addLayer()
+        animate1()
+//        setUpTimer()
+    }
+
+    func animate3() {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            DispatchQueue.main.async {
+                self.animate1()
+            }
+        }
+        let theAnimation3 = CABasicAnimation(keyPath: "position")
+        theAnimation3.fromValue = CGPoint(x: animateLayerView.frame.width - 10, y: animateLayerView.frame.height - 10)
+        theAnimation3.toValue = CGPoint(x: 10, y: animateLayerView.frame.height - 10)
+        theAnimation3.duration = 3.0
+        animateLayer.add(theAnimation3, forKey: "animatePosition")
+        CATransaction.commit()
+    }
+
+    func animate2() {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            DispatchQueue.main.async {
+                self.animate3()
+            }
+        }
+        let theAnimation2 = CABasicAnimation(keyPath: "position")
+        theAnimation2.fromValue = CGPoint(x: self.animateLayerView.frame.size.width / 2 - 10, y: 10.0)
+        theAnimation2.toValue = CGPoint(x: animateLayerView.frame.width - 10, y: animateLayerView.frame.height - 10)
+        theAnimation2.duration = 3.0
+        animateLayer.add(theAnimation2, forKey: "animatePosition")
+        CATransaction.commit()
+    }
+
+    func animate1() {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            DispatchQueue.main.async {
+                self.animate2()
+            }
+        }
+        let theAnimation = CABasicAnimation(keyPath: "position")
+        theAnimation.fromValue = animateLayer.position
+        theAnimation.toValue = CGPoint(x: self.animateLayerView.frame.size.width / 2 - 10, y: 10.0)
+        theAnimation.duration = 3.0
+        animateLayer.add(theAnimation, forKey: "animatePosition")
+        CATransaction.commit()
     }
 
     func setUpTimer() {
@@ -42,12 +92,6 @@ class DetailVC: UIViewController {
     }
 
     @objc private func squareAnimationTick() {
-        self.animateLayer.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: 20,
-            height: 20
-        )
     }
 
     private func setUpCharacter () {
@@ -61,9 +105,11 @@ class DetailVC: UIViewController {
     }
 
     private func addLayer() {
-        animateLayer.frame = CGRect(x: 0, y: 263, width: 20, height: 20)
+        animateLayer.frame = CGRect(x: 0, y: animateLayerView.frame.height - 20, width: 20, height: 20)
         animateLayerView.layer.addSublayer(animateLayer)
         animateLayer.backgroundColor = UIColor.gray.cgColor
+        animateLayer.shadowOpacity = 0.5
+        animateLayer.shadowRadius = 2.0
     }
 
     private func addGradient() {
