@@ -67,7 +67,7 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard indexPath.row == filteredData.count - 1 && (searchController.searchBar.text == nil) else {
+        guard indexPath.row >= filteredData.count - 1 && (searchController.searchBar.text?.isEmpty ?? true) else {
             return
         }
         let spinner = UIActivityIndicatorView(style: .medium)
