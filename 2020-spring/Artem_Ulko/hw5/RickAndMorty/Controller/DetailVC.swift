@@ -15,7 +15,6 @@ class DetailVC: UIViewController {
     @IBOutlet private var animateLayerView: UIView!
     private let animateLayer = CALayer()
     var character: Character?
-    private var squareAnimation: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,24 +22,19 @@ class DetailVC: UIViewController {
         addGradient()
         imageView.layer.borderWidth = 1.0
         imageView.layer.backgroundColor = UIColor.white.cgColor
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            self.animateLayer.frame = CGRect(x: self.animateLayerView.frame.size.width - 20, y: 0, width: 20, height: 20)
-//        }
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         addLayer()
-        animate1()
-//        setUpTimer()
+        downLeftToUpCenter()
     }
 
-    func animate3() {
+    func downRightToDowndLeft() {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             DispatchQueue.main.async {
-                self.animate1()
+                self.downLeftToUpCenter()
             }
         }
         let theAnimation3 = CABasicAnimation(keyPath: "position")
@@ -51,11 +45,11 @@ class DetailVC: UIViewController {
         CATransaction.commit()
     }
 
-    func animate2() {
+    func upCenterToDownRight() {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             DispatchQueue.main.async {
-                self.animate3()
+                self.downRightToDowndLeft()
             }
         }
         let theAnimation2 = CABasicAnimation(keyPath: "position")
@@ -66,11 +60,11 @@ class DetailVC: UIViewController {
         CATransaction.commit()
     }
 
-    func animate1() {
+    func downLeftToUpCenter() {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
             DispatchQueue.main.async {
-                self.animate2()
+                self.upCenterToDownRight()
             }
         }
         let theAnimation = CABasicAnimation(keyPath: "position")
@@ -79,19 +73,6 @@ class DetailVC: UIViewController {
         theAnimation.duration = 3.0
         animateLayer.add(theAnimation, forKey: "animatePosition")
         CATransaction.commit()
-    }
-
-    func setUpTimer() {
-        squareAnimation = Timer.scheduledTimer(
-            timeInterval: 1,
-            target: self,
-            selector: #selector(squareAnimationTick),
-            userInfo: nil,
-            repeats: true
-        )
-    }
-
-    @objc private func squareAnimationTick() {
     }
 
     private func setUpCharacter () {
@@ -113,20 +94,19 @@ class DetailVC: UIViewController {
     }
 
     private func addGradient() {
-           func cgColor(red: CGFloat, green: CGFloat, blue: CGFloat) -> CGColor {
-               UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: 1.0).cgColor
-           }
+        func cgColor(red: CGFloat, green: CGFloat, blue: CGFloat) -> CGColor {
+            UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: 1.0).cgColor
+        }
 
-           let gradientLayer = CAGradientLayer()
-           gradientLayer.frame = view.bounds
-           gradientLayer.colors = [
-               cgColor(red: 228.0, green: 167.0, blue: 136.0),
-               cgColor(red: 240.0, green: 225.0, blue: 74.0)
-           ]
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [
+            cgColor(red: 228.0, green: 167.0, blue: 136.0),
+            cgColor(red: 240.0, green: 225.0, blue: 74.0)
+        ]
 
-           gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-           gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-//           view.layer.addSublayer(gradientLayer)
-            view.layer.insertSublayer(gradientLayer, at: 0)
-       }
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        view.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }
