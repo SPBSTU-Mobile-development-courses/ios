@@ -1,4 +1,3 @@
-
 //
 //  MemeRepository.swift
 //  Memes
@@ -17,12 +16,18 @@ protocol MemeRepository {
 }
 
 final class MemeRepositoryImpl: MemeRepository {
+    private let configuration: Realm.Configuration
+    
     var realm: Realm {
         do {
-            return try Realm()
+            return try Realm(configuration: configuration)
         } catch {
             fatalError("Realm can't be created")
         }
+    }
+
+    init(configuration: Realm.Configuration) {
+        self.configuration = configuration
     }
 
     func save(_ posts: [Post]) {

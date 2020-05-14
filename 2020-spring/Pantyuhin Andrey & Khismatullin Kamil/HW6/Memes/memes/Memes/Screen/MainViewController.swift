@@ -9,8 +9,9 @@
 import DeepDiff
 import UIKit
 
-class ViewController: UIViewController {
-    private let memeFacade: MemeFacade = MemeFacadeImpl(memeService: MemeService(), memeRepository: MemeRepositoryImpl())
+class MainViewController: UIViewController {
+    //private let memeFacade: MemeFacade = MemeFacadeImpl(memeService: MemeService(), memeRepository: MemeRepositoryImpl())
+    var memeFacade: MemeFacade!
     private let activity = UIActivityIndicatorView()
     private let searchController = UISearchController(searchResultsController: nil)
     private let service = MemeService()
@@ -60,7 +61,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension ViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
             return filteredPosts.count
@@ -87,7 +88,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension ViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard indexPath.row == posts.count - 1 else { return }
         memeFacade.loadMore()
@@ -114,7 +115,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-extension ViewController {
+extension MainViewController {
     func updateCell(row: Int, section: Int) {
         tableView.reloadRows(at: [IndexPath(row: row, section: section)], with: .automatic)
     }
@@ -125,7 +126,7 @@ extension ViewController {
 }
 
 // MARK: - UISearchResultsUpdating Delegate
-extension ViewController: UISearchResultsUpdating {
+extension MainViewController: UISearchResultsUpdating {
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
@@ -178,7 +179,7 @@ extension ViewController: UISearchResultsUpdating {
 }
 
 // MARK: - UISearchBar Delegate
-extension ViewController: UISearchBarDelegate {
+extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         guard let bar = searchController.searchBar.text else { return }
         guard let scope = searchBar.scopeButtonTitles?[selectedScope] else { return }

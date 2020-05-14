@@ -21,7 +21,7 @@ class MemeCell: UITableViewCell {
         picture.kf.cancelDownloadTask()
     }
 
-    func setup(with meme: Post, controller: ViewController, index: IndexPath) {
+    func setup(with meme: Post, controller: MainViewController, index: IndexPath) {
         label.text = meme.title
         guard let url = meme.images?[0].url else { return }
         picture.kf.setImage(with: url) { result in

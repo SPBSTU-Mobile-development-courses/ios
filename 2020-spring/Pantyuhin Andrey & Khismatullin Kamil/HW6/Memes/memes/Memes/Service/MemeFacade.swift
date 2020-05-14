@@ -41,6 +41,9 @@ final class MemeFacadeImpl: MemeFacade {
     func getRepository() -> MemeRepository {
         memeRepository
     }
+    func getService() -> MemeService {
+        memeService
+    }
 }
 
 protocol MemeFacade {
@@ -49,4 +52,5 @@ protocol MemeFacade {
     func getMemes(completion: @escaping OnUpdatePosts)
     func loadMore()
     func getRepository() -> MemeRepository
+    func getService() -> MemeService
 }
