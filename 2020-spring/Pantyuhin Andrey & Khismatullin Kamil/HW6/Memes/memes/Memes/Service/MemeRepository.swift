@@ -17,7 +17,7 @@ protocol MemeRepository {
 
 final class MemeRepositoryImpl: MemeRepository {
     private let configuration: Realm.Configuration
-    
+
     var realm: Realm {
         do {
             return try Realm(configuration: configuration)
