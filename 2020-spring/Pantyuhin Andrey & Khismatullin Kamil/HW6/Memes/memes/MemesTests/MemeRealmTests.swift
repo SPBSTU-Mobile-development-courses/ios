@@ -12,15 +12,27 @@ import XCTest
 class MemeRealmTests: XCTestCase {
 
     let tags = [Post.Tag(name: "lol"), Post.Tag(name: "kek"), Post.Tag(name: "cheburek")]
+    var post: Post?
+    var realm: MemeRealm?
+    var tagsStr: String?
 
-    func testPostToPostRealm() {
+    override func setUp() {
+        super.setUp()
+
         let post = Post(id: "123",
                         title: "corona meme",
                         tags: tags,
                         images: [Post.Image(id: nil, title: nil, type: nil, link: "https://imgur.com/lmao")])
-        let realm = MemeRealm(post: post)
 
-        let tagsStr = Post.tagsToString(tags: post.tags)
+        realm = MemeRealm(post: post)
+        tagsStr = Post.tagsToString(tags: post.tags)
+        self.post = post
+    }
+
+    func testPostToPostRealm() {
+        guard let post = post, let realm = realm else {
+            return
+        }
 
         XCTAssertEqual(post.id, realm.id)
         XCTAssertEqual(post.title, realm.title)
@@ -29,11 +41,9 @@ class MemeRealmTests: XCTestCase {
     }
 
     func testPostRealmToPost() {
-        let realm = MemeRealm()
-        let post = Post(id: "123",
-                        title: "corona meme",
-                        tags: tags,
-                        images: [Post.Image(id: nil, title: nil, type: nil, link: "https://imgur.com/lmao")])
+        guard let post = post, let realm = realm, let tagsStr = tagsStr else {
+            return
+        }
 
         realm.id = post.id
 
@@ -42,8 +52,6 @@ class MemeRealmTests: XCTestCase {
         }
 
         realm.image = image
-
-        let tagsStr = Post.tagsToString(tags: post.tags)
 
         realm.tags = tagsStr
         realm.title = post.title
