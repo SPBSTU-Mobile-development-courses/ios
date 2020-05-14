@@ -6,6 +6,7 @@
 //  Copyright © 2020 panandafog. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 
 final class DetailViewController: UIViewController {

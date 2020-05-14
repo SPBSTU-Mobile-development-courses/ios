@@ -111,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B3BB6F8246DCAA700B00241 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0BCADC23242F741E00B764A3 /* MemeCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0BB94FFE243228BF002729FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,15 +139,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		0BB95000243228E7002729FF /* Screen */ = {
+		0BB95000243228E7002729FF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				0BCADBF1242F733300B764A3 /* MainViewController.swift */,
-				0BCADC23242F741E00B764A3 /* MemeCell.swift */,
 				0BCADC25242F745700B764A3 /* DetailViewController.swift */,
 				0BC1FCC824339E8B002161A1 /* SelfScalingUIImageView.swift */,
 			);
-			path = Screen;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		0BCADBE1242F733300B764A3 = {
@@ -167,7 +174,8 @@
 		0BCADBEC242F733300B764A3 /* Memes */ = {
 			isa = PBXGroup;
 			children = (
-				0BB95000243228E7002729FF /* Screen */,
+				0B3BB6F8246DCAA700B00241 /* Cell */,
+				0BB95000243228E7002729FF /* Controller */,
 				0BB94FFF243228CA002729FF /* Service */,
 				0BB94FFE243228BF002729FF /* Model */,
 				0BCADBED242F733300B764A3 /* AppDelegate.swift */,
