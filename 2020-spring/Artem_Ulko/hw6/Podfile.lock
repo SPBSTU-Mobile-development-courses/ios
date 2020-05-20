@@ -12,7 +12,7 @@ PODS:
 
 DEPENDENCIES:
   - DeepDiff
-  - Kingfisher (~> 5.0)
+  - Kingfisher
   - RealmSwift
   - SwiftLint
 
@@ -31,6 +31,6 @@ SPEC CHECKSUMS:
   RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 24c341dabad5aec829835dbc165f014f776d6217
+PODFILE CHECKSUM: 59e8b93a28ef51f0501945f1d8a84c8dd2d650d2
 
 COCOAPODS: 1.5.2

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = window?.rootViewController as! UINavigationController
         let tableVC = navigationController.topViewController as! TableVC
         tableVC.characterFacade = CharacterFacadeImpl(
-            characterService: CharacterService(), characterRepository: CharacterRepositoryImpl()
+            characterService: CharacterServiceImpl(), characterRepository: CharacterRepositoryImpl()
         )
         
 //        let window = UIWindow(frame: UIScreen.main.bounds)

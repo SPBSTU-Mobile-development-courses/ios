@@ -14,16 +14,22 @@ protocol CharacterRepository {
 }
 
 final class CharacterRepositoryImpl: CharacterRepository {
-    private var realm: Realm {
+    private let configuration: Realm.Configuration
+
+    var realm: Realm {
         do {
-            return try Realm()
+            return try Realm(configuration: configuration)
         } catch {
-            fatalError("realm fail")
+            fatalError("Realm can't be created")
         }
     }
 
+    init(configuration: Realm.Configuration = .defaultConfiguration) {
+        self.configuration = configuration
+    }
+
     func save(_ characters: [Character]) {
-        let characters = characters.map { CharacterRealm(character: $0) }
+        let characters = characters.map(CharacterRealm.init(character:))
         try? realm.write {
             realm.add(characters, update: .modified)
         }

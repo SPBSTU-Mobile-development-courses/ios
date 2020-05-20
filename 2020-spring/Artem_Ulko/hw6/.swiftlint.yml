@@ -91,6 +91,7 @@ excluded:
   - Pods
   - RickAndMorty/AppDelegate.swift
   - RickAndMorty/Controller/TableVC.swift
+  - RickAndMortyTests/RickAndMortyTests.swift
 
 attributes:
   always_on_same_line: ["@discardableResult", "@objc", "@IBAction", "@IBDesignable"]

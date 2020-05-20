@@ -8,7 +8,12 @@
 import Foundation
 import UIKit
 
-class CharacterService {
+protocol CharacterService {
+    func getCharacters(completion: @escaping ([Character]) -> Void)
+    func getMoreCharacters(completion: @escaping ([Character]) -> Void)
+}
+
+final class CharacterServiceImpl: CharacterService {
 
     let baseURL = "https://rickandmortyapi.com/api/character/"
     var nextPage: URL?

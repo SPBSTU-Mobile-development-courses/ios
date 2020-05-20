@@ -32,9 +32,19 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CEA94ADE2472BA510031A045"
+               BlueprintIdentifier = "CE198866247400EF0077BBB0"
                BuildableName = "RickAndMortyTests.xctest"
                BlueprintName = "RickAndMortyTests"
+               ReferencedContainer = "container:RickAndMorty.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CEE1D7382473FC2D00D055F0"
+               BuildableName = "RickAndMortyTests2.xctest"
+               BlueprintName = "RickAndMortyTests2"
                ReferencedContainer = "container:RickAndMorty.xcodeproj">
             </BuildableReference>
          </TestableReference>

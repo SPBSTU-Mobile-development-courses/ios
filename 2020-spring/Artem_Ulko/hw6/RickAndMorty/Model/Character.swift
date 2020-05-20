@@ -33,3 +33,6 @@ extension Character: DiffAware {
     first.id == second.id
   }
 }
+
+extension Character: Equatable {
+}
