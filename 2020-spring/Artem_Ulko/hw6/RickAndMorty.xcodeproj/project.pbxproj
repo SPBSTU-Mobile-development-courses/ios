@@ -66,8 +66,6 @@
 		CE7BA184245AA4D000277211 /* CharacterRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRealm.swift; sourceTree = "<group>"; };
 		CE7BA186245AA73100277211 /* CharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRepository.swift; sourceTree = "<group>"; };
 		CE7BA188245AACDE00277211 /* CharacterFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFacade.swift; sourceTree = "<group>"; };
-		CEDFFB062473FDBB00959818 /* RickAndMortyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RickAndMortyTests.swift; sourceTree = "<group>"; };
-		CEDFFB072473FDBB00959818 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEE2D97F24740149008464E9 /* CharacterModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelTests.swift; sourceTree = "<group>"; };
 		D5B362F4723E9035CBDC26F2 /* Pods-RickAndMortyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RickAndMortyTests/Pods-RickAndMortyTests.release.xcconfig"; sourceTree = "<group>"; };
 		E23C29BE1D0E0113DBE2F6A9 /* Pods-RickAndMortyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RickAndMortyTests/Pods-RickAndMortyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 		CE395A27245043B60000D1AE /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
-				CEDFFB052473FDBB00959818 /* RickAndMortyTests */,
 				CE395A28245043B60000D1AE /* AppDelegate.swift */,
 				CE395A4624505DEC0000D1AE /* Model */,
 				CE395A4524505DE70000D1AE /* View */,
@@ -197,15 +194,6 @@
 				CE7BA188245AACDE00277211 /* CharacterFacade.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		CEDFFB052473FDBB00959818 /* RickAndMortyTests */ = {
-			isa = PBXGroup;
-			children = (
-				CEDFFB062473FDBB00959818 /* RickAndMortyTests.swift */,
-				CEDFFB072473FDBB00959818 /* Info.plist */,
-			);
-			path = RickAndMortyTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
