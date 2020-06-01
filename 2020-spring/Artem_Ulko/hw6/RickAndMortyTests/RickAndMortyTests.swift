@@ -57,10 +57,13 @@ class RickAndMortyTests: XCTestCase {
             Character(id: 1, name: "John4", image: "Doe4", status: "Alive"),
             Character(id: 2, name: "John5", image: "Doe5", status: "Dead"),
         ]
+        let expectation = self.expectation(description: #function)
         characterServiceMock.stubCharacters = expectedCharacters
         sut.loadMore {
-            
+            expectation.fulfill()
         }
+        waitForExpectations(timeout: 10)
+
         XCTAssertTrue(characterServiceMock.getMoreCharactersCalled)
         XCTAssertEqual(expectedCharacters, characterRepositorySpy.saved)
     }

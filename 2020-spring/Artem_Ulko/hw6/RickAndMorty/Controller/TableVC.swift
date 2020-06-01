@@ -20,22 +20,18 @@ class TableVC: UIViewController {
     private let refreshControl = UIRefreshControl()
     private let footerSpinner = UIActivityIndicatorView(style: .gray)
     private let searchController = UISearchController(searchResultsController: nil)
-    //    private let searchBarScope = ["All", "Alive", "Dead", "unknown"]
     private var isSearching = false
     private var isSearchBarEmpty: Bool {
         searchController.searchBar.text?.isEmpty ?? true
     }
     private var isFiltering: Bool {
         searchController.isActive && !isSearchBarEmpty
-        //        let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
-        //        return searchController.isActive && (!isSearchBarEmpty || searchBarScopeIsFiltering)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        // tableView.rowHeight = UITableView.automaticDimension
         tableView.rowHeight = 110
         tableView.refreshControl = refreshControl
         tableView.tableFooterView = footerSpinner
@@ -46,11 +42,9 @@ class TableVC: UIViewController {
     }
 
     private func setUpSearchController() {
-        //        searchController.searchBar.scopeButtonTitles = searchBarScope
         searchController.searchBar.placeholder = "Search characters"
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        //        searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
@@ -62,11 +56,11 @@ class TableVC: UIViewController {
 
     private func loadCharacters() {
         refreshControl.beginRefreshing()
-        characterFacade.getCharacters { characters in
-            self.characters = characters
+        characterFacade.getCharacters { [weak self] characters in // [weak self] - слабая ссылка, чтоб не было зацикливания и память не потекла
+            self?.characters = characters
             DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.refreshControl.endRefreshing()
+                self?.tableView.reloadData()
+                self?.refreshControl.endRefreshing()
             }
         }
     }
@@ -86,12 +80,7 @@ extension TableVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterTableViewCell", for: indexPath) as? CharacterTableViewCell else {
             fatalError("TableView wasn't configured")
         }
-        var character: Character
-        if isFiltering {
-            character = filteredCharacters[indexPath.row]
-        } else {
-            character = characters[indexPath.row]
-        }
+        let character: Character = isFiltering ? filteredCharacters[indexPath.row] : characters[indexPath.row] // так еще лучше будет :)
         cell.setup(with: character)
         return cell
     }
@@ -127,7 +116,6 @@ extension TableVC: UITableViewDelegate, UITableViewDataSource {
 
 extension TableVC: UISearchResultsUpdating {
     func filterContentForSearchText(searchText: String) {
-        //        let selectedScopeButtonIndex = searchController.searchBar.selectedScopeButtonIndex
 
         let newFilteredCharacters = characters.filter { (character: Character) -> Bool in
             character.name.lowercased().contains(searchText.lowercased())
@@ -163,10 +151,3 @@ extension TableVC: UISearchResultsUpdating {
         filterContentForSearchText(searchText: text)
     }
 }
-
-//extension TableVC: UISearchBarDelegate {
-//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-//        guard let text = searchController.searchBar.text else { return }
-//        filterContentForSearchText(searchText: text)
-//    }
-//}

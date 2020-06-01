@@ -33,9 +33,7 @@ class DetailVC: UIViewController {
     func downRightToDowndLeft() {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
-            DispatchQueue.main.async {
-                self.downLeftToUpCenter()
-            }
+            self.downLeftToUpCenter() // DispatchQueue.main.async - было лишнее
         }
         let theAnimation3 = CABasicAnimation(keyPath: "position")
         theAnimation3.fromValue = CGPoint(x: animateLayerView.frame.width - 10, y: animateLayerView.frame.height - 10)
@@ -48,9 +46,7 @@ class DetailVC: UIViewController {
     func upCenterToDownRight() {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
-            DispatchQueue.main.async {
-                self.downRightToDowndLeft()
-            }
+            self.downRightToDowndLeft()
         }
         let theAnimation2 = CABasicAnimation(keyPath: "position")
         theAnimation2.fromValue = CGPoint(x: self.animateLayerView.frame.size.width / 2 - 10, y: 10.0)
@@ -63,9 +59,7 @@ class DetailVC: UIViewController {
     func downLeftToUpCenter() {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
-            DispatchQueue.main.async {
                 self.upCenterToDownRight()
-            }
         }
         let theAnimation = CABasicAnimation(keyPath: "position")
         theAnimation.fromValue = animateLayer.position
@@ -76,7 +70,7 @@ class DetailVC: UIViewController {
     }
 
     private func setUpCharacter () {
-        guard let character = character  else { return }
+        guard let character = character else { return }
 
         let imageUrl = URL(string: character.image)
         imageView.kf.indicatorType = .activity
@@ -93,11 +87,11 @@ class DetailVC: UIViewController {
         animateLayer.shadowRadius = 2.0
     }
 
-    private func addGradient() {
-        func cgColor(red: CGFloat, green: CGFloat, blue: CGFloat) -> CGColor {
-            UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: 1.0).cgColor
-        }
+    private func cgColor(red: CGFloat, green: CGFloat, blue: CGFloat) -> CGColor {
+        UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: 1.0).cgColor
+    }
 
+    private func addGradient() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [
