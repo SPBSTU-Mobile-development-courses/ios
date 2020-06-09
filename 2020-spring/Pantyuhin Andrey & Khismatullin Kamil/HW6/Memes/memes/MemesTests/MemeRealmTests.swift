@@ -31,6 +31,7 @@ class MemeRealmTests: XCTestCase {
 
     func testPostToPostRealm() {
         guard let post = post, let realm = realm else {
+            XCTFail()
             return
         }
 
@@ -42,12 +43,14 @@ class MemeRealmTests: XCTestCase {
 
     func testPostRealmToPost() {
         guard let post = post, let realm = realm, let tagsStr = tagsStr else {
+            XCTFail()
             return
         }
 
         realm.id = post.id
 
         guard let image = post.images?[0].link else {
+            XCTFail()
             return
         }
 

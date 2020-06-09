@@ -8,7 +8,6 @@ disabled_rules:
 - multiline_arguments_brackets
 - no_extension_access_modifier
 - no_grouping_extension
-- trailing_closure
 - unowned_variable_capture
 - vertical_whitespace_between_cases
 
@@ -84,6 +83,7 @@ opt_in_rules:
 - switch_case_on_newline
 - todo
 - toggle_bool
+- trailing_closure
 - type_contents_order
 - unavailable_function
 - unneeded_parentheses_in_closure_argument

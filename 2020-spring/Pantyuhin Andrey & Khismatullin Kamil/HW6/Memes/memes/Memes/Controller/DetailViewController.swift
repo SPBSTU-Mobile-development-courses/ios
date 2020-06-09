@@ -31,8 +31,6 @@ final class DetailViewController: UIViewController {
             return
         }
 
-        var textField: String = "tags: "
-        textField += post.tagsNames
-        descriptionTags.text = textField
+        descriptionTags.text = "tags: " + post.tagsNames
     }
 }

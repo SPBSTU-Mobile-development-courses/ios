@@ -10,7 +10,6 @@ import DeepDiff
 import UIKit
 
 class MainViewController: UIViewController {
-    //private let memeFacade: MemeFacade = MemeFacadeImpl(memeService: MemeService(), memeRepository: MemeRepositoryImpl())
     var memeFacade: MemeFacade!
     private let activity = UIActivityIndicatorView()
     private let searchController = UISearchController(searchResultsController: nil)
@@ -24,39 +23,47 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         MemeCell.viewController = self
-        memeFacade.getMemes(completion: { newMemes in
+        memeFacade.getMemes { newMemes in
             guard let newMemes = newMemes else { return }
             self.posts = newMemes
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        })
+        }
+
+        setupUI()
+    }
+
+    @objc func handleRefreshControl() {
+        memeFacade.getRepository().clear()
+        memeFacade.getMemes { newMemes in
+            guard let newMemes = newMemes else { return }
+            self.posts = newMemes
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        tableView.refreshControl?.endRefreshing()
+    }
+
+    private func setupUI() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search in memebase"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
         searchController.searchBar.scopeButtonTitles = ["Title", "Tag"]
         searchController.searchBar.delegate = self
-        tableView.dataSource = self
-        tableView.delegate = self
+
+        navigationItem.searchController = searchController
+
+        definesPresentationContext = true
+
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 400
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
         tableView.tableFooterView = activity
-    }
-
-    @objc func handleRefreshControl() {
-        memeFacade.getRepository().clear()
-        memeFacade.getMemes(completion: { newMemes in
-            guard let newMemes = newMemes else { return }
-            self.posts = newMemes
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        })
-        tableView.refreshControl?.endRefreshing()
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 
@@ -73,16 +80,10 @@ extension MainViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell", for: indexPath) as? MemeCell else {
             fatalError("Table view is not configured")
         }
-        var post: Post
 
-        if isFiltering {
-            post = filteredPosts[indexPath.row]
-        } else {
-            post = posts[indexPath.row]
-        }
+        let post = isFiltering ? filteredPosts[indexPath.row] : posts[indexPath.row]
 
         cell.setup(with: post, controller: self, index: indexPath)
-        //if !activity.isAnimating { activity.startAnimating() }
         return cell
     }
 }
@@ -101,13 +102,7 @@ extension MainViewController: UITableViewDelegate {
                 return
         }
 
-        var post: Post
-
-        if isFiltering {
-            post = filteredPosts[indexPath.row]
-        } else {
-            post = posts[indexPath.row]
-        }
+        let post = isFiltering ? filteredPosts[indexPath.row] : posts[indexPath.row]
 
         viewController.post = post
         navigationController?.present(viewController, animated: true)
@@ -142,12 +137,12 @@ extension MainViewController: UISearchResultsUpdating {
     }
 
     private func filterContentForSearchText(_ searchText: String, scope: String = "Title") {
-        let newFilteredPosts = posts.filter({ (post: Post) -> Bool in
+        let newFilteredPosts = posts.filter { (post: Post) -> Bool in
             if scope == "Title" {
                 return post.title.lowercased().contains(searchText.lowercased())
             }
             return post.tagsNames.lowercased().contains(searchText.lowercased())
-        })
+        }
         let changes = diff(old: filteredPosts, new: newFilteredPosts)
 
         self.tableView.reload(changes: changes, section: 0, replacementAnimation: UITableView.RowAnimation.none, updateData: {
@@ -162,14 +157,13 @@ extension MainViewController: UISearchResultsUpdating {
             isSearching = true
         }
         if !searchController.isActive {
-            if searchController.isBeingDismissed {
-                isSearching = false
-                let changes = diff(old: filteredPosts, new: posts)
-                self.tableView.reload(changes: changes, section: 0, replacementAnimation: UITableView.RowAnimation.none, updateData: {
-                    self.filteredPosts = []
-                })
-            }
-            return
+            guard searchController.isBeingDismissed else { return }
+
+            isSearching = false
+            let changes = diff(old: filteredPosts, new: posts)
+            self.tableView.reload(changes: changes, section: 0, replacementAnimation: UITableView.RowAnimation.none, updateData: {
+                self.filteredPosts = []
+            })
         }
         guard let bar = searchController.searchBar.text else { return }
         let searchBar = searchController.searchBar
@@ -181,8 +175,7 @@ extension MainViewController: UISearchResultsUpdating {
 // MARK: - UISearchBar Delegate
 extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        guard let bar = searchController.searchBar.text else { return }
-        guard let scope = searchBar.scopeButtonTitles?[selectedScope] else { return }
+        guard let bar = searchController.searchBar.text, let scope = searchBar.scopeButtonTitles?[selectedScope]  else { return }
         filterContentForSearchText(bar, scope: scope)
     }
 }

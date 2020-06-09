@@ -32,21 +32,6 @@ struct Post: Decodable {
         guard let tags = self.tags else { return "" }
         return tags.map { $0.name }.joined(separator: ", ")
     }
-
-    static func tagsToString(tags: [Post.Tag]?) -> String {
-        guard let tags = tags else {
-            return ""
-        }
-
-        var tagsStr = ""
-        for index in 0 ... tags.count - 1 {
-            tagsStr += tags[index].name + ", "
-        }
-
-        let endIndex = tagsStr.index(tagsStr.endIndex, offsetBy: -2)
-        tagsStr = String(tagsStr[..<endIndex])
-        return tagsStr
-    }
 }
 
 // MARK: - Equatable

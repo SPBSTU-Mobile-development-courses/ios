@@ -9,7 +9,7 @@
 import Foundation
 
 struct Page: Decodable {
-    var data: [Post]?
+    let data: [Post]?
     let success: Bool
     let status: Int?
 }
