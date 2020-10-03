@@ -123,6 +123,7 @@
  * Что такое layer model/presentation? В каких ситуациях у layer model/presentation разные значения?
  * Кто получает событие первым UIView или GestureRecognizer на нем?
  * Как рисовать на CPU, а как на GPU?
+ * Что такое existential container?
  
  #### Материалы
  * [Diffable datasource, поможет в поиске](https://wwdcbysundell.com/2019/diffable-data-sources-first-look/)
